@@ -30,11 +30,24 @@ android {
         }
     }
 
+    signingConfigs {
+        release {
+            def ks = file("/Users/viditgupta/Documents/Project fix/release.keystore")
+            if (ks.exists()) {
+                storeFile ks
+                storePassword "android123"
+                keyAlias "releaseKey"
+                keyPassword "android123"
+            }
+        }
+    }
+
     buildTypes {
         debug {
             testCoverageEnabled false
         }
         release {
+            signingConfig signingConfigs.release
             minifyEnabled false
             shrinkResources false
             multiDexEnabled true
