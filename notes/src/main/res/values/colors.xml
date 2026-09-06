@@ -36,7 +36,7 @@
     <color name="labels_background">#dd222222</color>
 
     <color name="navigation_bg">#ffffffff</color>
-    <color name="gray_bg">#e2e2e2</color>
+    <color name="gray_bg">#F2F2F7</color>
     <color name="list_bg">#eeffffff</color>
     <color name="holo_blue_dark">#880099CC</color>
     <color name="holo_blue_light">#8833B5E5</color>
@@ -78,7 +78,7 @@
     <color name="blue_grey">#90a4ae</color>
     <color name="background_dark">#303030</color>
     <color name="statusbar_dark">#282828</color>
-    <color name="background_light">#fafafa</color>
+    <color name="background_light">#F2F2F7</color>
     <color name="translucent">#99000000</color>
     <color name="gblack">#000</color>
     <color name="gred">#DB4437</color>
@@ -95,4 +95,8 @@
     <color name="glpink">#f48fb1 </color>
 
     <color name="ic_launcher_background">#FFFFFF</color>
+    <!-- Bento UI Tokens -->
+    <color name="bento_card_stroke">#E5E5EA</color>
+    <color name="bento_pill_bg">#EDF4FE</color>
+    <color name="bento_subtext">#8E8E93</color>
 </resources>

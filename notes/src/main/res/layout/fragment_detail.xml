@@ -45,9 +45,8 @@
                     android:id="@+id/detail_tile_card"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="6dp"
-                    android:background="@drawable/bg_card"
-                    android:paddingBottom="2dp">
+                    android:layout_marginBottom="10dp"
+                    android:background="@drawable/bg_card">
 
                 <LinearLayout
                         android:id="@+id/title_wrapper"
@@ -90,8 +89,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_weight="1"
-                    android:background="@drawable/bg_card"
-                    android:paddingBottom="2dp">
+                    android:background="@drawable/bg_card">
 
                 <ScrollView
                         android:id="@+id/content_wrapper"
