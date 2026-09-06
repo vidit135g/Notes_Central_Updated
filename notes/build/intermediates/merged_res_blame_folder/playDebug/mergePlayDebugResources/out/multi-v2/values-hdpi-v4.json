@@ -1,0 +1,45 @@
+{
+    "logs": [
+        {
+            "outputFile": "com.absolute.android.notescentral.notes-mergePlayDebugResources-61:/values-hdpi-v4/values-hdpi-v4.xml",
+            "map": [
+                {
+                    "source": "/Users/viditgupta/.gradle/caches/transforms-4/54a7265ee06a222c2ab8c40fedf21da5/transformed/appcompat-1.6.1/res/values-hdpi-v4/values-hdpi-v4.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endLines": "6",
+                        "endColumns": "13",
+                        "endOffsets": "327"
+                    },
+                    "to": {
+                        "startLines": "3",
+                        "startColumns": "4",
+                        "startOffsets": "111",
+                        "endLines": "7",
+                        "endColumns": "13",
+                        "endOffsets": "383"
+                    }
+                },
+                {
+                    "source": "/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/res/values-hdpi/dimens.xml",
+                    "from": {
+                        "startLines": "18",
+                        "startColumns": "4",
+                        "startOffsets": "753",
+                        "endColumns": "55",
+                        "endOffsets": "804"
+                    },
+                    "to": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "55",
+                        "endOffsets": "106"
+                    }
+                }
+            ]
+        }
+    ]
+}

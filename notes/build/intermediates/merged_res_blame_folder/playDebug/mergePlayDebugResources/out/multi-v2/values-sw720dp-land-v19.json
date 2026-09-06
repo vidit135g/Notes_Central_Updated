@@ -1,0 +1,26 @@
+{
+    "logs": [
+        {
+            "outputFile": "com.absolute.android.notescentral.notes-mergePlayDebugResources-61:/values-sw720dp-land-v19/values-sw720dp-land-v19.xml",
+            "map": [
+                {
+                    "source": "/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/res/values-sw720dp-land-v19/dimens.xml",
+                    "from": {
+                        "startLines": "25,23",
+                        "startColumns": "4,4",
+                        "startOffsets": "988,937",
+                        "endColumns": "58,49",
+                        "endOffsets": "1042,982"
+                    },
+                    "to": {
+                        "startLines": "2,3",
+                        "startColumns": "4,4",
+                        "startOffsets": "55,114",
+                        "endColumns": "58,49",
+                        "endOffsets": "109,159"
+                    }
+                }
+            ]
+        }
+    ]
+}

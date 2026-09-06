@@ -1,0 +1,89 @@
+{
+    "logs": [
+        {
+            "outputFile": "com.absolute.android.notescentral.notes-mergePlayDebugResources-61:/values-sw600dp-v13/values-sw600dp-v13.xml",
+            "map": [
+                {
+                    "source": "/Users/viditgupta/.gradle/caches/transforms-4/54a7265ee06a222c2ab8c40fedf21da5/transformed/appcompat-1.6.1/res/values-sw600dp-v13/values-sw600dp-v13.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,7,8,9",
+                        "startColumns": "4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,124,193,263,337,413,472,543",
+                        "endColumns": "68,68,69,73,75,58,70,67",
+                        "endOffsets": "119,188,258,332,408,467,538,606"
+                    }
+                },
+                {
+                    "source": "/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/res/values-sw600dp/dimens.xml",
+                    "from": {
+                        "startLines": "23,31,26,27,28",
+                        "startColumns": "4,4,4,4,4",
+                        "startOffsets": "923,1211,1020,1073,1132",
+                        "endColumns": "57,47,52,58,60",
+                        "endOffsets": "976,1254,1068,1127,1188"
+                    },
+                    "to": {
+                        "startLines": "10,20,24,25,26",
+                        "startColumns": "4,4,4,4,4",
+                        "startOffsets": "611,1231,1446,1499,1558",
+                        "endColumns": "57,47,52,58,60",
+                        "endOffsets": "664,1274,1494,1553,1614"
+                    }
+                },
+                {
+                    "source": "/Users/viditgupta/.gradle/caches/transforms-4/096528de86f7763019af49a52424b782/transformed/material-1.11.0/res/values-sw600dp-v13/values-sw600dp-v13.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,7,8,10,11,12,13,14",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,115,185,256,328,386,444,553,617,673,732,795",
+                        "endLines": "2,3,4,5,6,7,9,10,11,12,13,17",
+                        "endColumns": "59,69,70,71,57,57,10,63,55,58,62,10",
+                        "endOffsets": "110,180,251,323,381,439,548,612,668,727,790,962"
+                    },
+                    "to": {
+                        "startLines": "11,12,13,14,15,16,17,19,22,23,27,30",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "669,729,799,870,942,1000,1058,1167,1331,1387,1619,1793",
+                        "endLines": "11,12,13,14,15,16,18,19,22,23,27,33",
+                        "endColumns": "59,69,70,71,57,57,10,63,55,58,62,10",
+                        "endOffsets": "724,794,865,937,995,1053,1162,1226,1382,1441,1677,1960"
+                    }
+                },
+                {
+                    "source": "/Users/viditgupta/.gradle/caches/transforms-4/0a4dc39d39c7379466212442e41162ed/transformed/jetified-core-0.9.6.0/res/values-sw600dp-v13/values-sw600dp-v13.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "51",
+                        "endOffsets": "102"
+                    },
+                    "to": {
+                        "startLines": "21",
+                        "startColumns": "4",
+                        "startOffsets": "1279",
+                        "endColumns": "51",
+                        "endOffsets": "1326"
+                    }
+                },
+                {
+                    "source": "/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/res/values-sw600dp/integers.xml",
+                    "from": {
+                        "startLines": "18,19",
+                        "startColumns": "4,4",
+                        "startOffsets": "753,804",
+                        "endColumns": "50,59",
+                        "endOffsets": "799,859"
+                    },
+                    "to": {
+                        "startLines": "28,29",
+                        "startColumns": "4,4",
+                        "startOffsets": "1682,1733",
+                        "endColumns": "50,59",
+                        "endOffsets": "1728,1788"
+                    }
+                }
+            ]
+        }
+    ]
+}

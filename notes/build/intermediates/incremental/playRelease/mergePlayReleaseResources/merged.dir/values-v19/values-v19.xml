@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <bool name="transparent_nav">true</bool>
+    <dimen name="padding_bottom_kitkat">40dp</dimen>
+    <dimen name="padding_top_kitkat">25dp</dimen>
+    <dimen name="undobar_margin_bottom">35dp</dimen>
+    <style name="OmniNotesFullscreenTheme.ApiSpec">
+        <item name="android:windowTranslucentStatus">true</item>
+        <item name="android:windowTranslucentNavigation">@bool/transparent_nav</item>
+    </style>
+</resources>

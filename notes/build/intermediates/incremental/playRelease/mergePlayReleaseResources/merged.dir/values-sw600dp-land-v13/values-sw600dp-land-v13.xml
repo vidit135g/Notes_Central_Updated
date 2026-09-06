@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="chglib_material_keyline1">24dp</dimen>
+    <dimen name="chglib_material_minHeight">64dp</dimen>
+    <dimen name="navigation_drawer_reserved_space">@dimen/navigation_drawer_width</dimen>
+</resources>

@@ -1,0 +1,293 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:ns1="urn:oasis:names:tc:xliff:document:1.2">
+    <string-array name="attachments_actions">
+        <item>ចែករំលែក</item>
+        <item>លប់</item>
+        <item>Delete All</item>
+        <item>កែ</item>
+    </string-array>
+    <string-array name="navigation_list">
+        <item>កំណត់ហេតុ</item>
+        <item>រក្សាទុកជាឯកសារ</item>
+        <item>រម្លឹក</item>
+        <item>ធុងសំរាម</item>
+        <item>Uncategorized</item>
+    </string-array>
+    <string-array name="recurrence_freq">
+        <item>"ធ្វើ​ឡើងវិញ​ប្រចាំ​ថ្ងៃ"</item>
+        <item>"ធ្វើ​ឡើងវិញ​ប្រចាំ​សប្ដាហ៍"</item>
+        <item>"ធ្វើ​ឡើងវិញ​ប្រចាំ​ខែ"</item>
+        <item>"ធ្វើ​ឡើងវិញ​ប្រចាំ​ឆ្នាំ"</item>
+    </string-array>
+    <string-array name="repeat_by_nth_fri">
+        <item>"នៅ​រាល់​ថ្ងៃ​សុក្រ​ទី​មួយ"</item>
+        <item>"នៅ​រាល់​ថ្ងៃ​សុក្រ​ទីពីរ"</item>
+        <item>"នៅ​រាល់​ថ្ងៃ​សុក្រ​ទីបី"</item>
+        <item>"នៅ​រាល់​ថ្ងៃ​សុក្រ​ទី​បួន"</item>
+        <item>"នៅ​រាល់​ថ្ងៃ​សុក្រ​ចុងក្រោយ"</item>
+    </string-array>
+    <string-array name="repeat_by_nth_mon">
+        <item>"នៅ​រាល់​ថ្ងៃ​ចន្ទ​ទី​មួយ"</item>
+        <item>"នៅ​រាល់​ថ្ងៃ​ចន្ទ​ទី​ពីរ"</item>
+        <item>"នៅ​រាល់​ថ្ងៃ​ចន្ទ​ទី​បី"</item>
+        <item>"នៅ​រាល់​ថ្ងៃ​ចន្ទ​ទី​បួន"</item>
+        <item>"នៅ​រាល់​ថ្ងៃ​ចន្ទ​ចុងក្រោយ"</item>
+    </string-array>
+    <string-array name="repeat_by_nth_sat">
+        <item>"នៅ​រាល់​ថ្ងៃ​សៅរ៍​ទី​មួយ"</item>
+        <item>"នៅ​រាល់​ថ្ងៃ​សៅរ៍​ទី​ពីរ"</item>
+        <item>"នៅ​រាល់​ថ្ងៃ​សៅរ៍​ទី​បី"</item>
+        <item>"នៅ​រាល់​ថ្ងៃ​សៅរ៍​ទី​បួន"</item>
+        <item>"នៅ​រាល់​ថ្ងៃ​សៅរ៍​ចុងក្រោយ"</item>
+    </string-array>
+    <string-array name="repeat_by_nth_sun">
+        <item>"នៅ​រាល់​ថ្ងៃ​អាទិត្យ​ទី​មួយ"</item>
+        <item>"នៅ​រាល់​ថ្ងៃ​អាទិត្យ​ទី​ពីរ"</item>
+        <item>"នៅ​រាល់​ថ្ងៃ​អាទិត្យ​ទី​បី"</item>
+        <item>"នៅ​រាល់​ថ្ងៃ​អាទិត្យ​ទី​បួន"</item>
+        <item>"នៅ​រាល់​ថ្ងៃ​អាទិត្យ​ចុងក្រោយ"</item>
+    </string-array>
+    <string-array name="repeat_by_nth_thurs">
+        <item>"នៅ​រាល់​ថ្ងៃ​ព្រហស្បតិ៍​ទី​មួយ"</item>
+        <item>"នៅ​រាល់​ថ្ងៃ​ព្រហស្បតិ៍​ទី​ពីរ"</item>
+        <item>"នៅ​រាល់​ថ្ងៃ​ព្រហស្បតិ៍​ទី​បី"</item>
+        <item>"នៅ​រាល់​ថ្ងៃ​ព្រហស្បតិ៍​ទី​បួន"</item>
+        <item>"នៅ​រាល់​ថ្ងៃ​ព្រហស្បតិ៍​ចុងក្រោយ"</item>
+    </string-array>
+    <string-array name="repeat_by_nth_tues">
+        <item>"នៅ​រាល់​ថ្ងៃ​អង្គារ​ទី​មួយ"</item>
+        <item>"នៅ​រាល់​ថ្ងៃ​អង្គារ​ទី​ពីរ"</item>
+        <item>"នៅ​រាល់​ថ្ងៃ​អង្គារ​ទី​បី"</item>
+        <item>"នៅ​រាល់​ថ្ងៃ​អង្គារ​ទី​បួន"</item>
+        <item>"នៅ​រាល់​ថ្ងៃ​អង្គារ​ចុងក្រោយ"</item>
+    </string-array>
+    <string-array name="repeat_by_nth_wed">
+        <item>"នៅ​រាល់​ថ្ងៃ​ពុធ​ទី​មួយ"</item>
+        <item>"នៅ​រាល់​ថ្ងៃ​ពុធ​ទី​ពីរ"</item>
+        <item>"នៅ​រាល់​ថ្ងៃ​ពុធ​ទី​បី"</item>
+        <item>"នៅ​រាល់​ថ្ងៃ​ពុធ​ទី​បួន"</item>
+        <item>"នៅ​រាល់​ថ្ងៃ​ពុធ​ចុងក្រោយ"</item>
+    </string-array>
+    <string-array name="sortable_columns_human_readable">
+        <item>ចំណងជើង</item>
+        <item>ពេលដែលបង្កើត</item>
+        <item>ពេលដែលកែចុងក្រោយ</item>
+        <item>ពេលវេលារំលឹក</item>
+    </string-array>
+    <string-array name="text_size">
+        <item>តូចបំផុត</item>
+        <item>តូច</item>
+        <item>ធម្មតា</item>
+        <item>ធំ</item>
+        <item>ធំបំផុត</item>
+    </string-array>
+    <plurals name="daily">
+        <item quantity="one">"ប្រចាំថ្ងៃ"</item>
+        <item quantity="other">"រាល់ <ns1:g id="NUMBER">%d</ns1:g> ថ្ងៃ"</item>
+    </plurals>
+    <plurals name="endByCount">
+        <item quantity="one">"; សម្រាប់​ម្ដង"</item>
+        <item quantity="other">"; សម្រាប់ <ns1:g id="NUMBER">%d</ns1:g> ដង"</item>
+    </plurals>
+    <plurals name="recurrence_end_count">
+        <item quantity="one">"សម្រាប់ <ns1:g id="EVENT_COUNT">%d</ns1:g> ព្រឹត្តិការណ៍"</item>
+        <item quantity="other">"សម្រាប់ <ns1:g id="EVENT_COUNT">%d</ns1:g> ព្រឹត្តិការណ៍"</item>
+    </plurals>
+    <plurals name="recurrence_interval_daily">
+        <item quantity="one">"រាល់ <ns1:g id="COUNT">%d</ns1:g> ថ្ងៃ"</item>
+        <item quantity="other">"រាល់ <ns1:g id="COUNT">%d</ns1:g> ថ្ងៃ"</item>
+    </plurals>
+    <plurals name="recurrence_interval_monthly">
+        <item quantity="one">"រាល់ <ns1:g id="COUNT">%d</ns1:g> ខែ"</item>
+        <item quantity="other">"រាល់ <ns1:g id="COUNT">%d</ns1:g> ខែ"</item>
+    </plurals>
+    <plurals name="recurrence_interval_weekly">
+        <item quantity="one">"រាល់ <ns1:g id="COUNT">%d</ns1:g> សប្ដាហ៍"</item>
+        <item quantity="other">"រាល់ <ns1:g id="COUNT">%d</ns1:g> សប្ដាហ៍"</item>
+    </plurals>
+    <plurals name="recurrence_interval_yearly">
+        <item quantity="one">"រាល់ <ns1:g id="COUNT">%d</ns1:g> ឆ្នាំ"</item>
+        <item quantity="other">"ឆ្នាំ <ns1:g id="COUNT">%d</ns1:g> ឆ្នាំ"</item>
+    </plurals>
+    <plurals name="weekly">
+        <item quantity="one">"សប្ដាហ៍​នៃ <ns1:g id="DAYS_OF_WEEK">%2$s</ns1:g>"</item>
+        <item quantity="other">"រាល់ <ns1:g id="NUMBER">%1$d</ns1:g> សប្ដាហ៍​នៃ <ns1:g id="DAYS_OF_WEEK">%2$s</ns1:g>"</item>
+    </plurals>
+    <string name="acessibility_recurrence_choose_end_date_description">"ប្ដូរ​កាលបរិច្ឆេទ​បញ្ចប់"</string>
+    <string name="action_settings">ការកំណត់</string>
+    <string name="add_category">ថែម ជំពូក</string>
+    <string name="add_note">បង្កើត</string>
+    <string name="add_reminder">បង្កើត ការរំលឹក</string>
+    <string name="add_shortcut">ថែម shortcut នៅលើ Screen</string>
+    <string name="add_tag">ថែម ពាក្យគន្លឺះ</string>
+    <string name="alarm_set_on">ការកំនត់ក្រើនរំលឹក សម្រាប់</string>
+    <string name="archive">រក្សាទុកជាឯកសារ</string>
+    <string name="archived">បណ្ណសារ</string>
+    <string name="at_time">នៅ</string>
+    <string name="attachment">ឯកសារ ភ្ជាប់</string>
+    <string name="camera">ម៉ាស៊ីនថត</string>
+    <string name="cancel">បោះចោល</string>
+    <string name="categories">ជំពូក</string>
+    <string name="categorize_as">ចាត់ចូលក្នុងជំពូក</string>
+    <string name="category">ជំពូក</string>
+    <string name="category_color">ពណ៏</string>
+    <string name="category_deleted">ជំពូកនេះ ត្រូវបានលប់</string>
+    <string name="category_description">អធិប្បាយ</string>
+    <string name="category_saved">ជំពូកនេះ ត្រូវបានរក្សាទុក</string>
+    <string name="category_title">ចំណងជើង</string>
+    <string name="channel_reminders_name">រម្លឹក</string>
+    <string name="checklist_item_hint">ថ្មី ....</string>
+    <string name="checklist_off">បិទ បញ្ជី</string>
+    <string name="checklist_on">បង្កើតជា បញ្ជី</string>
+    <string name="choose_action">ជ្រើសសកម្មភាព</string>
+    <string name="colors">ពណ៌</string>
+    <string name="confirm">យល់ព្រម</string>
+    <string name="confirm_new_password">បញ្ចូលពាក្យសំងាត់ម្តងទៀត</string>
+    <string name="content">អត្ថបទ</string>
+    <string name="contracted_view">បង្ហាញសង្ខេបខ្លី</string>
+    <string name="copy">ចម្លង</string>
+    <string name="crash_dialog_text">\"Something went wrong in Khmer Notes
+Send automatic report to developer?\"</string>
+    <string name="creation">បង្កើត:</string>
+    <string name="dashclock_description">Displays some statistics and expiring reminders from Khmer Notes</string>
+    <string name="data_import_message">\"Click -> restore
+Long-click -> delete\"</string>
+    <string name="day_picker_description">"ក្រឡា​​​ខែ​នៃ​ថ្ងៃ"</string>
+    <string name="delete">លប់</string>
+    <string name="delete_all_attachments">លប់ ឯកសារដែលភ្ជាប់ទាំងអស់?</string>
+    <string name="delete_note_confirmation">បព្ជាក់ពីការលប់?</string>
+    <string name="delete_selected_image">លប់ ឯកសារ ភ្ជាប់?</string>
+    <string name="delete_this_category">លប់ ជំពូកនេះ</string>
+    <string name="delete_unused_category_confirmation">អះអាងពីការ លប់ជំពូក?</string>
+    <string name="deleted_key">"បាន​លុប <ns1:g id="KEY">%1$s</ns1:g>"</string>
+    <string name="discard">បោះបង់</string>
+    <string name="discard_changes">លះបង់ការ កែ</string>
+    <string name="dismiss">បោះបង់</string>
+    <string name="edit">កែ</string>
+    <string name="edit_tag">កែជំពូក</string>
+    <string name="empty_note_not_saved">មិនអាចរក្សារទុក​អត្ថបទដែលទទេឡើយ</string>
+    <string name="empty_note_not_shared">មិនអាច​ចែករំលែក​អត្ថបទដែលទទេឡើយ</string>
+    <string name="endByDate">"; រហូតដល់ <ns1:g id="DATE">%s</ns1:g>"</string>
+    <string name="eraser">ប្រដាប់លប់</string>
+    <string name="error">កំហុស</string>
+    <string name="every_weekday">"រាល់ថ្ងៃ​ធ្វើការ (ចន្ទ–សុក្រ)"</string>
+    <string name="expanded_view">បង្ហាញពេញ</string>
+    <string name="expired">ផុតកំណត់</string>
+    <string name="feature_not_available_on_this_device">លក្ខណះពិសេសមិនអាចប្រើបាន លើឧបករណ៍នេះទេ, សូមអភ័យទោស។</string>
+    <string name="files">ឯកសារ</string>
+    <string name="gallery">វិចិត្រសាល</string>
+    <string name="help">ជំនួយ</string>
+    <string name="image">រូបភាព</string>
+    <string name="info">អំពី</string>
+    <string name="insert_new_password">បញ្ចូលពាក្យសំងាត់ថ្មី</string>
+    <string name="insert_security_password">បញ្ចូលពាក្យសំងាត់</string>
+    <string name="item_is_selected">"បាន​ជ្រើស <ns1:g id="ITEM">%1$s</ns1:g>"</string>
+    <string name="last_update">កែ:</string>
+    <string name="location">ទីតាំង</string>
+    <string name="location_not_found">រកទីតាំងតំបន់ មិនឃើញ</string>
+    <string name="merge">រួមបញ្ចូល</string>
+    <string name="monthly">"ប្រចាំខែ"</string>
+    <string name="new_update_available">A new version of Khmer Notes is available, would you like to update?</string>
+    <string name="no">បដិសេច</string>
+    <string name="no_application_can_perform_this_action">គ្មានកម្មវិធីដែលរកឃើញ សម្រាប់សកម្មភាពនេះ</string>
+    <string name="not_expired">មិនផុតកំណត់</string>
+    <string name="not_now">មិនចាំបាច់</string>
+    <string name="note">កំណត់ត្រា</string>
+    <string name="note_archived">អត្ថបទត្រូវបាន រុញចូលក្នុង អត្ថបទចាសៗ</string>
+    <string name="note_deleted">អត្ថបទលប់ជារៀងរហូត</string>
+    <string name="note_trashed">អត្ថបទដែលបានលប់</string>
+    <string name="note_unarchived">អត្ថបទត្រូវបានទាញពី អត្ថបទចាស់ៗ</string>
+    <string name="note_untrashed">អត្ថបទដែលបានទាញមកវិញ</string>
+    <string name="note_updated">អត្ថបទបានត្រូវធ្វើអោយទាន់សម័យ</string>
+    <string name="notes">កំណត់ចំណាំ</string>
+    <string name="ok">យល់ព្រម</string>
+    <string name="open">បើក</string>
+    <string name="password_not_set">មិនបានកំណត់ ពាក្យសំងាត់</string>
+    <string name="password_successfully_changed">ពាក្យសំងាត់ត្រូវបានប្តូរដោយជោគជ័យ</string>
+    <string name="proceed">បន្ត</string>
+    <string name="record">ថត</string>
+    <string name="recurrence_end_continously">"ជានិច្ច"</string>
+    <string name="recurrence_end_count_label">"សម្រាប់​ព្រឹត្តិការណ៍​មួយ​ចំនួន"</string>
+    <string name="recurrence_end_date">"រហូតដល់ <ns1:g id="DATE">%s</ns1:g>"</string>
+    <string name="recurrence_end_date_label">"រហូតដល់​កាលបរិច្ឆេទ"</string>
+    <string name="recurrence_month_pattern_by_day">"នៅ​ថ្ងៃ​ដដែល​នៃ​ខែ​នីមួយៗ"</string>
+    <string name="redo">ធ្វើឡើងវិញ</string>
+    <string name="reminders">ក្រើនរំលឹក</string>
+    <string name="remove_category">លប់ជំពូក</string>
+    <string name="remove_checklist">លប់ បញ្ជី?</string>
+    <string name="remove_location">លប់ ទីតាំង?</string>
+    <string name="remove_reminder">លប់ ការ រំលឹក?</string>
+    <string name="save">រក្សាទុក</string>
+    <string name="search">ស្វែងរក</string>
+    <string name="search_hint">ស្វែងរកក្នុងអត្ថបទ</string>
+    <string name="select_day">"ជ្រើស​ខែ និង​ថ្ងៃ"</string>
+    <string name="select_hours">"ជ្រើស​ម៉ោង"</string>
+    <string name="select_minutes">"ជ្រើស​នាទី"</string>
+    <string name="select_sorting_column">តំរៀបតាម</string>
+    <string name="select_tags">រើស ពាក្យគន្លឺះ</string>
+    <string name="select_year">"ជ្រើស​ឆ្នាំ"</string>
+    <string name="settings">ការកំណត់</string>
+    <string name="settings_about">អំពី</string>
+    <string name="settings_answer_not_matching">ចំលើយខុស</string>
+    <string name="settings_backup">រក្សាទុក(Backup)</string>
+    <string name="settings_category_other">ផ្សេងៗ</string>
+    <string name="settings_enable_swype">Enable swipe</string>
+    <string name="settings_export">រក្សាទុក(Backup)</string>
+    <string name="settings_password">ពាក្យសំងាត់</string>
+    <string name="settings_password_access">ត្រូវការ ពាក្យសំងាត់ទើបអាចប្រើបាន</string>
+    <string name="settings_password_answer">ចំលើយ</string>
+    <string name="settings_password_answer_check">ចំលើយម្តងទៀត</string>
+    <string name="settings_password_not_matching">ពាក្យសំងាត់ខុស</string>
+    <string name="settings_password_question">សំនួរ</string>
+    <string name="settings_password_question_instructions">សំនួរ និងចំលើយ សំងាត់ សំរាប់ប្រើនៅពេលអ្នកភ្លេច ពាក្យសំងាត់</string>
+    <string name="settings_password_summary">កែពាក្យសំងាត់</string>
+    <string name="settings_reset_all_data">លប់ទិន្នន័យទាំងអស់</string>
+    <string name="settings_screen_backup">រក្សាទុក(Backup)</string>
+    <string name="settings_text_size">ទំហំអក្សរ</string>
+    <string name="settings_tour_show_again">ការណែនាំ</string>
+    <string name="settings_tour_show_again_summary">បង្ហាញពីរបៀបប្រើម្តងទៀត</string>
+    <string name="share">ចែករំលែក</string>
+    <string name="share_message_chooser">ចែករំលែកជាមួយ</string>
+    <string name="shared_content_sign">\"
+【by Khmer Notes】\"</string>
+    <string name="sketch">គូស</string>
+    <string name="sort">តំរៀប</string>
+    <string name="starting_from">កំពុងចាប់ផ្ដើមពី</string>
+    <string name="stats_categories">ជំពូក</string>
+    <string name="stats_files">ឯកសារ</string>
+    <string name="stats_reminders">រម្លឹក</string>
+    <string name="stats_tags">ពាក្យគន្លឺះ</string>
+    <string name="stop">ឈប់</string>
+    <string name="storage_not_available">ឃ្លាំងស្តុក មិនអាចប្រើបាន</string>
+    <string name="stroke">ចុងប៊ិច</string>
+    <string name="tag">ពាក្យគន្លឺះ</string>
+    <string name="tags">ពាក្យគន្លឺះ</string>
+    <string name="tap_to_undo">ប៉ះដើម្បី បកក្រោយ</string>
+    <string name="title">ចំណងជើង</string>
+    <string name="title_activity_about">អំពី</string>
+    <string name="title_activity_category">កែ ជំពូក</string>
+    <string name="title_activity_list">កំណត់ត្រា</string>
+    <string name="title_activity_password">កែពាក្យសំងាត់</string>
+    <string name="title_activity_sketch">គូស</string>
+    <string name="title_item_list">កំណត់ត្រា</string>
+    <string name="today">ថ្ងៃនេះ</string>
+    <string name="tomorrow">ថ្ងៃស្អែក</string>
+    <string name="tour_detailactivity_save_title">រក្សាទុក</string>
+    <string name="tour_detailactivity_swipe_detail">\"Create new notes without 
+ leaving the one you\'re editing\"</string>
+    <string name="tour_listactivity_intro_detail">ចុច\"បន្ត\" ដើម្បីបន្ត ការណែនាំ</string>
+    <string name="tour_listactivity_intro_title">Khmer Note សូមស្វាគមន៍ !</string>
+    <string name="tour_listactivity_tag_title">ពាក្យគន្លឺះ</string>
+    <string name="tour_request_start">អ្នកប្រើ កម្មវិធីនេះជាលើកទី១ តើអ្នក តើអ្នកចង់មើលការណែនាំសង្ខេប ពី របៀបប្រើដែលឬទេ?</string>
+    <string name="trash">លុប</string>
+    <string name="trash_action">លុប</string>
+    <string name="trashed">ដែលបានលប់</string>
+    <string name="unarchive">ទាញយកពីអត្ថបទ​ចាសៗមកវិញ</string>
+    <string name="undo">ត្រលប់ដើម</string>
+    <string name="untrash">ទាញពីធុងសំរាមវិញ</string>
+    <string name="video">វីដេអូ</string>
+    <string name="wrong_answer">ចំលើយខុស</string>
+    <string name="wrong_password">ពាក្យសំងាត់ខុស</string>
+    <string name="year_picker_description">"បញ្ជី​ឆ្នាំ"</string>
+    <string name="yearly_plain">"ប្រចាំ​ឆ្នាំ"</string>
+</resources>

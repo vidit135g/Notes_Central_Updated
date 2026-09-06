@@ -217,4 +217,28 @@
         <item>edit</item>
     </string-array>
 
+
+    <string-array name="text_size">
+        <item>Smallest</item>
+        <item>Small</item>
+        <item>Default</item>
+        <item>Large</item>
+        <item>Largest</item>
+    </string-array>
+
+    <string-array name="text_size_values">
+        <item>smallest</item>
+        <item>small</item>
+        <item>default</item>
+        <item>large</item>
+        <item>largest</item>
+    </string-array>
+
+    <integer-array name="text_size_offset">
+        <item>-3</item>
+        <item>-2</item>
+        <item>0</item>
+        <item>3</item>
+        <item>5</item>
+    </integer-array>
 </resources>

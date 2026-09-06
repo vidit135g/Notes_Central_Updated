@@ -1,0 +1,20 @@
+{
+    "logs": [
+        {
+            "outputFile": "com.absolute.android.notescentral.notes-mergePlayDebugResources-61:/values-v13/values-v13.xml",
+            "map": [
+                {
+                    "source": "/Users/viditgupta/.gradle/caches/transforms-4/1e828663ce7aadb6cc9b7a7e7bd1a9e6/transformed/jetified-checklistview-3.2.1/res/values-v13/values-v13.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endLines": "4",
+                        "endColumns": "12",
+                        "endOffsets": "200"
+                    }
+                }
+            ]
+        }
+    ]
+}

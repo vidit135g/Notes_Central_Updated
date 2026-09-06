@@ -1,0 +1,58 @@
+{
+    "logs": [
+        {
+            "outputFile": "com.absolute.android.notescentral.notes-mergePlayDebugResources-61:/values-v17/values-v17.xml",
+            "map": [
+                {
+                    "source": "/Users/viditgupta/.gradle/caches/transforms-4/561536d6afac961e63313ebb427c8e64/transformed/jetified-SublimePicker-8c4de22db1/res/values-v17/values-v17.xml",
+                    "from": {
+                        "startLines": "2,5",
+                        "startColumns": "4,4",
+                        "startOffsets": "55,223",
+                        "endLines": "4,8",
+                        "endColumns": "12,12",
+                        "endOffsets": "218,445"
+                    }
+                },
+                {
+                    "source": "/Users/viditgupta/.gradle/caches/transforms-4/1e828663ce7aadb6cc9b7a7e7bd1a9e6/transformed/jetified-checklistview-3.2.1/res/values-v17/values-v17.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endLines": "5",
+                        "endColumns": "12",
+                        "endOffsets": "260"
+                    },
+                    "to": {
+                        "startLines": "9",
+                        "startColumns": "4",
+                        "startOffsets": "450",
+                        "endLines": "12",
+                        "endColumns": "12",
+                        "endOffsets": "655"
+                    }
+                },
+                {
+                    "source": "/Users/viditgupta/.gradle/caches/transforms-4/54a7265ee06a222c2ab8c40fedf21da5/transformed/appcompat-1.6.1/res/values-v17/values-v17.xml",
+                    "from": {
+                        "startLines": "2,5,9,12,15,18,22,25,29,33,37,40,43,46,50,53,57",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,228,456,614,764,936,1161,1331,1559,1783,2025,2196,2370,2539,2812,3012,3216",
+                        "endLines": "4,8,11,14,17,21,24,28,32,36,39,42,45,49,52,56,60",
+                        "endColumns": "12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12",
+                        "endOffsets": "223,451,609,759,931,1156,1326,1554,1778,2020,2191,2365,2534,2807,3007,3211,3540"
+                    },
+                    "to": {
+                        "startLines": "13,16,20,23,26,29,33,36,40,44,48,51,54,57,61,64,68",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "660,833,1061,1219,1369,1541,1766,1936,2164,2388,2630,2801,2975,3144,3417,3617,3821",
+                        "endLines": "15,19,22,25,28,32,35,39,43,47,50,53,56,60,63,67,71",
+                        "endColumns": "12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12,12",
+                        "endOffsets": "828,1056,1214,1364,1536,1761,1931,2159,2383,2625,2796,2970,3139,3412,3612,3816,4145"
+                    }
+                }
+            ]
+        }
+    ]
+}

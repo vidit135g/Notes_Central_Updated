@@ -17,6 +17,11 @@
 
 package com.absolute.android.notescentral.utils.date;
 
+import android.app.DatePickerDialog;
+import android.app.TimePickerDialog;
+import android.widget.DatePicker;
+import android.widget.TimePicker;
+
 import android.os.Bundle;
 import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.FragmentActivity;
@@ -29,7 +34,15 @@ import com.absolute.android.notescentral.models.listeners.OnReminderPickedListen
 import java.util.Calendar;
 
 
-public class ReminderPickers {
+public class ReminderPickers implements DatePickerDialog.OnDateSetListener, TimePickerDialog.OnTimeSetListener {
+
+  public static final int TYPE_AOSP = 0;
+  public static final int TYPE_GOOGLE = 1;
+
+  public ReminderPickers(FragmentActivity mActivity,
+      OnReminderPickedListener mOnReminderPickedListener, int pickerType) {
+    this(mActivity, mOnReminderPickedListener);
+  }
 
   private FragmentActivity mActivity;
   private OnReminderPickedListener mOnReminderPickedListener;
@@ -87,6 +100,15 @@ public class ReminderPickers {
 
     pickerFrag.setStyle(DialogFragment.STYLE_NO_TITLE, 0);
     pickerFrag.show(mActivity.getSupportFragmentManager(), "SUBLIME_PICKER");
+  }
+
+
+  @Override
+  public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
+  }
+
+  @Override
+  public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
   }
 
 }

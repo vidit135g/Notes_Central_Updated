@@ -84,13 +84,13 @@ public class AlarmReceiver extends BroadcastReceiver {
     snoozeIntent.setAction(ConstantsBase.ACTION_SNOOZE);
     snoozeIntent.putExtra(ConstantsBase.INTENT_NOTE, (android.os.Parcelable) note);
     PendingIntent piSnooze = PendingIntent.getActivity(mContext, getUniqueRequestCode(note), snoozeIntent,
-        PendingIntent.FLAG_UPDATE_CURRENT);
+        PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE);
 
     Intent postponeIntent = new Intent(mContext, SnoozeActivity.class);
     postponeIntent.setAction(ConstantsBase.ACTION_POSTPONE);
     postponeIntent.putExtra(ConstantsBase.INTENT_NOTE, (android.os.Parcelable) note);
     PendingIntent piPostpone = PendingIntent.getActivity(mContext, getUniqueRequestCode(note), postponeIntent,
-        PendingIntent.FLAG_UPDATE_CURRENT);
+        PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE);
 
     String snoozeDelay = mContext.getSharedPreferences(Constants.PREFS_NAME,
         MODE_MULTI_PROCESS).getString("settings_notification_snooze_delay", "10");
@@ -108,7 +108,7 @@ public class AlarmReceiver extends BroadcastReceiver {
 
     // Creates the PendingIntent
     PendingIntent notifyIntent = PendingIntent.getActivity(mContext, getUniqueRequestCode(note), intent,
-        PendingIntent.FLAG_UPDATE_CURRENT);
+        PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE);
 
     NotificationsHelper notificationsHelper = new NotificationsHelper(mContext);
     notificationsHelper.createNotification(NotificationChannels.NotificationChannelNames.Reminders,

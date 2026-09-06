@@ -416,4 +416,6 @@
     <string name="app_name">Notes Central</string>
     <string name="app_package">com.absolute.android.notescentral</string>
     <string name="version_postfix">.ALPHA</string>
+    <string name="shared_content_sign">Shared via Notes Central</string>
+    <string name="at">at</string>
 </resources>

@@ -74,7 +74,7 @@ public class ListWidgetProvider extends WidgetProvider {
       Intent clickIntent = new Intent(mContext, MainActivity.class);
       clickIntent.setAction(ConstantsBase.ACTION_WIDGET);
       PendingIntent clickPI = PendingIntent.getActivity(mContext, 0,
-          clickIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+          clickIntent, PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE);
 
       views.setPendingIntentTemplate(R.id.widget_list, clickPI);
     }

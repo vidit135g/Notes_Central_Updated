@@ -1,0 +1,32 @@
+<variant
+    name="playRelease"
+    useSupportLibraryVectorDrawables="true"
+    package="com.absolute.android.notescentral"
+    minSdkVersion="21"
+    targetSdkVersion="34"
+    mergedManifest="build/intermediates/merged_manifest/playRelease/processPlayReleaseMainManifest/AndroidManifest.xml"
+    manifestMergeReport="build/outputs/logs/manifest-merger-play-release-report.txt"
+    proguardFiles="build/intermediates/default_proguard_files/global/proguard-android.txt-8.4.2:proguard-rules.txt"
+    partialResultsDir="build/intermediates/lint_vital_partial_results/playRelease/lintVitalAnalyzePlayRelease/out">
+  <buildFeatures
+      namespacing="REQUIRED"/>
+  <sourceProviders>
+    <sourceProvider
+        manifests="src/main/AndroidManifest.xml"
+        javaDirectories="src/main/java:src/play/java:src/release/java:src/playRelease/java:src/main/kotlin:src/play/kotlin:src/release/kotlin:src/playRelease/kotlin"
+        resDirectories="src/main/res:src/play/res:src/release/res:src/playRelease/res"
+        assetsDirectories="src/main/assets:src/play/assets:src/release/assets:src/playRelease/assets"/>
+  </sourceProviders>
+  <testSourceProviders>
+  </testSourceProviders>
+  <testFixturesSourceProviders>
+  </testFixturesSourceProviders>
+  <artifact
+      classOutputs="build/intermediates/javac/playRelease/compilePlayReleaseJavaWithJavac/classes:build/tmp/kotlin-classes/playRelease:build/kotlinToolingMetadata:build/intermediates/compile_and_runtime_not_namespaced_r_class_jar/playRelease/processPlayReleaseResources/R.jar"
+      type="MAIN"
+      applicationId="com.absolute.android.notescentral"
+      generatedSourceFolders="build/generated/ap_generated_sources/playRelease/out:build/generated/source/buildConfig/play/release"
+      generatedResourceFolders="build/generated/res/resValues/play/release"
+      desugaredMethodsFiles="/Users/viditgupta/.gradle/caches/transforms-4/f2813a92dcf94239d4a3681cf6328008/transformed/D8BackportedDesugaredMethods.txt">
+  </artifact>
+</variant>

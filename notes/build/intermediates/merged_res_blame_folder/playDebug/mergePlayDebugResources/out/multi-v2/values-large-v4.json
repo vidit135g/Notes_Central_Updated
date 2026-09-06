@@ -1,0 +1,60 @@
+{
+    "logs": [
+        {
+            "outputFile": "com.absolute.android.notescentral.notes-mergePlayDebugResources-61:/values-large-v4/values-large-v4.xml",
+            "map": [
+                {
+                    "source": "/Users/viditgupta/.gradle/caches/transforms-4/c0d269eede0aeba0db7a3eb3fb5706a5/transformed/jetified-commons-0.9.6.0/res/values-large-v4/values-large-v4.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "58",
+                        "endOffsets": "109"
+                    },
+                    "to": {
+                        "startLines": "9",
+                        "startColumns": "4",
+                        "startOffsets": "532",
+                        "endColumns": "58",
+                        "endOffsets": "586"
+                    }
+                },
+                {
+                    "source": "/Users/viditgupta/.gradle/caches/transforms-4/54a7265ee06a222c2ab8c40fedf21da5/transformed/appcompat-1.6.1/res/values-large-v4/values-large-v4.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,7,8,9,10",
+                        "startColumns": "4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,114,185,256,326,396,464,532,636",
+                        "endColumns": "58,70,70,69,69,67,67,103,115",
+                        "endOffsets": "109,180,251,321,391,459,527,631,747"
+                    },
+                    "to": {
+                        "startLines": "2,3,4,5,6,7,8,10,11",
+                        "startColumns": "4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,114,185,256,326,396,464,591,695",
+                        "endColumns": "58,70,70,69,69,67,67,103,115",
+                        "endOffsets": "109,180,251,321,391,459,527,690,806"
+                    }
+                },
+                {
+                    "source": "/Users/viditgupta/.gradle/caches/transforms-4/096528de86f7763019af49a52424b782/transformed/material-1.11.0/res/values-large-v4/values-large-v4.xml",
+                    "from": {
+                        "startLines": "2,3,4,5",
+                        "startColumns": "4,4,4,4",
+                        "startOffsets": "55,169,285,407",
+                        "endColumns": "113,115,121,133",
+                        "endOffsets": "164,280,402,536"
+                    },
+                    "to": {
+                        "startLines": "12,13,14,15",
+                        "startColumns": "4,4,4,4",
+                        "startOffsets": "811,925,1041,1163",
+                        "endColumns": "113,115,121,133",
+                        "endOffsets": "920,1036,1158,1292"
+                    }
+                }
+            ]
+        }
+    ]
+}
