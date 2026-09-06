@@ -1,0 +1,19 @@
+{
+    "logs": [
+        {
+            "outputFile": "com.absolute.android.notescentral.notes-mergeBetaDebugResources-61:/values-kk-rKZ/values-kk-rKZ.xml",
+            "map": [
+                {
+                    "source": "/Users/viditgupta/.gradle/caches/transforms-4/561536d6afac961e63313ebb427c8e64/transformed/jetified-SublimePicker-8c4de22db1/res/values-kk-rKZ/values-kk-rKZ.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,7,8,9,10,11",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "105,152,229,308,394,435,496,552,610,663",
+                        "endColumns": "46,76,78,85,40,60,55,57,52,64",
+                        "endOffsets": "147,224,303,389,430,491,547,605,658,723"
+                    }
+                }
+            ]
+        }
+    ]
+}

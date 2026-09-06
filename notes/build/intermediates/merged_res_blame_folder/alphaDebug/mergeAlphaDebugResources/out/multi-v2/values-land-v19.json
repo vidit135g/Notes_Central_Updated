@@ -1,0 +1,26 @@
+{
+    "logs": [
+        {
+            "outputFile": "com.absolute.android.notescentral.notes-mergeAlphaDebugResources-61:/values-land-v19/values-land-v19.xml",
+            "map": [
+                {
+                    "source": "/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/res/values-land-v19/bools.xml",
+                    "from": {
+                        "startLines": "20",
+                        "startColumns": "4",
+                        "startOffsets": "793",
+                        "endColumns": "45",
+                        "endOffsets": "834"
+                    },
+                    "to": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "45",
+                        "endOffsets": "96"
+                    }
+                }
+            ]
+        }
+    ]
+}

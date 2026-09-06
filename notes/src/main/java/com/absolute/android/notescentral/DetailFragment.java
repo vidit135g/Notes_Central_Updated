@@ -712,7 +712,7 @@ public class DetailFragment extends BaseFragment implements OnReminderPickedList
   }
 
   private void getLocation (OnGeoUtilResultListener onGeoUtilResultListener) {
-    PermissionsHelper.requestPermission(getActivity(), Manifest.permission.ACCESS_FINE_LOCATION, R.string
+    PermissionsHelper.requestPermissions(getActivity(), new String[]{Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION}, R.string
         .permission_coarse_location, snackBarPlaceholder, () -> GeocodeHelper.getLocation
         (onGeoUtilResultListener));
   }

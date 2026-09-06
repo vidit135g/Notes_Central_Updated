@@ -1,0 +1,26 @@
+{
+    "logs": [
+        {
+            "outputFile": "com.absolute.android.notescentral.notes-mergeBetaDebugResources-61:/values-no/values-no.xml",
+            "map": [
+                {
+                    "source": "/Users/viditgupta/.gradle/caches/transforms-4/f967b1bc6e81b051d94e4c113968a0e5/transformed/jetified-play-services-location-9.0.2/res/values-no/values.xml",
+                    "from": {
+                        "startLines": "4,5",
+                        "startColumns": "4,4",
+                        "startOffsets": "275,377",
+                        "endColumns": "101,92",
+                        "endOffsets": "372,465"
+                    },
+                    "to": {
+                        "startLines": "2,3",
+                        "startColumns": "4,4",
+                        "startOffsets": "55,157",
+                        "endColumns": "101,92",
+                        "endOffsets": "152,245"
+                    }
+                }
+            ]
+        }
+    ]
+}

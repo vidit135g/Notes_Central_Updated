@@ -1,0 +1,762 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.absolute.android.notescentral"
+4    android:versionCode="1"
+5    android:versionName="1.0" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="21"
+9        android:targetSdkVersion="34" />
+10
+11    <uses-permission android:name="android.permission.INTERNET" />
+11-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:6:5-67
+11-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:6:22-64
+12    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+12-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:7:5-79
+12-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:7:22-76
+13    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+13-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:8:5-81
+13-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:8:22-78
+14    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+14-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:9:5-79
+14-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:9:22-76
+15    <uses-permission android:name="android.permission.VIBRATE" />
+15-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:10:5-66
+15-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:10:22-63
+16    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+16-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:11:5-81
+16-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:11:22-78
+17    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+17-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:12:5-71
+17-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:12:22-68
+18    <uses-permission android:name="android.permission.WAKE_LOCK" />
+18-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:13:5-68
+18-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:13:22-65
+19    <uses-permission
+19-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:14:5-107
+20        android:name="android.permission.READ_EXTERNAL_STORAGE"
+20-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:14:22-77
+21        android:maxSdkVersion="32" />
+21-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:14:78-104
+22    <uses-permission
+22-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:15:5-137
+23        android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+23-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:15:22-78
+24        android:maxSdkVersion="29" />
+24-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:15:79-105
+25    <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
+25-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:16:5-76
+25-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:16:22-73
+26    <uses-permission android:name="android.permission.READ_MEDIA_VIDEO" />
+26-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:17:5-75
+26-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:17:22-72
+27    <uses-permission android:name="android.permission.READ_MEDIA_AUDIO" />
+27-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:18:5-75
+27-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:18:22-72
+28    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+28-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:19:5-77
+28-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:19:22-74
+29    <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM" />
+29-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:20:5-79
+29-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:20:22-76
+30    <uses-permission android:name="android.permission.USE_EXACT_ALARM" />
+30-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:21:5-74
+30-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:21:22-71
+31    <uses-permission android:name="com.android.alarm.permission.SET_ALARM" />
+31-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:22:5-78
+31-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:22:22-75
+32    <uses-permission android:name="com.android.launcher.permission.INSTALL_SHORTCUT" />
+32-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:23:5-88
+32-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:23:22-85
+33    <uses-permission android:name="com.android.launcher.permission.UNINSTALL_SHORTCUT" />
+33-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:24:5-90
+33-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:24:22-87
+34    <uses-permission android:name="com.pushbullet.android.permission.READ_MESSAGING_EXTENSION_DATA" />
+34-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:25:5-103
+34-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:25:22-100
+35    <uses-permission android:name="com.pushbullet.android.permission.SEND_MESSAGES" />
+35-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:26:5-87
+35-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:26:22-84
+36
+37    <uses-feature
+37-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:28:5-30:36
+38        android:name="android.hardware.camera"
+38-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:29:9-47
+39        android:required="false" />
+39-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:30:9-33
+40    <uses-feature
+40-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:31:5-33:36
+41        android:name="android.hardware.location.gps"
+41-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:32:9-53
+42        android:required="false" />
+42-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:33:9-33
+43
+44    <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES" />
+44-->[io.nlopez.smartlocation:library:3.2.4] /Users/viditgupta/.gradle/caches/transforms-4/9625ccf19feb5656650927fafa8f058d/transformed/jetified-library-3.2.4/AndroidManifest.xml:15:5-98
+44-->[io.nlopez.smartlocation:library:3.2.4] /Users/viditgupta/.gradle/caches/transforms-4/9625ccf19feb5656650927fafa8f058d/transformed/jetified-library-3.2.4/AndroidManifest.xml:15:22-95
+45    <uses-permission android:name="com.google.android.gms.permission.ACTIVITY_RECOGNITION" />
+45-->[io.nlopez.smartlocation:library:3.2.4] /Users/viditgupta/.gradle/caches/transforms-4/9625ccf19feb5656650927fafa8f058d/transformed/jetified-library-3.2.4/AndroidManifest.xml:16:5-94
+45-->[io.nlopez.smartlocation:library:3.2.4] /Users/viditgupta/.gradle/caches/transforms-4/9625ccf19feb5656650927fafa8f058d/transformed/jetified-library-3.2.4/AndroidManifest.xml:16:22-91
+46    <uses-permission android:name="com.absolute.android.notescentral.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
+46-->[com.google.android.gms:play-services-analytics-impl:18.0.4] /Users/viditgupta/.gradle/caches/transforms-4/43c1edf18f37bd295f7f7b96d0c50625/transformed/jetified-play-services-analytics-impl-18.0.4/AndroidManifest.xml:28:5-97
+46-->[com.google.android.gms:play-services-analytics-impl:18.0.4] /Users/viditgupta/.gradle/caches/transforms-4/43c1edf18f37bd295f7f7b96d0c50625/transformed/jetified-play-services-analytics-impl-18.0.4/AndroidManifest.xml:28:22-94
+47
+48    <uses-feature
+48-->[com.google.android.gms:play-services-maps:9.0.2] /Users/viditgupta/.gradle/caches/transforms-4/9ad724e480432d17fe289a87b3c36594/transformed/jetified-play-services-maps-9.0.2/AndroidManifest.xml:22:5-24:33
+49        android:glEsVersion="0x00020000"
+49-->[com.google.android.gms:play-services-maps:9.0.2] /Users/viditgupta/.gradle/caches/transforms-4/9ad724e480432d17fe289a87b3c36594/transformed/jetified-play-services-maps-9.0.2/AndroidManifest.xml:23:8-40
+50        android:required="true" /> <!-- Include required permissions for Advertising Id -->
+50-->[com.google.android.gms:play-services-maps:9.0.2] /Users/viditgupta/.gradle/caches/transforms-4/9ad724e480432d17fe289a87b3c36594/transformed/jetified-play-services-maps-9.0.2/AndroidManifest.xml:24:8-31
+51    <uses-permission android:name="com.google.android.gms.permission.AD_ID" />
+51-->[com.google.android.gms:play-services-ads-identifier:18.0.1] /Users/viditgupta/.gradle/caches/transforms-4/54f1f5449006b207c4073a9f89e8507d/transformed/jetified-play-services-ads-identifier-18.0.1/AndroidManifest.xml:23:5-79
+51-->[com.google.android.gms:play-services-ads-identifier:18.0.1] /Users/viditgupta/.gradle/caches/transforms-4/54f1f5449006b207c4073a9f89e8507d/transformed/jetified-play-services-ads-identifier-18.0.1/AndroidManifest.xml:23:22-76
+52
+53    <permission
+53-->[androidx.core:core:1.9.0] /Users/viditgupta/.gradle/caches/transforms-4/4725defd7a74b59f09384f13f25b8fa8/transformed/core-1.9.0/AndroidManifest.xml:22:5-24:47
+54        android:name="com.absolute.android.notescentral.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
+54-->[androidx.core:core:1.9.0] /Users/viditgupta/.gradle/caches/transforms-4/4725defd7a74b59f09384f13f25b8fa8/transformed/core-1.9.0/AndroidManifest.xml:23:9-81
+55        android:protectionLevel="signature" />
+55-->[androidx.core:core:1.9.0] /Users/viditgupta/.gradle/caches/transforms-4/4725defd7a74b59f09384f13f25b8fa8/transformed/core-1.9.0/AndroidManifest.xml:24:9-44
+56
+57    <application
+57-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:35:5-277:19
+58        android:name="com.absolute.android.notescentral.OmniNotes"
+58-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:36:9-34
+59        android:allowBackup="true"
+59-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:37:9-35
+60        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+60-->[androidx.core:core:1.9.0] /Users/viditgupta/.gradle/caches/transforms-4/4725defd7a74b59f09384f13f25b8fa8/transformed/core-1.9.0/AndroidManifest.xml:28:18-86
+61        android:debuggable="true"
+62        android:extractNativeLibs="true"
+63        android:icon="@mipmap/ic_launcher"
+63-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:38:9-43
+64        android:label="@string/app_name"
+64-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:39:9-41
+65        android:largeHeap="true"
+65-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:40:9-33
+66        android:requestLegacyExternalStorage="true"
+66-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:42:9-52
+67        android:supportsRtl="true"
+67-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:41:9-35
+68        android:theme="@style/OmniNotesTheme.ApiSpec.Branded" >
+68-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:43:9-62
+69        <activity
+69-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:46:9-53:20
+70            android:name="com.absolute.android.notescentral.LoadingActivity"
+70-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:47:13-44
+71            android:exported="true" >
+71-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:48:13-36
+72            <intent-filter>
+72-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:49:13-52:29
+73                <action android:name="android.intent.action.MAIN" />
+73-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:50:17-69
+73-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:50:25-66
+74
+75                <category android:name="android.intent.category.LAUNCHER" />
+75-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:51:17-77
+75-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:51:27-74
+76            </intent-filter>
+77        </activity>
+78        <activity
+78-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:55:9-89:20
+79            android:name="com.absolute.android.notescentral.MainActivity"
+79-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:56:13-41
+80            android:exported="true"
+80-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:57:13-36
+81            android:label="@string/app_name"
+81-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:58:13-45
+82            android:launchMode="singleTop" >
+82-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:59:13-43
+83            <intent-filter>
+83-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:60:13-62:29
+84                <action android:name="android.intent.action.SEARCH" />
+84-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:61:17-71
+84-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:61:25-68
+85            </intent-filter>
+86
+87            <meta-data
+87-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:64:13-66:54
+88                android:name="android.app.searchable"
+88-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:65:17-54
+89                android:resource="@xml/searchable" />
+89-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:66:17-51
+90
+91            <intent-filter>
+91-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:68:13-72:29
+92                <action android:name="com.google.android.gm.action.AUTO_SEND" />
+92-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:69:17-81
+92-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:69:25-78
+93
+94                <category android:name="android.intent.category.DEFAULT" />
+94-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:70:17-76
+94-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:70:27-73
+95
+96                <data android:mimeType="*/*" />
+96-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:71:17-48
+96-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:71:23-45
+97            </intent-filter>
+98            <intent-filter>
+98-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:73:13-77:29
+99                <action android:name="android.intent.action.SEND" />
+99-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:74:17-69
+99-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:74:25-66
+100
+101                <category android:name="android.intent.category.DEFAULT" />
+101-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:70:17-76
+101-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:70:27-73
+102
+103                <data android:mimeType="*/*" />
+103-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:71:17-48
+103-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:71:23-45
+104            </intent-filter>
+105            <intent-filter>
+105-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:78:13-82:29
+106                <action android:name="android.intent.action.SEND_MULTIPLE" />
+106-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:79:17-78
+106-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:79:25-75
+107
+108                <category android:name="android.intent.category.DEFAULT" />
+108-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:70:17-76
+108-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:70:27-73
+109
+110                <data android:mimeType="*/*" />
+110-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:71:17-48
+110-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:71:23-45
+111            </intent-filter>
+112            <intent-filter>
+112-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:83:13-88:29
+113                <action android:name="android.intent.action.VIEW" />
+113-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:84:17-69
+113-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:84:25-66
+114
+115                <category android:name="android.intent.category.DEFAULT" />
+115-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:70:17-76
+115-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:70:27-73
+116                <category android:name="android.intent.category.BROWSABLE" />
+116-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:86:17-78
+116-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:86:27-75
+117
+118                <data android:scheme="hashtag" />
+118-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:71:17-48
+118-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:87:23-47
+119            </intent-filter>
+120        </activity>
+121        <activity
+121-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:91:9-95:46
+122            android:name="com.absolute.android.notescentral.AboutActivity"
+122-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:92:13-42
+123            android:exported="false"
+123-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:93:13-37
+124            android:label="@string/title_activity_about"
+124-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:94:13-57
+125            android:launchMode="singleTop" />
+125-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:95:13-43
+126        <activity
+126-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:97:9-101:71
+127            android:name="com.absolute.android.notescentral.GalleryActivity"
+127-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:98:13-44
+128            android:configChanges="orientation|keyboardHidden|screenSize"
+128-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:100:13-74
+129            android:exported="false"
+129-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:99:13-37
+130            android:theme="@style/OmniNotesFullscreenTheme.ApiSpec" />
+130-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:101:13-68
+131        <activity
+131-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:103:9-112:20
+132            android:name="com.absolute.android.notescentral.CategoryActivity"
+132-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:104:13-45
+133            android:exported="false"
+133-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:105:13-37
+134            android:label="@string/title_activity_category"
+134-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:106:13-60
+135            android:parentActivityName="com.absolute.android.notescentral.MainActivity"
+135-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:107:13-55
+136            android:theme="@style/Theme.MaterialComponents.Light.Dialog" >
+136-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:108:13-73
+137            <meta-data
+137-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:109:13-111:49
+138                android:name="android.support.PARENT_ACTIVITY"
+138-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:110:17-63
+139                android:value=".MainActivity" />
+139-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:111:17-46
+140        </activity>
+141        <activity
+141-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:114:9-122:20
+142            android:name="com.absolute.android.notescentral.SettingsActivity"
+142-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:115:13-45
+143            android:exported="false"
+143-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:116:13-37
+144            android:label="@string/settings"
+144-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:117:13-45
+145            android:parentActivityName="com.absolute.android.notescentral.MainActivity" >
+145-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:118:13-55
+146            <meta-data
+146-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:109:13-111:49
+147                android:name="android.support.PARENT_ACTIVITY"
+147-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:110:17-63
+148                android:value=".MainActivity" />
+148-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:111:17-46
+149        </activity>
+150        <activity
+150-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:124:9-128:70
+151            android:name="com.absolute.android.notescentral.PasswordActivity"
+151-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:125:13-45
+152            android:exported="false"
+152-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:126:13-37
+153            android:theme="@style/OmniNotesTheme.ApiSpec.Dialog"
+153-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:127:13-65
+154            android:windowSoftInputMode="stateHidden|adjustResize" />
+154-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:128:13-67
+155        <activity
+155-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:130:9-136:63
+156            android:name="com.absolute.android.notescentral.SnoozeActivity"
+156-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:131:13-43
+157            android:excludeFromRecents="true"
+157-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:133:13-46
+158            android:exported="false"
+158-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:132:13-37
+159            android:launchMode="singleInstance"
+159-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:134:13-48
+160            android:noHistory="true"
+160-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:135:13-37
+161            android:theme="@style/OmniNotesTheme.NoDisplay" />
+161-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:136:13-60
+162        <activity
+162-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:138:9-147:20
+163            android:name="com.absolute.android.notescentral.ShortcutActivity"
+163-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:139:13-45
+164            android:exported="true"
+164-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:140:13-36
+165            android:icon="@drawable/shortcut_icon"
+165-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:141:13-51
+166            android:label="@string/add_note" >
+166-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:142:13-45
+167            <intent-filter>
+167-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:143:13-146:29
+168                <action android:name="android.intent.action.CREATE_SHORTCUT" />
+168-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:144:17-80
+168-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:144:25-77
+169
+170                <category android:name="android.intent.category.DEFAULT" />
+170-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:70:17-76
+170-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:70:27-73
+171            </intent-filter>
+172        </activity>
+173        <activity
+173-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:149:9-152:67
+174            android:name="com.absolute.android.notescentral.StatsActivity"
+174-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:150:13-42
+175            android:exported="false"
+175-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:151:13-37
+176            android:theme="@style/Theme.AppCompat.Light.Dialog" />
+176-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:152:13-64
+177        <activity
+177-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:154:9-157:67
+178            android:name="com.absolute.android.notescentral.NoteInfosActivity"
+178-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:155:13-46
+179            android:exported="false"
+179-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:156:13-37
+180            android:theme="@style/Theme.AppCompat.Light.Dialog" />
+180-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:157:13-64
+181
+182        <receiver
+182-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:159:9-161:40
+183            android:name="com.absolute.android.notescentral.receiver.AlarmReceiver"
+183-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:160:13-51
+184            android:exported="false" />
+184-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:161:13-37
+185        <receiver
+185-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:163:9-172:20
+186            android:name="com.absolute.android.notescentral.receiver.BootCompleteReceiver"
+186-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:164:13-58
+187            android:enabled="true"
+187-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:165:13-35
+188            android:exported="true"
+188-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:166:13-36
+189            android:label="BootCompleteReceiver"
+189-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:167:13-49
+190            android:permission="android.permission.RECEIVE_BOOT_COMPLETED" >
+190-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:168:13-75
+191            <intent-filter>
+191-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:169:13-171:29
+192                <action android:name="android.intent.action.BOOT_COMPLETED" />
+192-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:170:17-79
+192-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:170:25-76
+193            </intent-filter>
+194        </receiver>
+195
+196        <service
+196-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:174:9-177:72
+197            android:name="com.absolute.android.notescentral.async.AlarmRestoreOnRebootService"
+197-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:175:13-62
+198            android:exported="false"
+198-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:176:13-37
+199            android:permission="android.permission.BIND_JOB_SERVICE" />
+199-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:177:13-69
+200        <service
+200-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:179:9-187:19
+201            android:name="com.absolute.android.notescentral.services.NotificationListener"
+201-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:180:13-58
+202            android:exported="true"
+202-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:181:13-36
+203            android:label="@string/app_name"
+203-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:182:13-45
+204            android:permission="android.permission.BIND_NOTIFICATION_LISTENER_SERVICE" >
+204-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:183:13-87
+205            <intent-filter>
+205-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:184:13-186:29
+206                <action android:name="android.service.notification.NotificationListenerService" />
+206-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:185:17-99
+206-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:185:25-96
+207            </intent-filter>
+208        </service>
+209        <service
+209-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:189:9-191:40
+210            android:name="com.absolute.android.notescentral.async.DataBackupIntentService"
+210-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:190:13-58
+211            android:exported="false" />
+211-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:191:13-37
+212
+213        <activity
+213-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:193:9-200:20
+214            android:name="com.absolute.android.notescentral.widget.WidgetConfigurationActivity"
+214-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:194:13-63
+215            android:exported="true"
+215-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:195:13-36
+216            android:theme="@style/Theme.AppCompat.Light.Dialog" >
+216-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:196:13-64
+217            <intent-filter>
+217-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:197:13-199:29
+218                <action android:name="android.appwidget.action.APPWIDGET_CONFIGURE" />
+218-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:198:17-87
+218-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:198:25-84
+219            </intent-filter>
+220        </activity>
+221
+222        <receiver
+222-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:202:9-214:20
+223            android:name="com.absolute.android.notescentral.widget.SimpleWidgetProvider"
+223-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:203:13-56
+224            android:description="@string/widget_simple_description"
+224-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:204:13-68
+225            android:exported="true"
+225-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:207:13-36
+226            android:icon="@drawable/logo"
+226-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:205:13-42
+227            android:label="@string/app_name" >
+227-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:206:13-45
+228            <intent-filter>
+228-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:208:13-210:29
+229                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+229-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:209:17-84
+229-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:209:25-81
+230            </intent-filter>
+231
+232            <meta-data
+232-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:211:13-213:60
+233                android:name="android.appwidget.provider"
+233-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:212:17-58
+234                android:resource="@xml/appwidget_simple" />
+234-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:213:17-57
+235        </receiver>
+236        <receiver
+236-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:216:9-228:20
+237            android:name="com.absolute.android.notescentral.widget.ListWidgetProvider"
+237-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:217:13-54
+238            android:description="@string/widget_list_description"
+238-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:218:13-66
+239            android:exported="true"
+239-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:221:13-36
+240            android:icon="@drawable/logo"
+240-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:219:13-42
+241            android:label="@string/app_name" >
+241-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:220:13-45
+242            <intent-filter>
+242-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:208:13-210:29
+243                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+243-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:209:17-84
+243-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:209:25-81
+244            </intent-filter>
+245
+246            <meta-data
+246-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:211:13-213:60
+247                android:name="android.appwidget.provider"
+247-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:212:17-58
+248                android:resource="@xml/appwidget_list" />
+248-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:213:17-57
+249        </receiver>
+250
+251        <service
+251-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:230:9-233:72
+252            android:name="com.absolute.android.notescentral.widget.ListWidgetService"
+252-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:231:13-53
+253            android:exported="false"
+253-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:232:13-37
+254            android:permission="android.permission.BIND_REMOTEVIEWS" />
+254-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:233:13-69
+255        <service
+255-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:235:9-253:19
+256            android:name="com.absolute.android.notescentral.extensions.ONDashClockExtension"
+256-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:236:13-60
+257            android:exported="true"
+257-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:239:13-36
+258            android:icon="@drawable/ic_stat_literal_icon"
+258-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:237:13-58
+259            android:label="@string/app_name"
+259-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:238:13-45
+260            android:permission="com.google.android.apps.dashclock.permission.READ_EXTENSION_DATA" >
+260-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:240:13-98
+261            <intent-filter>
+261-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:241:13-243:29
+262                <action android:name="com.google.android.apps.dashclock.Extension" />
+262-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:242:17-86
+262-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:242:25-83
+263            </intent-filter>
+264
+265            <meta-data
+265-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:244:13-246:37
+266                android:name="protocolVersion"
+266-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:245:17-47
+267                android:value="2" />
+267-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:246:17-34
+268            <meta-data
+268-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:247:13-249:40
+269                android:name="worldReadable"
+269-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:248:17-45
+270                android:value="true" />
+270-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:249:17-37
+271            <meta-data
+271-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:250:13-252:65
+272                android:name="description"
+272-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:251:17-43
+273                android:value="@string/dashclock_description" />
+273-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:252:17-62
+274        </service>
+275        <service
+275-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:255:9-265:19
+276            android:name="com.absolute.android.notescentral.extensions.PushBulletExtension"
+276-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:256:13-59
+277            android:exported="true"
+277-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:257:13-36
+278            android:permission="com.pushbullet.android.permission.READ_MESSAGING_EXTENSION_DATA" >
+278-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:258:13-97
+279            <intent-filter>
+279-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:259:13-261:29
+280                <action android:name="com.pushbullet.android.extension.MessagingExtension" />
+280-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:260:17-94
+280-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:260:25-91
+281            </intent-filter>
+282
+283            <meta-data
+283-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:244:13-246:37
+284                android:name="protocolVersion"
+284-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:245:17-47
+285                android:value="1" />
+285-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:246:17-34
+286        </service>
+287
+288        <provider
+289            android:name="androidx.core.content.FileProvider"
+289-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:268:13-62
+290            android:authorities="com.absolute.android.notescentral.authority"
+290-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:269:13-61
+291            android:exported="false"
+291-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:270:13-37
+292            android:grantUriPermissions="true" >
+292-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:271:13-47
+293            <meta-data
+293-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:272:13-274:63
+294                android:name="android.support.FILE_PROVIDER_PATHS"
+294-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:273:17-67
+295                android:resource="@xml/file_provider_paths" />
+295-->/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/AndroidManifest.xml:274:17-60
+296        </provider>
+297
+298        <service
+298-->[io.nlopez.smartlocation:library:3.2.4] /Users/viditgupta/.gradle/caches/transforms-4/9625ccf19feb5656650927fafa8f058d/transformed/jetified-library-3.2.4/AndroidManifest.xml:19:9-21:40
+299            android:name="io.nlopez.smartlocation.activity.providers.ActivityGooglePlayServicesProvider$ActivityRecognitionService"
+299-->[io.nlopez.smartlocation:library:3.2.4] /Users/viditgupta/.gradle/caches/transforms-4/9625ccf19feb5656650927fafa8f058d/transformed/jetified-library-3.2.4/AndroidManifest.xml:20:13-132
+300            android:exported="false" />
+300-->[io.nlopez.smartlocation:library:3.2.4] /Users/viditgupta/.gradle/caches/transforms-4/9625ccf19feb5656650927fafa8f058d/transformed/jetified-library-3.2.4/AndroidManifest.xml:21:13-37
+301        <service
+301-->[io.nlopez.smartlocation:library:3.2.4] /Users/viditgupta/.gradle/caches/transforms-4/9625ccf19feb5656650927fafa8f058d/transformed/jetified-library-3.2.4/AndroidManifest.xml:22:9-24:40
+302            android:name="io.nlopez.smartlocation.geofencing.providers.GeofencingGooglePlayServicesProvider$GeofencingService"
+302-->[io.nlopez.smartlocation:library:3.2.4] /Users/viditgupta/.gradle/caches/transforms-4/9625ccf19feb5656650927fafa8f058d/transformed/jetified-library-3.2.4/AndroidManifest.xml:23:13-127
+303            android:exported="false" />
+303-->[io.nlopez.smartlocation:library:3.2.4] /Users/viditgupta/.gradle/caches/transforms-4/9625ccf19feb5656650927fafa8f058d/transformed/jetified-library-3.2.4/AndroidManifest.xml:24:13-37
+304        <service
+304-->[io.nlopez.smartlocation:library:3.2.4] /Users/viditgupta/.gradle/caches/transforms-4/9625ccf19feb5656650927fafa8f058d/transformed/jetified-library-3.2.4/AndroidManifest.xml:25:9-27:40
+305            android:name="io.nlopez.smartlocation.geocoding.providers.AndroidGeocodingProvider$AndroidGeocodingService"
+305-->[io.nlopez.smartlocation:library:3.2.4] /Users/viditgupta/.gradle/caches/transforms-4/9625ccf19feb5656650927fafa8f058d/transformed/jetified-library-3.2.4/AndroidManifest.xml:26:13-120
+306            android:exported="false" />
+306-->[io.nlopez.smartlocation:library:3.2.4] /Users/viditgupta/.gradle/caches/transforms-4/9625ccf19feb5656650927fafa8f058d/transformed/jetified-library-3.2.4/AndroidManifest.xml:27:13-37
+307
+308        <meta-data
+308-->[io.nlopez.smartlocation:library:3.2.4] /Users/viditgupta/.gradle/caches/transforms-4/9625ccf19feb5656650927fafa8f058d/transformed/jetified-library-3.2.4/AndroidManifest.xml:29:9-32:45
+309            android:name="com.google.android.gms.version"
+309-->[io.nlopez.smartlocation:library:3.2.4] /Users/viditgupta/.gradle/caches/transforms-4/9625ccf19feb5656650927fafa8f058d/transformed/jetified-library-3.2.4/AndroidManifest.xml:30:13-58
+310            android:value="6587000" />
+310-->[io.nlopez.smartlocation:library:3.2.4] /Users/viditgupta/.gradle/caches/transforms-4/9625ccf19feb5656650927fafa8f058d/transformed/jetified-library-3.2.4/AndroidManifest.xml:31:13-36
+311
+312        <receiver
+312-->[com.google.android.gms:play-services-analytics:18.0.4] /Users/viditgupta/.gradle/caches/transforms-4/7a7a39dee8ef60965014fe38f23df03d/transformed/jetified-play-services-analytics-18.0.4/AndroidManifest.xml:30:9-34:20
+313            android:name="com.google.android.gms.analytics.AnalyticsReceiver"
+313-->[com.google.android.gms:play-services-analytics:18.0.4] /Users/viditgupta/.gradle/caches/transforms-4/7a7a39dee8ef60965014fe38f23df03d/transformed/jetified-play-services-analytics-18.0.4/AndroidManifest.xml:31:13-78
+314            android:enabled="true"
+314-->[com.google.android.gms:play-services-analytics:18.0.4] /Users/viditgupta/.gradle/caches/transforms-4/7a7a39dee8ef60965014fe38f23df03d/transformed/jetified-play-services-analytics-18.0.4/AndroidManifest.xml:32:13-35
+315            android:exported="false" >
+315-->[com.google.android.gms:play-services-analytics:18.0.4] /Users/viditgupta/.gradle/caches/transforms-4/7a7a39dee8ef60965014fe38f23df03d/transformed/jetified-play-services-analytics-18.0.4/AndroidManifest.xml:33:13-37
+316        </receiver>
+317
+318        <service
+318-->[com.google.android.gms:play-services-analytics:18.0.4] /Users/viditgupta/.gradle/caches/transforms-4/7a7a39dee8ef60965014fe38f23df03d/transformed/jetified-play-services-analytics-18.0.4/AndroidManifest.xml:36:9-39:40
+319            android:name="com.google.android.gms.analytics.AnalyticsService"
+319-->[com.google.android.gms:play-services-analytics:18.0.4] /Users/viditgupta/.gradle/caches/transforms-4/7a7a39dee8ef60965014fe38f23df03d/transformed/jetified-play-services-analytics-18.0.4/AndroidManifest.xml:37:13-77
+320            android:enabled="true"
+320-->[com.google.android.gms:play-services-analytics:18.0.4] /Users/viditgupta/.gradle/caches/transforms-4/7a7a39dee8ef60965014fe38f23df03d/transformed/jetified-play-services-analytics-18.0.4/AndroidManifest.xml:38:13-35
+321            android:exported="false" />
+321-->[com.google.android.gms:play-services-analytics:18.0.4] /Users/viditgupta/.gradle/caches/transforms-4/7a7a39dee8ef60965014fe38f23df03d/transformed/jetified-play-services-analytics-18.0.4/AndroidManifest.xml:39:13-37
+322        <service
+322-->[com.google.android.gms:play-services-analytics:18.0.4] /Users/viditgupta/.gradle/caches/transforms-4/7a7a39dee8ef60965014fe38f23df03d/transformed/jetified-play-services-analytics-18.0.4/AndroidManifest.xml:40:9-44:72
+323            android:name="com.google.android.gms.analytics.AnalyticsJobService"
+323-->[com.google.android.gms:play-services-analytics:18.0.4] /Users/viditgupta/.gradle/caches/transforms-4/7a7a39dee8ef60965014fe38f23df03d/transformed/jetified-play-services-analytics-18.0.4/AndroidManifest.xml:41:13-80
+324            android:enabled="true"
+324-->[com.google.android.gms:play-services-analytics:18.0.4] /Users/viditgupta/.gradle/caches/transforms-4/7a7a39dee8ef60965014fe38f23df03d/transformed/jetified-play-services-analytics-18.0.4/AndroidManifest.xml:42:13-35
+325            android:exported="false"
+325-->[com.google.android.gms:play-services-analytics:18.0.4] /Users/viditgupta/.gradle/caches/transforms-4/7a7a39dee8ef60965014fe38f23df03d/transformed/jetified-play-services-analytics-18.0.4/AndroidManifest.xml:43:13-37
+326            android:permission="android.permission.BIND_JOB_SERVICE" />
+326-->[com.google.android.gms:play-services-analytics:18.0.4] /Users/viditgupta/.gradle/caches/transforms-4/7a7a39dee8ef60965014fe38f23df03d/transformed/jetified-play-services-analytics-18.0.4/AndroidManifest.xml:44:13-69
+327
+328        <activity
+328-->[com.google.android.gms:play-services-base:18.0.1] /Users/viditgupta/.gradle/caches/transforms-4/8c5f7b4786b59754ec5cbe5d50551e78/transformed/jetified-play-services-base-18.0.1/AndroidManifest.xml:20:9-22:45
+329            android:name="com.google.android.gms.common.api.GoogleApiActivity"
+329-->[com.google.android.gms:play-services-base:18.0.1] /Users/viditgupta/.gradle/caches/transforms-4/8c5f7b4786b59754ec5cbe5d50551e78/transformed/jetified-play-services-base-18.0.1/AndroidManifest.xml:20:19-85
+330            android:exported="false"
+330-->[com.google.android.gms:play-services-base:18.0.1] /Users/viditgupta/.gradle/caches/transforms-4/8c5f7b4786b59754ec5cbe5d50551e78/transformed/jetified-play-services-base-18.0.1/AndroidManifest.xml:22:19-43
+331            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+331-->[com.google.android.gms:play-services-base:18.0.1] /Users/viditgupta/.gradle/caches/transforms-4/8c5f7b4786b59754ec5cbe5d50551e78/transformed/jetified-play-services-base-18.0.1/AndroidManifest.xml:21:19-78
+332
+333        <provider
+333-->[androidx.emoji2:emoji2:1.2.0] /Users/viditgupta/.gradle/caches/transforms-4/bd5158aaf85efbf9211f949929b976b8/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:24:9-32:20
+334            android:name="androidx.startup.InitializationProvider"
+334-->[androidx.emoji2:emoji2:1.2.0] /Users/viditgupta/.gradle/caches/transforms-4/bd5158aaf85efbf9211f949929b976b8/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:25:13-67
+335            android:authorities="com.absolute.android.notescentral.androidx-startup"
+335-->[androidx.emoji2:emoji2:1.2.0] /Users/viditgupta/.gradle/caches/transforms-4/bd5158aaf85efbf9211f949929b976b8/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:26:13-68
+336            android:exported="false" >
+336-->[androidx.emoji2:emoji2:1.2.0] /Users/viditgupta/.gradle/caches/transforms-4/bd5158aaf85efbf9211f949929b976b8/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:27:13-37
+337            <meta-data
+337-->[androidx.emoji2:emoji2:1.2.0] /Users/viditgupta/.gradle/caches/transforms-4/bd5158aaf85efbf9211f949929b976b8/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:29:13-31:52
+338                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+338-->[androidx.emoji2:emoji2:1.2.0] /Users/viditgupta/.gradle/caches/transforms-4/bd5158aaf85efbf9211f949929b976b8/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:30:17-75
+339                android:value="androidx.startup" />
+339-->[androidx.emoji2:emoji2:1.2.0] /Users/viditgupta/.gradle/caches/transforms-4/bd5158aaf85efbf9211f949929b976b8/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:31:17-49
+340            <meta-data
+340-->[androidx.lifecycle:lifecycle-process:2.6.1] /Users/viditgupta/.gradle/caches/transforms-4/ece526dbdb106214809f1e69156ad318/transformed/jetified-lifecycle-process-2.6.1/AndroidManifest.xml:29:13-31:52
+341                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+341-->[androidx.lifecycle:lifecycle-process:2.6.1] /Users/viditgupta/.gradle/caches/transforms-4/ece526dbdb106214809f1e69156ad318/transformed/jetified-lifecycle-process-2.6.1/AndroidManifest.xml:30:17-78
+342                android:value="androidx.startup" />
+342-->[androidx.lifecycle:lifecycle-process:2.6.1] /Users/viditgupta/.gradle/caches/transforms-4/ece526dbdb106214809f1e69156ad318/transformed/jetified-lifecycle-process-2.6.1/AndroidManifest.xml:31:17-49
+343            <meta-data
+343-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/viditgupta/.gradle/caches/transforms-4/a313127962cd27860f10cfb4d40536a9/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:29:13-31:52
+344                android:name="androidx.profileinstaller.ProfileInstallerInitializer"
+344-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/viditgupta/.gradle/caches/transforms-4/a313127962cd27860f10cfb4d40536a9/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:30:17-85
+345                android:value="androidx.startup" />
+345-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/viditgupta/.gradle/caches/transforms-4/a313127962cd27860f10cfb4d40536a9/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:31:17-49
+346        </provider>
+347
+348        <uses-library
+348-->[androidx.window:window:1.0.0] /Users/viditgupta/.gradle/caches/transforms-4/4088177163a19ff976082b33b603f569/transformed/jetified-window-1.0.0/AndroidManifest.xml:25:9-27:40
+349            android:name="androidx.window.extensions"
+349-->[androidx.window:window:1.0.0] /Users/viditgupta/.gradle/caches/transforms-4/4088177163a19ff976082b33b603f569/transformed/jetified-window-1.0.0/AndroidManifest.xml:26:13-54
+350            android:required="false" />
+350-->[androidx.window:window:1.0.0] /Users/viditgupta/.gradle/caches/transforms-4/4088177163a19ff976082b33b603f569/transformed/jetified-window-1.0.0/AndroidManifest.xml:27:13-37
+351        <uses-library
+351-->[androidx.window:window:1.0.0] /Users/viditgupta/.gradle/caches/transforms-4/4088177163a19ff976082b33b603f569/transformed/jetified-window-1.0.0/AndroidManifest.xml:28:9-30:40
+352            android:name="androidx.window.sidecar"
+352-->[androidx.window:window:1.0.0] /Users/viditgupta/.gradle/caches/transforms-4/4088177163a19ff976082b33b603f569/transformed/jetified-window-1.0.0/AndroidManifest.xml:29:13-51
+353            android:required="false" />
+353-->[androidx.window:window:1.0.0] /Users/viditgupta/.gradle/caches/transforms-4/4088177163a19ff976082b33b603f569/transformed/jetified-window-1.0.0/AndroidManifest.xml:30:13-37
+354
+355        <receiver
+355-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/viditgupta/.gradle/caches/transforms-4/a313127962cd27860f10cfb4d40536a9/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:34:9-52:20
+356            android:name="androidx.profileinstaller.ProfileInstallReceiver"
+356-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/viditgupta/.gradle/caches/transforms-4/a313127962cd27860f10cfb4d40536a9/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:35:13-76
+357            android:directBootAware="false"
+357-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/viditgupta/.gradle/caches/transforms-4/a313127962cd27860f10cfb4d40536a9/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:36:13-44
+358            android:enabled="true"
+358-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/viditgupta/.gradle/caches/transforms-4/a313127962cd27860f10cfb4d40536a9/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:37:13-35
+359            android:exported="true"
+359-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/viditgupta/.gradle/caches/transforms-4/a313127962cd27860f10cfb4d40536a9/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:38:13-36
+360            android:permission="android.permission.DUMP" >
+360-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/viditgupta/.gradle/caches/transforms-4/a313127962cd27860f10cfb4d40536a9/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:39:13-57
+361            <intent-filter>
+361-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/viditgupta/.gradle/caches/transforms-4/a313127962cd27860f10cfb4d40536a9/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:40:13-42:29
+362                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE" />
+362-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/viditgupta/.gradle/caches/transforms-4/a313127962cd27860f10cfb4d40536a9/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:41:17-91
+362-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/viditgupta/.gradle/caches/transforms-4/a313127962cd27860f10cfb4d40536a9/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:41:25-88
+363            </intent-filter>
+364            <intent-filter>
+364-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/viditgupta/.gradle/caches/transforms-4/a313127962cd27860f10cfb4d40536a9/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:43:13-45:29
+365                <action android:name="androidx.profileinstaller.action.SKIP_FILE" />
+365-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/viditgupta/.gradle/caches/transforms-4/a313127962cd27860f10cfb4d40536a9/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:44:17-85
+365-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/viditgupta/.gradle/caches/transforms-4/a313127962cd27860f10cfb4d40536a9/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:44:25-82
+366            </intent-filter>
+367            <intent-filter>
+367-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/viditgupta/.gradle/caches/transforms-4/a313127962cd27860f10cfb4d40536a9/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:46:13-48:29
+368                <action android:name="androidx.profileinstaller.action.SAVE_PROFILE" />
+368-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/viditgupta/.gradle/caches/transforms-4/a313127962cd27860f10cfb4d40536a9/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:47:17-88
+368-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/viditgupta/.gradle/caches/transforms-4/a313127962cd27860f10cfb4d40536a9/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:47:25-85
+369            </intent-filter>
+370            <intent-filter>
+370-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/viditgupta/.gradle/caches/transforms-4/a313127962cd27860f10cfb4d40536a9/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:49:13-51:29
+371                <action android:name="androidx.profileinstaller.action.BENCHMARK_OPERATION" />
+371-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/viditgupta/.gradle/caches/transforms-4/a313127962cd27860f10cfb4d40536a9/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:50:17-95
+371-->[androidx.profileinstaller:profileinstaller:1.3.0] /Users/viditgupta/.gradle/caches/transforms-4/a313127962cd27860f10cfb4d40536a9/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:50:25-92
+372            </intent-filter>
+373        </receiver>
+374
+375        <service
+375-->[ch.acra:acra-core:5.4.0] /Users/viditgupta/.gradle/caches/transforms-4/0e13450607bc541e074627a0ee09ae72/transformed/jetified-acra-core-5.4.0/AndroidManifest.xml:27:9-31:39
+376            android:name="org.acra.sender.LegacySenderService"
+376-->[ch.acra:acra-core:5.4.0] /Users/viditgupta/.gradle/caches/transforms-4/0e13450607bc541e074627a0ee09ae72/transformed/jetified-acra-core-5.4.0/AndroidManifest.xml:28:13-63
+377            android:enabled="@bool/acra_enable_legacy_service"
+377-->[ch.acra:acra-core:5.4.0] /Users/viditgupta/.gradle/caches/transforms-4/0e13450607bc541e074627a0ee09ae72/transformed/jetified-acra-core-5.4.0/AndroidManifest.xml:29:13-63
+378            android:exported="false"
+378-->[ch.acra:acra-core:5.4.0] /Users/viditgupta/.gradle/caches/transforms-4/0e13450607bc541e074627a0ee09ae72/transformed/jetified-acra-core-5.4.0/AndroidManifest.xml:30:13-37
+379            android:process=":acra" />
+379-->[ch.acra:acra-core:5.4.0] /Users/viditgupta/.gradle/caches/transforms-4/0e13450607bc541e074627a0ee09ae72/transformed/jetified-acra-core-5.4.0/AndroidManifest.xml:31:13-36
+380        <service
+380-->[ch.acra:acra-core:5.4.0] /Users/viditgupta/.gradle/caches/transforms-4/0e13450607bc541e074627a0ee09ae72/transformed/jetified-acra-core-5.4.0/AndroidManifest.xml:32:9-37:39
+381            android:name="org.acra.sender.JobSenderService"
+381-->[ch.acra:acra-core:5.4.0] /Users/viditgupta/.gradle/caches/transforms-4/0e13450607bc541e074627a0ee09ae72/transformed/jetified-acra-core-5.4.0/AndroidManifest.xml:33:13-60
+382            android:enabled="@bool/acra_enable_job_service"
+382-->[ch.acra:acra-core:5.4.0] /Users/viditgupta/.gradle/caches/transforms-4/0e13450607bc541e074627a0ee09ae72/transformed/jetified-acra-core-5.4.0/AndroidManifest.xml:34:13-60
+383            android:exported="false"
+383-->[ch.acra:acra-core:5.4.0] /Users/viditgupta/.gradle/caches/transforms-4/0e13450607bc541e074627a0ee09ae72/transformed/jetified-acra-core-5.4.0/AndroidManifest.xml:35:13-37
+384            android:permission="android.permission.BIND_JOB_SERVICE"
+384-->[ch.acra:acra-core:5.4.0] /Users/viditgupta/.gradle/caches/transforms-4/0e13450607bc541e074627a0ee09ae72/transformed/jetified-acra-core-5.4.0/AndroidManifest.xml:36:13-69
+385            android:process=":acra" />
+385-->[ch.acra:acra-core:5.4.0] /Users/viditgupta/.gradle/caches/transforms-4/0e13450607bc541e074627a0ee09ae72/transformed/jetified-acra-core-5.4.0/AndroidManifest.xml:37:13-36
+386
+387        <provider
+387-->[ch.acra:acra-core:5.4.0] /Users/viditgupta/.gradle/caches/transforms-4/0e13450607bc541e074627a0ee09ae72/transformed/jetified-acra-core-5.4.0/AndroidManifest.xml:39:9-45:51
+388            android:name="org.acra.attachment.AcraContentProvider"
+388-->[ch.acra:acra-core:5.4.0] /Users/viditgupta/.gradle/caches/transforms-4/0e13450607bc541e074627a0ee09ae72/transformed/jetified-acra-core-5.4.0/AndroidManifest.xml:40:13-67
+389            android:authorities="com.absolute.android.notescentral.acra"
+389-->[ch.acra:acra-core:5.4.0] /Users/viditgupta/.gradle/caches/transforms-4/0e13450607bc541e074627a0ee09ae72/transformed/jetified-acra-core-5.4.0/AndroidManifest.xml:41:13-56
+390            android:exported="false"
+390-->[ch.acra:acra-core:5.4.0] /Users/viditgupta/.gradle/caches/transforms-4/0e13450607bc541e074627a0ee09ae72/transformed/jetified-acra-core-5.4.0/AndroidManifest.xml:42:13-37
+391            android:grantUriPermissions="true"
+391-->[ch.acra:acra-core:5.4.0] /Users/viditgupta/.gradle/caches/transforms-4/0e13450607bc541e074627a0ee09ae72/transformed/jetified-acra-core-5.4.0/AndroidManifest.xml:43:13-47
+392            android:process=":acra" />
+392-->[ch.acra:acra-core:5.4.0] /Users/viditgupta/.gradle/caches/transforms-4/0e13450607bc541e074627a0ee09ae72/transformed/jetified-acra-core-5.4.0/AndroidManifest.xml:44:13-36
+393
+394        <activity android:name="com.nhaarman.listviewanimations.itemmanipulation.swipedismiss.SwipeTouchListenerTestActivity" />
+394-->[com.nhaarman.listviewanimations:lib-manipulation:3.1.0] /Users/viditgupta/.gradle/caches/transforms-4/010d71b976f83fd475a8dae3e38c37e8/transformed/jetified-lib-manipulation-3.1.0/AndroidManifest.xml:27:9-129
+394-->[com.nhaarman.listviewanimations:lib-manipulation:3.1.0] /Users/viditgupta/.gradle/caches/transforms-4/010d71b976f83fd475a8dae3e38c37e8/transformed/jetified-lib-manipulation-3.1.0/AndroidManifest.xml:27:19-126
+395        <activity android:name="com.nhaarman.listviewanimations.itemmanipulation.dragdrop.DynamicListViewTestActivity" />
+395-->[com.nhaarman.listviewanimations:lib-manipulation:3.1.0] /Users/viditgupta/.gradle/caches/transforms-4/010d71b976f83fd475a8dae3e38c37e8/transformed/jetified-lib-manipulation-3.1.0/AndroidManifest.xml:28:9-122
+395-->[com.nhaarman.listviewanimations:lib-manipulation:3.1.0] /Users/viditgupta/.gradle/caches/transforms-4/010d71b976f83fd475a8dae3e38c37e8/transformed/jetified-lib-manipulation-3.1.0/AndroidManifest.xml:28:19-119
+396    </application>
+397
+398</manifest>

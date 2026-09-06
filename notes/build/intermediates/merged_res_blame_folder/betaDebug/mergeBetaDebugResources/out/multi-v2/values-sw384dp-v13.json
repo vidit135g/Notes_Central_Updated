@@ -1,0 +1,26 @@
+{
+    "logs": [
+        {
+            "outputFile": "com.absolute.android.notescentral.notes-mergeBetaDebugResources-61:/values-sw384dp-v13/values-sw384dp-v13.xml",
+            "map": [
+                {
+                    "source": "/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/res/values-sw384dp/dimens.xml",
+                    "from": {
+                        "startLines": "19",
+                        "startColumns": "4",
+                        "startOffsets": "792",
+                        "endColumns": "55",
+                        "endOffsets": "843"
+                    },
+                    "to": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "55",
+                        "endOffsets": "106"
+                    }
+                }
+            ]
+        }
+    ]
+}

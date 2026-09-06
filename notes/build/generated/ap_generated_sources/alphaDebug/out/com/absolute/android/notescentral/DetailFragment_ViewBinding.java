@@ -33,7 +33,7 @@ public class DetailFragment_ViewBinding implements Unbinder {
     target.mGridView = Utils.findOptionalViewAsType(source, R.id.gridview, "field 'mGridView'", ExpandableHeightGridView.class);
     target.locationTextView = Utils.findRequiredViewAsType(source, R.id.location, "field 'locationTextView'", TextView.class);
     target.timestampsView = Utils.findRequiredView(source, R.id.detail_timestamps, "field 'timestampsView'");
-    target.reminderLayout = Utils.findRequiredViewAsType(source, R.id.reminder_layout, "field 'reminderLayout'", LinearLayout.class);
+    target.reminder_layout = Utils.findRequiredViewAsType(source, R.id.reminder_layout, "field 'reminder_layout'", LinearLayout.class);
     target.reminderIcon = Utils.findRequiredViewAsType(source, R.id.reminder_icon, "field 'reminderIcon'", ImageView.class);
     target.datetime = Utils.findRequiredViewAsType(source, R.id.datetime, "field 'datetime'", TextView.class);
     target.titleCardView = Utils.findRequiredView(source, R.id.detail_tile_card, "field 'titleCardView'");
@@ -61,7 +61,7 @@ public class DetailFragment_ViewBinding implements Unbinder {
     target.mGridView = null;
     target.locationTextView = null;
     target.timestampsView = null;
-    target.reminderLayout = null;
+    target.reminder_layout = null;
     target.reminderIcon = null;
     target.datetime = null;
     target.titleCardView = null;

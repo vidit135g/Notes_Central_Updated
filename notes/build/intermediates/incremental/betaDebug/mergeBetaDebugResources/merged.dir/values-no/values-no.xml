@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string msgid="1303870564366209730" name="place_autocomplete_clear_button">"Fjern søket"</string>
+    <string msgid="2809095107724486040" name="place_autocomplete_search_hint">"Søk"</string>
+</resources>

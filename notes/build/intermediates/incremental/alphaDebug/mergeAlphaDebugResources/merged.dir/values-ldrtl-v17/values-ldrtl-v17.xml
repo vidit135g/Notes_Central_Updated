@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="material_ic_keyboard_arrow_next_black_24dp" type="drawable">@drawable/material_ic_keyboard_arrow_left_black_24dp</item>
+    <item name="material_ic_keyboard_arrow_previous_black_24dp" type="drawable">@drawable/material_ic_keyboard_arrow_right_black_24dp</item>
+    <integer name="sp_time_picker_column_end_material">0</integer>
+    <integer name="sp_time_picker_column_start_material">1</integer>
+</resources>

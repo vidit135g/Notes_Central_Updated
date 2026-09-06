@@ -1,0 +1,355 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:ns1="urn:oasis:names:tc:xliff:document:1.2">
+    <string-array name="attachments_actions">
+        <item>ແບ່ງປັນ</item>
+        <item>ລຶບ</item>
+        <item>Delete All</item>
+        <item>ແກ້ໄຂ</item>
+    </string-array>
+    <string-array name="checked_items_behavior">
+        <item>ຢຸດຢູ່ຕຳແໜ່ງນີ້</item>
+        <item>ຍ້າຍໄປທ້າຍຂອງລາຍການທັງໝົດ</item>
+        <item>ຍ້າຍຫຼັງຖືກເຊົາເລືອກແຕ່ໃຫ້ຢູ່ເໜືອອັນທີ່ເຊົາເລືອກ</item>
+    </string-array>
+    <string-array name="colors_app">
+        <item>ປິດໃຊ້</item>
+        <item>ແຖບເທົ່ານັ້ນ</item>
+        <item>ລາຍການບັນທຶກເທົ່ານັ້ນ</item>
+        <item>ທັງໝົດ</item>
+    </string-array>
+    <string-array name="colors_widget">
+        <item>ປິດໃຊ້</item>
+        <item>ແຖບເທົ່ານັ້ນ</item>
+        <item>ລາຍການບັນທຶກ</item>
+    </string-array>
+    <string-array name="navigation_list">
+        <item>ບັນທຶກ</item>
+        <item>ເກັບຮັກສາ</item>
+        <item>ໂຕເຕືອນຄວາມຈຳ</item>
+        <item>ຖັງຂີ້ເຫຍື່ອ</item>
+        <item>Uncategorized</item>
+    </string-array>
+    <string-array name="recurrence_freq">
+        <item>"ຊ້ຳທຸກໆມື້"</item>
+        <item>"ຊ້ຳທຸກໆອາທິດ"</item>
+        <item>"ຊ້ຳທຸກໆເດືອນ"</item>
+        <item>"ຊ້ຳທຸກໆປີ"</item>
+    </string-array>
+    <string-array name="repeat_by_nth_fri">
+        <item>"ໃນທຸກໆວັນສຸກທໍາອິດ"</item>
+        <item>"ໃນທຸກໆວັນສຸກທີສອງ"</item>
+        <item>"ໃນທຸກໆວັນສຸກທີສາມ"</item>
+        <item>"ໃນທຸກໆວັນສຸກທີສີ່"</item>
+        <item>"ໃນທຸກໆວັນສຸກສຸດທ້າຍ"</item>
+    </string-array>
+    <string-array name="repeat_by_nth_mon">
+        <item>"ໃນທຸກໆວັນຈັນທຳອິດ"</item>
+        <item>"ໃນທຸກໆວັນຈັນທີສອງ"</item>
+        <item>"ໃນທຸກໆວັນຈັນທີສາມ"</item>
+        <item>"ໃນທຸກໆວັນຈັນທີສີ່"</item>
+        <item>"ໃນທຸກໆວັນຈັນສຸດທ້າຍ"</item>
+    </string-array>
+    <string-array name="repeat_by_nth_sat">
+        <item>"ໃນທຸກໆວັນເສົາທຳອິດ"</item>
+        <item>"ໃນທຸກໆວັນເສົາທີສອງ"</item>
+        <item>"ໃນທຸກໆວັນເສົາທີສາມ"</item>
+        <item>"ໃນທຸກໆວັນເສົາທີສີ່"</item>
+        <item>"ໃນທຸກໆວັນເສົາສຸດທ້າຍ"</item>
+    </string-array>
+    <string-array name="repeat_by_nth_sun">
+        <item>"ໃນທຸກໆວັນອາທິດທຳອິດ"</item>
+        <item>"ໃນທຸກໆວັນອາທິດທີສອງ"</item>
+        <item>"ໃນທຸກໆວັນອາທິດທີສາມ"</item>
+        <item>"ໃນທຸກໆວັນອາທິດທີສີ່"</item>
+        <item>"ໃນທຸກໆວັນອາທິດສຸດທ້າຍ"</item>
+    </string-array>
+    <string-array name="repeat_by_nth_thurs">
+        <item>"ໃນທຸກໆວັນພະຫັດທຳອິດ"</item>
+        <item>"ໃນທຸກໆວັນພະຫັດທີສອງ"</item>
+        <item>"ໃນທຸກໆວັນພະຫັດທີສາມ"</item>
+        <item>"ໃນທຸກໆວັນພະຫັດທີສີ່"</item>
+        <item>"ໃນທຸກໆວັນພະຫັດທີສຸດທ້າຍ"</item>
+    </string-array>
+    <string-array name="repeat_by_nth_tues">
+        <item>"ໃນທຸກໆວັນອັງຄານທຳອິດ"</item>
+        <item>"ໃນທຸກໆວັນອັງຄານທີສອງ"</item>
+        <item>"ໃນທຸກໆວັນອັງຄານທີສາມ"</item>
+        <item>"ໃນທຸກໆວັນອັງຄານທີສີ່"</item>
+        <item>"ໃນທຸກໆວັນອັງຄານສຸດທ້າຍ"</item>
+    </string-array>
+    <string-array name="repeat_by_nth_wed">
+        <item>"ໃນທຸກໆວັນພຸດທຳອິດ"</item>
+        <item>"ໃນທຸກໆວັນພຸດທີສອງ"</item>
+        <item>"ໃນທຸກໆວັນພຸດທີສາມ"</item>
+        <item>"ໃນທຸກໆວັນພຸດທີສີ່"</item>
+        <item>"ໃນທຸກໆວັນພຸດທີສຸດທ້າຍ"</item>
+    </string-array>
+    <string-array name="sortable_columns_human_readable">
+        <item>ຫົວຂໍ້</item>
+        <item>ວັນ​ທີ​ສ້າງ</item>
+        <item>ວັນ​ທີ​ດັດ​ແກ້​ຫຼ້າ​ສຸດ</item>
+        <item>ວັນທີເຕືອນຄວາມຈຳ</item>
+    </string-array>
+    <plurals name="daily">
+        <item quantity="one">"ປະຈໍາວັນ"</item>
+        <item quantity="other">"ທຸກໆ <ns1:g id="NUMBER">%d</ns1:g> ມື້"</item>
+    </plurals>
+    <plurals name="endByCount">
+        <item quantity="one">"; ເທື່ອດຽວ"</item>
+        <item quantity="other">"; <ns1:g id="NUMBER">%d</ns1:g> ເທື່ອ"</item>
+    </plurals>
+    <plurals name="recurrence_end_count">
+        <item quantity="one">"ສໍາລັບ <ns1:g id="EVENT_COUNT">%d</ns1:g> ນັດໝາຍ"</item>
+        <item quantity="other">"ສໍາລັບ <ns1:g id="EVENT_COUNT">%d</ns1:g> ນັດໝາຍ"</item>
+    </plurals>
+    <plurals name="recurrence_interval_daily">
+        <item quantity="one">"ທຸກໆ <ns1:g id="COUNT">%d</ns1:g> ມື້"</item>
+        <item quantity="other">"ທຸກໆ <ns1:g id="COUNT">%d</ns1:g> ມື້"</item>
+    </plurals>
+    <plurals name="recurrence_interval_monthly">
+        <item quantity="one">"ທຸກໆ <ns1:g id="COUNT">%d</ns1:g> ເດືອນ"</item>
+        <item quantity="other">"ທຸກໆ <ns1:g id="COUNT">%d</ns1:g> ເດືອນ"</item>
+    </plurals>
+    <plurals name="recurrence_interval_weekly">
+        <item quantity="one">"ທຸກໆ <ns1:g id="COUNT">%d</ns1:g> ອາທິດ"</item>
+        <item quantity="other">"ທຸກໆ <ns1:g id="COUNT">%d</ns1:g> ອາທິດ"</item>
+    </plurals>
+    <plurals name="recurrence_interval_yearly">
+        <item quantity="one">"ທຸກໆ <ns1:g id="COUNT">%d</ns1:g> ປີ"</item>
+        <item quantity="other">"ທຸກໆ <ns1:g id="COUNT">%d</ns1:g> ປີ"</item>
+    </plurals>
+    <plurals name="weekly">
+        <item quantity="one">"ປະຈຳອາທິດໃນມື້ <ns1:g id="DAYS_OF_WEEK">%2$s</ns1:g>"</item>
+        <item quantity="other">"ທຸກໆ <ns1:g id="NUMBER">%1$d</ns1:g> ອາທິດໃນມື້ <ns1:g id="DAYS_OF_WEEK">%2$s</ns1:g>"</item>
+    </plurals>
+    <string name="acessibility_recurrence_choose_end_date_description">"ປ່ຽນວັນສິ້ນສຸດ"</string>
+    <string name="action_settings">ການ​ຕັ້ງຄ່າ</string>
+    <string name="add_note">ເພີ່ມບັນທຶກ</string>
+    <string name="add_reminder">ເພີ່ມໂຕເຕືອນຄວາມຈຳ</string>
+    <string name="add_shortcut">ເພີ່ມທາງລັດ</string>
+    <string name="alarm_set_on">ເປີດໃຊ້ການແຈ້ງເຕືອນ</string>
+    <string name="archive">ເກັບຮັກສາ</string>
+    <string name="at_time">ເວລາ</string>
+    <string name="attachment">ໄຟລ໌ແນບ</string>
+    <string name="backup_existing">ມີຂໍ້ມູນທີ່ສຳຮອງໄວ້ແລ້ວ, ມັນຈະຖືກແທນທີ່</string>
+    <string name="backup_include_settings">ຮວມທັງການຕັ້ງຄ່າ (ພ້ອມທັງລະຫັດຜ່ານ)</string>
+    <string name="camera">ກ້ອງ​ຖ່າຍ​ຮູບ</string>
+    <string name="cancel">ຍົກ​ເລີກ​</string>
+    <string name="category_title">ຫົວຂໍ້</string>
+    <string name="channel_reminders_name">ໂຕເຕືອນຄວາມຈຳ</string>
+    <string name="checklist_item_hint">ລາຍ​ການ​ໃໝ່</string>
+    <string name="checklist_keep_checked">ຮັກສາລາຍການທີ່ຖືກເລືອກໄວ້</string>
+    <string name="checklist_keep_symbols">ຮັກສາເຄື່ອງໝາຍເລືອກໄວ້ (ເພື່ອຈົດຈຳອັນທີ່​ຖືກເລືອກ)</string>
+    <string name="checklist_off">ປິດ​ການ​ໃຊ້​ງານ​ລາຍການແບບເລືອກ</string>
+    <string name="checklist_on">ເປີດການໃຊ້ງານລາຍການແບບເລືອກ</string>
+    <string name="choose_action">ເລືອກການກະທຳເພື່ອປະຕິບັດ</string>
+    <string name="click_to_refresh_application">ກົດເພື່ອ refresh ແອັບພຼິເຄຊັນ</string>
+    <string name="colors">ສີ</string>
+    <string name="colors_app">ສີຂອງແອັບພຼິເຄຊັນ</string>
+    <string name="colors_widget">ສີຂອງວິດເຈັດ</string>
+    <string name="confirm">ຢືນ​ຢັນ</string>
+    <string name="confirm_new_password">ຢືນ​ຢັນ​ລະ​ຫັດ​ຜ່ານໃຫມ່</string>
+    <string name="confirm_removing_backup">ຢືນຢັນການລຶບຂໍ້ມູນສຳຮອງ</string>
+    <string name="confirm_restoring_backup">ຢືນຢັນການຮຽກຄືນຂໍ້ມູນສຳຮອງ</string>
+    <string name="content">ເນື້ອ​ໃນ</string>
+    <string name="contracted_view">ມູມມອງທີ່ນ້ອຍລົງ</string>
+    <string name="copy">ຄັດລອກ</string>
+    <string name="crash_dialog_comment_prompt">ພິມຄວາມເຫັນຂອງທ່ານໃສ່ບ່ອນນີ້:</string>
+    <string name="crash_dialog_text">ມີຂໍ້ຜິດພາດເກີດຂຶ້ນກັບ Omni Notes\n ທ່ານຕ້ອງການສົ່ງການລາຍງານໄປຫາຜູ່ພັດທະນາບໍ່?</string>
+    <string name="creation">ສ້າງເມື່ອ:</string>
+    <string name="dashclock_description">ສະແດງສະຖິຕິຈຳນວນໜຶ່ງ ແລະ ເຂົ້າເຖິງໂຕເຕືອນຄວາມຈຳຈາກ Omni Notes</string>
+    <string name="data_deletion_completed">ການລຶບຂໍ້ມູນສຳເລັດແລ້ວ</string>
+    <string name="data_export_completed">ສຳຮອງ​ຂໍ້​ມູນ​ສ​ໍ​າ​ເລັດແລ້ວ</string>
+    <string name="data_export_message">ໃສ່ຊື່ຂໍ້ມູນສຳຮອງ</string>
+    <string name="data_import_completed">ການ​ນໍາ​ເຂົ້າ​ຂໍ້​ມູນ​ສໍາ​ເລັດແລ້ວ</string>
+    <string name="data_import_message">ກົດ -​> ຮຽກຄືນ\nກົດຄ້າງ -​> ລຶບ</string>
+    <string name="data_import_message_warning">ຄໍາ​ເຕືອນ​: ການດຳເນີນການນີ້​ຈະ​ທົດ​ແທນ​ຂໍ້​ມູນ​ປະ​ຈຸ​ບັນ​ທັງ​ຫມົດ​!</string>
+    <string name="day_picker_description">"ຕາຕາລາງວັນທີເດືອນປີ"</string>
+    <string name="delete">ລຶບ</string>
+    <string name="delete_note_confirmation">ຢືນ​ຢັນ​ການ​ລຶບ​ບັນ​ທຶກ?</string>
+    <string name="delete_selected_image">ລຶບ​ໄຟລ໌ແນບທີ່ເລືອກ​?</string>
+    <string name="deleted">ລຶບແລ້ວ</string>
+    <string name="deleted_key">"<ns1:g id="KEY">%1$s</ns1:g> ຖືກລຶບແລ້ວ"</string>
+    <string name="discard">ຍົກເລີກ</string>
+    <string name="discard_changes">ຍົກເລີກການປ່ຽນແປງ</string>
+    <string name="dismiss">ຍົກເລີກ</string>
+    <string name="donate">ບໍລິຈາກ</string>
+    <string name="drawer_close">drawer close</string>
+    <string name="drawer_open">drawer open</string>
+    <string name="edit">ແກ້ໄຂ</string>
+    <string name="empty_note_not_saved">ບັນທຶກເປົ່າ​ບໍ່​ຖືກຈັດເກັບ</string>
+    <string name="empty_note_not_shared">ບັນທຶກເປົ່າບໍ່ສາມາດແບ່ງປັນໄດ້</string>
+    <string name="endByDate">"; ຈົນຮອດ <ns1:g id="DATE">%s</ns1:g>"</string>
+    <string name="erase_sketch">ລຶບການຂຽນດ້ວຍລາຍມື?</string>
+    <string name="eraser">ໂຕລຶບ</string>
+    <string name="error_importing_some_attachments">ເກີດຂໍ້ຜິດພາດໃນການນຳເຂົ້າໄຟລ໌ແນບຈຳນວນໜຶ່ງ</string>
+    <string name="error_occurred_deleting_note">ເກີດຂໍ້ຜິດພາດໃນຂະນະລຶບບັນທຶກ</string>
+    <string name="error_saving_attachments">ເກີດຂໍ້ຜິດພາດໃນການຈັດເກັບໄຟລ໌ແນບ</string>
+    <string name="every_weekday">"ທຸກໆມື້ເຮັດວຽກ (ຈັນ–ສຸກ)"</string>
+    <string name="expanded_view">ມູມມອງແບບຂະຫຍາຍ</string>
+    <string name="expired">ໝົດອາຍຸ</string>
+    <string name="export_fail">ການສົ່ງອອກໄຟລ໌ບໍ່ສຳເລັດ</string>
+    <string name="export_success">ໄຟລ໌ຖືກສົ່ງອອກຫາໂຟນເດີສຳເລັດແລ້ວ</string>
+    <string name="export_warning">ໄຟລ​໌​ທີ່ສົ່ງອອກຈະແທນທີ່ອັນກ່ອນໜ້ານີ້. ດຳເນີນການຕໍ່?</string>
+    <string name="feature_not_available_on_this_device">ຄຸນສົມບັດໃຊ້ກັບອຸປະກອນນີ້ບໍ່ໄດ້</string>
+    <string name="file_not_exists">ບໍ່ມີໄຟລ໌ທີ່ຈະນຳເຂົ້າ</string>
+    <string name="gallery">ຄັງຮູບ</string>
+    <string name="image">ຮູບ</string>
+    <string name="import_fail">ການ​ນໍາ​ເຂົ້າ​ໄຟລ​໌​ບໍ່ສໍາ​ເລັດ</string>
+    <string name="import_success">ໄຟລ໌ຖືກນຳເຂົ້າສຳເລັດແລ້ວ</string>
+    <string name="import_warning">ການ​ນໍາ​ເຂົ້າ​ຂໍ້​ມູນ​ຈະແທນທີ່ບັນທຶກປັດຈຸບັນ. ດຳເນີນການຕໍ່?</string>
+    <string name="info">ຂໍ້​ມູນ</string>
+    <string name="insert_new_password">ໃສ່​ລະ​ຫັດ​ຜ່ານໃໝ່</string>
+    <string name="insert_security_password">ໃສ່ລະຫັດຄວາມປອດໄພ</string>
+    <string name="item_is_selected">"<ns1:g id="ITEM">%1$s</ns1:g> ຖືກເລືອກແລ້ວ"</string>
+    <string name="last_update">ປັບປຸງເມື່ອ:</string>
+    <string name="location">ສະ​ຖານ​ທີ່</string>
+    <string name="location_not_found">ບໍ່ພົບສະຖານທີ່</string>
+    <string name="minutes">ນາທີ</string>
+    <string name="monthly">"ທຸກເດືອນ"</string>
+    <string name="new_update_available">ມີ Omni Notes ເວີຊັນໃໝ່, ທ່ານຕ້ອງການອັບເດດບໍ່?</string>
+    <string name="no_app_to_handle_intent">ບໍ່ມີແອັບພຼິເຄຊັນສຳລັບຈັດ​ການ​ໄຟລ​໌</string>
+    <string name="no_application_can_perform_this_action">ບໍ່ມີແອັບພຼິເຄຊັນທີ່ສາມາດປະຕິບັດການເຄື່ອນໄຫວນີ້ໄດ້</string>
+    <string name="no_items_in_list">ບໍ່​ມີ​ຫຍັງ​ຢູ່​ນີ້!</string>
+    <string name="no_reminder_set">ບໍ່ໄດ້ຕັ້ງເຕືອນຄວາມຈຳ</string>
+    <string name="not_expired">ບໍ່ໝົດອາຍຸ</string>
+    <string name="not_now">ບໍ່ແມ່ນຕອນນີ້</string>
+    <string name="note">ບັນທຶກ</string>
+    <string name="note_archived">ບັນທຶກຖືກເກັບຮັກສາແລ້ວ</string>
+    <string name="note_reminder_symbol">ເຄື່ອງໝາຍໂຕເຕືອນຄວາມຈຳຂອງບັນທຶກ</string>
+    <string name="note_thumbnail">ຮູບຕົວຢ່າງຂອງບັນທຶກ</string>
+    <string name="note_trashed">ບັນທຶກຖືກຖິ້ມ</string>
+    <string name="note_unarchived">ບັນທຶກຖືກຮຽກຄືນຈາກການເກັບຮັກສາແລ້ວ</string>
+    <string name="note_updated">ບັນທຶກຖືກປັບປຸງແລ້ວ</string>
+    <string name="notes">ບັນທຶກ</string>
+    <string name="ok">"ຕົກລົງ"</string>
+    <string name="opacity">ຄວາມທຶບແສງ</string>
+    <string name="open">ເປີດ</string>
+    <string name="password_not_set">ບໍ່ທັນຕັ້ງລະຫັດຜ່ານ</string>
+    <string name="password_successfully_changed">ລະ​ຫັດ​ຜ່ານ​ຖືກ​ປ່ຽນ​ແປງ​ສຳເລັດແລ້ວ</string>
+    <string name="proceed">ດຳເນີນການ</string>
+    <string name="record">ບັນທຶກ</string>
+    <string name="recurrence_end_continously">"ຕະຫຼອດໄປ"</string>
+    <string name="recurrence_end_count_label">"ຕາມຈຳນວນເທື່ອຂອງການນັດໝາຍ"</string>
+    <string name="recurrence_end_date">"ຈົນຮອດ <ns1:g id="DATE">%s</ns1:g>"</string>
+    <string name="recurrence_end_date_label">"ຈົນຮອດວັນທີ"</string>
+    <string name="recurrence_month_pattern_by_day">"ໃນມື້ດຽວກັນຂອງແຕ່ລະເດືອນ"</string>
+    <string name="redo">ກັບຄືນ</string>
+    <string name="reminder">ການແຈ້ງເຕືອນ</string>
+    <string name="reminders">ໂຕເຕືອນຄວາມຈຳ</string>
+    <string name="remove_checklist">ລຶບລາຍການແບບເລືອກ?</string>
+    <string name="remove_location">ລຶບສະຖານທີ່?</string>
+    <string name="remove_reminder">ລຶບໂຕເຕືອນຄວາມຈຳ​?</string>
+    <string name="reset_all_data_confirmation">ຢືນຢັນການລຶບຂໍ້ມູນທັງໝົດຂອງແອັບຯ (ຂໍ້ມູນສຳຮອງ​ຈະ​ຖືກຮັກ​ສາ​ໄວ້​)​?</string>
+    <string name="saturation">ຄວາມອີ່ມຕົວ</string>
+    <string name="save">ບັນທຶກ</string>
+    <string name="search">ຄົ້ນຫາ</string>
+    <string name="search_hint">ຄົ້ນຫາໃນບັນທຶກ</string>
+    <string name="select_day">"ເລືອກເດືອນ ແລະ ວັນ"</string>
+    <string name="select_hours">"ເລືອກ​ຊົ່ວ​ໂມງ"</string>
+    <string name="select_minutes">"ເລືອກນາ​ທີ"</string>
+    <string name="select_sorting_column">ຈັດລຽງໂດຍ</string>
+    <string name="select_year">"ເລືອກ​ປີ"</string>
+    <string name="settings">ການ​ຕັ້ງຄ່າ</string>
+    <string name="settings_about">ຂໍ້​ມູນ</string>
+    <string name="settings_answer_not_matching">ບໍ່ມີຄຳຕອບ ຫຼື ຄຳຕອບບໍ່ກົງກັນ</string>
+    <string name="settings_backup">ການສຳຮອງຂໍ້ມູນ</string>
+    <string name="settings_backup_summary">ນຳເຂົ້າ ຫຼື ສົ່ງອອກຂໍ້ມູນແອັບຯ</string>
+    <string name="settings_category_about">ກ່ຽວກັບ</string>
+    <string name="settings_category_beta">ເວີຊັນທົດລອງ</string>
+    <string name="settings_category_gestures">ການຄາດເດົາ</string>
+    <string name="settings_category_other">ອື່ນໆ</string>
+    <string name="settings_category_preferences">ການອ້າງອີງ</string>
+    <string name="settings_changelog">ລາຍການປ່ຽນແປງ</string>
+    <string name="settings_checked_items_behavior">ລາຍການເລືອກ</string>
+    <string name="settings_checked_items_behavior_summary">ຈະເຮັດຫຍັງເມື່ອລາຍການຖືກເລືອກ?</string>
+    <string name="settings_choose_language">ເລືອກພາ​ສາ</string>
+    <string name="settings_enable_animations">ພາບເຄື່ອນໄຫວ</string>
+    <string name="settings_enable_animations_summary">ເປີດໃຊ້ ຫຼື ປິດໃຊ້ພາບເຄື່ອນໄຫວໃນລາຍການບັນທຶກ</string>
+    <string name="settings_enable_editor_links">ການ​ຮັບຮູ້ລິ້ງ</string>
+    <string name="settings_enable_editor_links_summary">ເປີດ ຫຼື ປິດການນຳໃຊ້ການເຮັດໃຫ້ລິ້ງ ຫຼື ອີເມລໂດດເດັ່ນແບບອັດຕະໂນມັດ</string>
+    <string name="settings_enable_swype">ເປີດໃຊ້ການກວາດນິ້ວມື</string>
+    <string name="settings_enable_tag_marker_full">ສີ​ເຕັມ</string>
+    <string name="settings_enable_tag_marker_full_list_only">ລາຍການເທົ່ານັ້ນ</string>
+    <string name="settings_enable_tag_marker_full_list_only_summary">ບັງ​ຄັບໃຊ້​ສີ​ເຕັມ​ພຽງ​ແຕ່​ໃນ​ລາຍການບັນທຶກ​ ໃນ​ຂະ​ນະ​ທີ່​ໃນ​ລາຍ​ລະ​ອຽດ​ໃຫ້ໃຊ້ສີສະເພາະກັບເຄື່ອງໝາຍນ້ອຍໆເທົ່ານັ້ນ </string>
+    <string name="settings_enable_tag_marker_full_summary">ບັນທຶກຈະໃຊ້ສີແບບເຕັມ​ທັງ​ໃນ​ລາຍການ ແລະ ໃນລາຍລະອຽດ</string>
+    <string name="settings_enable_vibration">ການສັ່ນ</string>
+    <string name="settings_export">ການສຳຮອງຂໍ້ມູນ</string>
+    <string name="settings_included">ການຕັ້ງຄ່າຖືກຮວມເຂົ້າແລ້ວ</string>
+    <string name="settings_instant_search">ຄົ້ນຫາທັນທີ</string>
+    <string name="settings_max_video_size">ໄຟລ໌ແນບວິດີໂອ</string>
+    <string name="settings_max_video_size_summary">ຂະໜາດສູງສຸດທີ່ອະນຸຍາດ ເປັນ MB</string>
+    <string name="settings_notification_ringtone">ສຽງເຕືອນ</string>
+    <string name="settings_notification_snooze_delay">ເລື່ອນອອກໄປ</string>
+    <string name="settings_password">ລະ​ຫັດ​ຜ່ານ</string>
+    <string name="settings_password_answer">ຄຳຕອບ</string>
+    <string name="settings_password_answer_check">ຢືນຢັນຄຳຕອບ</string>
+    <string name="settings_password_not_matching">ບໍ່ມີລະຫັດຜ່ານ ຫຼື ລະຫັດຜ່ານບໍ່ກົງກັນ</string>
+    <string name="settings_password_question">ຄຳຖາມ</string>
+    <string name="settings_password_question_instructions">ໃສ່ຄຳຖາມ ແລະ ຄຳຕອບລັບເພື່ອຕັ້ງລະຫັດຜ່ານໃໝ່ໃນກໍລະນີລືມ</string>
+    <string name="settings_password_summary">ແກ້ໄຂລະຫັດຄວາມປອດໄພຂອງແອັບຯ</string>
+    <string name="settings_reset_all_data">ລຶບຂໍ້ມູນທັງໝົດ?</string>
+    <string name="settings_screen_backup">ການສຳຮອງຂໍ້ມູນ</string>
+    <string name="settings_screen_sync_import_export">ການຊິ້ງ ແລະ ສຳຮອງຂໍ້ມູນ</string>
+    <string name="settings_simple_calendar">ປະຕິທິນ ແລະ ເວລາແບບທຳມະດາ</string>
+    <string name="settings_simple_calendar_summary">ໃຊ້ໂຕເລືອກປະຕິທິນ ແລະ ເວລາແບບທຳມະດາກວ່າແທນໂຕເລືອກຂອງ Google</string>
+    <string name="settings_sync_import_export">ການຊິ້ງ ແລະ ສຳຮອງຂໍ້ມູນ</string>
+    <string name="settings_tour_show_again">ການແນະນຳແອັບຯ</string>
+    <string name="settings_tour_show_again_summary">ສະແດງການແນະນຳການໃຊ້ງານແອັບຯອີກຄັ້ງໜຶ່ງ</string>
+    <string name="share">ແບ່ງປັນ</string>
+    <string name="share_message_chooser">ແບ່ງປັນກັບ</string>
+    <string name="shared_content_sign">\n【ໂດຍ Omni Notes】</string>
+    <string name="shortcut_added">ທາງລັດຖືກເພີ່ມໄປຍັງໜ້າຈໍຫຼັກ</string>
+    <string name="shortcut_note_deleted">ທາງລັດເຊື່ອມຕໍ່ໄປຍັງບັນທຶກທີ່ຖືກລຶບ</string>
+    <string name="show_thumbnails">ສະແດງຮູບຕົວຢ່າງຂອງໄຟລ໌ແນບ</string>
+    <string name="sketch">ຂຽນດ້ວຍລາຍມື</string>
+    <string name="snooze">ປິດໄວ້ກ່ອນ</string>
+    <string name="sort">ຈັດລຽງ</string>
+    <string name="stats_attachments">ໄຟລ໌ແນບ</string>
+    <string name="stats_checklists">ລາຍການເລືອກ</string>
+    <string name="stats_reminders">ໂຕເຕືອນຄວາມຈຳ</string>
+    <string name="stats_tags">ປ້າຍ</string>
+    <string name="stop">ຢຸດ</string>
+    <string name="storage_not_available">ຄັງຈັດເກັບໃຊ້ບໍ່ໄດ້</string>
+    <string name="stroke">ການລາກເສັ້ນ</string>
+    <string name="stroke_size">ຂະໜາດການລາກເສັ້ນ</string>
+    <string name="tag">ຕິດປ້າຍ</string>
+    <string name="tags">ປ້າຍ</string>
+    <string name="tap_to_undo">ແຕະເພື່ອແກ້ໄຂ</string>
+    <string name="title">ຫົວຂໍ້</string>
+    <string name="title_activity_about">ຂໍ້​ມູນ</string>
+    <string name="title_activity_list">Omni Notes</string>
+    <string name="title_activity_password">ແກ້ໄຂລະຫັດຄວາມປອດໄພ</string>
+    <string name="title_activity_sketch">ຂຽນດ້ວຍລາຍມື</string>
+    <string name="title_item_list">ບັນທຶກ</string>
+    <string name="today">ມື້ນີ້</string>
+    <string name="tour_detailactivity_action_detail">ແບ່ງປັນ, ໃສ່ປ້າຍ, ຈັດເກັບ, ປ້ອງກັນ ແລະ ອື່ນໆ…</string>
+    <string name="tour_detailactivity_action_title">ເຮັດໄດ້ອີກຫຼາຍຢ່າງ</string>
+    <string name="tour_detailactivity_attachment_detail">ເພີ່ມຮຟລ໌ແນບຫຼາກຫຼາຍຮູບແບບໃສ່ບັນທຶກຂອງທ່ານ!</string>
+    <string name="tour_detailactivity_attachment_title">ປັບປຸງ</string>
+    <string name="tour_detailactivity_links_title">ລິ້ງ</string>
+    <string name="tour_detailactivity_reminder_title">ກົດເລີຍ</string>
+    <string name="tour_detailactivity_save_detail">ພຽງແຕ່ກົດໄອຄອນຄວບຄຸມ \"ຂຶ້ນ\" ຫຼື ກັບຄືນດ້ວຍປຸ່ມກົດຂອງອຸປະກອນທ່ານ</string>
+    <string name="tour_detailactivity_save_title">ຈັດເກັບ</string>
+    <string name="tour_listactivity_actions_detail">ສ້າວບັນທຶກໃໝ່, ຈັດລຽງ, ເຂົ້າສູ່ການຕັ້ງຄ່າ</string>
+    <string name="tour_listactivity_actions_title">ການດຳເນີນການ</string>
+    <string name="tour_listactivity_final_title">ຂໍໃຫ້ມີຄວາມສຸກ</string>
+    <string name="tour_listactivity_home_title">ການຄວບຄຸມ</string>
+    <string name="tour_listactivity_intro_detail">ກົດ \"ດຳເນີນການ\" ເພື່ອເບິ່ງການແນະນຳແອັບຯ</string>
+    <string name="tour_listactivity_intro_title">ຍິນດີຕ້ອນຮັບສູ່ Omni Notes!</string>
+    <string name="tour_listactivity_tag_title">ປ້າຍ</string>
+    <string name="tour_request_start">ທ່ານເປີດໃຊ້ງານ Omni Notes ເປັນຄັ້ງທຳອິດ, ທ່ານຕ້ອງການເບິ່ງການແນະນຳແອັບພຼິເຄຊັນບໍ່?</string>
+    <string name="trash">ຖັງຂີ້ເຫຍື່ອ</string>
+    <string name="trash_action">ຖັງຂີ້ເຫຍື່ອ</string>
+    <string name="trashed">ຖິ້ມລົງຖັງຂີ້ເຫຍື່ອແລ້ວ</string>
+    <string name="unarchive">ຮຽກຄືນຈາກການເກັບຮັກສາ</string>
+    <string name="undo">ຍົກເລີກ</string>
+    <string name="update">ອັບເດດ ແລະ ໃຫ້ຄະແນນ!</string>
+    <string name="video">ວິ​ດີ​ໂ</string>
+    <string name="widget_list_description">ວິດເຈັດເລື່ອນໄດ້ແບບມີປຸ່ມກົດ</string>
+    <string name="widget_simple_description">ວິດເຈັດທຳມະດາແບບມີປຸ່ມກົດ</string>
+    <string name="wrong_answer">ຄຳຕອບຜິດ</string>
+    <string name="wrong_password">ລະ​ຫັດ​ຜ່ານ​ບໍ່ຖືກຕ້ອງ</string>
+    <string name="year_picker_description">"ລາຍການປີ"</string>
+    <string name="yearly_plain">"ປະຈໍາປີ"</string>
+</resources>

@@ -1,0 +1,43 @@
+{
+    "logs": [
+        {
+            "outputFile": "com.absolute.android.notescentral.notes-mergeAlphaDebugResources-61:/values-sw600dp-land-v13/values-sw600dp-land-v13.xml",
+            "map": [
+                {
+                    "source": "/Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/res/values-sw600dp-land/dimens.xml",
+                    "from": {
+                        "startLines": "24",
+                        "startColumns": "4",
+                        "startOffsets": "988",
+                        "endColumns": "89",
+                        "endOffsets": "1073"
+                    },
+                    "to": {
+                        "startLines": "4",
+                        "startColumns": "4",
+                        "startOffsets": "168",
+                        "endColumns": "89",
+                        "endOffsets": "253"
+                    }
+                },
+                {
+                    "source": "/Users/viditgupta/.gradle/caches/transforms-4/8dfcc8535740d954a296581cc226ad23/transformed/jetified-changelog-2.0.0/res/values-sw600dp-land/values-sw600dp-land.xml",
+                    "from": {
+                        "startLines": "4,5",
+                        "startColumns": "4,4",
+                        "startOffsets": "229,285",
+                        "endColumns": "55,56",
+                        "endOffsets": "280,337"
+                    },
+                    "to": {
+                        "startLines": "2,3",
+                        "startColumns": "4,4",
+                        "startOffsets": "55,111",
+                        "endColumns": "55,56",
+                        "endOffsets": "106,163"
+                    }
+                }
+            ]
+        }
+    ]
+}

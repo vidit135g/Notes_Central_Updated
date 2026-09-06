@@ -1,0 +1,67 @@
+com.absolute.android.notescentral.notes-preference-1.2.1-0 /Users/viditgupta/.gradle/caches/transforms-4/0252069bb6265b22ee1eaa018e056dfb/transformed/preference-1.2.1/res
+com.absolute.android.notescentral.notes-coordinatorlayout-1.1.0-1 /Users/viditgupta/.gradle/caches/transforms-4/0564809e4f4210a4f7c9e9dca79816b0/transformed/coordinatorlayout-1.1.0/res
+com.absolute.android.notescentral.notes-material-1.11.0-2 /Users/viditgupta/.gradle/caches/transforms-4/096528de86f7763019af49a52424b782/transformed/material-1.11.0/res
+com.absolute.android.notescentral.notes-jetified-core-0.9.6.0-3 /Users/viditgupta/.gradle/caches/transforms-4/0a4dc39d39c7379466212442e41162ed/transformed/jetified-core-0.9.6.0/res
+com.absolute.android.notescentral.notes-jetified-acra-core-5.4.0-4 /Users/viditgupta/.gradle/caches/transforms-4/0e13450607bc541e074627a0ee09ae72/transformed/jetified-acra-core-5.4.0/res
+com.absolute.android.notescentral.notes-jetified-floatingactionbutton-1.10.1-5 /Users/viditgupta/.gradle/caches/transforms-4/1e02739d1f38ae67315c9ba8de2a95e5/transformed/jetified-floatingactionbutton-1.10.1/res
+com.absolute.android.notescentral.notes-jetified-checklistview-3.2.1-6 /Users/viditgupta/.gradle/caches/transforms-4/1e828663ce7aadb6cc9b7a7e7bd1a9e6/transformed/jetified-checklistview-3.2.1/res
+com.absolute.android.notescentral.notes-jetified-materialish-progress-1.5-7 /Users/viditgupta/.gradle/caches/transforms-4/232913ea7c6b22bc7861eab07d831d21/transformed/jetified-materialish-progress-1.5/res
+com.absolute.android.notescentral.notes-lifecycle-runtime-2.6.1-8 /Users/viditgupta/.gradle/caches/transforms-4/28cb379f461d978cf8588ff53cbc0394/transformed/lifecycle-runtime-2.6.1/res
+com.absolute.android.notescentral.notes-jetified-startup-runtime-1.1.1-9 /Users/viditgupta/.gradle/caches/transforms-4/33f2a4fe54b3b6c7adae990b4695d06f/transformed/jetified-startup-runtime-1.1.1/res
+com.absolute.android.notescentral.notes-transition-1.4.1-10 /Users/viditgupta/.gradle/caches/transforms-4/3d4bd6c5607816668a029813d024879b/transformed/transition-1.4.1/res
+com.absolute.android.notescentral.notes-jetified-lifecycle-viewmodel-savedstate-2.6.1-11 /Users/viditgupta/.gradle/caches/transforms-4/3e022909909a79b6a3417c284eec2c2a/transformed/jetified-lifecycle-viewmodel-savedstate-2.6.1/res
+com.absolute.android.notescentral.notes-jetified-window-1.0.0-12 /Users/viditgupta/.gradle/caches/transforms-4/4088177163a19ff976082b33b603f569/transformed/jetified-window-1.0.0/res
+com.absolute.android.notescentral.notes-jetified-appcompat-resources-1.6.1-13 /Users/viditgupta/.gradle/caches/transforms-4/455ce41b442897f8abef55b5f997ad16/transformed/jetified-appcompat-resources-1.6.1/res
+com.absolute.android.notescentral.notes-core-1.9.0-14 /Users/viditgupta/.gradle/caches/transforms-4/4725defd7a74b59f09384f13f25b8fa8/transformed/core-1.9.0/res
+com.absolute.android.notescentral.notes-localbroadcastmanager-1.1.0-15 /Users/viditgupta/.gradle/caches/transforms-4/48294b6dc570f8c5ffc20e47e05c0d8e/transformed/localbroadcastmanager-1.1.0/res
+com.absolute.android.notescentral.notes-media-1.0.0-16 /Users/viditgupta/.gradle/caches/transforms-4/4d5e7702d3121f94dde5c0fdd3c9f247/transformed/media-1.0.0/res
+com.absolute.android.notescentral.notes-jetified-activity-1.8.0-17 /Users/viditgupta/.gradle/caches/transforms-4/4eddfa3b757f0f970797cb3bccc127ff/transformed/jetified-activity-1.8.0/res
+com.absolute.android.notescentral.notes-jetified-library-2.0.1-18 /Users/viditgupta/.gradle/caches/transforms-4/4ef42d9690cccc2edfc569bee55001c1/transformed/jetified-library-2.0.1/res
+com.absolute.android.notescentral.notes-jetified-library-1.4.2-19 /Users/viditgupta/.gradle/caches/transforms-4/5498789998887e6f1f2dd80ed7f5146c/transformed/jetified-library-1.4.2/res
+com.absolute.android.notescentral.notes-appcompat-1.6.1-20 /Users/viditgupta/.gradle/caches/transforms-4/54a7265ee06a222c2ab8c40fedf21da5/transformed/appcompat-1.6.1/res
+com.absolute.android.notescentral.notes-jetified-SublimePicker-8c4de22db1-21 /Users/viditgupta/.gradle/caches/transforms-4/561536d6afac961e63313ebb427c8e64/transformed/jetified-SublimePicker-8c4de22db1/res
+com.absolute.android.notescentral.notes-slidingpanelayout-1.2.0-22 /Users/viditgupta/.gradle/caches/transforms-4/59b1a22f599bd7008018dd4440e5656c/transformed/slidingpanelayout-1.2.0/res
+com.absolute.android.notescentral.notes-jetified-savedstate-1.2.1-23 /Users/viditgupta/.gradle/caches/transforms-4/5a8ad0e245dede8c284be613b65be193/transformed/jetified-savedstate-1.2.1/res
+com.absolute.android.notescentral.notes-jetified-lifecycle-viewmodel-ktx-2.6.1-24 /Users/viditgupta/.gradle/caches/transforms-4/66a565348d27649b9d02f0550fd10355/transformed/jetified-lifecycle-viewmodel-ktx-2.6.1/res
+com.absolute.android.notescentral.notes-jetified-HoloColorPicker-1.4-25 /Users/viditgupta/.gradle/caches/transforms-4/690d5c03cdf1258d38618d3bd66cd49d/transformed/jetified-HoloColorPicker-1.4/res
+com.absolute.android.notescentral.notes-lifecycle-viewmodel-2.6.1-26 /Users/viditgupta/.gradle/caches/transforms-4/6b1b3e1030d0254ff36e6eea6cf86a07/transformed/lifecycle-viewmodel-2.6.1/res
+com.absolute.android.notescentral.notes-cardview-1.0.0-27 /Users/viditgupta/.gradle/caches/transforms-4/6b7d6f92c758038fa007b5c39ef3f797/transformed/cardview-1.0.0/res
+com.absolute.android.notescentral.notes-jetified-emoji2-views-helper-1.2.0-28 /Users/viditgupta/.gradle/caches/transforms-4/70abd4a121977957cbf87872ee884697/transformed/jetified-emoji2-views-helper-1.2.0/res
+com.absolute.android.notescentral.notes-constraintlayout-2.1.4-29 /Users/viditgupta/.gradle/caches/transforms-4/7848a47befc3c000e4396d736c23ae23/transformed/constraintlayout-2.1.4/res
+com.absolute.android.notescentral.notes-jetified-play-services-basement-18.1.0-30 /Users/viditgupta/.gradle/caches/transforms-4/7b866a08f3dcc6ce1582de09bd0e4e63/transformed/jetified-play-services-basement-18.1.0/res
+com.absolute.android.notescentral.notes-jetified-pixlui-3.0.0-31 /Users/viditgupta/.gradle/caches/transforms-4/81fb99cedce8a2beba035f3e6e8a3e5b/transformed/jetified-pixlui-3.0.0/res
+com.absolute.android.notescentral.notes-jetified-lifecycle-livedata-core-ktx-2.6.1-32 /Users/viditgupta/.gradle/caches/transforms-4/8912d1dd4b68909344409e59ca619e3a/transformed/jetified-lifecycle-livedata-core-ktx-2.6.1/res
+com.absolute.android.notescentral.notes-jetified-savedstate-ktx-1.2.1-33 /Users/viditgupta/.gradle/caches/transforms-4/8abcd1465ac76f6adcdde4dd3b03e3ab/transformed/jetified-savedstate-ktx-1.2.1/res
+com.absolute.android.notescentral.notes-jetified-annotation-experimental-1.3.0-34 /Users/viditgupta/.gradle/caches/transforms-4/8c0b7f94cd780091e913d620e87c53cc/transformed/jetified-annotation-experimental-1.3.0/res
+com.absolute.android.notescentral.notes-jetified-play-services-base-18.0.1-35 /Users/viditgupta/.gradle/caches/transforms-4/8c5f7b4786b59754ec5cbe5d50551e78/transformed/jetified-play-services-base-18.0.1/res
+com.absolute.android.notescentral.notes-jetified-changelog-2.0.0-36 /Users/viditgupta/.gradle/caches/transforms-4/8dfcc8535740d954a296581cc226ad23/transformed/jetified-changelog-2.0.0/res
+com.absolute.android.notescentral.notes-fragment-1.3.6-37 /Users/viditgupta/.gradle/caches/transforms-4/91b516b3dc96ee6037be123ad238f676/transformed/fragment-1.3.6/res
+com.absolute.android.notescentral.notes-jetified-library-3.2.4-38 /Users/viditgupta/.gradle/caches/transforms-4/9625ccf19feb5656650927fafa8f058d/transformed/jetified-library-3.2.4/res
+com.absolute.android.notescentral.notes-jetified-play-services-maps-9.0.2-39 /Users/viditgupta/.gradle/caches/transforms-4/9ad724e480432d17fe289a87b3c36594/transformed/jetified-play-services-maps-9.0.2/res
+com.absolute.android.notescentral.notes-jetified-lottie-6.4.0-40 /Users/viditgupta/.gradle/caches/transforms-4/9f303061f3b47128eb29834dbeeffdac/transformed/jetified-lottie-6.4.0/res
+com.absolute.android.notescentral.notes-jetified-profileinstaller-1.3.0-41 /Users/viditgupta/.gradle/caches/transforms-4/a313127962cd27860f10cfb4d40536a9/transformed/jetified-profileinstaller-1.3.0/res
+com.absolute.android.notescentral.notes-jetified-core-ktx-1.9.0-42 /Users/viditgupta/.gradle/caches/transforms-4/b151cf55ecd82852ef60a8d664530071/transformed/jetified-core-ktx-1.9.0/res
+com.absolute.android.notescentral.notes-jetified-activity-ktx-1.8.0-43 /Users/viditgupta/.gradle/caches/transforms-4/b6450913c0cf3980dc9a0f96d6a40821/transformed/jetified-activity-ktx-1.8.0/res
+com.absolute.android.notescentral.notes-jetified-emoji2-1.2.0-44 /Users/viditgupta/.gradle/caches/transforms-4/bd5158aaf85efbf9211f949929b976b8/transformed/jetified-emoji2-1.2.0/res
+com.absolute.android.notescentral.notes-jetified-commons-0.9.6.0-45 /Users/viditgupta/.gradle/caches/transforms-4/c0d269eede0aeba0db7a3eb3fb5706a5/transformed/jetified-commons-0.9.6.0/res
+com.absolute.android.notescentral.notes-gridlayout-1.0.0-46 /Users/viditgupta/.gradle/caches/transforms-4/d747fbc17abc370a088063e52cb5af60/transformed/gridlayout-1.0.0/res
+com.absolute.android.notescentral.notes-lifecycle-livedata-core-2.6.1-47 /Users/viditgupta/.gradle/caches/transforms-4/d74bde97e919532887e449a3b4e1c648/transformed/lifecycle-livedata-core-2.6.1/res
+com.absolute.android.notescentral.notes-jetified-appintro-1.3.0-48 /Users/viditgupta/.gradle/caches/transforms-4/ec51ef989d2276ae72a464d63ab7c9fa/transformed/jetified-appintro-1.3.0/res
+com.absolute.android.notescentral.notes-jetified-viewpager2-1.0.0-49 /Users/viditgupta/.gradle/caches/transforms-4/ecb56130838687136db84587b54d4dc5/transformed/jetified-viewpager2-1.0.0/res
+com.absolute.android.notescentral.notes-jetified-lifecycle-process-2.6.1-50 /Users/viditgupta/.gradle/caches/transforms-4/ece526dbdb106214809f1e69156ad318/transformed/jetified-lifecycle-process-2.6.1/res
+com.absolute.android.notescentral.notes-jetified-glide-4.16.0-51 /Users/viditgupta/.gradle/caches/transforms-4/efb09045f48fea3f6022daeb60d16206/transformed/jetified-glide-4.16.0/res
+com.absolute.android.notescentral.notes-core-runtime-2.2.0-52 /Users/viditgupta/.gradle/caches/transforms-4/f10ebe0589b1ef835f5258a7a5cd0ecf/transformed/core-runtime-2.2.0/res
+com.absolute.android.notescentral.notes-jetified-lifecycle-runtime-ktx-2.6.1-53 /Users/viditgupta/.gradle/caches/transforms-4/f31a585ff4f5f02260939fe172f4d84c/transformed/jetified-lifecycle-runtime-ktx-2.6.1/res
+com.absolute.android.notescentral.notes-lifecycle-livedata-2.6.1-54 /Users/viditgupta/.gradle/caches/transforms-4/f44898a8c905e4a7715a6fa7ccc635fe/transformed/lifecycle-livedata-2.6.1/res
+com.absolute.android.notescentral.notes-jetified-simplegallery-3.0.1-55 /Users/viditgupta/.gradle/caches/transforms-4/f45ee77a9894fefa612b0c8e7b00fada/transformed/jetified-simplegallery-3.0.1/res
+com.absolute.android.notescentral.notes-jetified-play-services-location-9.0.2-56 /Users/viditgupta/.gradle/caches/transforms-4/f967b1bc6e81b051d94e4c113968a0e5/transformed/jetified-play-services-location-9.0.2/res
+com.absolute.android.notescentral.notes-drawerlayout-1.1.1-57 /Users/viditgupta/.gradle/caches/transforms-4/f9e87d2c4d27cea210be3ca549a88322/transformed/drawerlayout-1.1.1/res
+com.absolute.android.notescentral.notes-recyclerview-1.1.0-58 /Users/viditgupta/.gradle/caches/transforms-4/fc1da6db3af7a4e2b641d598cf296945/transformed/recyclerview-1.1.0/res
+com.absolute.android.notescentral.notes-alpha-59 /Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/build/generated/res/resValues/alpha/debug
+com.absolute.android.notescentral.notes-mergeAlphaDebugResources-60 /Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/build/intermediates/incremental/alphaDebug/mergeAlphaDebugResources/merged.dir
+com.absolute.android.notescentral.notes-mergeAlphaDebugResources-61 /Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/build/intermediates/incremental/alphaDebug/mergeAlphaDebugResources/stripped.dir
+com.absolute.android.notescentral.notes-alphaDebug-62 /Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/build/intermediates/merged_res/alphaDebug/mergeAlphaDebugResources
+com.absolute.android.notescentral.notes-alpha-63 /Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/alpha/res
+com.absolute.android.notescentral.notes-alphaDebug-64 /Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/alphaDebug/res
+com.absolute.android.notescentral.notes-debug-65 /Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/debug/res
+com.absolute.android.notescentral.notes-main-66 /Users/viditgupta/Documents/Project fix/Notes_Central_Updated/notes/src/main/res
