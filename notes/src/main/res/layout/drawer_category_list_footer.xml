@@ -50,7 +50,7 @@
 <!--         android:textAllCaps="true" -->
 <!--         android:textAppearance="@style/Text.Normal" -->
 <!--         android:textColor="@color/drawer_text" -->
-<!--         pixlui:typeface="Roboto-Regular.ttf" /> -->
+<!--         pixlui:typeface="Poppins-Regular.ttf" /> -->
 
     <com.neopixl.pixlui.components.textview.TextView
         android:id="@+id/settings"
@@ -63,6 +63,6 @@
         android:textAllCaps="true"
         android:textAppearance="@style/Text.Normal"
         android:textColor="@color/drawer_text"
-        pixlui:typeface="Roboto-Regular.ttf" />
+        pixlui:typeface="Poppins-Regular.ttf" />
 
 </LinearLayout>

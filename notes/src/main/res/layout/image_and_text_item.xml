@@ -38,6 +38,6 @@
         android:paddingStart="@dimen/horizontal_margin"
         android:textAppearance="@style/Text.Big"
         android:textColor="@color/drawer_text"
-        pixlui:typeface="Roboto-Regular.ttf" />
+        pixlui:typeface="Poppins-Regular.ttf" />
 
 </LinearLayout>

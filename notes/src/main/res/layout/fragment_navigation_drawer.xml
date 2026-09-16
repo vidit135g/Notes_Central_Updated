@@ -19,7 +19,7 @@
             xmlns:pixlui="http://schemas.android.com/apk/com.neopixl.pixlui"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/navigation_bg">
+            android:background="?attr/somaElev">
 
     <LinearLayout
         android:id="@+id/left_drawer"
@@ -58,12 +58,12 @@
                     android:paddingBottom="@dimen/padding_half"
                     android:textColor="@color/white"
                     android:textSize="30sp"
-                    pixlui:typeface="RobotoSlab-Regular.ttf"
+                    pixlui:typeface="Poppins-Regular.ttf"
                     android:text="@string/app_name"/>
 
         </RelativeLayout>
 
-        <it.feio.android.omninotes.models.views.NonScrollableListView
+        <com.absolute.android.notescentral.models.views.NonScrollableListView
             android:id="@+id/drawer_nav_list"
             android:layout_width="@dimen/navigation_drawer_width"
             android:layout_height="wrap_content"
@@ -76,7 +76,7 @@
 
         <include android:id="@+id/settings_view" layout="@layout/drawer_category_list_footer"/>
 
-        <it.feio.android.omninotes.models.views.NonScrollableListView
+        <com.absolute.android.notescentral.models.views.NonScrollableListView
             android:id="@+id/drawer_tag_list"
             android:layout_width="@dimen/navigation_drawer_width"
             android:layout_height="wrap_content"

@@ -35,7 +35,7 @@
                 android:layout_height="0dp"
                 android:layout_weight="1"
                 android:animateLayoutChanges="true"
-                android:background="@color/gray_bg"
+                android:background="?attr/somaBg"
                 android:orientation="vertical"
                 android:paddingLeft="@dimen/padding_half"
                 android:paddingRight="@dimen/padding_half"
@@ -46,7 +46,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="10dp"
-                    android:background="@drawable/bg_card">
+                    android:background="@drawable/bg_card_soma">
 
                 <LinearLayout
                         android:id="@+id/title_wrapper"
@@ -78,18 +78,18 @@
                             android:paddingTop="6dp"
                             android:textAppearance="@style/Text.Big"
                             android:textColorHint="@color/text_color_lighter"
-                            android:textColor="@color/text_color"
-                            pixlui:typeface="RobotoSlab-Bold.ttf"
+                            android:textColor="?attr/somaTextP"
+                            pixlui:typeface="Fraunces-SemiBold.ttf"
                             android:textCursorDrawable="@null"/>
                 </LinearLayout>
             </LinearLayout>
 
-            <android.support.design.widget.CoordinatorLayout
+            <androidx.coordinatorlayout.widget.CoordinatorLayout
                     android:id="@+id/detail_content_card"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_weight="1"
-                    android:background="@drawable/bg_card">
+                    android:background="@drawable/bg_card_soma">
 
                 <ScrollView
                         android:id="@+id/content_wrapper"
@@ -116,7 +116,7 @@
 
                     </LinearLayout>
                 </ScrollView>
-            </android.support.design.widget.CoordinatorLayout>
+            </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
             <LinearLayout
                     android:id="@+id/detail_timestamps"
@@ -134,7 +134,7 @@
                         android:gravity="start"
                         android:padding="0dp"
                         android:textAppearance="@style/Text.Small"
-                        pixlui:typeface="Roboto-Regular.ttf"/>
+                        pixlui:typeface="Poppins-Regular.ttf"/>
 
                 <com.neopixl.pixlui.components.textview.TextView
                         android:id="@+id/last_modification"
@@ -144,13 +144,13 @@
                         android:gravity="end"
                         android:padding="0dp"
                         android:textAppearance="@style/Text.Small"
-                        pixlui:typeface="Roboto-Regular.ttf"/>
+                        pixlui:typeface="Poppins-Regular.ttf"/>
             </LinearLayout>
         </LinearLayout>
 
     </LinearLayout>
 
-    <android.support.design.widget.CoordinatorLayout
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
             android:layout_width="match_parent"
             android:layout_height="200dp"
             android:id="@+id/snackbar_placeholder"

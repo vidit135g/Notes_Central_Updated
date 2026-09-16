@@ -58,6 +58,8 @@ public class NoteInfosActivity extends Activity {
 
   @Override
   protected void onCreate (Bundle savedInstanceState) {
+    setTheme(com.absolute.android.notescentral.utils.SomaPeriod.themeResId(
+        com.absolute.android.notescentral.utils.SomaPeriod.resolveId(this)));
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_note_infos);
     ButterKnife.bind(this);

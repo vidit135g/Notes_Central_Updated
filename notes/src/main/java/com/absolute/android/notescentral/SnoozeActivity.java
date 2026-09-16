@@ -52,6 +52,8 @@ public class SnoozeActivity extends AppCompatActivity implements OnReminderPicke
 
   @Override
   protected void onCreate (Bundle savedInstanceState) {
+    setTheme(com.absolute.android.notescentral.utils.SomaPeriod.themeResId(
+        com.absolute.android.notescentral.utils.SomaPeriod.resolveId(this)));
     super.onCreate(savedInstanceState);
 
     if (getIntent().getParcelableExtra(Constants.INTENT_NOTE) != null) {

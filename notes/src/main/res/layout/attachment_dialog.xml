@@ -37,7 +37,7 @@
             android:paddingRight="@dimen/horizontal_margin"
             android:text="@string/camera"
             android:textSize="@dimen/attachment_dialog_text_size"
-            pixlui:typeface="Roboto-Regular.ttf"
+            pixlui:typeface="Poppins-Regular.ttf"
             android:textColor="@color/text_gray"/>
 
     <com.neopixl.pixlui.components.textview.TextView
@@ -54,7 +54,7 @@
             android:paddingEnd="@dimen/horizontal_margin"
             android:text="@string/video"
             android:textSize="@dimen/attachment_dialog_text_size"
-            pixlui:typeface="Roboto-Regular.ttf"
+            pixlui:typeface="Poppins-Regular.ttf"
             android:textColor="@color/text_gray"/>
 
     <com.neopixl.pixlui.components.textview.TextView
@@ -71,7 +71,7 @@
             android:paddingEnd="@dimen/horizontal_margin"
             android:text="@string/files"
             android:textSize="@dimen/attachment_dialog_text_size"
-            pixlui:typeface="Roboto-Regular.ttf"
+            pixlui:typeface="Poppins-Regular.ttf"
             android:textColor="@color/text_gray"/>
 
     <com.neopixl.pixlui.components.textview.TextView
@@ -88,7 +88,7 @@
             android:paddingEnd="@dimen/horizontal_margin"
             android:text="@string/record"
             android:textSize="@dimen/attachment_dialog_text_size"
-            pixlui:typeface="Roboto-Regular.ttf"
+            pixlui:typeface="Poppins-Regular.ttf"
             android:textColor="@color/text_gray"/>
 
     <com.neopixl.pixlui.components.textview.TextView
@@ -105,7 +105,7 @@
             android:paddingEnd="@dimen/horizontal_margin"
             android:text="@string/sketch"
             android:textSize="@dimen/attachment_dialog_text_size"
-            pixlui:typeface="Roboto-Regular.ttf"
+            pixlui:typeface="Poppins-Regular.ttf"
             android:textColor="@color/text_gray"/>
 
     <com.neopixl.pixlui.components.textview.TextView
@@ -122,7 +122,7 @@
             android:paddingEnd="@dimen/horizontal_margin"
             android:text="@string/location"
             android:textSize="@dimen/attachment_dialog_text_size"
-            pixlui:typeface="Roboto-Regular.ttf"
+            pixlui:typeface="Poppins-Regular.ttf"
             android:textColor="@color/text_gray"/>
 
     <com.neopixl.pixlui.components.textview.TextView
@@ -139,7 +139,7 @@
             android:paddingEnd="@dimen/horizontal_margin"
             android:text="@string/timestamp"
             android:textSize="@dimen/attachment_dialog_text_size"
-            pixlui:typeface="Roboto-Regular.ttf"
+            pixlui:typeface="Poppins-Regular.ttf"
             android:textColor="@color/text_gray"/>
 
     <com.neopixl.pixlui.components.textview.TextView
@@ -157,7 +157,7 @@
             android:text="@string/pushbullet"
             android:visibility="gone"
             android:textSize="@dimen/attachment_dialog_text_size"
-            pixlui:typeface="Roboto-Regular.ttf"
+            pixlui:typeface="Poppins-Regular.ttf"
             android:textColor="@color/text_gray"/>
 
 </LinearLayout>

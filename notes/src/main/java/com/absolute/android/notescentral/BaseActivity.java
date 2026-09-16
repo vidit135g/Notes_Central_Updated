@@ -73,6 +73,8 @@ public class BaseActivity extends AppCompatActivity {
 
   @Override
   protected void onCreate (Bundle savedInstanceState) {
+    setTheme(com.absolute.android.notescentral.utils.SomaPeriod.themeResId(
+        com.absolute.android.notescentral.utils.SomaPeriod.resolveId(this)));
     prefs = getSharedPreferences(Constants.PREFS_NAME, MODE_MULTI_PROCESS);
     // Forces menu overflow icon
     try {
@@ -186,9 +188,12 @@ public class BaseActivity extends AppCompatActivity {
     // Creating a spannable to support custom fonts on ActionBar
     int actionBarTitle = Resources.getSystem().getIdentifier("action_bar_title", "id", "android");
     android.widget.TextView actionBarTitleView = getWindow().findViewById(actionBarTitle);
-    Typeface font = Typeface.createFromAsset(getAssets(), "fonts/Roboto-Regular.ttf");
     if (actionBarTitleView != null) {
-      actionBarTitleView.setTypeface(font);
+      try {
+        actionBarTitleView.setTypeface(Typeface.createFromAsset(getAssets(), "fonts/Roboto-Regular.ttf"));
+      } catch (RuntimeException e) {
+        // Font asset isn't bundled in this build - fall back to the default system typeface.
+      }
     }
 
     if (getSupportActionBar() != null) {

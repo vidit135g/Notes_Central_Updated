@@ -18,7 +18,7 @@
   -->
 <resources xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <style name="OmniNotesTheme" parent="Theme.AppCompat.Light.NoActionBar">
+    <style name="OmniNotesTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
         <item name="android:windowContentOverlay">@null</item>
         <item name="android:windowBackground">@color/colorPrimary</item>
         <item name="colorPrimary">@color/colorPrimary</item>
@@ -102,8 +102,8 @@
     </style>
 
     <style name="Text" parent="android:TextAppearance.Holo.Medium.Inverse">
-        <item name="android:textColor">@color/text_color</item>
-        <item name="android:textColorHint">@color/text_color_lighter</item>
+        <item name="android:textColor">?attr/somaTextP</item>
+        <item name="android:textColorHint">?attr/somaTextM</item>
         <item name="android:textCursorDrawable">@null</item>
     </style>
 

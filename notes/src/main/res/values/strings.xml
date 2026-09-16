@@ -418,4 +418,18 @@
     <string name="version_postfix">.ALPHA</string>
     <string name="shared_content_sign">Shared via Notes Central</string>
     <string name="at">at</string>
+
+    <!-- Soma theme -->
+    <string name="soma_period_auto">Auto (by time of day)</string>
+    <string name="soma_period_vata_dawn">Vata dawn</string>
+    <string name="soma_period_kapha_am">Kapha morning</string>
+    <string name="soma_period_pitta_day">Pitta midday</string>
+    <string name="soma_period_vata_pm">Vata afternoon</string>
+    <string name="soma_period_kapha_pm">Kapha evening</string>
+    <string name="soma_period_pitta_night">Pitta night</string>
+    <string name="soma_streak_format">%d</string>
+    <string name="soma_filter_all">All</string>
+    <string name="soma_voice_note_recording">Recording</string>
+    <string name="soma_voice_note_save">Save</string>
+    <string name="soma_voice_note_cancel">Cancel</string>
 </resources>

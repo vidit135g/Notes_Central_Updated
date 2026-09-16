@@ -28,7 +28,6 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.Color;
-import android.graphics.drawable.AnimationDrawable;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
@@ -128,11 +127,15 @@ public class ListFragment extends BaseFragment implements OnViewTouchedListener,
   @BindView(R.id.search_cancel)
   ImageView searchCancel;
   @BindView(R.id.empty_list)
-  TextView empyListItem;
+  com.airbnb.lottie.LottieAnimationView empyListItem;
   @BindView(R.id.expanded_image)
   ImageView expandedImageView;
-  @BindView(R.id.fab)
+  @BindView(R.id.fab1)
   View fabView;
+  @BindView(R.id.checkopen)
+  View checklistQuickCreateView;
+  @BindView(R.id.addcam)
+  View cameraQuickCreateView;
   @BindView(R.id.undobar)
   View undoBarView;
   @BindView(R.id.progress_wheel)
@@ -146,7 +149,6 @@ public class ListFragment extends BaseFragment implements OnViewTouchedListener,
   private SearchView searchView;
   private MenuItem searchMenuItem;
   private Menu menu;
-  private AnimationDrawable jinglesAnimation;
   private int listViewPosition;
   private int listViewPositionOffset = 16;
   private boolean sendToArchive;
@@ -264,6 +266,19 @@ public class ListFragment extends BaseFragment implements OnViewTouchedListener,
           break;
       }
     });
+
+    // Bottom-app-bar quick-create icons alongside the main FAB.
+    checklistQuickCreateView.setOnClickListener(v -> {
+      Note note = new Note();
+      note.setChecklist(true);
+      editNote(note, v);
+    });
+    cameraQuickCreateView.setOnClickListener(v -> {
+      Intent i = mainActivity.getIntent();
+      i.setAction(Constants.ACTION_FAB_TAKE_PHOTO);
+      mainActivity.setIntent(i);
+      editNote(new Note(), v);
+    });
   }
 
 
@@ -299,31 +314,10 @@ public class ListFragment extends BaseFragment implements OnViewTouchedListener,
 
 
   /**
-   * Starts a little animation on Mr.Jingles!
+   * Replays the empty-list illustration on tap.
    */
   private void initEasterEgg () {
-    empyListItem.setOnClickListener(v -> {
-      if (jinglesAnimation == null) {
-        jinglesAnimation = (AnimationDrawable) empyListItem.getCompoundDrawables()[1];
-        empyListItem.post(() -> {
-          if (jinglesAnimation != null) {
-            jinglesAnimation.start();
-          }
-        });
-      } else {
-        stopJingles();
-      }
-    });
-  }
-
-
-  private void stopJingles () {
-    if (jinglesAnimation != null) {
-      jinglesAnimation.stop();
-      jinglesAnimation = null;
-      empyListItem.setCompoundDrawablesWithIntrinsicBounds(0, R.drawable.jingles_animation, 0, 0);
-
-    }
+    empyListItem.setOnClickListener(v -> empyListItem.playAnimation());
   }
 
 
@@ -331,7 +325,7 @@ public class ListFragment extends BaseFragment implements OnViewTouchedListener,
   public void onPause () {
     super.onPause();
     searchQueryInstant = searchQuery;
-    stopJingles();
+    empyListItem.cancelAnimation();
     Crouton.cancelAllCroutons();
     closeFab();
     if (!keepActionMode) {

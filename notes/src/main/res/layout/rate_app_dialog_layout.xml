@@ -29,7 +29,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center"
-        pixlui:typeface="Roboto-Regular.ttf" 
+        pixlui:typeface="Poppins-Regular.ttf" 
         style="@style/Text.Big"/>
 
     <CheckBox

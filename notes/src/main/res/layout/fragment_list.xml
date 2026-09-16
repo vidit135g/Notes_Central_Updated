@@ -27,7 +27,7 @@
             android:id="@+id/list_root"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-        android:background="@color/white"
+        android:background="?attr/somaBg"
             android:orientation="vertical">
 
         <LinearLayout
@@ -199,7 +199,7 @@
             app:tint="@null"
             android:clickable="true"
             android:focusable="true"
-            app:backgroundTint="@color/white"
+            app:backgroundTint="?attr/somaPrimary"
             app:maxImageSize="32dp"
             android:src="@drawable/cusotmcreate"
             app:useCompatPadding="true" />

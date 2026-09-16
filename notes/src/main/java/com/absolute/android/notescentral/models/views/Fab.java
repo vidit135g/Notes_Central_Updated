@@ -25,114 +25,63 @@ import android.view.ViewGroup;
 import android.view.animation.AccelerateDecelerateInterpolator;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
-import com.getbase.floatingactionbutton.AddFloatingActionButton;
-import com.getbase.floatingactionbutton.FloatingActionsMenu;
 import com.absolute.android.notescentral.OmniNotes;
 import com.absolute.android.notescentral.R;
 import com.absolute.android.notescentral.models.listeners.AbsListViewScrollDetector;
 import com.absolute.android.notescentral.models.listeners.OnFabItemClickedListener;
 import com.absolute.android.notescentral.utils.Constants;
 
+/**
+ * The redesigned bottom-app-bar layout replaced the old expandable
+ * {@code FloatingActionsMenu} speed-dial with a single always-visible
+ * Material {@code FloatingActionButton} (id {@code fab1}). This class keeps
+ * the same public API the rest of {@code ListFragment} already relies on
+ * (showFab/hideFab/isExpanded/etc.) but drives a plain View instead of a
+ * speed-dial menu — there is no expand/collapse state anymore, so
+ * isExpanded() always reports false and performToggle() is a no-op.
+ */
 public class Fab {
 
-  private FloatingActionsMenu fab;
+  private View fab;
   private boolean fabAllowed;
   private boolean fabHidden;
-  private boolean fabExpanded;
   private final ListView listView;
-  private boolean expandOnLongClick;
   private View overlay;
 
   OnFabItemClickedListener onFabItemClickedListener;
 
 
   public Fab (View fabView, ListView listView, boolean expandOnLongClick) {
-    this.fab = (FloatingActionsMenu) fabView;
+    this.fab = fabView;
     this.listView = listView;
-    this.expandOnLongClick = expandOnLongClick;
     init();
   }
 
 
   private void init () {
     this.fabHidden = true;
-    this.fabExpanded = false;
 
-    AddFloatingActionButton fabAddButton = fab.findViewById(R.id.fab_expand_menu_button);
-    fabAddButton.setOnClickListener(v -> {
-      if (!isExpanded() && expandOnLongClick) {
-        performAction(v);
-      } else {
-        performToggle();
-      }
-    });
-    fabAddButton.setOnLongClickListener(v -> {
-      if (!expandOnLongClick) {
-        performAction(v);
-      } else {
-        performToggle();
-      }
-      return true;
-    });
+    fab.setOnClickListener(v -> onFabItemClickedListener.onFabItemClick(R.id.fab_note));
+
     listView.setOnScrollListener(
         new AbsListViewScrollDetector() {
           public void onScrollUp () {
             if (fab != null) {
-              fab.collapse();
               hideFab();
             }
           }
 
           public void onScrollDown () {
             if (fab != null) {
-              fab.collapse();
               showFab();
             }
           }
         });
-
-    fab.findViewById(R.id.fab_checklist).setOnClickListener(onClickListener);
-    fab.findViewById(R.id.fab_camera).setOnClickListener(onClickListener);
-
-    if (!expandOnLongClick) {
-      View noteBtn = fab.findViewById(R.id.fab_note);
-      noteBtn.setVisibility(View.VISIBLE);
-      noteBtn.setOnClickListener(onClickListener);
-    }
-
   }
 
-
-  private View.OnClickListener onClickListener = new View.OnClickListener() {
-    @Override
-    public void onClick (View v) {
-      onFabItemClickedListener.onFabItemClick(v.getId());
-    }
-  };
 
   public void performToggle () {
-    fabExpanded = !fabExpanded;
-    fab.toggle();
-  }
-
-
-  private void toggleOverlay () {
-    if (this.overlay != null) {
-      if (fabExpanded) {
-        this.overlay.setVisibility(View.VISIBLE);
-      } else {
-        this.overlay.setVisibility(View.GONE);
-      }
-    }
-  }
-
-  private void performAction (View v) {
-    if (fabExpanded) {
-      fab.toggle();
-      fabExpanded = false;
-    } else {
-      onFabItemClickedListener.onFabItemClick(v.getId());
-    }
+    // No-op: the redesigned FAB is a single always-visible button, nothing to expand/collapse.
   }
 
 
@@ -146,10 +95,8 @@ public class Fab {
 
   public void hideFab () {
     if (fab != null && !fabHidden) {
-      fab.collapse();
       animateFab(fab.getHeight() + getMarginBottom(fab), View.VISIBLE, View.INVISIBLE);
       fabHidden = true;
-      fabExpanded = false;
     }
   }
 
@@ -215,6 +162,6 @@ public class Fab {
   }
 
   public boolean isExpanded () {
-    return fabExpanded;
+    return false;
   }
 }

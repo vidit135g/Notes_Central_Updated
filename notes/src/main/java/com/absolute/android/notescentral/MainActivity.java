@@ -86,7 +86,6 @@ public class MainActivity extends BaseActivity implements OnDateSetListener, OnT
   @Override
   protected void onCreate (Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
-    setTheme(R.style.OmniNotesTheme_ApiSpec);
     setContentView(R.layout.activity_main);
     ButterKnife.bind(this);
     EventBus.getDefault().register(this);

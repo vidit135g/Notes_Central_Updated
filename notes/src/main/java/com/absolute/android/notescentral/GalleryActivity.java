@@ -112,6 +112,8 @@ public class GalleryActivity extends AppCompatActivity {
 
   @Override
   protected void onCreate (Bundle savedInstanceState) {
+    setTheme(com.absolute.android.notescentral.utils.SomaPeriod.themeResId(
+        com.absolute.android.notescentral.utils.SomaPeriod.resolveId(this)));
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_gallery);
     ButterKnife.bind(this);

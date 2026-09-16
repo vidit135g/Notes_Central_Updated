@@ -71,6 +71,7 @@ public interface ConstantsBase {
   String ACTION_SEARCH_UNCOMPLETE_CHECKLISTS = "action_search_uncomplete_checklists";
 
   String PREF_LANG = "settings_language";
+  String PREF_SOMA_PERIOD = "soma_period";
   String PREF_LAST_UPDATE_CHECK = "last_update_check";
   String PREF_NAVIGATION = "navigation";
   String PREF_SORTING_COLUMN = "sorting_column";

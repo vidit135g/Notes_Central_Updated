@@ -94,13 +94,13 @@
                 android:src="@drawable/ic_delete_red_48dp" />
         </LinearLayout>
 
-        <it.feio.android.omninotes.models.views.SketchView
+        <com.absolute.android.notescentral.models.views.SketchView
             xmlns:android="http://schemas.android.com/apk/res/android"
             android:id="@+id/drawing"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1" >
-        </it.feio.android.omninotes.models.views.SketchView>
+        </com.absolute.android.notescentral.models.views.SketchView>
     </LinearLayout>
 
 </FrameLayout>

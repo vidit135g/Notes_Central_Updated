@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Shared non-color items for every LIGHT dosha period. Parented on the
+         Light MaterialComponents base so dialogs/popups/hints resolve for a
+         light surface (see the analogous dark-base split below — mismatching
+         these is the single most common cause of invisible-text bugs). -->
+    <style name="OmniNotesTheme.SomaBase.Light" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="windowActionModeOverlay">true</item>
+        <item name="searchViewStyle">@style/SearchViewStyle</item>
+        <item name="actionBarPopupTheme">@style/ThemeOverlay.AppCompat.Light</item>
+        <item name="android:fontFamily">@font/poppins</item>
+        <item name="android:windowDisablePreview">true</item>
+    </style>
+
+    <!-- Shared non-color items for every DARK dosha period (vata-dawn,
+         kapha-pm, pitta-night). -->
+    <style name="OmniNotesTheme.SomaBase.Dark" parent="Theme.MaterialComponents.NoActionBar">
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="windowActionModeOverlay">true</item>
+        <item name="searchViewStyle">@style/SearchViewStyle</item>
+        <item name="actionBarPopupTheme">@style/ThemeOverlay.AppCompat.Dark</item>
+        <item name="android:fontFamily">@font/poppins</item>
+        <item name="android:windowDisablePreview">true</item>
+    </style>
+
+    <!-- The color+token mapping every period theme fills in identically,
+         just with different color resource references. Kept as documentation
+         of which attrs each period style below must set. -->
+
+    <style name="OmniNotesTheme.Soma.VataDawn" parent="OmniNotesTheme.SomaBase.Dark">
+        <item name="colorPrimary">@color/soma_vataDawn_primary</item>
+        <item name="colorPrimaryDark">@color/soma_vataDawn_bg</item>
+        <item name="colorAccent">@color/soma_vataDawn_accent</item>
+        <item name="colorSecondary">@color/soma_vataDawn_secondary</item>
+        <item name="colorSurface">@color/soma_vataDawn_elev</item>
+        <item name="android:colorBackground">@color/soma_vataDawn_bg</item>
+        <item name="android:windowBackground">@color/soma_vataDawn_bg</item>
+        <item name="android:textColorPrimary">@color/soma_vataDawn_textP</item>
+        <item name="android:textColorSecondary">@color/soma_vataDawn_textS</item>
+        <item name="android:textColorHint">@color/soma_vataDawn_textM</item>
+        <item name="actionModeBackground">@color/soma_vataDawn_surf</item>
+        <item name="somaBg">@color/soma_vataDawn_bg</item>
+        <item name="somaElev">@color/soma_vataDawn_elev</item>
+        <item name="somaSurf">@color/soma_vataDawn_surf</item>
+        <item name="somaMuted">@color/soma_vataDawn_muted</item>
+        <item name="somaStrong">@color/soma_vataDawn_strong</item>
+        <item name="somaTextP">@color/soma_vataDawn_textP</item>
+        <item name="somaTextS">@color/soma_vataDawn_textS</item>
+        <item name="somaTextM">@color/soma_vataDawn_textM</item>
+        <item name="somaBorder">@color/soma_vataDawn_border</item>
+        <item name="somaBorderSub">@color/soma_vataDawn_borderSub</item>
+        <item name="somaPrimary">@color/soma_vataDawn_primary</item>
+        <item name="somaPrimaryPressed">@color/soma_vataDawn_primaryPressed</item>
+        <item name="somaSecondary">@color/soma_vataDawn_secondary</item>
+        <item name="somaAccent">@color/soma_vataDawn_accent</item>
+        <item name="somaOnFill">@color/soma_vataDawn_onFill</item>
+    </style>
+
+    <style name="OmniNotesTheme.Soma.KaphaAm" parent="OmniNotesTheme.SomaBase.Light">
+        <item name="colorPrimary">@color/soma_kaphaAm_primary</item>
+        <item name="colorPrimaryDark">@color/soma_kaphaAm_primaryPressed</item>
+        <item name="colorAccent">@color/soma_kaphaAm_accent</item>
+        <item name="colorSecondary">@color/soma_kaphaAm_secondary</item>
+        <item name="colorSurface">@color/soma_kaphaAm_elev</item>
+        <item name="android:colorBackground">@color/soma_kaphaAm_bg</item>
+        <item name="android:windowBackground">@color/soma_kaphaAm_bg</item>
+        <item name="android:textColorPrimary">@color/soma_kaphaAm_textP</item>
+        <item name="android:textColorSecondary">@color/soma_kaphaAm_textS</item>
+        <item name="android:textColorHint">@color/soma_kaphaAm_textM</item>
+        <item name="actionModeBackground">@color/soma_kaphaAm_surf</item>
+        <item name="somaBg">@color/soma_kaphaAm_bg</item>
+        <item name="somaElev">@color/soma_kaphaAm_elev</item>
+        <item name="somaSurf">@color/soma_kaphaAm_surf</item>
+        <item name="somaMuted">@color/soma_kaphaAm_muted</item>
+        <item name="somaStrong">@color/soma_kaphaAm_strong</item>
+        <item name="somaTextP">@color/soma_kaphaAm_textP</item>
+        <item name="somaTextS">@color/soma_kaphaAm_textS</item>
+        <item name="somaTextM">@color/soma_kaphaAm_textM</item>
+        <item name="somaBorder">@color/soma_kaphaAm_border</item>
+        <item name="somaBorderSub">@color/soma_kaphaAm_borderSub</item>
+        <item name="somaPrimary">@color/soma_kaphaAm_primary</item>
+        <item name="somaPrimaryPressed">@color/soma_kaphaAm_primaryPressed</item>
+        <item name="somaSecondary">@color/soma_kaphaAm_secondary</item>
+        <item name="somaAccent">@color/soma_kaphaAm_accent</item>
+        <item name="somaOnFill">@color/soma_kaphaAm_onFill</item>
+    </style>
+
+    <style name="OmniNotesTheme.Soma.PittaDay" parent="OmniNotesTheme.SomaBase.Light">
+        <item name="colorPrimary">@color/soma_pittaDay_primary</item>
+        <item name="colorPrimaryDark">@color/soma_pittaDay_primaryPressed</item>
+        <item name="colorAccent">@color/soma_pittaDay_accent</item>
+        <item name="colorSecondary">@color/soma_pittaDay_secondary</item>
+        <item name="colorSurface">@color/soma_pittaDay_elev</item>
+        <item name="android:colorBackground">@color/soma_pittaDay_bg</item>
+        <item name="android:windowBackground">@color/soma_pittaDay_bg</item>
+        <item name="android:textColorPrimary">@color/soma_pittaDay_textP</item>
+        <item name="android:textColorSecondary">@color/soma_pittaDay_textS</item>
+        <item name="android:textColorHint">@color/soma_pittaDay_textM</item>
+        <item name="actionModeBackground">@color/soma_pittaDay_surf</item>
+        <item name="somaBg">@color/soma_pittaDay_bg</item>
+        <item name="somaElev">@color/soma_pittaDay_elev</item>
+        <item name="somaSurf">@color/soma_pittaDay_surf</item>
+        <item name="somaMuted">@color/soma_pittaDay_muted</item>
+        <item name="somaStrong">@color/soma_pittaDay_strong</item>
+        <item name="somaTextP">@color/soma_pittaDay_textP</item>
+        <item name="somaTextS">@color/soma_pittaDay_textS</item>
+        <item name="somaTextM">@color/soma_pittaDay_textM</item>
+        <item name="somaBorder">@color/soma_pittaDay_border</item>
+        <item name="somaBorderSub">@color/soma_pittaDay_borderSub</item>
+        <item name="somaPrimary">@color/soma_pittaDay_primary</item>
+        <item name="somaPrimaryPressed">@color/soma_pittaDay_primaryPressed</item>
+        <item name="somaSecondary">@color/soma_pittaDay_secondary</item>
+        <item name="somaAccent">@color/soma_pittaDay_accent</item>
+        <item name="somaOnFill">@color/soma_pittaDay_onFill</item>
+    </style>
+
+    <style name="OmniNotesTheme.Soma.VataPm" parent="OmniNotesTheme.SomaBase.Light">
+        <item name="colorPrimary">@color/soma_vataPm_primary</item>
+        <item name="colorPrimaryDark">@color/soma_vataPm_primaryPressed</item>
+        <item name="colorAccent">@color/soma_vataPm_accent</item>
+        <item name="colorSecondary">@color/soma_vataPm_secondary</item>
+        <item name="colorSurface">@color/soma_vataPm_elev</item>
+        <item name="android:colorBackground">@color/soma_vataPm_bg</item>
+        <item name="android:windowBackground">@color/soma_vataPm_bg</item>
+        <item name="android:textColorPrimary">@color/soma_vataPm_textP</item>
+        <item name="android:textColorSecondary">@color/soma_vataPm_textS</item>
+        <item name="android:textColorHint">@color/soma_vataPm_textM</item>
+        <item name="actionModeBackground">@color/soma_vataPm_surf</item>
+        <item name="somaBg">@color/soma_vataPm_bg</item>
+        <item name="somaElev">@color/soma_vataPm_elev</item>
+        <item name="somaSurf">@color/soma_vataPm_surf</item>
+        <item name="somaMuted">@color/soma_vataPm_muted</item>
+        <item name="somaStrong">@color/soma_vataPm_strong</item>
+        <item name="somaTextP">@color/soma_vataPm_textP</item>
+        <item name="somaTextS">@color/soma_vataPm_textS</item>
+        <item name="somaTextM">@color/soma_vataPm_textM</item>
+        <item name="somaBorder">@color/soma_vataPm_border</item>
+        <item name="somaBorderSub">@color/soma_vataPm_borderSub</item>
+        <item name="somaPrimary">@color/soma_vataPm_primary</item>
+        <item name="somaPrimaryPressed">@color/soma_vataPm_primaryPressed</item>
+        <item name="somaSecondary">@color/soma_vataPm_secondary</item>
+        <item name="somaAccent">@color/soma_vataPm_accent</item>
+        <item name="somaOnFill">@color/soma_vataPm_onFill</item>
+    </style>
+
+    <style name="OmniNotesTheme.Soma.KaphaPm" parent="OmniNotesTheme.SomaBase.Dark">
+        <item name="colorPrimary">@color/soma_kaphaPm_primary</item>
+        <item name="colorPrimaryDark">@color/soma_kaphaPm_bg</item>
+        <item name="colorAccent">@color/soma_kaphaPm_accent</item>
+        <item name="colorSecondary">@color/soma_kaphaPm_secondary</item>
+        <item name="colorSurface">@color/soma_kaphaPm_elev</item>
+        <item name="android:colorBackground">@color/soma_kaphaPm_bg</item>
+        <item name="android:windowBackground">@color/soma_kaphaPm_bg</item>
+        <item name="android:textColorPrimary">@color/soma_kaphaPm_textP</item>
+        <item name="android:textColorSecondary">@color/soma_kaphaPm_textS</item>
+        <item name="android:textColorHint">@color/soma_kaphaPm_textM</item>
+        <item name="actionModeBackground">@color/soma_kaphaPm_surf</item>
+        <item name="somaBg">@color/soma_kaphaPm_bg</item>
+        <item name="somaElev">@color/soma_kaphaPm_elev</item>
+        <item name="somaSurf">@color/soma_kaphaPm_surf</item>
+        <item name="somaMuted">@color/soma_kaphaPm_muted</item>
+        <item name="somaStrong">@color/soma_kaphaPm_strong</item>
+        <item name="somaTextP">@color/soma_kaphaPm_textP</item>
+        <item name="somaTextS">@color/soma_kaphaPm_textS</item>
+        <item name="somaTextM">@color/soma_kaphaPm_textM</item>
+        <item name="somaBorder">@color/soma_kaphaPm_border</item>
+        <item name="somaBorderSub">@color/soma_kaphaPm_borderSub</item>
+        <item name="somaPrimary">@color/soma_kaphaPm_primary</item>
+        <item name="somaPrimaryPressed">@color/soma_kaphaPm_primaryPressed</item>
+        <item name="somaSecondary">@color/soma_kaphaPm_secondary</item>
+        <item name="somaAccent">@color/soma_kaphaPm_accent</item>
+        <item name="somaOnFill">@color/soma_kaphaPm_onFill</item>
+    </style>
+
+    <style name="OmniNotesTheme.Soma.PittaNight" parent="OmniNotesTheme.SomaBase.Dark">
+        <item name="colorPrimary">@color/soma_pittaNight_primary</item>
+        <item name="colorPrimaryDark">@color/soma_pittaNight_bg</item>
+        <item name="colorAccent">@color/soma_pittaNight_accent</item>
+        <item name="colorSecondary">@color/soma_pittaNight_secondary</item>
+        <item name="colorSurface">@color/soma_pittaNight_elev</item>
+        <item name="android:colorBackground">@color/soma_pittaNight_bg</item>
+        <item name="android:windowBackground">@color/soma_pittaNight_bg</item>
+        <item name="android:textColorPrimary">@color/soma_pittaNight_textP</item>
+        <item name="android:textColorSecondary">@color/soma_pittaNight_textS</item>
+        <item name="android:textColorHint">@color/soma_pittaNight_textM</item>
+        <item name="actionModeBackground">@color/soma_pittaNight_surf</item>
+        <item name="somaBg">@color/soma_pittaNight_bg</item>
+        <item name="somaElev">@color/soma_pittaNight_elev</item>
+        <item name="somaSurf">@color/soma_pittaNight_surf</item>
+        <item name="somaMuted">@color/soma_pittaNight_muted</item>
+        <item name="somaStrong">@color/soma_pittaNight_strong</item>
+        <item name="somaTextP">@color/soma_pittaNight_textP</item>
+        <item name="somaTextS">@color/soma_pittaNight_textS</item>
+        <item name="somaTextM">@color/soma_pittaNight_textM</item>
+        <item name="somaBorder">@color/soma_pittaNight_border</item>
+        <item name="somaBorderSub">@color/soma_pittaNight_borderSub</item>
+        <item name="somaPrimary">@color/soma_pittaNight_primary</item>
+        <item name="somaPrimaryPressed">@color/soma_pittaNight_primaryPressed</item>
+        <item name="somaSecondary">@color/soma_pittaNight_secondary</item>
+        <item name="somaAccent">@color/soma_pittaNight_accent</item>
+        <item name="somaOnFill">@color/soma_pittaNight_onFill</item>
+    </style>
+
+</resources>

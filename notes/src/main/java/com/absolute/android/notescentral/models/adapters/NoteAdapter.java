@@ -158,6 +158,16 @@ public class NoteAdapter extends ArrayAdapter<Note> implements Insertable {
     if (!expandedView) {
       holder.attachmentIcon.setVisibility(note.getAttachmentsList().size() > 0 ? View.VISIBLE : View.GONE);
     }
+
+    // Status icons are hardcoded black assets - tint them to the active
+    // Soma period's muted-text color so they stay legible on dark cards too.
+    android.util.TypedValue tv = new android.util.TypedValue();
+    mActivity.getTheme().resolveAttribute(R.attr.somaTextM, tv, true);
+    int tint = tv.data;
+    holder.archiveIcon.setColorFilter(tint);
+    holder.locationIcon.setColorFilter(tint);
+    holder.alarmIcon.setColorFilter(tint);
+    holder.lockedIcon.setColorFilter(tint);
   }
 
 
