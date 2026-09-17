@@ -118,9 +118,17 @@ public class GeocodeHelper implements LocationListener {
 
 
   public static void stop () {
-    SmartLocation.with(OmniNotes.getAppContext()).location().stop();
-    if (Geocoder.isPresent()) {
-      SmartLocation.with(OmniNotes.getAppContext()).geocoding().stop();
+    // SmartLocation's Play Services provider can throw NoClassDefFoundError at runtime
+    // when the resolved com.google.android.gms:* artifact versions are mutually
+    // incompatible (a dependency-graph issue, not something tied to any particular
+    // note). Guard defensively so a version mismatch here can never crash note close.
+    try {
+      SmartLocation.with(OmniNotes.getAppContext()).location().stop();
+      if (Geocoder.isPresent()) {
+        SmartLocation.with(OmniNotes.getAppContext()).geocoding().stop();
+      }
+    } catch (Throwable t) {
+      LogDelegate.e("Failed to stop location/geocoding updates", t);
     }
   }
 

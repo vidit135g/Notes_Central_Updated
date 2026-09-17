@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/somaBg"
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
+    android:paddingStart="28dp"
+    android:paddingEnd="28dp"
+    android:paddingTop="48dp"
+    android:paddingBottom="36dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/soma_voice_recording"
+        android:fontFamily="@font/poppins_medium"
+        android:textSize="11sp"
+        android:textAllCaps="true"
+        android:letterSpacing="0.1"
+        android:textColor="?attr/somaTextM" />
+
+    <TextView
+        android:id="@+id/voice_timer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
+        android:text="00:00"
+        android:fontFamily="@font/fraunces_semibold"
+        android:textSize="44sp"
+        android:textColor="?attr/somaTextP" />
+
+    <LinearLayout
+        android:id="@+id/voice_wave"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginTop="24dp"
+        android:layout_marginBottom="24dp"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:clipChildren="false" />
+
+    <FrameLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="28dp">
+
+        <View
+            android:id="@+id/voice_record_ring"
+            android:layout_width="76dp"
+            android:layout_height="76dp"
+            android:layout_gravity="center"
+            android:background="@drawable/bg_soma_voice_ring" />
+
+        <View
+            android:id="@+id/voice_record_btn"
+            android:layout_width="76dp"
+            android:layout_height="76dp"
+            android:layout_gravity="center"
+            android:background="@drawable/bg_soma_voice_record_btn" />
+
+    </FrameLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:id="@+id/voice_cancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="32dp"
+            android:padding="8dp"
+            android:text="@string/cancel"
+            android:fontFamily="@font/poppins_semibold"
+            android:textSize="13sp"
+            android:textColor="?attr/somaTextS" />
+
+        <TextView
+            android:id="@+id/voice_save"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="8dp"
+            android:text="@string/save"
+            android:fontFamily="@font/poppins_semibold"
+            android:textSize="13sp"
+            android:textColor="?attr/somaPrimary" />
+
+    </LinearLayout>
+
+</LinearLayout>

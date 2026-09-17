@@ -64,6 +64,8 @@ public interface ConstantsBase {
   String ACTION_NOTIFICATION_CLICK = "action_notification_click";
   String ACTION_MERGE = "action_merge";
   String ACTION_FAB_TAKE_PHOTO = "action_fab_take_photo";
+  String ACTION_FAB_SKETCH = "action_fab_sketch";
+  String ACTION_FAB_AUDIO = "action_fab_audio";
   /**
    * Used to quickly add a note, save, and perform backPress (eg. Tasker+Pushbullet) *
    */

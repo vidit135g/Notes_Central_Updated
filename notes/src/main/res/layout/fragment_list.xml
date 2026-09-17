@@ -58,6 +58,41 @@
                     android:paddingEnd="@dimen/horizontal_margin"/>
         </LinearLayout>
 
+        <LinearLayout
+            android:id="@+id/soma_search_row"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/horizontal_margin"
+            android:layout_marginEnd="@dimen/horizontal_margin"
+            android:layout_marginBottom="10dp"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:clickable="true"
+            android:focusable="true"
+            android:background="@drawable/bg_soma_search_row"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp"
+            android:paddingTop="9dp"
+            android:paddingBottom="9dp">
+
+            <ImageView
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:layout_marginEnd="8dp"
+                android:src="@drawable/ic_search_white_24dp"
+                android:tint="?attr/somaTextM" />
+
+            <com.neopixl.pixlui.components.textview.TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/soma_search_hint"
+                android:textAppearance="@style/Text.Small"
+                android:textColor="?attr/somaTextM"
+                pixlui:typeface="Poppins-Regular.ttf" />
+
+        </LinearLayout>
+
         <HorizontalScrollView
             android:id="@+id/category_chip_scroll"
             android:layout_width="match_parent"
@@ -153,6 +188,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
+            android:backgroundTint="?attr/somaElev"
+            app:elevation="8dp"
             wheel:fabCradleVerticalOffset="10dp"
 
             app:fabAlignmentMode="end">
@@ -171,6 +208,7 @@
                     android:padding="5dp"
                     android:layout_margin="10dp"
                     android:background="@drawable/rounded_ripple"
+                    android:tint="?attr/somaTextS"
                     android:src="@drawable/checklist"/>
                 <ImageView
                     android:layout_width="wrap_content"
@@ -181,6 +219,7 @@
                     android:id="@+id/draw"
                     android:layout_margin="10dp"
                     android:background="@drawable/rounded_ripple"
+                    android:tint="?attr/somaTextS"
                     android:src="@drawable/ic_brush_black_24dp"/>
                 <ImageView
                     android:layout_width="wrap_content"
@@ -191,6 +230,7 @@
                     android:padding="5dp"
                     android:layout_margin="10dp"
                     android:background="@drawable/rounded_ripple"
+                    android:tint="?attr/somaTextS"
                     android:src="@drawable/camera"/>
                 <ImageView
                     android:layout_width="wrap_content"
@@ -201,6 +241,7 @@
                     android:padding="5dp"
                     android:layout_margin="10dp"
                     android:background="@drawable/rounded_ripple"
+                    android:tint="?attr/somaTextS"
                     android:src="@drawable/ic_mic_black_24dp"/>
             </LinearLayout>
 
@@ -218,6 +259,7 @@
             android:focusable="true"
             app:backgroundTint="?attr/somaPrimary"
             app:maxImageSize="32dp"
+            app:shapeAppearanceOverlay="@style/ShapeAppearance.Soma.Fab"
             android:src="@drawable/cusotmcreate"
             app:useCompatPadding="true" />
 

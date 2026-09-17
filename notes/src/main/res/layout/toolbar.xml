@@ -21,7 +21,15 @@
     android:id="@+id/toolbar"
     android:layout_height="?attr/actionBarSize"
     android:layout_width="match_parent"
-    android:elevation="@dimen/toolbar_elevation"
-    android:background="?attr/colorPrimary"
-    app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
-    app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
+    android:elevation="0dp"
+    android:background="?attr/somaBg"
+    app:titleTextAppearance="@style/ToolbarTitle.Soma"
+    app:subtitleTextAppearance="@style/ToolbarSubtitle.Soma">
+
+    <FrameLayout
+        android:id="@+id/toolbar_streak_slot"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end|center_vertical" />
+
+</androidx.appcompat.widget.Toolbar>

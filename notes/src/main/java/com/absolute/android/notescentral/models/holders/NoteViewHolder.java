@@ -40,6 +40,10 @@ public class NoteViewHolder {
   @BindView(R.id.category_marker)
   public View categoryMarker;
 
+  @Nullable
+  @BindView(R.id.note_category_badge)
+  public android.widget.TextView categoryBadge;
+
   @BindView(R.id.note_title)
   public TextView title;
   @BindView(R.id.note_content)

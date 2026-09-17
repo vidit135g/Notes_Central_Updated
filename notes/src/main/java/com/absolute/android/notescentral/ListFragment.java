@@ -52,6 +52,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.EditorInfo;
 import android.widget.ImageView;
+import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import butterknife.BindView;
@@ -128,6 +129,8 @@ public class ListFragment extends BaseFragment implements OnViewTouchedListener,
   ImageView searchCancel;
   @BindView(R.id.category_chip_row)
   LinearLayout categoryChipRow;
+  @BindView(R.id.soma_search_row)
+  View somaSearchRow;
   @BindView(R.id.empty_list)
   com.airbnb.lottie.LottieAnimationView empyListItem;
   @BindView(R.id.expanded_image)
@@ -136,8 +139,12 @@ public class ListFragment extends BaseFragment implements OnViewTouchedListener,
   View fabView;
   @BindView(R.id.checkopen)
   View checklistQuickCreateView;
+  @BindView(R.id.draw)
+  View sketchQuickCreateView;
   @BindView(R.id.addcam)
   View cameraQuickCreateView;
+  @BindView(R.id.audio)
+  View audioQuickCreateView;
   @BindView(R.id.undobar)
   View undoBarView;
   @BindView(R.id.progress_wheel)
@@ -270,6 +277,12 @@ public class ListFragment extends BaseFragment implements OnViewTouchedListener,
       }
     });
 
+    somaSearchRow.setOnClickListener(v -> {
+      if (searchMenuItem != null) {
+        searchMenuItem.expandActionView();
+      }
+    });
+
     // Bottom-app-bar quick-create icons alongside the main FAB.
     checklistQuickCreateView.setOnClickListener(v -> {
       Note note = new Note();
@@ -279,6 +292,18 @@ public class ListFragment extends BaseFragment implements OnViewTouchedListener,
     cameraQuickCreateView.setOnClickListener(v -> {
       Intent i = mainActivity.getIntent();
       i.setAction(Constants.ACTION_FAB_TAKE_PHOTO);
+      mainActivity.setIntent(i);
+      editNote(new Note(), v);
+    });
+    sketchQuickCreateView.setOnClickListener(v -> {
+      Intent i = mainActivity.getIntent();
+      i.setAction(Constants.ACTION_FAB_SKETCH);
+      mainActivity.setIntent(i);
+      editNote(new Note(), v);
+    });
+    audioQuickCreateView.setOnClickListener(v -> {
+      Intent i = mainActivity.getIntent();
+      i.setAction(Constants.ACTION_FAB_AUDIO);
       mainActivity.setIntent(i);
       editNote(new Note(), v);
     });
@@ -519,9 +544,13 @@ public class ListFragment extends BaseFragment implements OnViewTouchedListener,
     }
     categoryChipRow.removeAllViews();
 
-    int streak = com.absolute.android.notescentral.utils.StreakHelper.getCurrentStreak(mainActivity);
-    if (streak > 0) {
-      categoryChipRow.addView(buildStreakBadge(streak));
+    FrameLayout streakSlot = mainActivity.getToolbar().findViewById(R.id.toolbar_streak_slot);
+    if (streakSlot != null) {
+      streakSlot.removeAllViews();
+      int streak = com.absolute.android.notescentral.utils.StreakHelper.getCurrentStreak(mainActivity);
+      if (streak > 0) {
+        streakSlot.addView(buildStreakBadge(streak));
+      }
     }
 
     String notesNavCode = getResources().getStringArray(R.array.navigation_list_codes)[Navigation.NOTES];
@@ -704,6 +733,9 @@ public class ListFragment extends BaseFragment implements OnViewTouchedListener,
   @Override
   public void onPrepareOptionsMenu (Menu menu) {
     setActionItemsVisibility(menu, false);
+    android.util.TypedValue textSVal = new android.util.TypedValue();
+    mainActivity.getTheme().resolveAttribute(R.attr.somaTextS, textSVal, true);
+    com.absolute.android.notescentral.utils.MenuTintHelper.tintMenuIcons(menu, textSVal.data);
   }
 
 

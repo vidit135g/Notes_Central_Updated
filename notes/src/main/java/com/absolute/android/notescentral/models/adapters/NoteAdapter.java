@@ -21,6 +21,7 @@ import static com.bumptech.glide.load.resource.drawable.DrawableTransitionOption
 import android.app.Activity;
 import android.content.Context;
 import android.graphics.Color;
+import android.graphics.drawable.GradientDrawable;
 import android.net.Uri;
 import android.os.AsyncTask;
 import androidx.annotation.NonNull;
@@ -89,10 +90,47 @@ public class NoteAdapter extends ArrayAdapter<Note> implements Insertable {
     }
     initText(note, holder);
     initIcons(note, holder);
+    initCategoryBadge(note, holder);
     initDates(note, holder);
     initThumbnail(note, holder);
     manageSelectionColor(position, note, holder);
     return convertView;
+  }
+
+
+  /**
+   * Soma-style colored pill showing the note's category name, mirroring the
+   * side-strip category_marker's color but as a readable label on the card.
+   */
+  private void initCategoryBadge (Note note, NoteViewHolder holder) {
+    if (holder.categoryBadge == null) {
+      return;
+    }
+    android.util.TypedValue primaryVal = new android.util.TypedValue();
+    android.util.TypedValue onFillVal = new android.util.TypedValue();
+    mActivity.getTheme().resolveAttribute(R.attr.somaPrimary, primaryVal, true);
+    mActivity.getTheme().resolveAttribute(R.attr.somaOnFill, onFillVal, true);
+
+    if (note.getCategory() != null && note.getCategory().getName() != null
+        && !note.getCategory().getName().isEmpty()) {
+      int color = primaryVal.data;
+      if (note.getCategory().getColor() != null) {
+        try {
+          color = Integer.parseInt(note.getCategory().getColor());
+        } catch (NumberFormatException ignored) {
+        }
+      }
+      GradientDrawable bg = new GradientDrawable();
+      bg.setShape(GradientDrawable.RECTANGLE);
+      bg.setCornerRadius(999f);
+      bg.setColor(color);
+      holder.categoryBadge.setVisibility(View.VISIBLE);
+      holder.categoryBadge.setText(note.getCategory().getName());
+      holder.categoryBadge.setBackground(bg);
+      holder.categoryBadge.setTextColor(onFillVal.data);
+    } else {
+      holder.categoryBadge.setVisibility(View.GONE);
+    }
   }
 
 

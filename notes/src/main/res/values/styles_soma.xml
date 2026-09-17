@@ -12,6 +12,11 @@
         <item name="actionBarPopupTheme">@style/ThemeOverlay.AppCompat.Light</item>
         <item name="android:fontFamily">@font/poppins</item>
         <item name="android:windowDisablePreview">true</item>
+        <!-- Toolbar/menu icon tint - the flat Soma header sits on somaBg
+             instead of a colored bar, so icons must follow the muted
+             secondary text token rather than the hardcoded white from the
+             old Dark.ActionBar overlay. -->
+        <item name="colorControlNormal">?android:attr/textColorSecondary</item>
     </style>
 
     <!-- Shared non-color items for every DARK dosha period (vata-dawn,
@@ -23,6 +28,29 @@
         <item name="actionBarPopupTheme">@style/ThemeOverlay.AppCompat.Dark</item>
         <item name="android:fontFamily">@font/poppins</item>
         <item name="android:windowDisablePreview">true</item>
+        <item name="colorControlNormal">?android:attr/textColorSecondary</item>
+    </style>
+
+    <!-- Flat Soma app-bar title/subtitle: eyebrow (dosha period) as the
+         subtitle, "Notes"/category name as a Fraunces title, in place of the
+         old white-on-colorPrimary Material bar. -->
+    <style name="ToolbarTitle.Soma" parent="TextAppearance.Widget.AppCompat.Toolbar.Title">
+        <item name="android:fontFamily">@font/fraunces_semibold</item>
+        <item name="android:textSize">22sp</item>
+        <item name="android:textColor">?attr/somaTextP</item>
+    </style>
+
+    <style name="ToolbarSubtitle.Soma" parent="TextAppearance.Widget.AppCompat.Toolbar.Subtitle">
+        <item name="android:fontFamily">@font/poppins_medium</item>
+        <item name="android:textSize">11sp</item>
+        <item name="android:textColor">?attr/somaTextM</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:letterSpacing">0.08</item>
+    </style>
+
+    <style name="ShapeAppearance.Soma.Fab" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">16dp</item>
     </style>
 
     <!-- The color+token mapping every period theme fills in identically,

@@ -524,6 +524,14 @@ public class DetailFragment extends BaseFragment implements OnReminderPickedList
       takePhoto();
     }
 
+    if (IntentChecker.checkAction(i, Constants.ACTION_FAB_SKETCH)) {
+      takeSketch(null);
+    }
+
+    if (IntentChecker.checkAction(i, Constants.ACTION_FAB_AUDIO)) {
+      new VoiceRecordDialogFragment().show(getChildFragmentManager(), "voice_record");
+    }
+
     // Handles third party apps requests of sharing
     if (IntentChecker.checkAction(i, Intent.ACTION_SEND, Intent.ACTION_SEND_MULTIPLE, Constants.INTENT_GOOGLE_NOW)
         && i.getType() != null) {
@@ -996,6 +1004,10 @@ public class DetailFragment extends BaseFragment implements OnReminderPickedList
     if (searchMenuItem != null) {
       MenuItemCompat.collapseActionView(searchMenuItem);
     }
+
+    android.util.TypedValue textSVal = new android.util.TypedValue();
+    mainActivity.getTheme().resolveAttribute(R.attr.somaTextS, textSVal, true);
+    com.absolute.android.notescentral.utils.MenuTintHelper.tintMenuIcons(menu, textSVal.data);
 
     boolean newNote = noteTmp.get_id() == null;
 
@@ -1788,11 +1800,20 @@ public class DetailFragment extends BaseFragment implements OnReminderPickedList
   }
 
   private void startRecording (View v) {
+    beginAudioRecording(() -> toggleAudioRecordingStop(v));
+  }
+
+
+  /**
+   * Core MediaRecorder start logic, shared by the attachments-popup "record"
+   * row and the dedicated Soma voice-note sheet (VoiceRecordDialogFragment) -
+   * only the UI that reacts to "recording started" differs between them.
+   */
+  void beginAudioRecording (Runnable onStarted) {
     PermissionsHelper.requestPermission(getActivity(), Manifest.permission.RECORD_AUDIO,
         R.string.permission_audio_recording, snackBarPlaceholder, () -> {
 
           isRecording = true;
-          toggleAudioRecordingStop(v);
 
           File f = StorageHelper.createNewAttachmentFile(mainActivity, Constants.MIME_TYPE_AUDIO_EXT);
           if (f == null) {
@@ -1814,11 +1835,59 @@ public class DetailFragment extends BaseFragment implements OnReminderPickedList
             audioRecordingTimeStart = Calendar.getInstance().getTimeInMillis();
             mRecorder.prepare();
             mRecorder.start();
+            if (onStarted != null) {
+              onStarted.run();
+            }
           } catch (IOException | IllegalStateException e) {
             LogDelegate.e("prepare() failed", e);
             mainActivity.showMessage(R.string.error, ONStyle.ALERT);
           }
         });
+  }
+
+
+  /** Live input amplitude (0-32767), for the voice sheet's waveform. Safe to poll while recording. */
+  int getRecordingAmplitude () {
+    if (mRecorder != null && isRecording) {
+      try {
+        return mRecorder.getMaxAmplitude();
+      } catch (IllegalStateException e) {
+        return 0;
+      }
+    }
+    return 0;
+  }
+
+
+  boolean isAudioRecording () {
+    return isRecording;
+  }
+
+
+  /** Stops recording and attaches the file to the note - the voice sheet's "Save". */
+  void finishAudioRecordingAndAttach () {
+    stopRecording();
+    if (recordName == null) {
+      return;
+    }
+    Attachment attachment = new Attachment(Uri.fromFile(new File(recordName)), Constants.MIME_TYPE_AUDIO);
+    attachment.setLength(audioRecordingTime);
+    addAttachment(attachment);
+    mAttachmentAdapter.notifyDataSetChanged();
+    mGridView.autoresize();
+  }
+
+
+  /** Stops recording and discards the file - the voice sheet's "Cancel". */
+  void cancelAudioRecording () {
+    if (isRecording) {
+      stopRecording();
+    }
+    if (recordName != null) {
+      //noinspection ResultOfMethodCallIgnored
+      new File(recordName).delete();
+      recordName = null;
+    }
   }
 
   private void toggleAudioRecordingStop (View v) {

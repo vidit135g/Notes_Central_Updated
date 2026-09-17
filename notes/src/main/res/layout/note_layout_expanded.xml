@@ -37,14 +37,38 @@
             android:paddingRight="16dp"
             android:paddingTop="10dp">
 
-            <com.neopixl.pixlui.components.textview.TextView
-                android:id="@+id/note_title"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="top|start"
-                android:singleLine="true"
-                android:textAppearance="@style/Text.Big"
-                pixlui:typeface="Fraunces-SemiBold.ttf" />
+                android:orientation="horizontal">
+
+                <com.neopixl.pixlui.components.textview.TextView
+                    android:id="@+id/note_title"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_gravity="top|start"
+                    android:singleLine="true"
+                    android:textAppearance="@style/Text.Big"
+                    pixlui:typeface="Fraunces-SemiBold.ttf" />
+
+                <TextView
+                    android:id="@+id/note_category_badge"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="6dp"
+                    android:paddingStart="8dp"
+                    android:paddingEnd="8dp"
+                    android:paddingTop="3dp"
+                    android:paddingBottom="3dp"
+                    android:fontFamily="@font/poppins_semibold"
+                    android:textSize="9.5sp"
+                    android:textAllCaps="true"
+                    android:letterSpacing="0.04"
+                    android:visibility="gone" />
+
+            </LinearLayout>
 
             <com.neopixl.pixlui.components.textview.TextView
                 android:id="@+id/note_content"

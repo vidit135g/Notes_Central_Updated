@@ -429,6 +429,8 @@
     <string name="soma_period_pitta_night">Pitta night</string>
     <string name="soma_streak_format">%d</string>
     <string name="soma_filter_all">All</string>
+    <string name="soma_search_hint">Search your notes</string>
+    <string name="soma_voice_recording">Recording</string>
     <string name="soma_voice_note_recording">Recording</string>
     <string name="soma_voice_note_save">Save</string>
     <string name="soma_voice_note_cancel">Cancel</string>
