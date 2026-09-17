@@ -431,6 +431,10 @@
     <string name="soma_filter_all">All</string>
     <string name="soma_search_hint">Search your notes</string>
     <string name="soma_voice_recording">Recording</string>
+    <string name="settings_soma_period">Soma dosha period</string>
+    <string name="soma_empty_list_title">A quiet page</string>
+    <string name="soma_empty_list_subtitle">Tap + to write your first note</string>
+    <string name="soma_editor_done">Done</string>
     <string name="soma_voice_note_recording">Recording</string>
     <string name="soma_voice_note_save">Save</string>
     <string name="soma_voice_note_cancel">Cancel</string>

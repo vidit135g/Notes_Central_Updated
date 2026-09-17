@@ -39,6 +39,13 @@
             android:title="@string/colors_app"
             android:defaultValue="strip"/>
 
+    <ListPreference
+            android:entries="@array/soma_periods"
+            android:entryValues="@array/soma_periods_values"
+            android:key="soma_period"
+            android:title="@string/settings_soma_period"
+            android:defaultValue="auto"/>
+
     <SwitchPreference
             android:key="settings_fab_expansion_behavior"
             android:title="@string/settings_fab_expansion_behavior"

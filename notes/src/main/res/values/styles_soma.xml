@@ -36,13 +36,13 @@
          old white-on-colorPrimary Material bar. -->
     <style name="ToolbarTitle.Soma" parent="TextAppearance.Widget.AppCompat.Toolbar.Title">
         <item name="android:fontFamily">@font/fraunces_semibold</item>
-        <item name="android:textSize">22sp</item>
+        <item name="android:textSize">26sp</item>
         <item name="android:textColor">?attr/somaTextP</item>
     </style>
 
     <style name="ToolbarSubtitle.Soma" parent="TextAppearance.Widget.AppCompat.Toolbar.Subtitle">
         <item name="android:fontFamily">@font/poppins_medium</item>
-        <item name="android:textSize">11sp</item>
+        <item name="android:textSize">12.5sp</item>
         <item name="android:textColor">?attr/somaTextM</item>
         <item name="android:textAllCaps">true</item>
         <item name="android:letterSpacing">0.08</item>
@@ -50,7 +50,14 @@
 
     <style name="ShapeAppearance.Soma.Fab" parent="">
         <item name="cornerFamily">rounded</item>
-        <item name="cornerSize">16dp</item>
+        <item name="cornerSize">20dp</item>
+    </style>
+
+    <!-- Soma note-card title/editor title - a size step up from the shared
+         Text.Big (16sp) used elsewhere in the app, without touching that
+         shared style and cascading into unrelated stock screens. -->
+    <style name="Text.Big.Soma" parent="Text.Big">
+        <item name="android:textSize">19sp</item>
     </style>
 
     <!-- The color+token mapping every period theme fills in identically,

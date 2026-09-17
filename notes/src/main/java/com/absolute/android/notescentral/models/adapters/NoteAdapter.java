@@ -22,6 +22,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.graphics.Color;
 import android.graphics.drawable.GradientDrawable;
+import android.text.TextUtils;
 import android.net.Uri;
 import android.os.AsyncTask;
 import androidx.annotation.NonNull;
@@ -31,6 +32,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 import com.nhaarman.listviewanimations.util.Insertable;
@@ -88,13 +90,89 @@ public class NoteAdapter extends ArrayAdapter<Note> implements Insertable {
     } else {
       holder = (NoteViewHolder) convertView.getTag();
     }
-    initText(note, holder);
+    boolean checklistPreviewShown = initChecklistPreview(note, holder);
+    initText(note, holder, checklistPreviewShown);
     initIcons(note, holder);
     initCategoryBadge(note, holder);
     initDates(note, holder);
     initThumbnail(note, holder);
     manageSelectionColor(position, note, holder);
     return convertView;
+  }
+
+
+  /**
+   * Inline checkbox rows for checklist notes (up to 3), replacing the plain preview text -
+   * matches the Soma mockup's checklist card instead of the flat "[x] item" symbol text
+   * TextWorkerTask renders into note_content. Parses the same "[x] "/"[ ] " line format the
+   * checklistview library writes into Note.content (see it.feio.android.checklistview
+   * .interfaces.Constants), so it stays in sync with whatever the editor's checklist saves.
+   */
+  private boolean initChecklistPreview (Note note, NoteViewHolder holder) {
+    if (holder.checklistPreview == null) {
+      return false;
+    }
+    // Capped at 2 rows, not 3 - the card's root has a fixed (not wrap_content) height shared
+    // with the attachment-thumbnail layout, so a title + 3 checklist rows can clip.
+    View[] rows = {holder.checklistRow0, holder.checklistRow1};
+    View[] boxes = {holder.checklistBox0, holder.checklistBox1};
+    ImageView[] marks = {holder.checklistMark0, holder.checklistMark1};
+    android.widget.TextView[] texts = {holder.checklistText0, holder.checklistText1};
+    if (holder.checklistRow2 != null) {
+      holder.checklistRow2.setVisibility(View.GONE);
+    }
+
+    if (!note.isChecklist() || TextUtils.isEmpty(note.getContent())) {
+      holder.checklistPreview.setVisibility(View.GONE);
+      return false;
+    }
+
+    android.util.TypedValue doneColorVal = new android.util.TypedValue();
+    android.util.TypedValue pendingColorVal = new android.util.TypedValue();
+    mActivity.getTheme().resolveAttribute(R.attr.somaTextM, doneColorVal, true);
+    mActivity.getTheme().resolveAttribute(R.attr.somaTextS, pendingColorVal, true);
+
+    int shown = 0;
+    for (String rawLine : note.getContent().split("\\r?\\n")) {
+      if (shown >= rows.length) {
+        break;
+      }
+      String line = rawLine.trim();
+      boolean checked;
+      String label;
+      if (line.startsWith("[x] ") || line.startsWith("[X] ")) {
+        checked = true;
+        label = line.substring(4).trim();
+      } else if (line.startsWith("[ ] ")) {
+        checked = false;
+        label = line.substring(4).trim();
+      } else {
+        continue;
+      }
+      if (label.isEmpty()) {
+        continue;
+      }
+
+      boxes[shown].setBackgroundResource(
+          checked ? R.drawable.bg_soma_checkbox_checked : R.drawable.bg_soma_checkbox_unchecked);
+      marks[shown].setVisibility(checked ? View.VISIBLE : View.INVISIBLE);
+      texts[shown].setText(label);
+      texts[shown].setTextColor(checked ? doneColorVal.data : pendingColorVal.data);
+      if (checked) {
+        texts[shown].setPaintFlags(texts[shown].getPaintFlags() | android.graphics.Paint.STRIKE_THRU_TEXT_FLAG);
+      } else {
+        texts[shown].setPaintFlags(texts[shown].getPaintFlags() & ~android.graphics.Paint.STRIKE_THRU_TEXT_FLAG);
+      }
+      rows[shown].setVisibility(View.VISIBLE);
+      shown++;
+    }
+
+    for (int i = shown; i < rows.length; i++) {
+      rows[i].setVisibility(View.GONE);
+    }
+
+    holder.checklistPreview.setVisibility(shown > 0 ? View.VISIBLE : View.GONE);
+    return shown > 0;
   }
 
 
@@ -209,10 +287,11 @@ public class NoteAdapter extends ArrayAdapter<Note> implements Insertable {
   }
 
 
-  private void initText (Note note, NoteViewHolder holder) {
+  private void initText (Note note, NoteViewHolder holder, boolean checklistPreviewShown) {
     try {
       if (note.isChecklist()) {
-        TextWorkerTask task = new TextWorkerTask(mActivity, holder.title, holder.content, expandedView);
+        TextWorkerTask task = new TextWorkerTask(mActivity, holder.title, holder.content, expandedView,
+            checklistPreviewShown);
         task.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, note);
       } else {
         Spanned[] titleAndContent = TextHelper.parseTitleAndContent(mActivity, note);

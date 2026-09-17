@@ -80,6 +80,26 @@
         <item>Complete</item>
     </string-array>
 
+    <string-array name="soma_periods">
+        <item>Auto (follows the time of day)</item>
+        <item>Vata dawn</item>
+        <item>Kapha morning</item>
+        <item>Pitta midday</item>
+        <item>Vata afternoon</item>
+        <item>Kapha evening</item>
+        <item>Pitta night</item>
+    </string-array>
+
+    <string-array name="soma_periods_values">
+        <item>auto</item>
+        <item>vata-dawn</item>
+        <item>kapha-am</item>
+        <item>pitta-day</item>
+        <item>vata-pm</item>
+        <item>kapha-pm</item>
+        <item>pitta-night</item>
+    </string-array>
+
     <string-array name="colors_app_values">
         <item>disabled</item>
         <item>strip</item>

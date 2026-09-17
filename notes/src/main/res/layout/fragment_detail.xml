@@ -76,7 +76,7 @@
                             android:paddingRight="16dp"
                             android:paddingEnd="16dp"
                             android:paddingTop="6dp"
-                            android:textAppearance="@style/Text.Big"
+                            android:textAppearance="@style/Text.Big.Soma"
                             android:textColorHint="@color/text_color_lighter"
                             android:textColor="?attr/somaTextP"
                             pixlui:typeface="Fraunces-SemiBold.ttf"

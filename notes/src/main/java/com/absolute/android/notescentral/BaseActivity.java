@@ -57,6 +57,8 @@ public class BaseActivity extends AppCompatActivity {
   protected String navigation;
   protected String navigationTmp; // used for widget navigation
 
+  private int appliedSomaThemeResId;
+
 
   @Override
   public boolean onCreateOptionsMenu (Menu menu) {
@@ -73,8 +75,9 @@ public class BaseActivity extends AppCompatActivity {
 
   @Override
   protected void onCreate (Bundle savedInstanceState) {
-    setTheme(com.absolute.android.notescentral.utils.SomaPeriod.themeResId(
-        com.absolute.android.notescentral.utils.SomaPeriod.resolveId(this)));
+    appliedSomaThemeResId = com.absolute.android.notescentral.utils.SomaPeriod.themeResId(
+        com.absolute.android.notescentral.utils.SomaPeriod.resolveId(this));
+    setTheme(appliedSomaThemeResId);
     prefs = getSharedPreferences(Constants.PREFS_NAME, MODE_MULTI_PROCESS);
     // Forces menu overflow icon
     try {
@@ -94,6 +97,16 @@ public class BaseActivity extends AppCompatActivity {
   @Override
   protected void onResume () {
     super.onResume();
+    // The active Soma dosha-period theme is applied once, in onCreate(). If the user just
+    // changed it in Settings (or "auto" crossed into a new time window while backgrounded),
+    // this activity is still running the old theme - recreate so it re-themes immediately
+    // instead of only on the next cold start.
+    int currentThemeResId = com.absolute.android.notescentral.utils.SomaPeriod.themeResId(
+        com.absolute.android.notescentral.utils.SomaPeriod.resolveId(this));
+    if (currentThemeResId != appliedSomaThemeResId) {
+      recreate();
+      return;
+    }
     String navNotes = getResources().getStringArray(R.array.navigation_list_codes)[0];
     navigation = prefs.getString(Constants.PREF_NAVIGATION, navNotes);
     LogDelegate.d(prefs.getAll().toString());

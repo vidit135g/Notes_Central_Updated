@@ -34,15 +34,28 @@ public class TextWorkerTask extends AsyncTask<Note, Void, Spanned[]> {
   private TextView titleTextView;
   private TextView contentTextView;
   private boolean expandedView;
+  private boolean suppressContent;
 
 
   public TextWorkerTask (Activity activity, TextView titleTextView,
       TextView contentTextView, boolean expandedView) {
+    this(activity, titleTextView, contentTextView, expandedView, false);
+  }
+
+
+  /**
+   * @param suppressContent true when the caller is showing its own inline preview for this
+   *                         content (e.g. NoteAdapter's checklist checkbox rows) and the plain
+   *                         contentTextView must stay hidden regardless of what content parses to.
+   */
+  public TextWorkerTask (Activity activity, TextView titleTextView,
+      TextView contentTextView, boolean expandedView, boolean suppressContent) {
     mActivityWeakReference = new WeakReference<>(activity);
     mActivity = activity;
     this.titleTextView = titleTextView;
     this.contentTextView = contentTextView;
     this.expandedView = expandedView;
+    this.suppressContent = suppressContent;
   }
 
 
@@ -56,7 +69,9 @@ public class TextWorkerTask extends AsyncTask<Note, Void, Spanned[]> {
   protected void onPostExecute (Spanned[] titleAndContent) {
     if (isAlive()) {
       titleTextView.setText(titleAndContent[0]);
-      if (titleAndContent[1].length() > 0) {
+      if (suppressContent) {
+        contentTextView.setVisibility(View.GONE);
+      } else if (titleAndContent[1].length() > 0) {
         contentTextView.setText(titleAndContent[1]);
         contentTextView.setVisibility(View.VISIBLE);
       } else {

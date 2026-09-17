@@ -70,15 +70,16 @@
             android:clickable="true"
             android:focusable="true"
             android:background="@drawable/bg_soma_search_row"
-            android:paddingStart="12dp"
-            android:paddingEnd="12dp"
-            android:paddingTop="9dp"
-            android:paddingBottom="9dp">
+            android:elevation="2dp"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:paddingTop="13dp"
+            android:paddingBottom="13dp">
 
             <ImageView
-                android:layout_width="16dp"
-                android:layout_height="16dp"
-                android:layout_marginEnd="8dp"
+                android:layout_width="19dp"
+                android:layout_height="19dp"
+                android:layout_marginEnd="10dp"
                 android:src="@drawable/ic_search_white_24dp"
                 android:tint="?attr/somaTextM" />
 
@@ -87,7 +88,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="@string/soma_search_hint"
-                android:textAppearance="@style/Text.Small"
+                android:textSize="14sp"
                 android:textColor="?attr/somaTextM"
                 pixlui:typeface="Poppins-Regular.ttf" />
 
@@ -133,22 +134,37 @@
                     android:animationCache="false"/>
 
             <LinearLayout
+                    android:id="@+id/empty_state_container"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                 android:orientation="vertical"
-                    android:gravity="center">
+                    android:gravity="center"
+                    android:paddingBottom="70dp"
+                    android:visibility="gone">
 
-                <com.airbnb.lottie.LottieAnimationView
+                <com.absolute.android.notescentral.models.views.SomaBreathOrbView
                     android:id="@+id/empty_list"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_gravity="center"
-                    app:lottie_autoPlay="true"
-                    android:scaleType="centerCrop"
-                    android:visibility="gone"
-                    wheel:lottie_rawRes="@raw/strategy"
-                    app:lottie_loop="true" />
+                    android:layout_width="180dp"
+                    android:layout_height="180dp"
+                    android:layout_gravity="center" />
 
+                <com.neopixl.pixlui.components.textview.TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:text="@string/soma_empty_list_title"
+                    android:textSize="17sp"
+                    android:textColor="?attr/somaTextP"
+                    pixlui:typeface="Fraunces-SemiBold.ttf" />
+
+                <com.neopixl.pixlui.components.textview.TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:text="@string/soma_empty_list_subtitle"
+                    android:textSize="13sp"
+                    android:textColor="?attr/somaTextM"
+                    pixlui:typeface="Poppins-Regular.ttf" />
 
             </LinearLayout>
 
@@ -200,46 +216,46 @@
                 android:orientation="horizontal">
 
                 <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
                     android:clickable="true"
                     android:focusable="true"
                     android:id="@+id/checkopen"
-                    android:padding="5dp"
-                    android:layout_margin="10dp"
+                    android:padding="4dp"
+                    android:layout_margin="9dp"
                     android:background="@drawable/rounded_ripple"
                     android:tint="?attr/somaTextS"
                     android:src="@drawable/checklist"/>
                 <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
                     android:clickable="true"
                     android:focusable="true"
-                    android:padding="5dp"
+                    android:padding="4dp"
                     android:id="@+id/draw"
-                    android:layout_margin="10dp"
+                    android:layout_margin="9dp"
                     android:background="@drawable/rounded_ripple"
                     android:tint="?attr/somaTextS"
                     android:src="@drawable/ic_brush_black_24dp"/>
                 <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
                     android:clickable="true"
                     android:focusable="true"
                     android:id="@+id/addcam"
-                    android:padding="5dp"
-                    android:layout_margin="10dp"
+                    android:padding="4dp"
+                    android:layout_margin="9dp"
                     android:background="@drawable/rounded_ripple"
                     android:tint="?attr/somaTextS"
                     android:src="@drawable/camera"/>
                 <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
                     android:clickable="true"
                     android:focusable="true"
                     android:id="@+id/audio"
-                    android:padding="5dp"
-                    android:layout_margin="10dp"
+                    android:padding="4dp"
+                    android:layout_margin="9dp"
                     android:background="@drawable/rounded_ripple"
                     android:tint="?attr/somaTextS"
                     android:src="@drawable/ic_mic_black_24dp"/>
@@ -250,17 +266,19 @@
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/fab1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
             app:layout_anchor="@id/bottom_app_bar"
             wheel:layout_anchorGravity="bottom|end"
             app:tint="@null"
             android:clickable="true"
             android:focusable="true"
             app:backgroundTint="?attr/somaPrimary"
-            app:maxImageSize="32dp"
+            app:maxImageSize="30dp"
+            app:fabCustomSize="64dp"
             app:shapeAppearanceOverlay="@style/ShapeAppearance.Soma.Fab"
             android:src="@drawable/cusotmcreate"
+            app:elevation="6dp"
             app:useCompatPadding="true" />
 
 

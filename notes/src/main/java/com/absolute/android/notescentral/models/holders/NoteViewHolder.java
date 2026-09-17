@@ -51,6 +51,48 @@ public class NoteViewHolder {
   @BindView(R.id.note_date)
   public TextView date;
 
+  // Inline checklist preview (checklist-type notes only, contracted card layout only -
+  // note_layout_expanded.xml has none of these ids, hence @Nullable throughout).
+  @Nullable
+  @BindView(R.id.note_checklist_preview)
+  public View checklistPreview;
+  @Nullable
+  @BindView(R.id.checklist_row_0)
+  public View checklistRow0;
+  @Nullable
+  @BindView(R.id.checklist_row_1)
+  public View checklistRow1;
+  @Nullable
+  @BindView(R.id.checklist_row_2)
+  public View checklistRow2;
+  @Nullable
+  @BindView(R.id.checklist_row_0_box)
+  public View checklistBox0;
+  @Nullable
+  @BindView(R.id.checklist_row_1_box)
+  public View checklistBox1;
+  @Nullable
+  @BindView(R.id.checklist_row_2_box)
+  public View checklistBox2;
+  @Nullable
+  @BindView(R.id.checklist_row_0_mark)
+  public ImageView checklistMark0;
+  @Nullable
+  @BindView(R.id.checklist_row_1_mark)
+  public ImageView checklistMark1;
+  @Nullable
+  @BindView(R.id.checklist_row_2_mark)
+  public ImageView checklistMark2;
+  @Nullable
+  @BindView(R.id.checklist_row_0_text)
+  public android.widget.TextView checklistText0;
+  @Nullable
+  @BindView(R.id.checklist_row_1_text)
+  public android.widget.TextView checklistText1;
+  @Nullable
+  @BindView(R.id.checklist_row_2_text)
+  public android.widget.TextView checklistText2;
+
   @BindView(R.id.archivedIcon)
   public ImageView archiveIcon;
   @BindView(R.id.locationIcon)

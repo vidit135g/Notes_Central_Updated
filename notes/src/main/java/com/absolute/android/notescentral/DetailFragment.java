@@ -994,6 +994,22 @@ public class DetailFragment extends BaseFragment implements OnReminderPickedList
   public void onCreateOptionsMenu (Menu menu, MenuInflater inflater) {
     inflater.inflate(R.menu.menu_detail, menu);
     super.onCreateOptionsMenu(menu, inflater);
+
+    // Soma's minimal editor header is just "X ... Done" - the attach/category/tag/share
+    // actions all still exist (now tucked in the overflow menu via showAsAction="never"
+    // in menu_detail.xml), this just gives the header the same close-and-save affordance
+    // as the approved mockup instead of a row of icons.
+    View doneView = menu.findItem(R.id.menu_done).getActionView();
+    if (doneView != null) {
+      doneView.setOnClickListener(v -> mainActivity.onBackPressed());
+    }
+
+    // The streak badge lives in a toolbar slot ListFragment populates - it's list-screen
+    // furniture, so clear it out while the editor (sharing the same toolbar) is on top.
+    android.widget.FrameLayout streakSlot = mainActivity.getToolbar().findViewById(R.id.toolbar_streak_slot);
+    if (streakSlot != null) {
+      streakSlot.removeAllViews();
+    }
   }
 
   @Override

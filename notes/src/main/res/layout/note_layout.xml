@@ -9,7 +9,8 @@
              android:layout_marginEnd="10dp"
              android:layout_marginTop="5dp"
              android:layout_marginBottom="5dp"
-             android:background="@drawable/bg_card_soma">
+             android:background="@drawable/bg_card_soma"
+             android:elevation="3dp">
 
     <LinearLayout
         android:id="@+id/card_layout"
@@ -48,7 +49,7 @@
                     android:layout_weight="1"
                     android:gravity="top|start"
                     android:singleLine="true"
-                    android:textAppearance="@style/Text.Big"
+                    android:textAppearance="@style/Text.Big.Soma"
                     pixlui:typeface="Fraunces-SemiBold.ttf"/>
 
                 <TextView
@@ -57,12 +58,12 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:layout_marginStart="6dp"
-                    android:paddingStart="8dp"
-                    android:paddingEnd="8dp"
-                    android:paddingTop="3dp"
-                    android:paddingBottom="3dp"
+                    android:paddingStart="10dp"
+                    android:paddingEnd="10dp"
+                    android:paddingTop="4dp"
+                    android:paddingBottom="4dp"
                     android:fontFamily="@font/poppins_semibold"
-                    android:textSize="9.5sp"
+                    android:textSize="11sp"
                     android:textAllCaps="true"
                     android:letterSpacing="0.04"
                     android:visibility="gone" />
@@ -123,6 +124,57 @@
                 android:textAppearance="@style/Text.Normal"
                 android:visibility="gone"
                 pixlui:typeface="Poppins-Regular.ttf"/>
+
+            <LinearLayout
+                android:id="@+id/note_checklist_preview"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <LinearLayout
+                    android:id="@+id/checklist_row_0"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+                    <FrameLayout android:layout_width="17dp" android:layout_height="17dp">
+                        <View android:id="@+id/checklist_row_0_box" android:layout_width="match_parent" android:layout_height="match_parent" />
+                        <ImageView android:id="@+id/checklist_row_0_mark" android:layout_width="10dp" android:layout_height="10dp" android:layout_gravity="center" android:src="@drawable/checkmark_medium_ff" />
+                    </FrameLayout>
+                    <TextView android:id="@+id/checklist_row_0_text" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:layout_marginStart="8dp" android:fontFamily="@font/poppins" android:textSize="12.5sp" android:singleLine="true" android:ellipsize="end" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/checklist_row_1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="5dp"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+                    <FrameLayout android:layout_width="17dp" android:layout_height="17dp">
+                        <View android:id="@+id/checklist_row_1_box" android:layout_width="match_parent" android:layout_height="match_parent" />
+                        <ImageView android:id="@+id/checklist_row_1_mark" android:layout_width="10dp" android:layout_height="10dp" android:layout_gravity="center" android:src="@drawable/checkmark_medium_ff" />
+                    </FrameLayout>
+                    <TextView android:id="@+id/checklist_row_1_text" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:layout_marginStart="8dp" android:fontFamily="@font/poppins" android:textSize="12.5sp" android:singleLine="true" android:ellipsize="end" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/checklist_row_2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+                    <FrameLayout android:layout_width="17dp" android:layout_height="17dp">
+                        <View android:id="@+id/checklist_row_2_box" android:layout_width="match_parent" android:layout_height="match_parent" />
+                        <ImageView android:id="@+id/checklist_row_2_mark" android:layout_width="10dp" android:layout_height="10dp" android:layout_gravity="center" android:src="@drawable/checkmark_medium_ff" />
+                    </FrameLayout>
+                    <TextView android:id="@+id/checklist_row_2_text" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:layout_marginStart="8dp" android:fontFamily="@font/poppins" android:textSize="12.5sp" android:singleLine="true" android:ellipsize="end" />
+                </LinearLayout>
+
+            </LinearLayout>
 
             <com.neopixl.pixlui.components.textview.TextView
                 android:id="@+id/note_date"

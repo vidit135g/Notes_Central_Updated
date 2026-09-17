@@ -132,7 +132,9 @@ public class ListFragment extends BaseFragment implements OnViewTouchedListener,
   @BindView(R.id.soma_search_row)
   View somaSearchRow;
   @BindView(R.id.empty_list)
-  com.airbnb.lottie.LottieAnimationView empyListItem;
+  com.absolute.android.notescentral.models.views.SomaBreathOrbView empyListItem;
+  @BindView(R.id.empty_state_container)
+  View emptyStateContainer;
   @BindView(R.id.expanded_image)
   ImageView expandedImageView;
   @BindView(R.id.fab1)
@@ -238,7 +240,6 @@ public class ListFragment extends BaseFragment implements OnViewTouchedListener,
 
 
   private void init () {
-    initEasterEgg();
     initListView();
     ubc = new UndoBarController(undoBarView, this);
 
@@ -255,7 +256,11 @@ public class ListFragment extends BaseFragment implements OnViewTouchedListener,
   private void initFab () {
     fab = new Fab(fabView, list, prefs.getBoolean(Constants.PREF_FAB_EXPANSION_BEHAVIOR, false));
     fab.setOnFabItemClickedListener(id -> {
-      View v = mainActivity.findViewById(id);
+      // The rewritten single-button Fab reports ids (fab_expand_menu_button etc.) that were
+      // real child views in the old expandable FloatingActionsMenu but no longer exist in the
+      // layout - findViewById(id) on any of them returns null. The actual tap always
+      // originates from the one visible FAB, so use it directly as the zoom-animation source.
+      View v = fabView;
       switch (id) {
         case R.id.fab_expand_menu_button:
           editNote(new Note(), v);
@@ -341,19 +346,11 @@ public class ListFragment extends BaseFragment implements OnViewTouchedListener,
   }
 
 
-  /**
-   * Replays the empty-list illustration on tap.
-   */
-  private void initEasterEgg () {
-    empyListItem.setOnClickListener(v -> empyListItem.playAnimation());
-  }
-
-
   @Override
   public void onPause () {
     super.onPause();
     searchQueryInstant = searchQuery;
-    empyListItem.cancelAnimation();
+    empyListItem.setAnimating(false);
     Crouton.cancelAllCroutons();
     closeFab();
     if (!keepActionMode) {
@@ -397,6 +394,7 @@ public class ListFragment extends BaseFragment implements OnViewTouchedListener,
       initNotesList(mainActivity.getIntent());
     }
     initCategoryChips();
+    empyListItem.setAnimating(emptyStateContainer.getVisibility() == View.VISIBLE);
   }
 
 
@@ -585,7 +583,7 @@ public class ListFragment extends BaseFragment implements OnViewTouchedListener,
       View.OnClickListener onClick) {
     android.widget.TextView chip = new android.widget.TextView(mainActivity);
     chip.setText(label);
-    chip.setTextSize(12.5f);
+    chip.setTextSize(14.5f);
     chip.setTypeface(androidx.core.content.res.ResourcesCompat.getFont(mainActivity, R.font.poppins_semibold));
     chip.setSingleLine(true);
     chip.setOnClickListener(onClick);
@@ -612,14 +610,15 @@ public class ListFragment extends BaseFragment implements OnViewTouchedListener,
     bg.setStroke((int) (1.5f * getResources().getDisplayMetrics().density), strokeColor);
     chip.setBackground(bg);
     chip.setTextColor(textColor);
+    chip.setElevation(active ? 3 * getResources().getDisplayMetrics().density : 0);
 
-    int padH = (int) (14 * getResources().getDisplayMetrics().density);
-    int padV = (int) (7 * getResources().getDisplayMetrics().density);
+    int padH = (int) (17 * getResources().getDisplayMetrics().density);
+    int padV = (int) (9 * getResources().getDisplayMetrics().density);
     chip.setPadding(padH, padV, padH, padV);
 
     LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(
         ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-    lp.setMarginEnd((int) (8 * getResources().getDisplayMetrics().density));
+    lp.setMarginEnd((int) (9 * getResources().getDisplayMetrics().density));
     chip.setLayoutParams(lp);
 
     return chip;
@@ -629,7 +628,7 @@ public class ListFragment extends BaseFragment implements OnViewTouchedListener,
   private android.widget.TextView buildStreakBadge (int streak) {
     android.widget.TextView badge = new android.widget.TextView(mainActivity);
     badge.setText("🔥 " + streak);
-    badge.setTextSize(12.5f);
+    badge.setTextSize(14.5f);
     badge.setTypeface(androidx.core.content.res.ResourcesCompat.getFont(mainActivity, R.font.poppins_semibold));
     badge.setSingleLine(true);
 
@@ -644,9 +643,10 @@ public class ListFragment extends BaseFragment implements OnViewTouchedListener,
     bg.setColor(mutedVal.data);
     badge.setBackground(bg);
     badge.setTextColor(secondaryVal.data);
+    badge.setElevation(2 * getResources().getDisplayMetrics().density);
 
-    int padH = (int) (14 * getResources().getDisplayMetrics().density);
-    int padV = (int) (7 * getResources().getDisplayMetrics().density);
+    int padH = (int) (16 * getResources().getDisplayMetrics().density);
+    int padV = (int) (9 * getResources().getDisplayMetrics().density);
     badge.setPadding(padH, padV, padH, padV);
 
     LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(
@@ -1042,6 +1042,14 @@ public class ListFragment extends BaseFragment implements OnViewTouchedListener,
 
 
   void editNote (final Note note, final View view) {
+    // No source view to zoom from - e.g. the FAB callback resolves its id via findViewById()
+    // against an id the rewritten single-button Fab no longer has, or the tap came from a
+    // context with nothing to animate from. Skip straight to opening the editor rather than
+    // crashing on a null view inside the zoom animation.
+    if (view == null) {
+      editNote2(note);
+      return;
+    }
     if (note.isLocked() && !prefs.getBoolean("settings_password_access", false)) {
       PasswordHelper.requestPassword(mainActivity, passwordConfirmed -> {
         if (passwordConfirmed.equals(PasswordValidator.Result.SUCCEED)) {
@@ -1365,7 +1373,7 @@ public class ListFragment extends BaseFragment implements OnViewTouchedListener,
 
     // Replace listview with Mr. Jingles if it is empty
     if (notesLoadedEvent.notes.size() == 0) {
-      list.setEmptyView(empyListItem);
+      list.setEmptyView(emptyStateContainer);
     }
 
     // Restores listview position when turning back to list or when navigating reminders
@@ -1425,7 +1433,7 @@ public class ListFragment extends BaseFragment implements OnViewTouchedListener,
 
     // If list is empty again Mr Jingles will appear again
     if (listAdapter.getCount() == 0) {
-      list.setEmptyView(empyListItem);
+      list.setEmptyView(emptyStateContainer);
     }
 
     finishActionMode();
@@ -1515,7 +1523,7 @@ public class ListFragment extends BaseFragment implements OnViewTouchedListener,
     finishActionMode();
     // If list is empty again Mr Jingles will appear again
     if (listAdapter.getCount() == 0) {
-      list.setEmptyView(empyListItem);
+      list.setEmptyView(emptyStateContainer);
     }
     mainActivity.showMessage(R.string.note_deleted, ONStyle.ALERT);
   }
@@ -1559,7 +1567,7 @@ public class ListFragment extends BaseFragment implements OnViewTouchedListener,
 
     // If list is empty again Mr Jingles will appear again
     if (listAdapter.getCount() == 0) {
-      list.setEmptyView(empyListItem);
+      list.setEmptyView(emptyStateContainer);
     }
 
     // Advice to user
@@ -1679,7 +1687,7 @@ public class ListFragment extends BaseFragment implements OnViewTouchedListener,
 
     // If list is empty again Mr Jingles will appear again
     if (listAdapter.getCount() == 0) {
-      list.setEmptyView(empyListItem);
+      list.setEmptyView(emptyStateContainer);
     }
 
     // Advice to user
@@ -1752,7 +1760,7 @@ public class ListFragment extends BaseFragment implements OnViewTouchedListener,
 
     // If list is empty again Mr Jingles will appear again
     if (listAdapter.getCount() == 0) {
-      list.setEmptyView(empyListItem);
+      list.setEmptyView(emptyStateContainer);
     }
 
     if (getActionMode() != null) {
