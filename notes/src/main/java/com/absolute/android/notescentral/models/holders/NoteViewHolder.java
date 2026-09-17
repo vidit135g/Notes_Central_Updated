@@ -50,6 +50,9 @@ public class NoteViewHolder {
   public TextView content;
   @BindView(R.id.note_date)
   public TextView date;
+  @Nullable
+  @BindView(R.id.reminder_badge)
+  public android.widget.TextView reminderBadge;
 
   // Inline checklist preview (checklist-type notes only, contracted card layout only -
   // note_layout_expanded.xml has none of these ids, hence @Nullable throughout).

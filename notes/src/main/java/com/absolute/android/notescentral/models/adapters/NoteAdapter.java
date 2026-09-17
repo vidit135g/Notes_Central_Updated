@@ -94,10 +94,53 @@ public class NoteAdapter extends ArrayAdapter<Note> implements Insertable {
     initText(note, holder, checklistPreviewShown);
     initIcons(note, holder);
     initCategoryBadge(note, holder);
+    initReminderBadge(note, holder);
     initDates(note, holder);
     initThumbnail(note, holder);
     manageSelectionColor(position, note, holder);
     return convertView;
+  }
+
+
+  /**
+   * Soma-style reminder pill (muted bg, primary text) with the alarm's date/time, replacing
+   * the plain bell icon - matches the mockup's reminder-badge treatment on note cards.
+   */
+  private void initReminderBadge (Note note, NoteViewHolder holder) {
+    if (holder.reminderBadge == null) {
+      return;
+    }
+    if (note.getAlarm() == null) {
+      holder.reminderBadge.setVisibility(View.GONE);
+      return;
+    }
+    long alarmMillis;
+    try {
+      alarmMillis = Long.parseLong(note.getAlarm());
+    } catch (NumberFormatException e) {
+      holder.reminderBadge.setVisibility(View.GONE);
+      return;
+    }
+
+    android.util.TypedValue mutedVal = new android.util.TypedValue();
+    android.util.TypedValue primaryVal = new android.util.TypedValue();
+    mActivity.getTheme().resolveAttribute(R.attr.somaMuted, mutedVal, true);
+    mActivity.getTheme().resolveAttribute(R.attr.somaPrimary, primaryVal, true);
+
+    GradientDrawable bg = new GradientDrawable();
+    bg.setShape(GradientDrawable.RECTANGLE);
+    bg.setCornerRadius(999f);
+    bg.setColor(mutedVal.data);
+
+    String reminderText = android.text.format.DateUtils.getRelativeDateTimeString(mActivity, alarmMillis,
+        android.text.format.DateUtils.MINUTE_IN_MILLIS, android.text.format.DateUtils.WEEK_IN_MILLIS,
+        android.text.format.DateUtils.FORMAT_SHOW_TIME | android.text.format.DateUtils.FORMAT_ABBREV_RELATIVE)
+        .toString();
+
+    holder.reminderBadge.setText(reminderText);
+    holder.reminderBadge.setTextColor(primaryVal.data);
+    holder.reminderBadge.setBackground(bg);
+    holder.reminderBadge.setVisibility(View.VISIBLE);
   }
 
 
@@ -266,8 +309,10 @@ public class NoteAdapter extends ArrayAdapter<Note> implements Insertable {
     holder.locationIcon.setVisibility(note.getLongitude() != null && note.getLongitude() != 0 ? View.VISIBLE :
         View.GONE);
 
-    // ...the presence of an alarm
-    holder.alarmIcon.setVisibility(note.getAlarm() != null ? View.VISIBLE : View.GONE);
+    // ...the presence of an alarm - the reminder_badge pill (where the layout has one)
+    // replaces this plain icon, matching the Soma mockup's reminder badge.
+    boolean showAlarmIcon = note.getAlarm() != null && holder.reminderBadge == null;
+    holder.alarmIcon.setVisibility(showAlarmIcon ? View.VISIBLE : View.GONE);
     // ...the locked with password state
     holder.lockedIcon.setVisibility(note.isLocked() ? View.VISIBLE : View.GONE);
     // ...the attachment icon for contracted view
