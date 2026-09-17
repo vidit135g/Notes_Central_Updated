@@ -126,6 +126,8 @@ public class ListFragment extends BaseFragment implements OnViewTouchedListener,
   android.widget.TextView searchQueryView;
   @BindView(R.id.search_cancel)
   ImageView searchCancel;
+  @BindView(R.id.category_chip_row)
+  LinearLayout categoryChipRow;
   @BindView(R.id.empty_list)
   com.airbnb.lottie.LottieAnimationView empyListItem;
   @BindView(R.id.expanded_image)
@@ -234,6 +236,7 @@ public class ListFragment extends BaseFragment implements OnViewTouchedListener,
     ubc = new UndoBarController(undoBarView, this);
 
     initNotesList(mainActivity.getIntent());
+    initCategoryChips();
     initFab();
     initTitle();
 
@@ -368,6 +371,7 @@ public class ListFragment extends BaseFragment implements OnViewTouchedListener,
     } else if (Intent.ACTION_SEARCH.equals(mainActivity.getIntent().getAction())) {
       initNotesList(mainActivity.getIntent());
     }
+    initCategoryChips();
   }
 
 
@@ -501,6 +505,127 @@ public class ListFragment extends BaseFragment implements OnViewTouchedListener,
     });
 
     listRoot.setOnViewTouchedListener(this);
+  }
+
+
+  /**
+   * Quick category filter chips above the list, mirroring the same
+   * navigation switch the nav drawer's category rows already trigger
+   * (see CategoryMenuTask) so both stay in sync with each other.
+   */
+  private void initCategoryChips () {
+    if (categoryChipRow == null) {
+      return;
+    }
+    categoryChipRow.removeAllViews();
+
+    int streak = com.absolute.android.notescentral.utils.StreakHelper.getCurrentStreak(mainActivity);
+    if (streak > 0) {
+      categoryChipRow.addView(buildStreakBadge(streak));
+    }
+
+    String notesNavCode = getResources().getStringArray(R.array.navigation_list_codes)[Navigation.NOTES];
+    boolean allActive = !Navigation.checkNavigation(Navigation.CATEGORY);
+    categoryChipRow.addView(buildChip(getString(R.string.soma_filter_all), null, allActive, v -> {
+      if (mainActivity.updateNavigation(notesNavCode)) {
+        initNotesList(mainActivity.getIntent());
+        initCategoryChips();
+      }
+    }));
+
+    for (Category category : DbHelper.getInstance().getCategories()) {
+      boolean active = Navigation.checkNavigationCategory(category);
+      Integer color = null;
+      if (category.getColor() != null && !category.getColor().isEmpty()) {
+        try {
+          color = Integer.valueOf(category.getColor());
+        } catch (NumberFormatException ignored) {
+        }
+      }
+      categoryChipRow.addView(buildChip(category.getName(), color, active, v -> {
+        if (mainActivity.updateNavigation(String.valueOf(category.getId()))) {
+          initNotesList(mainActivity.getIntent());
+          initCategoryChips();
+        }
+      }));
+    }
+  }
+
+
+  private android.widget.TextView buildChip (String label, Integer categoryColor, boolean active,
+      View.OnClickListener onClick) {
+    android.widget.TextView chip = new android.widget.TextView(mainActivity);
+    chip.setText(label);
+    chip.setTextSize(12.5f);
+    chip.setTypeface(androidx.core.content.res.ResourcesCompat.getFont(mainActivity, R.font.poppins_semibold));
+    chip.setSingleLine(true);
+    chip.setOnClickListener(onClick);
+
+    android.util.TypedValue elevVal = new android.util.TypedValue();
+    android.util.TypedValue borderVal = new android.util.TypedValue();
+    android.util.TypedValue textSVal = new android.util.TypedValue();
+    android.util.TypedValue onFillVal = new android.util.TypedValue();
+    android.util.TypedValue primaryVal = new android.util.TypedValue();
+    mainActivity.getTheme().resolveAttribute(R.attr.somaElev, elevVal, true);
+    mainActivity.getTheme().resolveAttribute(R.attr.somaBorderSub, borderVal, true);
+    mainActivity.getTheme().resolveAttribute(R.attr.somaTextS, textSVal, true);
+    mainActivity.getTheme().resolveAttribute(R.attr.somaOnFill, onFillVal, true);
+    mainActivity.getTheme().resolveAttribute(R.attr.somaPrimary, primaryVal, true);
+
+    int fillColor = active ? (categoryColor != null ? categoryColor : primaryVal.data) : elevVal.data;
+    int strokeColor = active ? fillColor : borderVal.data;
+    int textColor = active ? onFillVal.data : textSVal.data;
+
+    android.graphics.drawable.GradientDrawable bg = new android.graphics.drawable.GradientDrawable();
+    bg.setShape(android.graphics.drawable.GradientDrawable.RECTANGLE);
+    bg.setCornerRadius(999f);
+    bg.setColor(fillColor);
+    bg.setStroke((int) (1.5f * getResources().getDisplayMetrics().density), strokeColor);
+    chip.setBackground(bg);
+    chip.setTextColor(textColor);
+
+    int padH = (int) (14 * getResources().getDisplayMetrics().density);
+    int padV = (int) (7 * getResources().getDisplayMetrics().density);
+    chip.setPadding(padH, padV, padH, padV);
+
+    LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(
+        ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+    lp.setMarginEnd((int) (8 * getResources().getDisplayMetrics().density));
+    chip.setLayoutParams(lp);
+
+    return chip;
+  }
+
+
+  private android.widget.TextView buildStreakBadge (int streak) {
+    android.widget.TextView badge = new android.widget.TextView(mainActivity);
+    badge.setText("🔥 " + streak);
+    badge.setTextSize(12.5f);
+    badge.setTypeface(androidx.core.content.res.ResourcesCompat.getFont(mainActivity, R.font.poppins_semibold));
+    badge.setSingleLine(true);
+
+    android.util.TypedValue mutedVal = new android.util.TypedValue();
+    android.util.TypedValue secondaryVal = new android.util.TypedValue();
+    mainActivity.getTheme().resolveAttribute(R.attr.somaMuted, mutedVal, true);
+    mainActivity.getTheme().resolveAttribute(R.attr.somaSecondary, secondaryVal, true);
+
+    android.graphics.drawable.GradientDrawable bg = new android.graphics.drawable.GradientDrawable();
+    bg.setShape(android.graphics.drawable.GradientDrawable.RECTANGLE);
+    bg.setCornerRadius(999f);
+    bg.setColor(mutedVal.data);
+    badge.setBackground(bg);
+    badge.setTextColor(secondaryVal.data);
+
+    int padH = (int) (14 * getResources().getDisplayMetrics().density);
+    int padV = (int) (7 * getResources().getDisplayMetrics().density);
+    badge.setPadding(padH, padV, padH, padV);
+
+    LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(
+        ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+    lp.setMarginEnd((int) (8 * getResources().getDisplayMetrics().density));
+    badge.setLayoutParams(lp);
+
+    return badge;
   }
 
 
@@ -1133,12 +1258,14 @@ public class ListFragment extends BaseFragment implements OnViewTouchedListener,
     listViewPosition = 0;
     listViewPositionOffset = 16;
     initNotesList(mainActivity.getIntent());
+    initCategoryChips();
     setActionItemsVisibility(menu, false);
   }
 
 
   public void onEvent (CategoriesUpdatedEvent categoriesUpdatedEvent) {
     initNotesList(mainActivity.getIntent());
+    initCategoryChips();
   }
 
 
@@ -1199,7 +1326,10 @@ public class ListFragment extends BaseFragment implements OnViewTouchedListener,
     } else {
       list.disableSwipeToDismiss();
     }
-    list.setAdapter(listAdapter);
+    com.nhaarman.listviewanimations.appearance.simple.AlphaInAnimationAdapter animAdapter =
+        new com.nhaarman.listviewanimations.appearance.simple.AlphaInAnimationAdapter(listAdapter);
+    animAdapter.setAbsListView(list);
+    list.setAdapter(animAdapter);
 
     // Replace listview with Mr. Jingles if it is empty
     if (notesLoadedEvent.notes.size() == 0) {

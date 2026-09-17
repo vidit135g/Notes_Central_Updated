@@ -27,6 +27,7 @@ import com.absolute.android.notescentral.models.Note;
 import com.absolute.android.notescentral.models.listeners.OnNoteSaved;
 import com.absolute.android.notescentral.utils.ReminderHelper;
 import com.absolute.android.notescentral.utils.StorageHelper;
+import com.absolute.android.notescentral.utils.StreakHelper;
 import com.absolute.android.notescentral.utils.date.DateUtils;
 import java.util.List;
 
@@ -99,6 +100,7 @@ public class SaveNoteTask extends AsyncTask<Note, Void, Note> {
   @Override
   protected void onPostExecute (Note note) {
     super.onPostExecute(note);
+    StreakHelper.recordActivityToday(context);
     if (this.mOnNoteSaved != null) {
       mOnNoteSaved.onNoteSaved(note);
     }
