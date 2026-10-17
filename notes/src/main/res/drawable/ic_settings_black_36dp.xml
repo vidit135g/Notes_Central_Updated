@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Replaces the original raster Material icon of the same name. Stroke vector on
+  the app's 24dp grid, tintable: the colour comes from the view's android:tint
+  or, failing that, the default below.
+-->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp" android:height="24dp"
+    android:viewportWidth="24" android:viewportHeight="24"
+    android:tint="?attr/somaTextS">
+    <path android:strokeColor="#FFFFFF" android:strokeWidth="1.9"
+        android:strokeLineCap="round" android:strokeLineJoin="round"
+        android:fillColor="#00000000" android:pathData="M 12 8.2 a 3.8 3.8 0 1 0 0 7.6 a 3.8 3.8 0 1 0 0 -7.6" />
+    <path android:strokeColor="#FFFFFF" android:strokeWidth="1.9"
+        android:strokeLineCap="round" android:strokeLineJoin="round"
+        android:fillColor="#00000000" android:pathData="M12 2.5v2.4" />
+    <path android:strokeColor="#FFFFFF" android:strokeWidth="1.9"
+        android:strokeLineCap="round" android:strokeLineJoin="round"
+        android:fillColor="#00000000" android:pathData="M12 19.1v2.4" />
+    <path android:strokeColor="#FFFFFF" android:strokeWidth="1.9"
+        android:strokeLineCap="round" android:strokeLineJoin="round"
+        android:fillColor="#00000000" android:pathData="M4.2 4.2l1.7 1.7" />
+    <path android:strokeColor="#FFFFFF" android:strokeWidth="1.9"
+        android:strokeLineCap="round" android:strokeLineJoin="round"
+        android:fillColor="#00000000" android:pathData="M18.1 18.1l1.7 1.7" />
+    <path android:strokeColor="#FFFFFF" android:strokeWidth="1.9"
+        android:strokeLineCap="round" android:strokeLineJoin="round"
+        android:fillColor="#00000000" android:pathData="M2.5 12h2.4" />
+    <path android:strokeColor="#FFFFFF" android:strokeWidth="1.9"
+        android:strokeLineCap="round" android:strokeLineJoin="round"
+        android:fillColor="#00000000" android:pathData="M19.1 12h2.4" />
+    <path android:strokeColor="#FFFFFF" android:strokeWidth="1.9"
+        android:strokeLineCap="round" android:strokeLineJoin="round"
+        android:fillColor="#00000000" android:pathData="M4.2 19.8l1.7-1.7" />
+    <path android:strokeColor="#FFFFFF" android:strokeWidth="1.9"
+        android:strokeLineCap="round" android:strokeLineJoin="round"
+        android:fillColor="#00000000" android:pathData="M18.1 5.9l1.7-1.7" />
+</vector>

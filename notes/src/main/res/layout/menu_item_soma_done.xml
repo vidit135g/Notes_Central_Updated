@@ -1,15 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+  "Done" in the editor's app bar.
+
+  It is a filled pill rather than accent-coloured text: the accent is a light
+  cyan, which fails 4.5:1 as text on the white page (and on the dark one), and
+  this is the editor's primary commit action - it should look like a button.
+-->
 <TextView xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/menu_done_text"
     android:layout_width="wrap_content"
-    android:layout_height="match_parent"
-    android:gravity="center_vertical"
-    android:paddingStart="14dp"
-    android:paddingEnd="14dp"
-    android:background="?attr/selectableItemBackground"
+    android:layout_height="40dp"
+    android:layout_gravity="center_vertical"
+    android:gravity="center"
+    android:layout_marginEnd="8dp"
+    android:paddingStart="18dp"
+    android:paddingEnd="18dp"
+    android:background="@drawable/bg_soma_done_pill"
     android:text="@string/soma_editor_done"
     android:fontFamily="@font/poppins_semibold"
-    android:textSize="14.5sp"
-    android:textColor="?attr/somaPrimary"
+    android:textSize="14sp"
+    android:textColor="?attr/somaOnInk"
     android:clickable="true"
     android:focusable="true" />

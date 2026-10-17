@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  The note's category, as a dot on the editor band. setTagMarkerColor replaces
+  the whole background with a flat colour when a category is set, so this is
+  only what an uncategorised note shows.
+-->
+<shape xmlns:android="http://schemas.android.com/apk/res/android" android:shape="oval">
+    <solid android:color="?attr/somaOnFillSub" />
+</shape>

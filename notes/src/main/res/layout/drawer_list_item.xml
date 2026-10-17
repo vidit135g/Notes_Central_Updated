@@ -1,5 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
 <!--
-  ~ Copyright (C) 2013-2019 Federico Iosue (federico@iosue.it)
+  ~ Copyright (C) 2013-2026 Federico Iosue (federico@iosue.it)
   ~
   ~ This program is free software: you can redistribute it and/or modify
   ~ it under the terms of the GNU General Public License as published by
@@ -14,59 +15,62 @@
   ~ You should have received a copy of the GNU General Public License
   ~ along with this program.  If not, see <http://www.gnu.org/licenses/>.
   -->
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              xmlns:pixlui="http://schemas.android.com/apk/com.neopixl.pixlui"
-              android:layout_width="match_parent"
-              android:layout_height="wrap_content"
-              android:gravity="center_vertical"
-              android:orientation="vertical">
+<!-- One drawer destination, in the same row language as the bottom nav. -->
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingStart="12dp"
+    android:paddingEnd="12dp"
+    android:paddingTop="2dp"
+    android:paddingBottom="2dp">
 
+    <!-- Activated state is set by NavDrawerAdapter, which already knows which
+         destination is current; the ListView's own checked state is not
+         reliable here because the adapter derives selection from Navigation. -->
     <LinearLayout
+        android:id="@+id/drawer_row"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="52dp"
         android:gravity="center_vertical"
         android:orientation="horizontal"
-        android:paddingLeft="@dimen/horizontal_margin"
-        android:paddingStart="@dimen/horizontal_margin">
+        android:background="@drawable/bg_soma_drawer_row"
+        android:paddingStart="12dp"
+        android:paddingEnd="12dp">
 
         <ImageView
             android:id="@+id/icon"
-            android:layout_width="@dimen/navigation_drawer_icon_size"
-            android:layout_height="@dimen/navigation_drawer_icon_size"/>
+            android:layout_width="21dp"
+            android:layout_height="21dp"
+            android:tint="?attr/somaTextS" />
 
         <com.neopixl.pixlui.components.textview.TextView
+            xmlns:pixlui="http://schemas.android.com/apk/com.neopixl.pixlui"
             android:id="@+id/title"
             android:layout_width="0dp"
             android:layout_weight="1"
-            android:layout_height="@dimen/navigation_drawer_line_height"
-            android:gravity="center_vertical"
-            android:paddingLeft="@dimen/icon_text_margin"
-            android:paddingStart="@dimen/icon_text_margin"
-            android:paddingRight="@dimen/horizontal_margin"
-            android:paddingEnd="@dimen/horizontal_margin"
-            android:textAppearance="@style/Text.Big"
-            android:textColor="@color/drawer_text"
-            pixlui:typeface="Poppins-Regular.ttf"/>
+            android:layout_height="wrap_content"
+            android:layout_marginStart="14dp"
+            android:maxLines="1"
+            android:ellipsize="end"
+            android:textSize="14sp"
+            android:textColor="?attr/somaTextP"
+            pixlui:typeface="Poppins-Medium.ttf" />
 
         <TextView
-                android:id="@+id/count"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="@dimen/horizontal_margin"
-                android:layout_marginRight="@dimen/horizontal_margin"
-                android:textAppearance="@style/Text.Small"
-                android:textColor="?attr/somaOnFill"
-                android:layout_gravity="center_vertical"
-                android:background="@drawable/category_count_bg"
-                android:paddingLeft="7dp"
-                android:paddingRight="7dp"
-                android:paddingStart="7dp"
-                android:paddingEnd="7dp"
-                android:paddingTop="1dp"
-                android:paddingBottom="1dp"
-                android:gravity="center"
-                android:visibility="gone"/>
+            android:id="@+id/count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minWidth="22dp"
+            android:gravity="center"
+            android:paddingStart="7dp"
+            android:paddingEnd="7dp"
+            android:paddingTop="2dp"
+            android:paddingBottom="2dp"
+            android:textSize="10sp"
+            android:textColor="?attr/somaOnFill"
+            android:background="@drawable/category_count_bg"
+            android:visibility="gone" />
 
     </LinearLayout>
 
-</LinearLayout>
+</FrameLayout>

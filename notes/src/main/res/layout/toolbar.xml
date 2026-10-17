@@ -19,17 +19,8 @@
 <androidx.appcompat.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/toolbar"
-    android:layout_height="78dp"
+    android:layout_height="64dp"
     android:layout_width="match_parent"
     android:elevation="0dp"
     android:background="?attr/somaBg"
-    app:titleTextAppearance="@style/ToolbarTitle.Soma"
-    app:subtitleTextAppearance="@style/ToolbarSubtitle.Soma">
-
-    <FrameLayout
-        android:id="@+id/toolbar_streak_slot"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="end|center_vertical" />
-
-</androidx.appcompat.widget.Toolbar>
+    app:titleTextAppearance="@style/ToolbarTitle.Soma" />

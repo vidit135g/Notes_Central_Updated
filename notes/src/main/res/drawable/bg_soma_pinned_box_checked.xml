@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Completed item on the pinned card. Green, not the accent: on a cyan ground
+     an accent-filled tick would not read as a state change at all. -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android" android:shape="oval">
+    <solid android:color="?attr/somaDone" />
+</shape>

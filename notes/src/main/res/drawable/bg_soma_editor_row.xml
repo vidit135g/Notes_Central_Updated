@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Secondary rows in the editor body (location, reminder): card surface pills,
+     so they read as attached metadata rather than more body text. -->
+<ripple xmlns:android="http://schemas.android.com/apk/res/android"
+    android:color="?attr/somaStrong">
+    <item>
+        <shape android:shape="rectangle">
+            <corners android:radius="18dp" />
+            <solid android:color="?attr/somaSurf" />
+        </shape>
+    </item>
+</ripple>

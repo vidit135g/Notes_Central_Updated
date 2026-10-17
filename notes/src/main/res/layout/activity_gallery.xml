@@ -20,7 +20,7 @@
     android:id="@+id/gallery_root"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#000000"
+    android:background="?attr/somaBg"
     tools:context="com.absolute.android.notescentral.GalleryActivity" >
 
     <it.feio.android.simplegallery.views.GalleryViewPager

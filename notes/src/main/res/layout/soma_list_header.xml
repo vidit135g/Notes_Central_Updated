@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Everything above the note cards, added to the list as a ListView header view
+  so the whole page scrolls as one. Previously these sat fixed above the list,
+  which left the list itself only ~40dp tall once the capture hero, tiles,
+  chips and needs-today card were all present.
+-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:pixlui="http://schemas.android.com/apk/com.neopixl.pixlui"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <include layout="@layout/soma_home_header" />
+
+    <!-- Superseded by the capture hero and the toolbar's search action; kept in
+         the tree because ListFragment still binds it. -->
+    <LinearLayout
+        android:id="@+id/soma_search_row"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:orientation="horizontal" />
+
+    <HorizontalScrollView
+        android:id="@+id/category_chip_scroll"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="none"
+        android:layout_marginTop="18dp"
+        android:paddingBottom="12dp">
+
+        <LinearLayout
+            android:id="@+id/category_chip_row"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingStart="20dp"
+            android:paddingEnd="20dp" />
+
+    </HorizontalScrollView>
+
+    <include layout="@layout/soma_needs_today" />
+
+    <com.neopixl.pixlui.components.textview.TextView
+        android:id="@+id/soma_section_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="14dp"
+        android:layout_marginBottom="8dp"
+        android:text="@string/soma_section_recent"
+        android:textSize="17sp"
+        android:includeFontPadding="false"
+        android:textColor="?attr/somaTextP"
+        pixlui:typeface="Poppins-SemiBold.ttf" />
+
+</LinearLayout>

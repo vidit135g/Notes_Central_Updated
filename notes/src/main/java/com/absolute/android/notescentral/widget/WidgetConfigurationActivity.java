@@ -47,6 +47,8 @@ public class WidgetConfigurationActivity extends Activity {
 
   @Override
   protected void onCreate (Bundle savedInstanceState) {
+    setTheme(com.absolute.android.notescentral.utils.SomaPeriod.themeResId(
+        com.absolute.android.notescentral.utils.SomaPeriod.resolveId(this)));
     super.onCreate(savedInstanceState);
 
     setResult(RESULT_CANCELED);

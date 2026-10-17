@@ -198,6 +198,10 @@ public class DetailFragment extends BaseFragment implements OnReminderPickedList
   View titleWrapperView;
   @BindView(R.id.tag_marker)
   View tagMarkerView;
+  @BindView(R.id.detail_category_chip)
+  View categoryChipView;
+  @BindView(R.id.detail_category_name)
+  TextView categoryNameView;
   @BindView(R.id.detail_wrapper)
   ViewManager detailWrapperView;
   @BindView(R.id.snackbar_placeholder)
@@ -906,6 +910,15 @@ public class DetailFragment extends BaseFragment implements OnReminderPickedList
    */
   private void setTagMarkerColor (Category tag) {
 
+    // The chip names the note's folder, and is hidden outright when the note
+    // has none - an empty chip on the band is worse than no chip.
+    if (tag != null && tag.getName() != null && !tag.getName().isEmpty()) {
+      categoryChipView.setVisibility(View.VISIBLE);
+      categoryNameView.setText(tag.getName());
+    } else {
+      categoryChipView.setVisibility(View.GONE);
+    }
+
     String colorsPref = prefs.getString("settings_colors_app", Constants.PREF_COLORS_APP_DEFAULT);
 
     // Checking preference
@@ -923,11 +936,21 @@ public class DetailFragment extends BaseFragment implements OnReminderPickedList
       // Coloring the target
       if (tag != null && tag.getColor() != null) {
         for (View view : target) {
-          view.setBackgroundColor(parseInt(tag.getColor()));
+          // The marker is a round dot, so tint its drawable instead of
+          // replacing the background with a flat colour - setBackgroundColor
+          // would square it off.
+          if (view == tagMarkerView && view.getBackground() != null) {
+            view.getBackground().mutate()
+                .setColorFilter(parseInt(tag.getColor()), android.graphics.PorterDuff.Mode.SRC_IN);
+          } else {
+            view.setBackgroundColor(parseInt(tag.getColor()));
+          }
         }
       } else {
         for (View view : target) {
-          view.setBackgroundColor(Color.parseColor("#00000000"));
+          if (view != tagMarkerView) {
+            view.setBackgroundColor(Color.parseColor("#00000000"));
+          }
         }
       }
     }
@@ -1002,13 +1025,6 @@ public class DetailFragment extends BaseFragment implements OnReminderPickedList
     View doneView = menu.findItem(R.id.menu_done).getActionView();
     if (doneView != null) {
       doneView.setOnClickListener(v -> mainActivity.onBackPressed());
-    }
-
-    // The streak badge lives in a toolbar slot ListFragment populates - it's list-screen
-    // furniture, so clear it out while the editor (sharing the same toolbar) is on top.
-    android.widget.FrameLayout streakSlot = mainActivity.getToolbar().findViewById(R.id.toolbar_streak_slot);
-    if (streakSlot != null) {
-      streakSlot.removeAllViews();
     }
   }
 
@@ -1829,8 +1845,6 @@ public class DetailFragment extends BaseFragment implements OnReminderPickedList
     PermissionsHelper.requestPermission(getActivity(), Manifest.permission.RECORD_AUDIO,
         R.string.permission_audio_recording, snackBarPlaceholder, () -> {
 
-          isRecording = true;
-
           File f = StorageHelper.createNewAttachmentFile(mainActivity, Constants.MIME_TYPE_AUDIO_EXT);
           if (f == null) {
             mainActivity.showMessage(R.string.error, ONStyle.ALERT);
@@ -1851,10 +1865,12 @@ public class DetailFragment extends BaseFragment implements OnReminderPickedList
             audioRecordingTimeStart = Calendar.getInstance().getTimeInMillis();
             mRecorder.prepare();
             mRecorder.start();
+            isRecording = true;
             if (onStarted != null) {
               onStarted.run();
             }
           } catch (IOException | IllegalStateException e) {
+            cancelAudioRecording();
             LogDelegate.e("prepare() failed", e);
             mainActivity.showMessage(R.string.error, ONStyle.ALERT);
           }
@@ -1882,6 +1898,7 @@ public class DetailFragment extends BaseFragment implements OnReminderPickedList
 
   /** Stops recording and attaches the file to the note - the voice sheet's "Save". */
   void finishAudioRecordingAndAttach () {
+    if (!isRecording) return;
     stopRecording();
     if (recordName == null) {
       return;
@@ -1896,7 +1913,7 @@ public class DetailFragment extends BaseFragment implements OnReminderPickedList
 
   /** Stops recording and discards the file - the voice sheet's "Cancel". */
   void cancelAudioRecording () {
-    if (isRecording) {
+    if (mRecorder != null) {
       stopRecording();
     }
     if (recordName != null) {
@@ -1916,10 +1933,18 @@ public class DetailFragment extends BaseFragment implements OnReminderPickedList
   private void stopRecording () {
     isRecording = false;
     if (mRecorder != null) {
-      mRecorder.stop();
-      audioRecordingTime = Calendar.getInstance().getTimeInMillis() - audioRecordingTimeStart;
-      mRecorder.release();
-      mRecorder = null;
+      try {
+        mRecorder.stop();
+        audioRecordingTime = Calendar.getInstance().getTimeInMillis() - audioRecordingTimeStart;
+      } catch (RuntimeException e) {
+        // A recorder stopped before it has encoded audio has no valid attachment.
+        LogDelegate.w("Recording ended before audio was available");
+        if (recordName != null) new File(recordName).delete();
+        recordName = null;
+      } finally {
+        mRecorder.release();
+        mRecorder = null;
+      }
     }
   }
 
@@ -2392,6 +2417,5 @@ public class DetailFragment extends BaseFragment implements OnReminderPickedList
     }
   }
 }
-
 
 

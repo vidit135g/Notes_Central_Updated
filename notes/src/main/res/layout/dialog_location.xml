@@ -22,6 +22,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:textAlignment="center"
-    android:textColor="@color/text_color"
-    android:textColorHint="@color/text_color_lighter"
+    android:fontFamily="@font/poppins"
+    android:textColor="?attr/somaTextP"
+    android:textColorHint="?attr/somaTextM"
     android:padding="@dimen/horizontal_margin"/>

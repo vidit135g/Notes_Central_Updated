@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Flat card-surface circle, no stroke: the reference's icon buttons read as
+     filled chips, not outlined ones. -->
+<ripple xmlns:android="http://schemas.android.com/apk/res/android"
+    android:color="?attr/somaStrong">
+    <item>
+        <shape android:shape="oval">
+            <solid android:color="?attr/somaSurf" />
+        </shape>
+    </item>
+</ripple>

@@ -1,77 +1,130 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-  ~ Copyright (C) 2013-2019 Federico Iosue (federico@iosue.it)
-  ~
-  ~ This program is free software: you can redistribute it and/or modify
-  ~ it under the terms of the GNU General Public License as published by
-  ~ the Free Software Foundation, either version 3 of the License, or
-  ~ (at your option) any later version.
-  ~
-  ~ This program is distributed in the hope that it will be useful,
-  ~ but WITHOUT ANY WARRANTY; without even the implied warranty of
-  ~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-  ~ GNU General Public License for more details.
-  ~
-  ~ You should have received a copy of the GNU General Public License
-  ~ along with this program.  If not, see <http://www.gnu.org/licenses/>.
-  -->
+  Onboarding page.
 
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:orientation="vertical" android:layout_width="match_parent"
-              android:layout_height="match_parent"
-              android:background="#2196f3"
-              android:id="@+id/intro_background">
+  The purple ground is fixed, not themed: this is the one screen that is
+  neither light nor dark, and it runs before the user has chosen a theme. Every
+  colour on it is a literal from colors_soma.xml's "Onboarding only" block, so
+  it looks the same whichever theme the device lands on afterwards.
 
-    <TextView
-            android:id="@+id/intro_title"
+  Bottom padding clears AppIntro2's own dots and next/done buttons, which are
+  drawn by the host activity over this layout.
+-->
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:pixlui="http://schemas.android.com/apk/com.neopixl.pixlui"
+    android:id="@+id/intro_background"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/soma_intro_bg">
+
+    <!-- Soft bubbles. Decorative only. -->
+    <View
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginStart="-60dp"
+        android:layout_marginTop="150dp"
+        android:background="@drawable/bg_soma_intro_bubble" />
+
+    <View
+        android:layout_width="110dp"
+        android:layout_height="110dp"
+        android:layout_gravity="end"
+        android:layout_marginEnd="24dp"
+        android:layout_marginTop="120dp"
+        android:background="@drawable/bg_soma_intro_bubble" />
+
+    <View
+        android:layout_width="170dp"
+        android:layout_height="170dp"
+        android:layout_gravity="end"
+        android:layout_marginEnd="-30dp"
+        android:layout_marginTop="330dp"
+        android:background="@drawable/bg_soma_intro_bubble" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp"
+        android:paddingTop="40dp"
+        android:paddingBottom="104dp">
+
+        <com.neopixl.pixlui.components.textview.TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
             android:gravity="center"
-            android:fontFamily="sans-serif-thin"
-            android:textColor="#ffffff"
-            android:textSize="28sp"
-            android:paddingTop="@dimen/intro_top_padding"
-            android:paddingBottom="@dimen/intro_bottom_padding"/>
+            android:text="@string/app_name"
+            android:textSize="26sp"
+            android:letterSpacing="-0.035"
+            android:includeFontPadding="false"
+            android:textColor="@color/soma_light_elev"
+            pixlui:typeface="Poppins-Bold.ttf" />
 
-    <ImageView
-            android:id="@+id/intro_image"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="5"
-            android:layout_gravity="center"
-            android:paddingLeft="@dimen/intro_side_padding"
-            android:paddingStart="@dimen/intro_side_padding"
-            android:paddingRight="@dimen/intro_side_padding"
-            android:paddingEnd="@dimen/intro_side_padding"/>
-
-    <ImageView
-            android:id="@+id/intro_image_small"
-            android:layout_width="450dp"
-            android:layout_height="0dp"
-            android:layout_weight="5"
-            android:layout_gravity="center"
-            android:paddingTop="@dimen/intro_side_padding"
-            android:paddingBottom="@dimen/intro_side_padding"
-            android:paddingLeft="@dimen/intro_side_padding"
-            android:paddingStart="@dimen/intro_side_padding"
-            android:paddingRight="@dimen/intro_side_padding"
-            android:paddingEnd="@dimen/intro_side_padding"
-            android:visibility="gone"/>
-
-    <TextView
-            android:id="@+id/intro_description"
+        <!-- Step counter, kept for orientation across three pages. -->
+        <com.neopixl.pixlui.components.textview.TextView
+            android:id="@+id/intro_step"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
+            android:layout_marginTop="6dp"
             android:gravity="center"
-            android:textColor="#ffffff"
-            android:paddingLeft="64dp"
-            android:paddingRight="64dp"
-            android:textSize="16sp"
-            android:paddingTop="@dimen/intro_top_padding"
-            android:paddingBottom="@dimen/intro_bottom_padding"/>
-    <TextView
-            android:layout_width="fill_parent"
-            android:layout_height="64dp"/>
-</LinearLayout>
+            android:textSize="10sp"
+            android:letterSpacing="0.16"
+            android:alpha="0.75"
+            android:textColor="@color/soma_light_elev"
+            pixlui:typeface="Poppins-Bold.ttf" />
+
+        <!-- Illustration, or on the last page the theme picker. -->
+        <ImageView
+            android:id="@+id/intro_illustration"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:layout_marginTop="12dp"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"
+            android:contentDescription="@null" />
+
+        <FrameLayout
+            android:id="@+id/intro_preview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <!-- Headline card. Near-black on cyan, as everywhere the accent is a fill. -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:orientation="vertical"
+            android:background="@drawable/bg_soma_intro_card"
+            android:paddingStart="18dp"
+            android:paddingEnd="18dp"
+            android:paddingTop="18dp"
+            android:paddingBottom="18dp">
+
+            <com.neopixl.pixlui.components.textview.TextView
+                android:id="@+id/intro_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="27sp"
+                android:letterSpacing="-0.035"
+                android:lineSpacingMultiplier="1.15"
+                android:includeFontPadding="false"
+                android:textColor="@color/soma_intro_ink"
+                pixlui:typeface="Poppins-Bold.ttf" />
+
+            <com.neopixl.pixlui.components.textview.TextView
+                android:id="@+id/intro_description"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:textSize="13sp"
+                android:lineSpacingMultiplier="1.45"
+                android:textColor="@color/soma_light_onFillSub"
+                pixlui:typeface="Poppins-Regular.ttf" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</FrameLayout>

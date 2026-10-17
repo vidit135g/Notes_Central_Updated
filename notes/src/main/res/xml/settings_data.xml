@@ -15,26 +15,31 @@
   ~ along with this program.  If not, see <http://www.gnu.org/licenses/>.
   -->
 
-<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+<PreferenceScreen
+    android:layout="@layout/soma_preference" xmlns:android="http://schemas.android.com/apk/res/android"
     android:fitsSystemWindows="true">
 
     <PreferenceScreen
+    android:layout="@layout/soma_preference"
         android:key="settings_sync_import_export"
         android:persistent="false"
         android:summary="@string/settings_backup_summary"
         android:title="@string/settings_screen_sync_import_export" />
 
     <Preference
+    android:layout="@layout/soma_preference"
         android:key="settings_password"
         android:summary="@string/settings_password_summary"
         android:title="@string/settings_password" />
 
     <SwitchPreference
+    android:layout="@layout/soma_preference"
         android:defaultValue="false"
         android:key="settings_password_access"
         android:title="@string/settings_password_access" />
 
     <Preference
+    android:layout="@layout/soma_preference"
         android:key="reset_all_data"
         android:title="@string/settings_reset_all_data" />
 

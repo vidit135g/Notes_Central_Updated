@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  The mark for the PLATFORM splash (android:windowSplashScreenAnimatedIcon,
+  API 31+), which is a different canvas from the in-app one.
+
+  The system masks this to a circle roughly two thirds of the 108dp canvas and
+  draws the window background behind it, so the sheet is scaled to 40% and
+  centred inside that circle. ic_splash_sheet, which fills its canvas, is the
+  right asset for the app's own splash layout and the wrong one here - unmasked
+  it looks correct, masked it loses its corners.
+-->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp" android:height="108dp"
+    android:viewportWidth="108" android:viewportHeight="108">
+
+    <group android:scaleX="0.40" android:scaleY="0.40"
+           android:translateX="32.4" android:translateY="32.4">
+
+        <path android:fillColor="#FFFFFF"
+            android:pathData="M28,18 L68,18 L90,40 L90,82 A8,8 0 0,1 82,90 L28,90 A8,8 0 0,1 20,82 L20,26 A8,8 0 0,1 28,18 Z" />
+        <path android:fillColor="#CBECFA"
+            android:pathData="M68,18 L90,40 L68,40 Z" />
+
+        <path android:strokeColor="#0B1E26" android:strokeWidth="6.2"
+            android:strokeLineCap="round" android:fillColor="#00000000"
+            android:pathData="M32,53 L59,53" />
+        <path android:strokeColor="#A8D6E8" android:strokeWidth="6.2"
+            android:strokeLineCap="round" android:fillColor="#00000000"
+            android:pathData="M32,66 L78,66" />
+        <path android:strokeColor="#A8D6E8" android:strokeWidth="6.2"
+            android:strokeLineCap="round" android:fillColor="#00000000"
+            android:pathData="M32,79 L68,79" />
+    </group>
+</vector>

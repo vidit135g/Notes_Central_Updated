@@ -33,7 +33,6 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.DialogFragment;
 import java.util.Locale;
-import java.util.Random;
 
 /**
  * Full-screen voice-note recorder, replicating the Soma mockup's dedicated
@@ -49,7 +48,6 @@ public class VoiceRecordDialogFragment extends DialogFragment {
   private static final int TICK_MS = 90;
 
   private final Handler handler = new Handler(Looper.getMainLooper());
-  private final Random random = new Random();
   private View[] bars;
   private TextView timerView;
   private long recordingStartElapsed;
@@ -127,21 +125,37 @@ public class VoiceRecordDialogFragment extends DialogFragment {
       saved = true;
       dismiss();
     });
+    view.findViewById(R.id.voice_save).setEnabled(false);
 
     DetailFragment host = getHostFragment();
     if (host != null) {
       host.beginAudioRecording(() -> {
+        if (getView() == null) {
+          host.cancelAudioRecording();
+          return;
+        }
+        view.findViewById(R.id.voice_save).setEnabled(true);
         recordingStartElapsed = SystemClock.elapsedRealtime();
         handler.post(tick);
       });
     }
   }
 
+  @Override
+  public void onDestroyView() {
+    handler.removeCallbacks(tick);
+    if (ringAnimator != null) ringAnimator.cancel();
+    timerView = null;
+    bars = null;
+    super.onDestroyView();
+  }
+
 
   private void buildBars (LinearLayout waveRow) {
     bars = new View[BAR_COUNT];
-    int barWidth = (int) (4 * getResources().getDisplayMetrics().density);
-    int barMargin = (int) (3 * getResources().getDisplayMetrics().density);
+    // 5px bars / 4px gaps in the 300px guide, mapped to a 360dp phone.
+    int barWidth = (int) (6 * getResources().getDisplayMetrics().density);
+    int barMargin = (int) (4.8f * getResources().getDisplayMetrics().density);
     for (int i = 0; i < BAR_COUNT; i++) {
       View bar = new View(getContext());
       bar.setBackgroundResource(R.drawable.bg_soma_wave_bar);

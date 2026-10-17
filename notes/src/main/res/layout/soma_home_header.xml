@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Home header: wordmark on the left, a count line under it, a round search
+  button on the right. That is all.
+
+  What used to be here - a "capture hero" with four quick-create tiles and a
+  CTA, plus two at-a-glance stat tiles - is gone. It occupied roughly the top
+  half of the screen before a single note was visible, and the four capture
+  actions it offered are the same four the floating action bar and the empty
+  state already offer. Capture now lives in the floating bar (mic / new note /
+  sketch); the stats live on the note-info screen, where a per-note number
+  means something.
+-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:pixlui="http://schemas.android.com/apk/com.neopixl.pixlui"
+    android:id="@+id/soma_home_header"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:baselineAligned="false"
+    android:gravity="center_vertical"
+    android:paddingStart="20dp"
+    android:paddingEnd="20dp"
+    android:paddingTop="18dp">
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <!-- The app name as a wordmark. Tight tracking and the heaviest weight
+             available: this is the only place the brand appears in-app. -->
+        <com.neopixl.pixlui.components.textview.TextView
+            android:id="@+id/soma_header_greeting"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/app_name"
+            android:textSize="23sp"
+            android:letterSpacing="-0.035"
+            android:includeFontPadding="false"
+            android:textColor="?attr/somaTextP"
+            pixlui:typeface="Poppins-Bold.ttf" />
+
+        <!-- Live counts ("55 notes · 3 folders"), set in ListFragment. -->
+        <com.neopixl.pixlui.components.textview.TextView
+            android:id="@+id/soma_header_subtitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:textSize="11sp"
+            android:textColor="?attr/somaTextM"
+            pixlui:typeface="Poppins-Medium.ttf" />
+
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/soma_search_button"
+        android:layout_width="44dp"
+        android:layout_height="44dp"
+        android:padding="12dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:background="@drawable/bg_soma_circle_btn"
+        android:src="@drawable/ic_soma_search"
+        android:tint="?attr/somaTextP"
+        android:contentDescription="@string/menu_search" />
+
+</LinearLayout>

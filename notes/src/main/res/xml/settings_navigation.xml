@@ -15,28 +15,33 @@
   ~ along with this program.  If not, see <http://www.gnu.org/licenses/>.
   -->
 
-<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+<PreferenceScreen
+    android:layout="@layout/soma_preference" xmlns:android="http://schemas.android.com/apk/res/android"
                   android:fitsSystemWindows="true">
 
     <SwitchPreference
+    android:layout="@layout/soma_preference"
             android:defaultValue="true"
             android:key="settings_dynamic_menu"
             android:title="@string/settings_dynamic_menu"
             android:summary="@string/settings_dynamic_menu_summary"/>
 
     <SwitchPreference
+    android:layout="@layout/soma_preference"
             android:defaultValue="true"
             android:key="settings_show_category_count"
             android:summary="@string/settings_show_category_count_summary"
             android:title="@string/settings_show_category_count"/>
 
     <SwitchPreference
+    android:layout="@layout/soma_preference"
             android:defaultValue="false"
             android:key="settings_show_uncategorized"
             android:title="@string/settings_show_uncategorized"
             android:summary="@string/settings_show_uncategorized_summary"/>
 
     <SwitchPreference
+    android:layout="@layout/soma_preference"
             android:defaultValue="false"
             android:key="settings_navdrawer_on_exit"
             android:summary="@string/settings_navdrawer_on_exit_summary"

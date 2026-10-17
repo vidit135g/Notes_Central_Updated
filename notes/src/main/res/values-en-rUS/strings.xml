@@ -21,7 +21,7 @@
     <string name="title_item_list">Notes</string>
     <string name="add_note">Add Note</string>
     <string name="title">Title</string>
-    <string name="title_activity_list">Omni Notes</string>
+    <string name="title_activity_list">Notes</string>
     <string name="search">Search</string>
     <string name="search_hint">Search in notes</string>
     <string name="content">Content</string>
@@ -127,10 +127,10 @@
     <string name="checklist_keep_checked">Keep checked items</string>
     <string name="checklist_keep_symbols">Keep check marks</string>
     <string name="sketch">Sketch</string>
-    <string name="crash_dialog_text">Something went wrong in Omni Notes\nSend automatic report to developer?</string>
+    <string name="crash_dialog_text">Something went wrong!</string>
     <string name="crash_dialog_comment_prompt">Insert comment here (optional):</string>
-    <string name="crash_toast">Something went wrong in Omni Notes\nA report has been sent to the developer!</string>
-    <string name="new_update_available">A new version of Omni Notes is available, would you like to update?</string>
+    <string name="crash_toast">Something went wrong!</string>
+    <string name="new_update_available">A new version is available, would you like to update?</string>
     <string name="update">Update and rate!</string>
     <string name="not_now">Not now</string>
     <string name="title_activity_sketch">Sketch</string>

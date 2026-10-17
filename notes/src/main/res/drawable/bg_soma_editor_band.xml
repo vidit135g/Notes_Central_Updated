@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  The editor's accent band. Rounded only at the bottom: it runs up under the
+  toolbar so the band and the app bar read as one surface.
+-->
+<shape xmlns:android="http://schemas.android.com/apk/res/android" android:shape="rectangle">
+    <solid android:color="?attr/somaPrimary" />
+    <corners
+        android:topLeftRadius="0dp"
+        android:topRightRadius="0dp"
+        android:bottomLeftRadius="26dp"
+        android:bottomRightRadius="26dp" />
+</shape>

@@ -1,5 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
 <!--
-  ~ Copyright (C) 2013-2019 Federico Iosue (federico@iosue.it)
+  ~ Copyright (C) 2013-2026 Federico Iosue (federico@iosue.it)
   ~
   ~ This program is free software: you can redistribute it and/or modify
   ~ it under the terms of the GNU General Public License as published by
@@ -14,55 +15,42 @@
   ~ You should have received a copy of the GNU General Public License
   ~ along with this program.  If not, see <http://www.gnu.org/licenses/>.
   -->
-<!-- <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" -->
-<!--     xmlns:pixlui="http://schemas.android.com/apk/com.neopixl.pixlui" -->
-<!--     android:layout_width="match_parent" -->
-<!--     android:layout_height="wrap_content" -->
-<!--     android:background="@drawable/icon_selector" -->
-<!--     android:gravity="center_vertical" -->
-<!--     android:orientation="horizontal" -->
-<!--     android:paddingLeft="@dimen/horizontal_margin" -->
-<!--     android:paddingStart="@dimen/horizontal_margin"> -->
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<!-- Settings row, matching the drawer's destination rows. -->
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:pixlui="http://schemas.android.com/apk/com.neopixl.pixlui"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@drawable/icon_selector"
-    android:gravity="center_vertical"
-    android:orientation="horizontal"
-    android:paddingLeft="@dimen/horizontal_margin"
-    android:paddingStart="@dimen/horizontal_margin">
+    android:paddingStart="12dp"
+    android:paddingEnd="12dp"
+    android:paddingTop="2dp"
+    android:paddingBottom="2dp">
 
-    <ImageView
-        android:layout_width="24dp"
-        android:layout_height="24dp"
-        android:padding="4dp"
-        android:src="@drawable/ic_settings_black_36dp" />
-
-<!--     <com.neopixl.pixlui.components.textview.TextView -->
-<!--         android:id="@+id/settings" -->
-<!--         android:layout_width="@dimen/navigation_drawer_width" -->
-<!--         android:layout_height="50dp" -->
-<!--         android:gravity="center_vertical" -->
-<!--         android:paddingLeft="@dimen/icon_text_margin" -->
-<!--         android:paddingStart="@dimen/icon_text_margin" -->
-<!--         android:text="@string/settings" -->
-<!--         android:textAllCaps="true" -->
-<!--         android:textAppearance="@style/Text.Normal" -->
-<!--         android:textColor="@color/drawer_text" -->
-<!--         pixlui:typeface="Poppins-Regular.ttf" /> -->
-
-    <com.neopixl.pixlui.components.textview.TextView
-        android:id="@+id/settings"
-        android:layout_width="@dimen/navigation_drawer_width"
-        android:layout_height="50dp"
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="52dp"
         android:gravity="center_vertical"
-        android:paddingLeft="@dimen/icon_text_margin"
-        android:paddingStart="@dimen/icon_text_margin"
-        android:text="@string/settings"
-        android:textAllCaps="true"
-        android:textAppearance="@style/Text.Normal"
-        android:textColor="@color/drawer_text"
-        pixlui:typeface="Poppins-Regular.ttf" />
+        android:orientation="horizontal"
+        android:background="@drawable/bg_soma_drawer_row"
+        android:paddingStart="12dp"
+        android:paddingEnd="12dp">
 
-</LinearLayout>
+        <ImageView
+            android:layout_width="21dp"
+            android:layout_height="21dp"
+            android:src="@drawable/ic_settings_black_36dp"
+            android:tint="?attr/somaTextS" />
+
+        <com.neopixl.pixlui.components.textview.TextView
+            android:id="@+id/settings"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="14dp"
+            android:text="@string/settings"
+            android:textSize="14sp"
+            android:textColor="?attr/somaTextP"
+            pixlui:typeface="Poppins-Medium.ttf" />
+
+    </LinearLayout>
+
+</FrameLayout>

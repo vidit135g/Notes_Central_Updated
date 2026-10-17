@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Each checklist line on the pinned card is a white pill.
+
+  Fixed white rather than ?attr/somaElev: the card under it is the same cyan in
+  both themes, so its contents are too. Pulling the themed surface here would
+  put a near-black pill on cyan in the dark theme, and the row's text and
+  checkbox colours (which are also fixed, in Soma.PinnedChecklistText) would
+  then be black on black.
+-->
+<shape xmlns:android="http://schemas.android.com/apk/res/android" android:shape="rectangle">
+    <solid android:color="@color/soma_light_elev" />
+    <corners android:radius="22dp" />
+</shape>

@@ -15,11 +15,13 @@
   ~ along with this program.  If not, see <http://www.gnu.org/licenses/>.
   -->
 
-<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+<PreferenceScreen
+    android:layout="@layout/soma_preference" xmlns:android="http://schemas.android.com/apk/res/android"
   xmlns:app="http://schemas.android.com/apk/res-auto"
   android:fitsSystemWindows="true">
 
   <ListPreference
+    android:layout="@layout/soma_preference"
     android:defaultValue="0"
     android:dialogTitle="@string/settings_checked_items_behavior_summary"
     android:entries="@array/checked_items_behavior"
@@ -29,12 +31,14 @@
     app:iconSpaceReserved="false" />
 
   <SwitchPreference
+    android:layout="@layout/soma_preference"
     android:defaultValue="false"
     android:key="settings_instant_search"
     android:title="@string/settings_instant_search"
     app:iconSpaceReserved="false" />
 
   <SwitchPreference
+    android:layout="@layout/soma_preference"
     android:defaultValue="true"
     android:key="settings_enable_swipe"
     android:summary="@string/settings_enable_swipe_summary"
@@ -42,6 +46,7 @@
     app:iconSpaceReserved="false" />
 
   <SwitchPreference
+    android:layout="@layout/soma_preference"
     android:defaultValue="false"
     android:dependency="settings_enable_swipe"
     android:key="settings_swipe_to_trash"
@@ -49,6 +54,7 @@
     app:iconSpaceReserved="false" />
 
   <SwitchPreference
+    android:layout="@layout/soma_preference"
     android:defaultValue="false"
     android:key="settings_auto_location"
     android:summary="@string/settings_auto_location_summary"
@@ -56,6 +62,7 @@
     app:iconSpaceReserved="false" />
 
   <EditTextPreference
+    android:layout="@layout/soma_preference"
     android:inputType="number"
     android:key="settings_max_video_size"
     android:summary="@string/settings_max_video_size_summary"

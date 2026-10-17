@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.absolute.android.notescentral.models.views.NoteSwipeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:pixlui="http://schemas.android.com/apk/com.neopixl.pixlui"
     android:id="@+id/root"
     android:layout_width="match_parent"
-    android:layout_height="@dimen/note_item_min_height"
-    android:background="@drawable/custom_background"
+    android:layout_height="wrap_content"
+    android:minHeight="@dimen/note_item_min_height"
+    android:background="@drawable/bg_card_soma"
     android:layout_marginStart="10dp"
     android:layout_marginEnd="10dp"
     android:layout_marginTop="5dp"
@@ -14,29 +15,27 @@
     <LinearLayout
         android:id="@+id/card_layout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:minHeight="@dimen/note_item_min_height_inner">
 
         <View
             android:id="@+id/category_marker"
             android:layout_width="7dp"
-            android:minHeight="@dimen/note_item_min_height_inner"
             android:layout_height="match_parent"
             android:background="@null" />
 
         <LinearLayout
             android:layout_width="0dp"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:minHeight="@dimen/note_item_min_height_inner"
             android:orientation="vertical"
-            android:paddingBottom="10dp"
-            android:paddingStart="10dp"
-            android:paddingLeft="10dp"
-            android:paddingEnd="16dp"
-            android:paddingRight="16dp"
-            android:paddingTop="10dp">
+            android:paddingBottom="15.6dp"
+            android:paddingStart="16.8dp"
+            android:paddingLeft="16.8dp"
+            android:paddingEnd="16.8dp"
+            android:paddingRight="16.8dp"
+            android:paddingTop="15.6dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -51,7 +50,7 @@
                     android:layout_gravity="top|start"
                     android:singleLine="true"
                     android:textAppearance="@style/Text.Big.Soma"
-                    pixlui:typeface="Fraunces-SemiBold.ttf" />
+                    pixlui:typeface="Poppins-SemiBold.ttf" />
 
                 <TextView
                     android:id="@+id/note_category_badge"
@@ -59,14 +58,14 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:layout_marginStart="6dp"
-                    android:paddingStart="10dp"
-                    android:paddingEnd="10dp"
-                    android:paddingTop="4dp"
-                    android:paddingBottom="4dp"
+                    android:paddingStart="7dp"
+                    android:paddingEnd="7dp"
+                    android:paddingTop="2.5dp"
+                    android:paddingBottom="2.5dp"
                     android:fontFamily="@font/poppins_semibold"
-                    android:textSize="11sp"
+                    android:textSize="8.5sp"
                     android:textAllCaps="true"
-                    android:letterSpacing="0.04"
+                    android:letterSpacing="0.03"
                     android:visibility="gone" />
 
             </LinearLayout>
@@ -74,12 +73,12 @@
             <com.neopixl.pixlui.components.textview.TextView
                 android:id="@+id/note_content"
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
+                android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
-                android:layout_marginTop="4dp"
+                android:layout_marginTop="4.8dp"
                 android:maxLines="@integer/textview_max_lines_expanded"
-                android:textAppearance="@style/Text.Normal"
+                android:textAppearance="@style/Text.Preview.Soma"
+                android:lineSpacingMultiplier="1.5"
                 android:visibility="invisible"
                 pixlui:typeface="Poppins-Regular.ttf" />
 
@@ -98,11 +97,11 @@
                     android:layout_marginBottom="5dp"
                     android:orientation="horizontal"
                     android:gravity="center_vertical">
-                    <FrameLayout android:layout_width="17dp" android:layout_height="17dp">
+                    <FrameLayout android:layout_width="19.2dp" android:layout_height="19.2dp">
                         <View android:id="@+id/checklist_row_0_box" android:layout_width="match_parent" android:layout_height="match_parent" />
                         <ImageView android:id="@+id/checklist_row_0_mark" android:layout_width="10dp" android:layout_height="10dp" android:layout_gravity="center" android:src="@drawable/checkmark_medium_ff" />
                     </FrameLayout>
-                    <TextView android:id="@+id/checklist_row_0_text" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:layout_marginStart="8dp" android:fontFamily="@font/poppins" android:textSize="12.5sp" android:singleLine="true" android:ellipsize="end" />
+                    <TextView android:id="@+id/checklist_row_0_text" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:layout_marginStart="8dp" android:fontFamily="@font/poppins" android:textSize="13sp" android:singleLine="true" android:ellipsize="end" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -112,11 +111,11 @@
                     android:layout_marginBottom="5dp"
                     android:orientation="horizontal"
                     android:gravity="center_vertical">
-                    <FrameLayout android:layout_width="17dp" android:layout_height="17dp">
+                    <FrameLayout android:layout_width="19.2dp" android:layout_height="19.2dp">
                         <View android:id="@+id/checklist_row_1_box" android:layout_width="match_parent" android:layout_height="match_parent" />
                         <ImageView android:id="@+id/checklist_row_1_mark" android:layout_width="10dp" android:layout_height="10dp" android:layout_gravity="center" android:src="@drawable/checkmark_medium_ff" />
                     </FrameLayout>
-                    <TextView android:id="@+id/checklist_row_1_text" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:layout_marginStart="8dp" android:fontFamily="@font/poppins" android:textSize="12.5sp" android:singleLine="true" android:ellipsize="end" />
+                    <TextView android:id="@+id/checklist_row_1_text" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:layout_marginStart="8dp" android:fontFamily="@font/poppins" android:textSize="13sp" android:singleLine="true" android:ellipsize="end" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -125,11 +124,11 @@
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
                     android:gravity="center_vertical">
-                    <FrameLayout android:layout_width="17dp" android:layout_height="17dp">
+                    <FrameLayout android:layout_width="19.2dp" android:layout_height="19.2dp">
                         <View android:id="@+id/checklist_row_2_box" android:layout_width="match_parent" android:layout_height="match_parent" />
                         <ImageView android:id="@+id/checklist_row_2_mark" android:layout_width="10dp" android:layout_height="10dp" android:layout_gravity="center" android:src="@drawable/checkmark_medium_ff" />
                     </FrameLayout>
-                    <TextView android:id="@+id/checklist_row_2_text" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:layout_marginStart="8dp" android:fontFamily="@font/poppins" android:textSize="12.5sp" android:singleLine="true" android:ellipsize="end" />
+                    <TextView android:id="@+id/checklist_row_2_text" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:layout_marginStart="8dp" android:fontFamily="@font/poppins" android:textSize="13sp" android:singleLine="true" android:ellipsize="end" />
                 </LinearLayout>
 
             </LinearLayout>
@@ -146,12 +145,12 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:layout_marginEnd="8dp"
-                    android:paddingStart="9dp"
-                    android:paddingEnd="9dp"
-                    android:paddingTop="3dp"
-                    android:paddingBottom="3dp"
+                    android:paddingStart="7dp"
+                    android:paddingEnd="7dp"
+                    android:paddingTop="2.5dp"
+                    android:paddingBottom="2.5dp"
                     android:fontFamily="@font/poppins_semibold"
-                    android:textSize="10sp"
+                    android:textSize="9sp"
                     android:visibility="gone" />
 
                 <com.neopixl.pixlui.components.textview.TextView
@@ -163,7 +162,7 @@
                     android:layout_marginEnd="15dp"
                     android:gravity="bottom|start"
                     android:textColor="?attr/somaTextM"
-                    android:textAppearance="@style/Text.Small"
+                    android:textAppearance="@style/Text.Time.Soma"
                     pixlui:typeface="Poppins-Regular.ttf" />
 
                 <ImageView
@@ -208,4 +207,4 @@
             android:contentDescription="@string/note_thumbnail"
             android:layout_gravity="center_vertical" />
     </LinearLayout>
-</FrameLayout>
+</com.absolute.android.notescentral.models.views.NoteSwipeLayout>

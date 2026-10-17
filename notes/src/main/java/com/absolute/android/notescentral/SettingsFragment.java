@@ -96,6 +96,25 @@ public class SettingsFragment extends PreferenceFragment {
 
 
   @Override
+  public void onActivityCreated (Bundle savedInstanceState) {
+    super.onActivityCreated(savedInstanceState);
+    // The rows are cards now, so the list's own 1px dividers draw a hairline
+    // across the gap between them. The list also keeps its top inset, which
+    // doubles the space under the toolbar before the first eyebrow.
+    // android.preference.PreferenceFragment has no getListView(); its list is
+    // the standard android.R.id.list inside the fragment's own view.
+    ListView list = getView() == null ? null : (ListView) getView().findViewById(android.R.id.list);
+    if (list != null) {
+      list.setDivider(null);
+      list.setDividerHeight(0);
+      list.setPadding(0, 0, 0, (int) (24 * getResources().getDisplayMetrics().density));
+      list.setClipToPadding(false);
+      list.setVerticalScrollBarEnabled(false);
+    }
+  }
+
+
+  @Override
   public void onAttach (Activity activity) {
     super.onAttach(activity);
     this.activity = activity;

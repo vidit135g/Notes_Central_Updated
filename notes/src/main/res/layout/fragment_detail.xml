@@ -14,10 +14,24 @@
   ~ You should have received a copy of the GNU General Public License
   ~ along with this program.  If not, see <http://www.gnu.org/licenses/>.
   -->
+<!--
+  Note editor.
+
+  The title and the body used to sit in two separate cards stacked on the page,
+  which made one note look like two documents and left the title in a 19sp box
+  the same weight as the body. They are one sheet now: an accent band carrying
+  the note's folder and date, then the title set large, then the body - which is
+  what the note actually looks like when you read it.
+
+  detail_tile_card keeps its id (DetailFragment binds it, and setTagMarkerColor
+  recolours title_wrapper or tag_marker from the category) but is now the accent
+  band rather than a card.
+-->
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
                 xmlns:pixlui="http://schemas.android.com/apk/com.neopixl.pixlui"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:background="?attr/somaBg">
 
     <LinearLayout
             android:id="@+id/detail_root"
@@ -25,9 +39,7 @@
             android:layout_height="match_parent"
             android:animateLayoutChanges="true"
             android:focusableInTouchMode="true"
-            android:orientation="vertical"
-            android:layout_marginLeft="@dimen/activity_additional_margin"
-            android:layout_marginRight="@dimen/activity_additional_margin">
+            android:orientation="vertical">
 
         <LinearLayout
                 android:id="@+id/detail_wrapper"
@@ -36,52 +48,115 @@
                 android:layout_weight="1"
                 android:animateLayoutChanges="true"
                 android:background="?attr/somaBg"
-                android:orientation="vertical"
-                android:paddingLeft="@dimen/padding_half"
-                android:paddingRight="@dimen/padding_half"
-                android:paddingTop="@dimen/padding_half">
+                android:orientation="vertical">
 
+            <!-- Accent band: folder on the left, note date on the right. -->
             <LinearLayout
                     android:id="@+id/detail_tile_card"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="10dp"
-                    android:background="@drawable/bg_card_soma">
+                    android:orientation="vertical"
+                    android:background="@drawable/bg_soma_editor_band"
+                    android:paddingStart="18dp"
+                    android:paddingEnd="18dp"
+                    android:paddingTop="14dp"
+                    android:paddingBottom="16dp">
+
+                <LinearLayout
+                        android:id="@+id/detail_timestamps"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:baselineAligned="false">
+
+                    <!-- Folder chip. The dot inside it is tag_marker, which
+                         setTagMarkerColor repaints with the category's own
+                         colour; the chip around it stays white so the colour
+                         reads against something, which it would not do painted
+                         straight onto the accent band. -->
+                    <LinearLayout
+                            android:id="@+id/detail_category_chip"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="10dp"
+                            android:orientation="horizontal"
+                            android:gravity="center_vertical"
+                            android:background="@drawable/bg_soma_editor_chip"
+                            android:paddingStart="11dp"
+                            android:paddingEnd="13dp"
+                            android:paddingTop="7dp"
+                            android:paddingBottom="7dp">
+
+                        <View
+                                android:id="@+id/tag_marker"
+                                android:layout_width="9dp"
+                                android:layout_height="9dp"
+                                android:layout_marginEnd="8dp"
+                                android:background="@drawable/bg_soma_tag_dot" />
+
+                        <com.neopixl.pixlui.components.textview.TextView
+                                android:id="@+id/detail_category_name"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:singleLine="true"
+                                android:textSize="12.5sp"
+                                android:textColor="@color/soma_light_textP"
+                                pixlui:typeface="Poppins-SemiBold.ttf"/>
+                    </LinearLayout>
+
+                    <com.neopixl.pixlui.components.textview.TextView
+                            android:id="@+id/creation"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="start"
+                            android:singleLine="true"
+                            android:ellipsize="end"
+                            android:textSize="12.5sp"
+                            android:textColor="?attr/somaOnFillSub"
+                            pixlui:typeface="Poppins-Medium.ttf"/>
+
+                    <com.neopixl.pixlui.components.textview.TextView
+                            android:id="@+id/last_modification"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="12dp"
+                            android:gravity="end"
+                            android:singleLine="true"
+                            android:textSize="12.5sp"
+                            android:textColor="?attr/somaOnFillSub"
+                            pixlui:typeface="Poppins-Medium.ttf"/>
+                </LinearLayout>
 
                 <LinearLayout
                         android:id="@+id/title_wrapper"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
                         android:orientation="horizontal">
 
-                    <View
-                            android:id="@+id/tag_marker"
-                            android:layout_width="7dp"
-                            android:layout_height="match_parent"
-                            android:background="@null"/>
-
+                    <!-- Sits on the accent band, so its colours are the onFill
+                         pair rather than the page's text tokens. -->
                     <com.neopixl.pixlui.components.edittext.EditText
                             android:id="@+id/detail_title"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:background="@null"
                             android:hint="@string/title"
-                            android:inputType="textCapSentences"
+                            android:inputType="textCapSentences|textMultiLine"
                             android:linksClickable="false"
-                            android:paddingBottom="6dp"
-                            paddingStart="6dp"
-                            android:paddingLeft="6dp"
-                            android:paddingStart="6dp"
-                            paddingEnd="16dp"
-                            android:paddingRight="16dp"
-                            android:paddingEnd="16dp"
-                            android:paddingTop="6dp"
-                            android:textAppearance="@style/Text.Big.Soma"
-                            android:textColorHint="@color/text_color_lighter"
-                            android:textColor="?attr/somaTextP"
-                            pixlui:typeface="Fraunces-SemiBold.ttf"
+                            android:padding="0dp"
+                            android:textSize="27sp"
+                            android:letterSpacing="-0.035"
+                            android:lineSpacingMultiplier="1.12"
+                            android:includeFontPadding="false"
+                            android:textColorHint="?attr/somaOnFillSub"
+                            android:textColor="?attr/somaOnFill"
+                            pixlui:typeface="Poppins-Bold.ttf"
                             android:textCursorDrawable="@null"/>
                 </LinearLayout>
+
             </LinearLayout>
 
             <androidx.coordinatorlayout.widget.CoordinatorLayout
@@ -89,15 +164,18 @@
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_weight="1"
-                    android:background="@drawable/bg_card_soma">
+                    android:background="?attr/somaBg">
 
                 <ScrollView
                         android:id="@+id/content_wrapper"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:scrollbarSize="4dp"
-                        android:scrollbarStyle="outsideOverlay"
-                        android:scrollbarThumbVertical="@drawable/scroll_bar">
+                        android:clipToPadding="false"
+                        android:paddingStart="20dp"
+                        android:paddingEnd="20dp"
+                        android:paddingTop="18dp"
+                        android:paddingBottom="28dp"
+                        android:scrollbars="none">
 
                     <LinearLayout
                             android:layout_width="match_parent"
@@ -118,34 +196,6 @@
                 </ScrollView>
             </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
-            <LinearLayout
-                    android:id="@+id/detail_timestamps"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:paddingBottom="3dp"
-                    android:paddingTop="3dp">
-
-                <com.neopixl.pixlui.components.textview.TextView
-                        android:id="@+id/creation"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:gravity="start"
-                        android:padding="0dp"
-                        android:textAppearance="@style/Text.Small"
-                        pixlui:typeface="Poppins-Regular.ttf"/>
-
-                <com.neopixl.pixlui.components.textview.TextView
-                        android:id="@+id/last_modification"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:gravity="end"
-                        android:padding="0dp"
-                        android:textAppearance="@style/Text.Small"
-                        pixlui:typeface="Poppins-Regular.ttf"/>
-            </LinearLayout>
         </LinearLayout>
 
     </LinearLayout>

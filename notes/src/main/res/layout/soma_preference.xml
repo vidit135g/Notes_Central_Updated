@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Row layout for framework Preferences.
+
+  Each row is its own rounded card. The framework gives every Preference its own
+  view with no way to know whether it is first or last in its category, so a
+  true grouped card (rounded only at the ends) is not available here; a stack of
+  equal pills under each eyebrow reads the same way and cannot get the corners
+  wrong.
+
+  The gutter is PADDING on an outer wrapper, not a margin on the card: the
+  preference list sets its own LayoutParams on each row it inflates, so a
+  layout_margin here is silently dropped and the cards run edge to edge.
+
+  Must keep @android:id/title, @android:id/summary and @android:id/widget_frame:
+  the platform binds text to the first two and inflates switches and checkboxes
+  into the third.
+-->
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:pixlui="http://schemas.android.com/apk/com.neopixl.pixlui"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingStart="20dp"
+    android:paddingEnd="20dp"
+    android:paddingBottom="8dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="58dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:background="@drawable/bg_soma_pref_row"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:paddingTop="13dp"
+        android:paddingBottom="13dp">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <com.neopixl.pixlui.components.textview.TextView
+                android:id="@android:id/title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:maxLines="2"
+                android:ellipsize="end"
+                android:textSize="14.5sp"
+                android:textColor="?attr/somaTextP"
+                pixlui:typeface="Poppins-Medium.ttf" />
+
+            <com.neopixl.pixlui.components.textview.TextView
+                android:id="@android:id/summary"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:maxLines="3"
+                android:ellipsize="end"
+                android:textSize="12sp"
+                android:lineSpacingExtra="2dp"
+                android:textColor="?attr/somaTextM"
+                pixlui:typeface="Poppins-Regular.ttf" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@android:id/widget_frame"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="14dp"
+            android:gravity="center_vertical"
+            android:orientation="vertical" />
+
+    </LinearLayout>
+
+</FrameLayout>

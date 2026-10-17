@@ -15,26 +15,31 @@
   ~ along with this program.  If not, see <http://www.gnu.org/licenses/>.
   -->
 
-<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+<PreferenceScreen
+    android:layout="@layout/soma_preference" xmlns:android="http://schemas.android.com/apk/res/android"
     android:fitsSystemWindows="true">
 
     <SwitchPreference
+    android:layout="@layout/soma_preference"
         android:defaultValue="true"
         android:key="settings_notification_vibration"
         android:title="@string/settings_enable_vibration" />
 
     <RingtonePreference
+    android:layout="@layout/soma_preference"
         android:key="settings_notification_ringtone"
         android:ringtoneType="all"
         android:title="@string/settings_notification_ringtone" />
 
     <EditTextPreference
+    android:layout="@layout/soma_preference"
         android:key="settings_notification_snooze_delay"
         android:title="@string/settings_notification_snooze_delay"
         android:inputType="number"
         android:defaultValue="10"/>
 
     <Preference
+    android:layout="@layout/soma_preference"
             android:key="settings_notification_service_listener"
             android:title="@string/settings_notification_enable_boot_persistence"
             android:summary="@string/settings_notification_enable_boot_persistence_summary">

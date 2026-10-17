@@ -15,10 +15,12 @@
   ~ along with this program.  If not, see <http://www.gnu.org/licenses/>.
   -->
 
-<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+<PreferenceScreen
+    android:layout="@layout/soma_preference" xmlns:android="http://schemas.android.com/apk/res/android"
                   android:fitsSystemWindows="true">
 
     <ListPreference
+    android:layout="@layout/soma_preference"
             android:entries="@array/languages"
             android:entryValues="@array/languages_codes"
             android:key="settings_language"
@@ -33,6 +35,7 @@
             android:defaultValue="default"/>
 
     <ListPreference
+    android:layout="@layout/soma_preference"
             android:entries="@array/colors_app"
             android:entryValues="@array/colors_app_values"
             android:key="settings_colors_app"
@@ -40,6 +43,7 @@
             android:defaultValue="strip"/>
 
     <ListPreference
+    android:layout="@layout/soma_preference"
             android:entries="@array/soma_periods"
             android:entryValues="@array/soma_periods_values"
             android:key="soma_period"
@@ -47,6 +51,7 @@
             android:defaultValue="auto"/>
 
     <SwitchPreference
+    android:layout="@layout/soma_preference"
             android:key="settings_fab_expansion_behavior"
             android:title="@string/settings_fab_expansion_behavior"
             android:summaryOn="@string/settings_fab_expansion_behavior_summary_on"
@@ -54,12 +59,14 @@
             android:defaultValue="false"/>
 
     <SwitchPreference
+    android:layout="@layout/soma_preference"
             android:defaultValue="false"
             android:key="settings_simple_calendar"
             android:summary="@string/settings_simple_calendar_summary"
             android:title="@string/settings_simple_calendar"/>
 
     <SwitchPreference
+    android:layout="@layout/soma_preference"
             android:key="settings_attachments_on_bottom"
             android:summaryOn="@string/settings_attachments_on_bottom_summary_on"
             android:summaryOff="@string/settings_attachments_on_bottom_summary_off"
@@ -67,6 +74,7 @@
             android:defaultValue="false"/>
 
     <SwitchPreference
+    android:layout="@layout/soma_preference"
             android:key="settings_prettified_dates"
             android:summaryOn="@string/settings_prettified_dates_summary_on"
             android:summaryOff="@string/settings_prettified_dates_summary_off"

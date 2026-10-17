@@ -89,19 +89,34 @@ public class NavDrawerAdapter extends BaseAdapter {
     // Set the results into TextViews
     holder.txtTitle.setText(items.get(position).getText());
 
-    if (isSelected(position)) {
-      holder.imgIcon.setImageResource(items.get(position).getIconSelected());
-      holder.txtTitle.setTypeface(null, Typeface.BOLD);
-      int color = mActivity.getResources().getColor(R.color.colorPrimaryDark);
-      holder.txtTitle.setTextColor(color);
-      holder.imgIcon.getDrawable().mutate().setColorFilter(color, PorterDuff.Mode.SRC_ATOP);
-    } else {
-      holder.imgIcon.setImageResource(items.get(position).getIcon());
-      holder.txtTitle.setTypeface(null, Typeface.NORMAL);
-      holder.txtTitle.setTextColor(mActivity.getResources().getColor(R.color.drawer_text));
+    // Colours come from the active dosha-period theme, not the legacy
+    // colorPrimaryDark/drawer_text resources, which ignored the palette. The
+    // typeface is left alone so the row keeps its Poppins face.
+    boolean selected = isSelected(position);
+    holder.imgIcon.setImageResource(
+        selected ? items.get(position).getIconSelected() : items.get(position).getIcon());
+    // The selected row is marked by its pill background, not by recolouring the
+    // label: the accent is a light cyan that fails 4.5:1 as text on the
+    // drawer's surface. The icon may carry it - a 21dp glyph is not body text -
+    // but the label stays at full ink strength either way.
+    int iconColor = resolveThemeColor(selected ? R.attr.somaPrimary : R.attr.somaTextS);
+    int textColor = resolveThemeColor(R.attr.somaTextP);
+    holder.txtTitle.setTextColor(textColor);
+    holder.imgIcon.getDrawable().mutate().setColorFilter(iconColor, PorterDuff.Mode.SRC_ATOP);
+
+    View row = convertView.findViewById(R.id.drawer_row);
+    if (row != null) {
+      row.setActivated(selected);
     }
 
     return convertView;
+  }
+
+
+  private int resolveThemeColor (int attr) {
+    android.util.TypedValue tv = new android.util.TypedValue();
+    mActivity.getTheme().resolveAttribute(attr, tv, true);
+    return tv.data;
   }
 
 

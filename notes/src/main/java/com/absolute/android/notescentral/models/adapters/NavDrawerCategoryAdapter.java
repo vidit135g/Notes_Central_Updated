@@ -107,7 +107,10 @@ public class NavDrawerCategoryAdapter extends BaseAdapter {
 
     if (isSelected(position)) {
       holder.txtTitle.setTypeface(null, Typeface.BOLD);
-      holder.txtTitle.setTextColor(Integer.parseInt(category.getColor()));
+      // The category's colour lives on its folder icon, which is tinted below.
+      // Using it as the label colour put arbitrary user-picked colours - some
+      // of them pale - on a white row as body text.
+      holder.txtTitle.setTextColor(mActivity.getResources().getColor(R.color.drawer_text));
     } else {
       holder.txtTitle.setTypeface(null, Typeface.NORMAL);
       holder.txtTitle.setTextColor(mActivity.getResources().getColor(R.color.drawer_text));

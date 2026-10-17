@@ -19,10 +19,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:pixlui="http://schemas.android.com/tools"
+    xmlns:pixlui="http://schemas.android.com/apk/com.neopixl.pixlui"
     android:layout_marginLeft="@dimen/activity_additional_margin"
     android:layout_marginRight="@dimen/activity_additional_margin">
 
+    <!-- Bottom margin matches soma_bottom_nav's height: the nav is a sibling in
+         the root FrameLayout and would otherwise be drawn over the note list,
+         leaving only a sliver of it visible. -->
     <com.absolute.android.notescentral.models.views.InterceptorLinearLayout
             android:id="@+id/list_root"
             android:layout_width="match_parent"
@@ -58,72 +61,19 @@
                     android:paddingEnd="@dimen/horizontal_margin"/>
         </LinearLayout>
 
-        <LinearLayout
-            android:id="@+id/soma_search_row"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/horizontal_margin"
-            android:layout_marginEnd="@dimen/horizontal_margin"
-            android:layout_marginBottom="10dp"
-            android:orientation="horizontal"
-            android:gravity="center_vertical"
-            android:clickable="true"
-            android:focusable="true"
-            android:background="@drawable/bg_soma_search_row"
-            android:elevation="2dp"
-            android:paddingStart="16dp"
-            android:paddingEnd="16dp"
-            android:paddingTop="13dp"
-            android:paddingBottom="13dp">
-
-            <ImageView
-                android:layout_width="19dp"
-                android:layout_height="19dp"
-                android:layout_marginEnd="10dp"
-                android:src="@drawable/ic_search_white_24dp"
-                android:tint="?attr/somaTextM" />
-
-            <com.neopixl.pixlui.components.textview.TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/soma_search_hint"
-                android:textSize="14sp"
-                android:textColor="?attr/somaTextM"
-                pixlui:typeface="Poppins-Regular.ttf" />
-
-        </LinearLayout>
-
-        <HorizontalScrollView
-            android:id="@+id/category_chip_scroll"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:scrollbars="none"
-            android:paddingBottom="8dp">
-
-            <LinearLayout
-                android:id="@+id/category_chip_row"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:paddingStart="@dimen/horizontal_margin"
-                android:paddingEnd="@dimen/horizontal_margin" />
-
-        </HorizontalScrollView>
-
         <FrameLayout android:layout_width="match_parent" android:layout_height="match_parent">
             <com.nhaarman.listviewanimations.itemmanipulation.DynamicListView
                     android:id="@+id/list"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:divider="@null"
-                    android:dividerHeight="8dp"
+                    android:dividerHeight="11dp"
                     android:paddingLeft="8dp"
                     android:paddingRight="8dp"
                     android:paddingTop="@dimen/padding_half"
                     android:clipToPadding="false"
                     android:scrollbarSize="4dp"
-                android:paddingBottom="60dp"
+                android:paddingBottom="96dp"
                     android:drawSelectorOnTop="true"
                     android:listSelector="@drawable/icon_selector"
                     android:scrollbarStyle="outsideOverlay"
@@ -153,16 +103,16 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
                     android:text="@string/soma_empty_list_title"
-                    android:textSize="17sp"
+                    android:textSize="15.5sp"
                     android:textColor="?attr/somaTextP"
-                    pixlui:typeface="Fraunces-SemiBold.ttf" />
+                    pixlui:typeface="Poppins-SemiBold.ttf" />
 
                 <com.neopixl.pixlui.components.textview.TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="6dp"
                     android:text="@string/soma_empty_list_subtitle"
-                    android:textSize="13sp"
+                    android:textSize="12sp"
                     android:textColor="?attr/somaTextM"
                     pixlui:typeface="Poppins-Regular.ttf" />
 
@@ -195,16 +145,21 @@
             android:layout_gravity="bottom"/>
 
 
+    <!-- Superseded by soma_bottom_nav. Kept in the tree (not deleted) because
+         ListFragment binds the FAB and the four quick-create icons inside it. -->
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:visibility="gone">
 
         <com.google.android.material.bottomappbar.BottomAppBar
             android:id="@+id/bottom_app_bar"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="70.8dp"
             android:layout_gravity="bottom"
             android:backgroundTint="?attr/somaElev"
+            app:contentInsetStart="0dp"
+            app:contentInsetEnd="0dp"
             app:elevation="8dp"
             wheel:fabCradleVerticalOffset="10dp"
 
@@ -213,7 +168,10 @@
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:visibility="gone"
+                android:paddingStart="10.2dp"
+                android:paddingEnd="10.2dp">
 
                 <ImageView
                     android:layout_width="30dp"
@@ -237,6 +195,14 @@
                     android:background="@drawable/rounded_ripple"
                     android:tint="?attr/somaTextS"
                     android:src="@drawable/ic_brush_black_24dp"/>
+
+                <!-- The mockup deliberately reserves this exact width between left and
+                     right quick actions. It keeps the tool strip airy without adding
+                     a visual divider. -->
+                <View
+                    android:layout_width="48dp"
+                    android:layout_height="1dp"
+                    android:layout_margin="9dp" />
                 <ImageView
                     android:layout_width="30dp"
                     android:layout_height="30dp"
@@ -266,18 +232,19 @@
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/fab1"
-            android:layout_width="64dp"
-            android:layout_height="64dp"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
             app:layout_anchor="@id/bottom_app_bar"
             wheel:layout_anchorGravity="bottom|end"
-            app:tint="@null"
+            app:tint="?attr/somaOnFill"
             android:clickable="true"
             android:focusable="true"
             app:backgroundTint="?attr/somaPrimary"
-            app:maxImageSize="30dp"
-            app:fabCustomSize="64dp"
+            app:rippleColor="?attr/somaPrimaryPressed"
+            app:maxImageSize="24dp"
+            app:fabCustomSize="56dp"
             app:shapeAppearanceOverlay="@style/ShapeAppearance.Soma.Fab"
-            android:src="@drawable/cusotmcreate"
+            android:src="@drawable/ic_soma_add"
             app:elevation="6dp"
             app:useCompatPadding="true" />
 
@@ -285,6 +252,8 @@
 
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
+    <include layout="@layout/soma_bottom_nav" />
+
     <com.pnikosis.materialishprogress.ProgressWheel
         android:id="@+id/progress_wheel"
         android:layout_width="wrap_content"

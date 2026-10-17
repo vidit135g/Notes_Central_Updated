@@ -50,8 +50,14 @@ public class ReminderHelper {
       PendingIntent sender = PendingIntent.getBroadcast(context, getRequestCode(note), intent,
           PendingIntent.FLAG_CANCEL_CURRENT | PendingIntent.FLAG_IMMUTABLE);
       AlarmManager am = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
-      if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-        am.setExact(AlarmManager.RTC_WAKEUP, reminder, sender);
+      // Inexact-but-Doze-aware scheduling: a note reminder firing within a few
+      // minutes of the requested time is fine (unlike an alarm clock or a
+      // calendar event), and this needs no special permission - unlike
+      // setExact()/setExactAndAllowWhileIdle(), which require
+      // SCHEDULE_EXACT_ALARM/USE_EXACT_ALARM and gate the app on Play's
+      // "core functionality is an alarm clock or calendar" eligibility check.
+      if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+        am.setAndAllowWhileIdle(AlarmManager.RTC_WAKEUP, reminder, sender);
       } else {
         am.set(AlarmManager.RTC_WAKEUP, reminder, sender);
       }

@@ -30,7 +30,7 @@
         android:layout_below="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/gray_bg"/>
+        android:background="?attr/somaBg"/>
 
     <include android:id="@+id/crouton_handle" layout="@layout/crouton_handle" />
 

@@ -18,89 +18,126 @@ package com.absolute.android.notescentral.utils;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.content.res.Configuration;
 import com.absolute.android.notescentral.R;
-import java.util.Calendar;
 
 /**
- * Resolves the active Soma dosha-period theme: either the one the user
- * manually picked in Settings, or the one matching the current hour of day
- * ("auto", the default) — same six windows as the source Soma app:
+ * Resolves the active theme: Light, Dark, or Auto (follow the system), which is
+ * the default.
  *
- * vata-dawn 2-6am · kapha-am 6-10am · pitta-day 10am-2pm ·
- * vata-pm 2-6pm · kapha-pm 6-10pm · pitta-night 10pm-2am
+ * This used to resolve one of six Ayurvedic dosha periods from the hour of day.
+ * That is gone — the app ships one light look and one dark one. The class name,
+ * the method signatures and the stored preference key are all kept so the ten
+ * Activities that call {@link #themeResId} and the Settings screen did not have
+ * to change shape; only what they resolve to is different.
+ *
+ * Old saved values ("vata-dawn", "pitta-day", …) are still read from prefs by
+ * existing installs. {@link #normalise} maps each to LIGHT or DARK by whether
+ * that period used to be a dark ground, so an upgrading user lands somewhere
+ * sensible rather than on the default.
  */
 public class SomaPeriod {
 
+  /** Follow the system light/dark setting. The default. */
   public static final String AUTO = "auto";
 
-  public static final String VATA_DAWN = "vata-dawn";
-  public static final String KAPHA_AM = "kapha-am";
-  public static final String PITTA_DAY = "pitta-day";
-  public static final String VATA_PM = "vata-pm";
-  public static final String KAPHA_PM = "kapha-pm";
-  public static final String PITTA_NIGHT = "pitta-night";
+  public static final String LIGHT = "light";
+  public static final String DARK = "dark";
 
-  public static final String[] ORDER = {VATA_DAWN, KAPHA_AM, PITTA_DAY, VATA_PM, KAPHA_PM, PITTA_NIGHT};
+  /** The order the Settings picker lists them in. */
+  public static final String[] ORDER = {AUTO, LIGHT, DARK};
 
   private SomaPeriod () {}
 
 
-  /** The period id actually in effect right now (never "auto" itself). */
+  /** The theme actually in effect right now — never {@link #AUTO} itself. */
   public static String resolveId (Context context) {
-    SharedPreferences prefs = context.getSharedPreferences(Constants.PREFS_NAME, Context.MODE_MULTI_PROCESS);
-    String saved = prefs.getString(Constants.PREF_SOMA_PERIOD, AUTO);
+    String saved = getPreference(context);
     if (AUTO.equals(saved)) {
-      return byHour(Calendar.getInstance().get(Calendar.HOUR_OF_DAY));
+      return followingSystem(context);
     }
     return saved;
   }
 
 
-  public static String byHour (int hour) {
-    if (hour >= 2 && hour < 6) return VATA_DAWN;
-    if (hour >= 6 && hour < 10) return KAPHA_AM;
-    if (hour >= 10 && hour < 14) return PITTA_DAY;
-    if (hour >= 14 && hour < 18) return VATA_PM;
-    if (hour >= 18 && hour < 22) return KAPHA_PM;
-    return PITTA_NIGHT; // 22-24 and 0-2
+  /** LIGHT or DARK, from the system's current night-mode configuration. */
+  private static String followingSystem (Context context) {
+    int mode = context.getResources().getConfiguration().uiMode
+        & Configuration.UI_MODE_NIGHT_MASK;
+    return mode == Configuration.UI_MODE_NIGHT_YES ? DARK : LIGHT;
   }
 
 
-  /** The saved preference value: a period id, or AUTO. */
+  /**
+   * Maps anything that might be sitting in prefs — including the six retired
+   * dosha-period ids — onto a value this class still understands.
+   */
+  private static String normalise (String saved) {
+    if (saved == null) {
+      return AUTO;
+    }
+    switch (saved) {
+      case LIGHT:
+      case DARK:
+      case AUTO:
+        return saved;
+      // The three periods that used to be dark grounds.
+      case "vata-dawn":
+      case "kapha-pm":
+      case "pitta-night":
+        return DARK;
+      // The three that used to be light.
+      case "kapha-am":
+      case "pitta-day":
+      case "vata-pm":
+        return LIGHT;
+      default:
+        return AUTO;
+    }
+  }
+
+
+  /** The saved preference value: LIGHT, DARK, or AUTO. */
   public static String getPreference (Context context) {
-    SharedPreferences prefs = context.getSharedPreferences(Constants.PREFS_NAME, Context.MODE_MULTI_PROCESS);
-    return prefs.getString(Constants.PREF_SOMA_PERIOD, AUTO);
+    SharedPreferences prefs = context.getSharedPreferences(Constants.PREFS_NAME,
+        Context.MODE_MULTI_PROCESS);
+    return normalise(prefs.getString(Constants.PREF_SOMA_PERIOD, AUTO));
   }
 
 
-  public static void setPreference (Context context, String periodIdOrAuto) {
-    SharedPreferences prefs = context.getSharedPreferences(Constants.PREFS_NAME, Context.MODE_MULTI_PROCESS);
-    prefs.edit().putString(Constants.PREF_SOMA_PERIOD, periodIdOrAuto).apply();
+  public static void setPreference (Context context, String themeIdOrAuto) {
+    SharedPreferences prefs = context.getSharedPreferences(Constants.PREFS_NAME,
+        Context.MODE_MULTI_PROCESS);
+    prefs.edit().putString(Constants.PREF_SOMA_PERIOD, normalise(themeIdOrAuto)).apply();
   }
 
 
-  public static int themeResId (String periodId) {
-    switch (periodId) {
-      case KAPHA_AM: return R.style.OmniNotesTheme_Soma_KaphaAm;
-      case PITTA_DAY: return R.style.OmniNotesTheme_Soma_PittaDay;
-      case VATA_PM: return R.style.OmniNotesTheme_Soma_VataPm;
-      case KAPHA_PM: return R.style.OmniNotesTheme_Soma_KaphaPm;
-      case PITTA_NIGHT: return R.style.OmniNotesTheme_Soma_PittaNight;
-      case VATA_DAWN:
-      default: return R.style.OmniNotesTheme_Soma_VataDawn;
+  public static int themeResId (String themeId) {
+    return DARK.equals(themeId)
+        ? R.style.OmniNotesTheme_Soma_Dark
+        : R.style.OmniNotesTheme_Soma_Light;
+  }
+
+
+  /** That theme's screen background, for previewing it outside its theme. */
+  public static int bgColorResId (String themeId) {
+    return DARK.equals(themeId) ? R.color.soma_dark_bg : R.color.soma_light_bg;
+  }
+
+
+  /** That theme's accent, for previewing it outside its theme. */
+  public static int primaryColorResId (String themeId) {
+    return DARK.equals(themeId) ? R.color.soma_dark_primary : R.color.soma_light_primary;
+  }
+
+
+  public static int labelResId (String themeId) {
+    if (LIGHT.equals(themeId)) {
+      return R.string.soma_theme_light;
     }
-  }
-
-
-  public static int labelResId (String periodId) {
-    switch (periodId) {
-      case KAPHA_AM: return R.string.soma_period_kapha_am;
-      case PITTA_DAY: return R.string.soma_period_pitta_day;
-      case VATA_PM: return R.string.soma_period_vata_pm;
-      case KAPHA_PM: return R.string.soma_period_kapha_pm;
-      case PITTA_NIGHT: return R.string.soma_period_pitta_night;
-      case VATA_DAWN:
-      default: return R.string.soma_period_vata_dawn;
+    if (DARK.equals(themeId)) {
+      return R.string.soma_theme_dark;
     }
+    return R.string.soma_theme_auto;
   }
 }

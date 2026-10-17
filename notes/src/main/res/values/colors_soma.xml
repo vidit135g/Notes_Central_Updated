@@ -1,107 +1,119 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- Soma dosha-period palettes, ported verbatim from the source app's
-         mobile/src/design/themes/dosha-periods.ts tokens. -->
+    <!--
+      Wordsy palette. Replaces the six dosha-period palettes that used to live
+      here: the app now ships one light look and one dark one, and the theme
+      attrs in attrs_soma.xml are the only thing layouts ever reference, so the
+      whole UI re-skins from the two blocks in styles_soma.xml.
 
-    <!-- vata-dawn · 2-6am · deep warm indigo -->
-    <color name="soma_vataDawn_bg">#15172A</color>
-    <color name="soma_vataDawn_elev">#1F2240</color>
-    <color name="soma_vataDawn_surf">#282C4E</color>
-    <color name="soma_vataDawn_muted">#333863</color>
-    <color name="soma_vataDawn_strong">#424879</color>
-    <color name="soma_vataDawn_textP">#F3F2FB</color>
-    <color name="soma_vataDawn_textS">#CFCDEC</color>
-    <color name="soma_vataDawn_textM">#9491C4</color>
-    <color name="soma_vataDawn_border">#4A4F86</color>
-    <color name="soma_vataDawn_borderSub">#383D66</color>
-    <color name="soma_vataDawn_primary">#A79FF2</color>
-    <color name="soma_vataDawn_primaryPressed">#8C82E4</color>
-    <color name="soma_vataDawn_secondary">#F0B14E</color>
-    <color name="soma_vataDawn_accent">#B0A6F5</color>
-    <color name="soma_vataDawn_onFill">#131427</color>
+      The `soma_` prefix is kept throughout. Renaming it would touch ~60 layouts
+      and every drawable for no visual gain; the names are the API, the values
+      are what changed.
+    -->
 
-    <!-- kapha-am · 6-10am · warm cream + fresh sage -->
-    <color name="soma_kaphaAm_bg">#F6F3E6</color>
-    <color name="soma_kaphaAm_elev">#FFFFFA</color>
-    <color name="soma_kaphaAm_surf">#FDFCF3</color>
-    <color name="soma_kaphaAm_muted">#E9E7D1</color>
-    <color name="soma_kaphaAm_strong">#D8D8BB</color>
-    <color name="soma_kaphaAm_textP">#1F2E24</color>
-    <color name="soma_kaphaAm_textS">#435245</color>
-    <color name="soma_kaphaAm_textM">#5E6B5C</color>
-    <color name="soma_kaphaAm_border">#DFDFC5</color>
-    <color name="soma_kaphaAm_borderSub">#E6E4CF</color>
-    <color name="soma_kaphaAm_primary">#2A8259</color>
-    <color name="soma_kaphaAm_primaryPressed">#22694A</color>
-    <color name="soma_kaphaAm_secondary">#D98B44</color>
-    <color name="soma_kaphaAm_accent">#43A277</color>
-    <color name="soma_kaphaAm_onFill">#FFFFFA</color>
+    <!-- ===================== LIGHT ===================== -->
 
-    <!-- pitta-day · 10am-2pm · bright warm cream + clear ember -->
-    <color name="soma_pittaDay_bg">#FFF6E8</color>
-    <color name="soma_pittaDay_elev">#FFFFFB</color>
-    <color name="soma_pittaDay_surf">#FFFCF3</color>
-    <color name="soma_pittaDay_muted">#FBE9CE</color>
-    <color name="soma_pittaDay_strong">#F3D6A9</color>
-    <color name="soma_pittaDay_textP">#33220F</color>
-    <color name="soma_pittaDay_textS">#5E4529</color>
-    <color name="soma_pittaDay_textM">#846A4C</color>
-    <color name="soma_pittaDay_border">#F1E1C4</color>
-    <color name="soma_pittaDay_borderSub">#F6EAD3</color>
-    <color name="soma_pittaDay_primary">#D64E22</color>
-    <color name="soma_pittaDay_primaryPressed">#B8401A</color>
-    <color name="soma_pittaDay_secondary">#EDA23E</color>
-    <color name="soma_pittaDay_accent">#E85E2C</color>
-    <color name="soma_pittaDay_onFill">#FFFFFB</color>
+    <!-- Grounds. White page, one grey card surface. Note cards, chips and
+         grouped setting rows all sit on `surf`; `muted` is the one step darker
+         used for a card that must read as *inert* (a locked note). -->
+    <color name="soma_light_bg">#FFFFFF</color>
+    <color name="soma_light_elev">#FFFFFF</color>
+    <color name="soma_light_surf">#F1F1F4</color>
+    <color name="soma_light_muted">#E8E8ED</color>
+    <color name="soma_light_strong">#D6D6DE</color>
 
-    <!-- vata-pm · 2-6pm · soft warm lilac -->
-    <color name="soma_vataPm_bg">#F5F1FA</color>
-    <color name="soma_vataPm_elev">#FFFFFF</color>
-    <color name="soma_vataPm_surf">#FBF9FE</color>
-    <color name="soma_vataPm_muted">#E9E3F4</color>
-    <color name="soma_vataPm_strong">#D8CEEC</color>
-    <color name="soma_vataPm_textP">#241F34</color>
-    <color name="soma_vataPm_textS">#4B4468</color>
-    <color name="soma_vataPm_textM">#6E668F</color>
-    <color name="soma_vataPm_border">#E4DCF1</color>
-    <color name="soma_vataPm_borderSub">#ECE6F6</color>
-    <color name="soma_vataPm_primary">#6357D8</color>
-    <color name="soma_vataPm_primaryPressed">#5347BE</color>
-    <color name="soma_vataPm_secondary">#D98B44</color>
-    <color name="soma_vataPm_accent">#7E72E8</color>
-    <color name="soma_vataPm_onFill">#FFFFFF</color>
+    <!-- Text. textM is the lightest that still clears 4.5:1 on both #FFFFFF
+         and #F1F1F4 — anything lighter fails on the card surface, which is
+         where most secondary text actually sits. -->
+    <color name="soma_light_textP">#15151A</color>
+    <color name="soma_light_textS">#4A4A53</color>
+    <color name="soma_light_textM">#6B6B74</color>
 
-    <!-- kapha-pm · 6-10pm · deep forest-charcoal -->
-    <color name="soma_kaphaPm_bg">#15201A</color>
-    <color name="soma_kaphaPm_elev">#1F2C24</color>
-    <color name="soma_kaphaPm_surf">#28362D</color>
-    <color name="soma_kaphaPm_muted">#33443A</color>
-    <color name="soma_kaphaPm_strong">#405448</color>
-    <color name="soma_kaphaPm_textP">#EEF3EA</color>
-    <color name="soma_kaphaPm_textS">#CDD8C8</color>
-    <color name="soma_kaphaPm_textM">#95A592</color>
-    <color name="soma_kaphaPm_border">#4A5F51</color>
-    <color name="soma_kaphaPm_borderSub">#3A4C40</color>
-    <color name="soma_kaphaPm_primary">#68C795</color>
-    <color name="soma_kaphaPm_primaryPressed">#54AD7E</color>
-    <color name="soma_kaphaPm_secondary">#F0B14E</color>
-    <color name="soma_kaphaPm_accent">#7BD3A3</color>
-    <color name="soma_kaphaPm_onFill">#111A15</color>
+    <color name="soma_light_border">#E0E0E7</color>
+    <color name="soma_light_borderSub">#EDEDF1</color>
 
-    <!-- pitta-night · 10pm-2am · warm midnight teal + bright saffron -->
-    <color name="soma_pittaNight_bg">#12211F</color>
-    <color name="soma_pittaNight_elev">#1C302D</color>
-    <color name="soma_pittaNight_surf">#243B38</color>
-    <color name="soma_pittaNight_muted">#304B46</color>
-    <color name="soma_pittaNight_strong">#3D5A54</color>
-    <color name="soma_pittaNight_textP">#F4EFE4</color>
-    <color name="soma_pittaNight_textS">#DDD5C6</color>
-    <color name="soma_pittaNight_textM">#A6A08D</color>
-    <color name="soma_pittaNight_border">#496059</color>
-    <color name="soma_pittaNight_borderSub">#3A4E48</color>
-    <color name="soma_pittaNight_primary">#FF7A3D</color>
-    <color name="soma_pittaNight_primaryPressed">#E9662B</color>
-    <color name="soma_pittaNight_secondary">#F0B14E</color>
-    <color name="soma_pittaNight_accent">#FF8C52</color>
-    <color name="soma_pittaNight_onFill">#12211F</color>
+    <!-- Accent. The cyan is a *fill*, never a text colour: at 4.5:1 it fails on
+         white, so every label on it uses onFill (near-black) instead, and cyan
+         text on white is replaced by somaLink. -->
+    <color name="soma_light_primary">#51C9F2</color>
+    <color name="soma_light_primaryPressed">#35B5E0</color>
+    <color name="soma_light_secondary">#A824C0</color>
+    <color name="soma_light_accent">#51C9F2</color>
+    <color name="soma_light_onFill">#0B1E26</color>
+    <color name="soma_light_onFillSub">#0E3A49</color>
+    <color name="soma_light_link">#0E7FA6</color>
+
+    <!-- Ink: the dark pill used for the active chip, the primary button and the
+         floating action bar. -->
+    <color name="soma_light_ink">#1B1B20</color>
+    <color name="soma_light_inkSoft">#26262C</color>
+    <color name="soma_light_onInk">#FFFFFF</color>
+
+    <color name="soma_light_done">#0FB184</color>
+    <color name="soma_light_danger">#A83926</color>
+    <color name="soma_light_dangerBg">#FCE8E4</color>
+    <color name="soma_light_highlight">#F0D9FB</color>
+    <color name="soma_light_highlightInk">#6C1990</color>
+
+    <!-- Folder tints. Paired bg/ink, each pair checked at 4.5:1. -->
+    <color name="soma_light_tileCalm">#CFF0FC</color>
+    <color name="soma_light_tileCalmStroke">#0B3D52</color>
+    <color name="soma_light_tileWarm">#F2E3FA</color>
+    <color name="soma_light_tileWarmStroke">#6C1990</color>
+
+    <!-- ===================== DARK ===================== -->
+
+    <!-- Not an inversion: the grounds are warm-neutral near-blacks so the cyan
+         keeps its chroma, and the card step is *up* from the page rather than
+         down, which is what the light side does in reverse. -->
+    <color name="soma_dark_bg">#0F0F13</color>
+    <color name="soma_dark_elev">#16161B</color>
+    <color name="soma_dark_surf">#1A1A21</color>
+    <color name="soma_dark_muted">#23232B</color>
+    <color name="soma_dark_strong">#2A2A33</color>
+
+    <color name="soma_dark_textP">#F4F4F7</color>
+    <color name="soma_dark_textS">#C2C2CC</color>
+    <color name="soma_dark_textM">#9A9AA6</color>
+
+    <color name="soma_dark_border">#2A2A33</color>
+    <color name="soma_dark_borderSub">#23232B</color>
+
+    <!-- The cyan is unchanged across themes on purpose: it is the brand mark,
+         and it reads at 4.5:1+ against both grounds as a fill. -->
+    <color name="soma_dark_primary">#51C9F2</color>
+    <color name="soma_dark_primaryPressed">#35B5E0</color>
+    <color name="soma_dark_secondary">#D06BE8</color>
+    <color name="soma_dark_accent">#51C9F2</color>
+    <color name="soma_dark_onFill">#0B1E26</color>
+    <color name="soma_dark_onFillSub">#0E3A49</color>
+    <color name="soma_dark_link">#7FD9F6</color>
+
+    <!-- On dark, "ink" inverts its job: the raised pill is a step *lighter*
+         than the page, not darker. -->
+    <color name="soma_dark_ink">#23232B</color>
+    <color name="soma_dark_inkSoft">#2E2E38</color>
+    <color name="soma_dark_onInk">#FFFFFF</color>
+
+    <color name="soma_dark_done">#0FB184</color>
+    <color name="soma_dark_danger">#F08D78</color>
+    <color name="soma_dark_dangerBg">#39201B</color>
+    <color name="soma_dark_highlight">#3A1A48</color>
+    <color name="soma_dark_highlightInk">#E9B8F7</color>
+
+    <color name="soma_dark_tileCalm">#0E3445</color>
+    <color name="soma_dark_tileCalmStroke">#A5E4F8</color>
+    <color name="soma_dark_tileWarm">#331343</color>
+    <color name="soma_dark_tileWarmStroke">#E2A8F2</color>
+
+    <!-- Splash. Fixed, not themed: the system splash is drawn before any
+         Activity (and so before the theme) exists. -->
+    <color name="soma_splash_bg">#51C9F2</color>
+
+    <!-- Onboarding only. The purple ground is the one screen that is neither
+         light nor dark — it is the same in both themes, as in the reference. -->
+    <color name="soma_intro_bg">#B42BF0</color>
+    <color name="soma_intro_bubble">#1AFFFFFF</color>
+    <color name="soma_intro_card">#51C9F2</color>
+    <color name="soma_intro_ink">#0B1E26</color>
 </resources>

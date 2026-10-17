@@ -122,9 +122,9 @@ public class MainActivity extends BaseActivity implements OnDateSetListener, OnT
     setSupportActionBar(toolbar);
     getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     getSupportActionBar().setHomeButtonEnabled(true);
-    getSupportActionBar().setSubtitle(
-        com.absolute.android.notescentral.utils.SomaPeriod.labelResId(
-            com.absolute.android.notescentral.utils.SomaPeriod.resolveId(this)));
+    // The Soma home header carries the screen's title, so the toolbar keeps
+    // only its actions and does not repeat it.
+    getSupportActionBar().setDisplayShowTitleEnabled(false);
   }
 
 

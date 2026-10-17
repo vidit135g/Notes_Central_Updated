@@ -6,8 +6,8 @@ boolean signConfigExists = project.hasProperty("SIGN_PROPS") && new File(project
 
 android {
     namespace "com.absolute.android.notescentral"
-    compileSdkVersion 34
-    buildToolsVersion "34.0.0"
+    compileSdkVersion 36
+    buildToolsVersion "36.0.0"
 
     defaultConfig {
         applicationId project.PACKAGE
@@ -86,6 +86,27 @@ android {
 
     kotlinOptions {
         jvmTarget = '17'
+    }
+}
+
+configurations.all {
+    resolutionStrategy {
+        // smartlocation:3.2.4 transitively floors play-services-location at
+        // 9.0.2, which isn't cached offline. Previously play-services-analytics
+        // implicitly bumped the whole GMS family to a cached version via
+        // Gradle's conflict resolution; removing that dependency (done to drop
+        // the AD_ID permission it carried) exposed this. Force the same
+        // resolution explicitly instead of relying on an unrelated dependency
+        // for it.
+        force 'com.google.android.gms:play-services-base:18.0.1'
+        force 'com.google.android.gms:play-services-basement:18.1.0'
+
+        // smartlocation:3.2.4 also floors play-services-location/maps at 9.0.2,
+        // which Play Console flags as outdated (blocked from Dec 21, 2026
+        // unless bumped to 16.0.0+ / 17.0.0+ respectively). Force current
+        // versions the same way as base/basement above.
+        force 'com.google.android.gms:play-services-location:18.0.0'
+        force 'com.google.android.gms:play-services-maps:18.2.0'
     }
 }
 
@@ -174,9 +195,21 @@ dependencies {
     fossImplementation('com.github.federicoiosue:analitica:0.0.3:piwikRelease@aar') {
         transitive = true
     }
-    playImplementation 'com.google.android.gms:play-services-analytics:18.0.4'
-    betaImplementation 'com.google.android.gms:play-services-analytics:18.0.4'
-    alphaImplementation 'com.google.android.gms:play-services-analytics:18.0.4'
+    // play-services-analytics transitively pulls play-services-ads-identifier
+    // (via play-services-analytics-impl and play-services-tagmanager-v4-impl),
+    // which is what actually merges the AD_ID permission into the manifest -
+    // not analytics itself. The app never calls the Advertising ID API, so
+    // this transitive module is excluded rather than dropping analytics
+    // entirely.
+    playImplementation('com.google.android.gms:play-services-analytics:18.0.4') {
+        exclude group: 'com.google.android.gms', module: 'play-services-ads-identifier'
+    }
+    betaImplementation('com.google.android.gms:play-services-analytics:18.0.4') {
+        exclude group: 'com.google.android.gms', module: 'play-services-ads-identifier'
+    }
+    alphaImplementation('com.google.android.gms:play-services-analytics:18.0.4') {
+        exclude group: 'com.google.android.gms', module: 'play-services-ads-identifier'
+    }
     fossImplementation('org.piwik.sdk:piwik-sdk:1.0.2') {
         exclude group: 'com.jakewharton.timber', module: 'timber'
     }

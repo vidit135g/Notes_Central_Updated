@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2013-2019 Federico Iosue (federico@iosue.it)
+ * Copyright (C) 2013-2026 Federico Iosue (federico@iosue.it)
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -14,12 +14,9 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-
 package com.absolute.android.notescentral.intro;
 
-import android.graphics.Color;
 import android.os.Bundle;
-import android.view.View;
 import com.absolute.android.notescentral.R;
 
 
@@ -28,11 +25,7 @@ public class IntroSlide1 extends IntroFragment {
   @Override
   public void onActivityCreated (Bundle savedInstanceState) {
     super.onActivityCreated(savedInstanceState);
-    background.setBackgroundColor(Color.parseColor("#222222"));
-    title.setText(R.string.tour_listactivity_intro_title);
-    image.setVisibility(View.GONE);
-    image_small.setImageResource(R.drawable.logo);
-    image_small.setVisibility(View.VISIBLE);
-    description.setText(R.string.tour_listactivity_final_detail);
+    bindPage(1, R.string.intro_capture_title, R.string.intro_capture_detail,
+        R.drawable.il_intro_capture);
   }
 }

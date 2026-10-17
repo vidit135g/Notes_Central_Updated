@@ -15,10 +15,12 @@
   ~ along with this program.  If not, see <http://www.gnu.org/licenses/>.
   -->
 
-<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+<PreferenceScreen
+    android:layout="@layout/soma_preference" xmlns:android="http://schemas.android.com/apk/res/android"
                   android:fitsSystemWindows="true">
 
     <SwitchPreference
+    android:layout="@layout/soma_preference"
             android:key="acra.enable"
             android:title="@string/settings_error_reporting"
             android:summaryOn="@string/settings_error_reporting_summary_on"
@@ -26,12 +28,14 @@
             android:defaultValue="true"/>
 
     <SwitchPreference
+    android:layout="@layout/soma_preference"
         android:key="settings_send_analytics"
         android:title="@string/settings_send_analytics"
         android:summary="@string/settings_send_analytics_summary"
         android:defaultValue="true"/>
 
     <SwitchPreference
+    android:layout="@layout/soma_preference"
         android:key="settings_enable_file_logging"
         android:title="@string/settings_enable_file_logging"
         android:summary="@string/settings_enable_file_logging_summary"

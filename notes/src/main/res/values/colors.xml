@@ -18,10 +18,12 @@
 <resources>
 
     <!-- Material -->
-    <color name="colorPrimary">#f4b400</color>
-    <color name="colorPrimaryDark">#f4b400</color>
-    <color name="colorAccent">#F44336</color>
-    <color name="colorAccentPressed">#D32F2F</color>
+    <!-- Repointed from the app's original amber. Read by the home-screen
+         widget and the splash, which have no theme to resolve ?attr against. -->
+    <color name="colorPrimary">#51C9F2</color>
+    <color name="colorPrimaryDark">#35B5E0</color>
+    <color name="colorAccent">#51C9F2</color>
+    <color name="colorAccentPressed">#35B5E0</color>
 
     <!-- Statusbar overlay -->
     <color name="statusbar_overlay">#20000000</color>
@@ -30,8 +32,8 @@
     <color name="half_black">#808080</color>
     <color name="white">#fafafa</color>
     <color name="white_pressed">#f1f1f1</color>
-    <color name="action_color">#B78B00</color>
-    <color name="action_color_pressed">#916E02</color>
+    <color name="action_color">#0E7FA6</color>
+    <color name="action_color_pressed">#0A5F7D</color>
     <color name="white_overlay">#bbFFFFFF</color>
     <color name="labels_background">#dd222222</color>
 
@@ -94,7 +96,7 @@
     <color name="gorange">#e64a19</color>
     <color name="glpink">#f48fb1 </color>
 
-    <color name="ic_launcher_background">#FFFFFF</color>
+    <color name="ic_launcher_background">#51C9F2</color>
     <!-- Bento UI Tokens -->
     <color name="bento_card_stroke">#E5E5EA</color>
     <color name="bento_pill_bg">#EDF4FE</color>

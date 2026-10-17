@@ -64,6 +64,18 @@ public class NoteAdapter extends ArrayAdapter<Note> implements Insertable {
   private LayoutInflater inflater;
   private long closestNoteReminder = Long.parseLong(Constants.TIMESTAMP_UNIX_EPOCH_FAR);
   private int closestNotePosition;
+  public interface ArchiveAction { void accept(Note note); }
+  private ArchiveAction archiveAction;
+
+  public void setArchiveAction(ArchiveAction action) { archiveAction = action; }
+
+  private android.content.SharedPreferences pinPreferences() {
+    return mActivity.getSharedPreferences("soma_pinned_notes", Context.MODE_PRIVATE);
+  }
+
+  private boolean isPinned(Note note) {
+    return pinPreferences().getBoolean(String.valueOf(note.get_id()), false);
+  }
 
 
   public NoteAdapter (Activity activity, int layout, List<Note> notes) {
@@ -71,6 +83,8 @@ public class NoteAdapter extends ArrayAdapter<Note> implements Insertable {
     mActivity = activity;
     this.notes = notes;
     this.layout = layout;
+    // Stable sort keeps the user's chosen ordering within each group.
+    java.util.Collections.sort(notes, (a, b) -> Boolean.compare(isPinned(b), isPinned(a)));
 
     expandedView = layout == R.layout.note_layout_expanded;
     inflater = (LayoutInflater) mActivity.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -98,6 +112,16 @@ public class NoteAdapter extends ArrayAdapter<Note> implements Insertable {
     initDates(note, holder);
     initThumbnail(note, holder);
     manageSelectionColor(position, note, holder);
+    if (convertView instanceof com.absolute.android.notescentral.models.views.NoteSwipeLayout) {
+      boolean enabled = archiveAction != null && !note.isLocked()
+          && selectedItems.size() == 0;
+      ((com.absolute.android.notescentral.models.views.NoteSwipeLayout) convertView).bind(
+          enabled, isPinned(note), () -> {
+            pinPreferences().edit().putBoolean(String.valueOf(note.get_id()), !isPinned(note)).apply();
+            java.util.Collections.sort(notes, (a, b) -> Boolean.compare(isPinned(b), isPinned(a)));
+            notifyDataSetChanged();
+          }, () -> archiveAction.accept(note));
+    }
     return convertView;
   }
 
@@ -155,17 +179,14 @@ public class NoteAdapter extends ArrayAdapter<Note> implements Insertable {
     if (holder.checklistPreview == null) {
       return false;
     }
-    // Capped at 2 rows, not 3 - the card's root has a fixed (not wrap_content) height shared
-    // with the attachment-thumbnail layout, so a title + 3 checklist rows can clip.
-    View[] rows = {holder.checklistRow0, holder.checklistRow1};
-    View[] boxes = {holder.checklistBox0, holder.checklistBox1};
-    ImageView[] marks = {holder.checklistMark0, holder.checklistMark1};
-    android.widget.TextView[] texts = {holder.checklistText0, holder.checklistText1};
-    if (holder.checklistRow2 != null) {
-      holder.checklistRow2.setVisibility(View.GONE);
-    }
+    // The card root is wrap_content now (not a fixed height), so all 3 rows fit safely -
+    // matches the mockup's 3-item checklist card example.
+    View[] rows = {holder.checklistRow0, holder.checklistRow1, holder.checklistRow2};
+    View[] boxes = {holder.checklistBox0, holder.checklistBox1, holder.checklistBox2};
+    ImageView[] marks = {holder.checklistMark0, holder.checklistMark1, holder.checklistMark2};
+    android.widget.TextView[] texts = {holder.checklistText0, holder.checklistText1, holder.checklistText2};
 
-    if (!note.isChecklist() || TextUtils.isEmpty(note.getContent())) {
+    if (!note.isChecklist() || note.isLocked() || TextUtils.isEmpty(note.getContent())) {
       holder.checklistPreview.setVisibility(View.GONE);
       return false;
     }
@@ -176,7 +197,9 @@ public class NoteAdapter extends ArrayAdapter<Note> implements Insertable {
     mActivity.getTheme().resolveAttribute(R.attr.somaTextS, pendingColorVal, true);
 
     int shown = 0;
-    for (String rawLine : note.getContent().split("\\r?\\n")) {
+    String[] checklistLines = note.getContent().split("\\r?\\n", -1);
+    for (int lineIndex = 0; lineIndex < checklistLines.length; lineIndex++) {
+      String rawLine = checklistLines[lineIndex];
       if (shown >= rows.length) {
         break;
       }
@@ -207,6 +230,23 @@ public class NoteAdapter extends ArrayAdapter<Note> implements Insertable {
         texts[shown].setPaintFlags(texts[shown].getPaintFlags() & ~android.graphics.Paint.STRIKE_THRU_TEXT_FLAG);
       }
       rows[shown].setVisibility(View.VISIBLE);
+      final int contentLineIndex = lineIndex;
+      rows[shown].setEnabled(!note.isLocked() && selectedItems.size() == 0);
+      rows[shown].setContentDescription(label + (checked ? ", checked" : ", unchecked"));
+      rows[shown].setOnClickListener(v -> {
+        String[] currentLines = note.getContent().split("\\r?\\n", -1);
+        if (contentLineIndex >= currentLines.length) return;
+        String current = currentLines[contentLineIndex];
+        int marker = current.indexOf('[');
+        if (marker < 0 || marker + 2 >= current.length()) return;
+        char state = current.charAt(marker + 1);
+        currentLines[contentLineIndex] = current.substring(0, marker + 1)
+            + (state == ' ' ? "x" : " ") + current.substring(marker + 2);
+        note.setContent(TextUtils.join("\n", currentLines));
+        new com.absolute.android.notescentral.async.notes.SaveNoteTask(saved -> notifyDataSetChanged(), true)
+            .execute(note);
+        notifyDataSetChanged();
+      });
       shown++;
     }
 
@@ -299,6 +339,9 @@ public class NoteAdapter extends ArrayAdapter<Note> implements Insertable {
   private void initDates (Note note, NoteViewHolder holder) {
     String dateText = TextHelper.getDateText(mActivity, note, navigation);
     holder.date.setText(dateText);
+    if (isPinned(note)) {
+      holder.date.setText(mActivity.getString(R.string.soma_pinned_date, dateText));
+    }
   }
 
 
@@ -347,7 +390,11 @@ public class NoteAdapter extends ArrayAdapter<Note> implements Insertable {
           holder.content.setText(titleAndContent[1]);
           holder.content.setVisibility(View.VISIBLE);
         } else {
-          holder.content.setVisibility(View.INVISIBLE);
+          // GONE, not INVISIBLE: the cards are wrap_content now, so an
+          // invisible preview still reserves its line and leaves a band of
+          // dead space between the title and the timestamp. A locked note has
+          // no preview by definition, so it hit this every time.
+          holder.content.setVisibility(View.GONE);
         }
       }
     } catch (RejectedExecutionException e) {
@@ -411,7 +458,12 @@ public class NoteAdapter extends ArrayAdapter<Note> implements Insertable {
     final int paddingBottom = v.getPaddingBottom(), paddingLeft = v.getPaddingLeft();
     final int paddingRight = v.getPaddingRight(), paddingTop = v.getPaddingTop();
     v.setPadding(paddingLeft, paddingTop, paddingRight, paddingBottom);
-    colorNote(note, v, holder);
+    // The reference uses a consistent themed surface.  Categories are expressed by the
+    // compact pill rather than the legacy full/partial colour overlays.
+    v.setBackgroundResource(R.drawable.bg_card_soma);
+    if (holder != null && holder.categoryMarker != null) {
+      holder.categoryMarker.setBackgroundColor(Color.TRANSPARENT);
+    }
   }
 
 
@@ -425,31 +477,11 @@ public class NoteAdapter extends ArrayAdapter<Note> implements Insertable {
    * Color of category marker if note is categorized a function is active in preferences
    */
   private void colorNote (Note note, View v, NoteViewHolder holder) {
-
-    String colorsPref = mActivity.getSharedPreferences(Constants.PREFS_NAME, Context.MODE_MULTI_PROCESS)
-                                 .getString("settings_colors_app", Constants.PREF_COLORS_APP_DEFAULT);
-
-    // Checking preference
-    if (!colorsPref.equals("disabled")) {
-
-      // Resetting transparent color to the view
-      v.setBackgroundColor(Color.parseColor("#00000000"));
-
-      // If category is set the color will be applied on the appropriate target
-      if (note.getCategory() != null && note.getCategory().getColor() != null) {
-        if (colorsPref.equals("complete") || colorsPref.equals("list")) {
-          v.setBackgroundColor(Integer.parseInt(note.getCategory().getColor()));
-        } else {
-          if (holder != null) {
-            holder.categoryMarker.setBackgroundColor(Integer.parseInt(note.getCategory().getColor()));
-          } else {
-            v.findViewById(R.id.category_marker).setBackgroundColor(Integer.parseInt(note.getCategory().getColor()));
-          }
-        }
-      } else {
-        v.findViewById(R.id.category_marker).setBackgroundColor(0);
-      }
-    }
+    // Retained for callers outside the adapter.  Soma cards deliberately do not adopt the
+    // legacy category-strip/full-card colour modes; the badge is the sole category cue.
+    v.setBackgroundResource(R.drawable.bg_card_soma);
+    View marker = holder != null ? holder.categoryMarker : v.findViewById(R.id.category_marker);
+    if (marker != null) marker.setBackgroundColor(Color.TRANSPARENT);
   }
 
 
@@ -487,6 +519,3 @@ public class NoteAdapter extends ArrayAdapter<Note> implements Insertable {
   }
 
 }
-
-
-

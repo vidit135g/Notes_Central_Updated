@@ -13,12 +13,15 @@
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" android:maxSdkVersion="32" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" android:maxSdkVersion="29" tools:ignore="ScopedStorage" />
-    <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
-    <uses-permission android:name="android.permission.READ_MEDIA_VIDEO" />
-    <uses-permission android:name="android.permission.READ_MEDIA_AUDIO" />
+    <!-- READ_MEDIA_IMAGES/VIDEO/AUDIO deliberately not declared: every attachment
+         flow goes through ACTION_GET_CONTENT (a system picker, see
+         DetailFragment/SettingsFragment), which grants scoped URI read access
+         without any storage/media permission. FileHelper's MediaStore lookups
+         only resolve the path of a URI the picker already granted - they never
+         independently query the media store. Grep-confirmed unused at runtime
+         (no checkSelfPermission/requestPermissions call references them
+         anywhere in the codebase) before removing. -->
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
-    <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM" />
-    <uses-permission android:name="android.permission.USE_EXACT_ALARM" />
     <uses-permission android:name="com.android.alarm.permission.SET_ALARM" />
     <uses-permission android:name="com.android.launcher.permission.INSTALL_SHORTCUT" />
     <uses-permission android:name="com.android.launcher.permission.UNINSTALL_SHORTCUT" />
@@ -54,12 +57,21 @@
 
         <activity
             android:name=".LoadingActivity"
+            android:theme="@style/Theme.Soma.Starting"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <!-- First-run tour. MainActivity starts this when the tour has not been
+             completed; without this declaration that call throws
+             ActivityNotFoundException on a release build's first launch. -->
+        <activity
+            android:name=".intro.IntroActivity"
+            android:exported="false"
+            android:label="@string/app_name" />
 
         <activity
             android:name=".MainActivity"

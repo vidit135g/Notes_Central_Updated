@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--
+      System splash background for dark mode. The in-app splash
+      (SomaSplashGradientView) resolves the live dosha-period palette, but the
+      OS draws its splash window before any app code runs, so this is the one
+      place the period cannot be consulted. Following the system light/dark
+      setting is the closest correct approximation.
+    -->
+    <color name="soma_splash_bg">#15201A</color>
+    <color name="soma_splash_ink">#EEF3EA</color>
+</resources>

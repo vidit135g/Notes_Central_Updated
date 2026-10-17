@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  The pinned card: the soonest note with an upcoming reminder, on the accent
+  fill. Hidden entirely when nothing is due rather than showing an invented
+  empty metric.
+
+  Everything on it sits on ?attr/somaPrimary, which is a light cyan in BOTH
+  themes - so every label here takes somaOnFill / somaOnFillSub (near-black),
+  never somaTextP, which would be white-on-cyan in the dark theme.
+
+  The three checklist rows are populated by ListFragment from the note's own
+  content when it is a checklist, and collapsed when it is not.
+-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:pixlui="http://schemas.android.com/apk/com.neopixl.pixlui"
+    android:id="@+id/soma_needs_today"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:visibility="gone"
+    android:paddingStart="20dp"
+    android:paddingEnd="20dp"
+    android:paddingTop="2dp">
+
+    <LinearLayout
+        android:id="@+id/soma_needs_today_card"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:clickable="true"
+        android:focusable="true"
+        android:background="@drawable/bg_soma_pinned_card"
+        android:paddingStart="18dp"
+        android:paddingEnd="18dp"
+        android:paddingTop="18dp"
+        android:paddingBottom="16dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:baselineAligned="false">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <com.neopixl.pixlui.components.textview.TextView
+                    android:id="@+id/soma_needs_today_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:maxLines="2"
+                    android:ellipsize="end"
+                    android:textSize="25sp"
+                    android:letterSpacing="-0.028"
+                    android:includeFontPadding="false"
+                    android:textColor="?attr/somaOnFill"
+                    pixlui:typeface="Poppins-Bold.ttf" />
+
+                <com.neopixl.pixlui.components.textview.TextView
+                    android:id="@+id/soma_needs_today_when"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="3dp"
+                    android:maxLines="1"
+                    android:ellipsize="end"
+                    android:textSize="12.5sp"
+                    android:textColor="?attr/somaOnFillSub"
+                    pixlui:typeface="Poppins-Medium.ttf" />
+
+            </LinearLayout>
+
+            <FrameLayout
+                android:layout_width="42dp"
+                android:layout_height="42dp"
+                android:layout_marginStart="12dp"
+                android:background="@drawable/bg_soma_pinned_open">
+                <ImageView
+                    android:layout_width="18dp"
+                    android:layout_height="18dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/ic_soma_arrow_out"
+                    android:tint="?attr/somaOnInk"
+                    android:contentDescription="@null" />
+            </FrameLayout>
+
+        </LinearLayout>
+
+        <!-- Checklist rows. Each is a white pill; ListFragment shows as many as
+             the note has items, up to three, and hides the block otherwise. -->
+        <LinearLayout
+            android:id="@+id/soma_pinned_checklist"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="14dp"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <LinearLayout
+                android:id="@+id/soma_pinned_row0"
+                style="@style/Soma.PinnedChecklistRow">
+                <FrameLayout
+                    android:id="@+id/soma_pinned_box0"
+                    android:layout_width="28dp"
+                    android:layout_height="28dp"
+                    android:background="@drawable/bg_soma_checkbox_unchecked">
+                    <ImageView
+                        android:id="@+id/soma_pinned_mark0"
+                        style="@style/Soma.PinnedChecklistMark" />
+                </FrameLayout>
+                <com.neopixl.pixlui.components.textview.TextView
+                    android:id="@+id/soma_pinned_text0"
+                    style="@style/Soma.PinnedChecklistText" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/soma_pinned_row1"
+                style="@style/Soma.PinnedChecklistRow"
+                android:layout_marginTop="8dp">
+                <FrameLayout
+                    android:id="@+id/soma_pinned_box1"
+                    android:layout_width="28dp"
+                    android:layout_height="28dp"
+                    android:background="@drawable/bg_soma_checkbox_unchecked">
+                    <ImageView
+                        android:id="@+id/soma_pinned_mark1"
+                        style="@style/Soma.PinnedChecklistMark" />
+                </FrameLayout>
+                <com.neopixl.pixlui.components.textview.TextView
+                    android:id="@+id/soma_pinned_text1"
+                    style="@style/Soma.PinnedChecklistText" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/soma_pinned_row2"
+                style="@style/Soma.PinnedChecklistRow"
+                android:layout_marginTop="8dp">
+                <FrameLayout
+                    android:id="@+id/soma_pinned_box2"
+                    android:layout_width="28dp"
+                    android:layout_height="28dp"
+                    android:background="@drawable/bg_soma_checkbox_unchecked">
+                    <ImageView
+                        android:id="@+id/soma_pinned_mark2"
+                        style="@style/Soma.PinnedChecklistMark" />
+                </FrameLayout>
+                <com.neopixl.pixlui.components.textview.TextView
+                    android:id="@+id/soma_pinned_text2"
+                    style="@style/Soma.PinnedChecklistText" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <!-- Shown instead of the rows when the pinned note is prose. -->
+        <com.neopixl.pixlui.components.textview.TextView
+            android:id="@+id/soma_needs_today_preview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:maxLines="3"
+            android:ellipsize="end"
+            android:lineSpacingMultiplier="1.35"
+            android:textSize="13sp"
+            android:textColor="?attr/somaOnFillSub"
+            pixlui:typeface="Poppins-Regular.ttf" />
+
+    </LinearLayout>
+
+</LinearLayout>

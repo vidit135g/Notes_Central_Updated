@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Floating action bar: voice memo, new note, sketch.
+
+  This replaced a four-tab labelled bottom navigation (Notes / Search /
+  Reminders / Spaces). Those were destinations, not actions, and three of the
+  four duplicated the drawer. The drawer still owns navigation; this bar owns
+  capture, which is what a notes app's thumb reaches for.
+
+  It floats over the list rather than docking to the window edge, so the root
+  is a wrapper with no background and the pill inside carries the fill. The
+  wrapper's height is what fragment_list reserves as bottom padding.
+-->
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/soma_bottom_nav"
+    android:layout_width="match_parent"
+    android:layout_height="92dp"
+    android:layout_gravity="bottom"
+    android:clipChildren="false"
+    android:clipToPadding="false">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal|bottom"
+        android:layout_marginBottom="22dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:background="@drawable/bg_soma_action_bar"
+        android:elevation="10dp"
+        android:paddingStart="10dp"
+        android:paddingEnd="10dp"
+        android:paddingTop="9dp"
+        android:paddingBottom="9dp">
+
+        <ImageView
+            android:id="@+id/soma_action_voice"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:padding="14dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:src="@drawable/ic_soma_mic"
+            android:tint="?attr/somaOnInk"
+            android:contentDescription="@string/soma_capture_voice" />
+
+        <!-- The one accent-filled control in the app chrome. Its glyph takes
+             somaOnFill (near-black on cyan), not somaOnInk. -->
+        <ImageView
+            android:id="@+id/soma_action_new"
+            android:layout_width="52dp"
+            android:layout_height="52dp"
+            android:layout_marginStart="14dp"
+            android:layout_marginEnd="14dp"
+            android:padding="15dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:background="@drawable/bg_soma_action_primary"
+            android:src="@drawable/ic_soma_add"
+            android:tint="?attr/somaOnFill"
+            android:contentDescription="@string/menu_add_note" />
+
+        <ImageView
+            android:id="@+id/soma_action_sketch"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:padding="14dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:src="@drawable/ic_soma_sketch"
+            android:tint="?attr/somaOnInk"
+            android:contentDescription="@string/soma_capture_sketch" />
+
+    </LinearLayout>
+
+</FrameLayout>

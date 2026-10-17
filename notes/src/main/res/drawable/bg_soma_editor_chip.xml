@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- The folder chip on the editor's accent band. Fixed white, like the pinned
+     card's rows: the band is the same cyan in both themes. -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android" android:shape="rectangle">
+    <solid android:color="@color/soma_light_elev" />
+    <corners android:radius="20dp" />
+</shape>

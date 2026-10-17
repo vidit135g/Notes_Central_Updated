@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- One theme swatch. Its ground, dot and selection ring are set by IntroSlide3
+     from that theme's real palette, so the tile previews the actual theme. -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:pixlui="http://schemas.android.com/apk/com.neopixl.pixlui"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
+    android:clickable="true"
+    android:focusable="true">
+
+    <FrameLayout
+        android:id="@+id/swatch_ground"
+        android:layout_width="match_parent"
+        android:layout_height="58dp">
+
+        <View
+            android:id="@+id/swatch_dot"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_gravity="center" />
+
+    </FrameLayout>
+
+    <com.neopixl.pixlui.components.textview.TextView
+        android:id="@+id/swatch_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="7dp"
+        android:textSize="10sp"
+        android:textColor="@color/soma_light_elev"
+        pixlui:typeface="Poppins-SemiBold.ttf" />
+
+</LinearLayout>

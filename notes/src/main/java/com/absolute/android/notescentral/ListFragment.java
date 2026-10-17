@@ -55,6 +55,7 @@ import android.widget.ImageView;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.ListView;
+import com.absolute.android.notescentral.utils.SomaPeriod;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import com.afollestad.materialdialogs.DialogAction;
@@ -127,9 +128,10 @@ public class ListFragment extends BaseFragment implements OnViewTouchedListener,
   android.widget.TextView searchQueryView;
   @BindView(R.id.search_cancel)
   ImageView searchCancel;
-  @BindView(R.id.category_chip_row)
+  // The header views below live in soma_list_header, which is added to the
+  // list as a ListView header view rather than being part of the fragment's
+  // own hierarchy, so they are looked up after inflation instead of bound.
   LinearLayout categoryChipRow;
-  @BindView(R.id.soma_search_row)
   View somaSearchRow;
   @BindView(R.id.empty_list)
   com.absolute.android.notescentral.models.views.SomaBreathOrbView empyListItem;
@@ -153,6 +155,33 @@ public class ListFragment extends BaseFragment implements OnViewTouchedListener,
   ProgressWheel progress_wheel;
   @BindView(R.id.snackbar_placeholder)
   View snackBarPlaceholder;
+
+  android.widget.TextView somaHeaderGreeting;
+  android.widget.TextView somaHeaderSubtitle;
+  ImageView somaSearchButton;
+
+  View somaNeedsToday;
+  View somaNeedsTodayCard;
+  android.widget.TextView somaNeedsTodayWhen;
+  android.widget.TextView somaNeedsTodayTitle;
+  android.widget.TextView somaNeedsTodayPreview;
+
+  /** The pinned card's three checklist rows, parallel arrays by row index. */
+  View somaPinnedChecklist;
+  View[] somaPinnedRows;
+  View[] somaPinnedBoxes;
+  ImageView[] somaPinnedMarks;
+  android.widget.TextView[] somaPinnedTexts;
+
+  private View somaListHeader;
+
+  @BindView(R.id.soma_action_voice)
+  View somaActionVoice;
+  @BindView(R.id.soma_action_new)
+  View somaActionNew;
+  @BindView(R.id.soma_action_sketch)
+  View somaActionSketch;
+
 
   NoteViewHolder noteViewHolder;
 
@@ -223,6 +252,10 @@ public class ListFragment extends BaseFragment implements OnViewTouchedListener,
     }
     View view = inflater.inflate(R.layout.fragment_list, container, false);
     ButterKnife.bind(this, view);
+    // A fresh view means a fresh ListView, so the header that was attached to
+    // the old one is gone with it; clearing the reference lets initHomeHeader
+    // build a new one (its guard would otherwise skip it and leave no header).
+    somaListHeader = null;
     return view;
   }
 
@@ -282,11 +315,8 @@ public class ListFragment extends BaseFragment implements OnViewTouchedListener,
       }
     });
 
-    somaSearchRow.setOnClickListener(v -> {
-      if (searchMenuItem != null) {
-        searchMenuItem.expandActionView();
-      }
-    });
+    // somaSearchRow is wired in initHomeHeader: it now lives in the list's
+    // header view, which does not exist yet at this point.
 
     // Bottom-app-bar quick-create icons alongside the main FAB.
     checklistQuickCreateView.setOnClickListener(v -> {
@@ -312,6 +342,286 @@ public class ListFragment extends BaseFragment implements OnViewTouchedListener,
       mainActivity.setIntent(i);
       editNote(new Note(), v);
     });
+
+    initHomeHeader();
+  }
+
+
+  /**
+   * Greeting, capture hero and at-a-glance tiles above the list. The capture
+   * buttons reuse the same actions as the bottom-bar icons so there is one
+   * code path per capture type.
+   */
+  private void initHomeHeader () {
+    // init() runs again whenever Settings reports a preference change - and
+    // finishing onboarding is one, because the last page writes the theme. Only
+    // the first pass may add the header view; without this guard the second
+    // pass stacks another copy of the wordmark, chips and pinned card onto the
+    // list, which is exactly what it looks like.
+    if (somaListHeader != null) {
+      return;
+    }
+    // Added as a ListView header so the header and sections scroll away with
+    // the notes instead of permanently occupying the screen. Must happen before
+    // setAdapter, which is why this runs during view setup.
+    somaListHeader = LayoutInflater.from(mainActivity)
+        .inflate(R.layout.soma_list_header, list, false);
+    list.addHeaderView(somaListHeader, null, false);
+
+    categoryChipRow = somaListHeader.findViewById(R.id.category_chip_row);
+    somaSearchRow = somaListHeader.findViewById(R.id.soma_search_row);
+    somaHeaderGreeting = somaListHeader.findViewById(R.id.soma_header_greeting);
+    somaHeaderSubtitle = somaListHeader.findViewById(R.id.soma_header_subtitle);
+    somaSearchButton = somaListHeader.findViewById(R.id.soma_search_button);
+    somaNeedsToday = somaListHeader.findViewById(R.id.soma_needs_today);
+    somaNeedsTodayCard = somaListHeader.findViewById(R.id.soma_needs_today_card);
+    somaNeedsTodayWhen = somaListHeader.findViewById(R.id.soma_needs_today_when);
+    somaNeedsTodayTitle = somaListHeader.findViewById(R.id.soma_needs_today_title);
+    somaNeedsTodayPreview = somaListHeader.findViewById(R.id.soma_needs_today_preview);
+
+    somaPinnedChecklist = somaListHeader.findViewById(R.id.soma_pinned_checklist);
+    somaPinnedRows = new View[]{
+        somaListHeader.findViewById(R.id.soma_pinned_row0),
+        somaListHeader.findViewById(R.id.soma_pinned_row1),
+        somaListHeader.findViewById(R.id.soma_pinned_row2)};
+    somaPinnedBoxes = new View[]{
+        somaListHeader.findViewById(R.id.soma_pinned_box0),
+        somaListHeader.findViewById(R.id.soma_pinned_box1),
+        somaListHeader.findViewById(R.id.soma_pinned_box2)};
+    somaPinnedMarks = new ImageView[]{
+        somaListHeader.findViewById(R.id.soma_pinned_mark0),
+        somaListHeader.findViewById(R.id.soma_pinned_mark1),
+        somaListHeader.findViewById(R.id.soma_pinned_mark2)};
+    somaPinnedTexts = new android.widget.TextView[]{
+        somaListHeader.findViewById(R.id.soma_pinned_text0),
+        somaListHeader.findViewById(R.id.soma_pinned_text1),
+        somaListHeader.findViewById(R.id.soma_pinned_text2)};
+
+    somaSearchRow.setOnClickListener(v -> expandSearch());
+    somaSearchButton.setOnClickListener(v -> expandSearch());
+
+    initBottomNav();
+
+    // The header's greeting is this screen's title. Done here rather than once
+    // in MainActivity because the drawer re-applies a title on every
+    // navigation change, and Sketch/Gallery turn the toolbar title back on.
+    if (mainActivity.getSupportActionBar() != null) {
+      mainActivity.getSupportActionBar().setDisplayShowTitleEnabled(false);
+    }
+
+
+  }
+
+
+  /** Expands the toolbar's search action, if the menu has been created yet. */
+  private void expandSearch () {
+    if (searchMenuItem != null) {
+      searchMenuItem.expandActionView();
+    }
+  }
+
+
+  /**
+   * Floating action bar: voice memo, new note, sketch.
+   *
+   * Capture only. Navigation between Notes / Reminders / categories stays in
+   * the drawer, which is where it already was - the old four-tab bar duplicated
+   * it and still had to open the drawer for anything beyond two destinations.
+   * Each action sets the same intent action the quick-create shortcuts use, so
+   * there is one code path per capture type.
+   */
+  private void initBottomNav () {
+    somaActionNew.setOnClickListener(v -> editNote(new Note(), v));
+    somaActionVoice.setOnClickListener(v -> captureWith(Constants.ACTION_FAB_AUDIO, v));
+    somaActionSketch.setOnClickListener(v -> captureWith(Constants.ACTION_FAB_SKETCH, v));
+  }
+
+
+  /** Shows or hides the floating capture bar. */
+  private void setActionBarVisible (boolean visible) {
+    View bar = getView() == null ? null : getView().findViewById(R.id.soma_bottom_nav);
+    if (bar != null) {
+      bar.setVisibility(visible ? View.VISIBLE : View.GONE);
+    }
+  }
+
+
+  private void captureWith (String action, View from) {
+    Intent i = mainActivity.getIntent();
+    i.setAction(action);
+    mainActivity.setIntent(i);
+    editNote(new Note(), from);
+  }
+
+
+  private void switchNavigation (String navCode) {
+    if (mainActivity.updateNavigation(navCode)) {
+      mainActivity.getIntent().setAction(Intent.ACTION_MAIN);
+      listViewPosition = 0;
+      listViewPositionOffset = 16;
+      initNotesList(mainActivity.getIntent());
+      initCategoryChips();
+      setActionItemsVisibility(menu, false);
+    }
+  }
+
+
+  /** Steps the theme through auto -> light -> dark -> auto. */
+  private void cycleSomaPeriod () {
+    String current = SomaPeriod.getPreference(mainActivity);
+    int idx = -1;
+    for (int i = 0; i < SomaPeriod.ORDER.length; i++) {
+      if (SomaPeriod.ORDER[i].equals(current)) {
+        idx = i;
+        break;
+      }
+    }
+    // An unrecognised value lands on index 0 (auto), same as never having set one.
+    String next = SomaPeriod.ORDER[(idx + 1) % SomaPeriod.ORDER.length];
+
+    SomaPeriod.setPreference(mainActivity, next);
+    android.widget.Toast.makeText(mainActivity, getString(SomaPeriod.labelResId(next)),
+        android.widget.Toast.LENGTH_SHORT).show();
+    mainActivity.recreate();
+    mainActivity.overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
+  }
+
+
+  /**
+   * Fills the header subtitle from the notes actually on screen, so the counts
+   * can never drift from the list, and picks the note the pinned card shows.
+   *
+   * The two stat tiles and their sparkline that used to be computed here are
+   * gone with the capture hero - a seven-day note-creation histogram is not
+   * something anyone opens a notes app to read.
+   */
+  private void updateHomeStats (List<Note> notes) {
+    if (somaHeaderSubtitle == null || notes == null) {
+      return;
+    }
+    long now = System.currentTimeMillis();
+    long nextAlarm = Long.MAX_VALUE;
+    Note nextNote = null;
+
+    for (Note note : notes) {
+      String alarm = note.getAlarm();
+      if (alarm != null && alarm.length() > 0) {
+        try {
+          long at = Long.parseLong(alarm);
+          if (at >= now && at < nextAlarm) {
+            nextAlarm = at;
+            nextNote = note;
+          }
+        } catch (NumberFormatException ignored) {
+          // A malformed alarm simply never becomes the pinned note.
+        }
+      }
+    }
+
+    int folders = DbHelper.getInstance().getCategories().size();
+    somaHeaderSubtitle.setText(getString(R.string.soma_subtitle_format,
+        getResources().getQuantityString(R.plurals.soma_note_count, notes.size(), notes.size()),
+        getResources().getQuantityString(R.plurals.soma_folder_count, folders, folders)));
+
+    bindNeedsToday(nextNote, nextAlarm);
+  }
+
+
+  /**
+   * Fills the pinned card from the soonest upcoming reminder, or hides it
+   * entirely when nothing is scheduled rather than rendering an empty card.
+   *
+   * A checklist note shows up to three of its items as rows; anything else
+   * shows a prose preview. The two are mutually exclusive - showing both put
+   * the raw "[x] " markers on screen under the rows.
+   */
+  private void bindNeedsToday (Note note, long alarmAt) {
+    if (somaNeedsToday == null) {
+      return;
+    }
+    if (note == null || alarmAt == Long.MAX_VALUE) {
+      somaNeedsToday.setVisibility(View.GONE);
+      return;
+    }
+    somaNeedsToday.setVisibility(View.VISIBLE);
+    somaNeedsTodayTitle.setText(note.getTitle());
+    somaNeedsTodayWhen.setText(
+        new java.text.SimpleDateFormat("EEEE, d MMMM · h:mm a", java.util.Locale.getDefault())
+            .format(new java.util.Date(alarmAt)));
+
+    int rows = note.isChecklist() && !note.isLocked() ? bindPinnedChecklist(note) : 0;
+    if (rows > 0) {
+      somaPinnedChecklist.setVisibility(View.VISIBLE);
+      somaNeedsTodayPreview.setVisibility(View.GONE);
+    } else {
+      somaPinnedChecklist.setVisibility(View.GONE);
+      String preview = note.getContent();
+      if (preview == null || preview.trim().isEmpty()) {
+        somaNeedsTodayPreview.setVisibility(View.GONE);
+      } else {
+        somaNeedsTodayPreview.setVisibility(View.VISIBLE);
+        somaNeedsTodayPreview.setText(preview.replace('\n', ' ').trim());
+      }
+    }
+
+    final Note target = note;
+    somaNeedsTodayCard.setOnClickListener(v -> editNote(target, v));
+  }
+
+
+  /**
+   * Fills as many of the pinned card's three rows as the note has items and
+   * returns how many were shown. Parses the same "[x] " / "[ ] " line markers
+   * the note cards and the editor use.
+   */
+  private int bindPinnedChecklist (Note note) {
+    String content = note.getContent();
+    if (content == null || content.isEmpty()) {
+      return 0;
+    }
+    int shown = 0;
+    for (String rawLine : content.split("\\r?\\n", -1)) {
+      if (shown >= somaPinnedRows.length) {
+        break;
+      }
+      String line = rawLine.trim();
+      boolean checked;
+      if (line.startsWith("[x] ") || line.startsWith("[X] ")) {
+        checked = true;
+      } else if (line.startsWith("[ ] ")) {
+        checked = false;
+      } else {
+        continue;
+      }
+      String label = line.substring(4).trim();
+      if (label.isEmpty()) {
+        continue;
+      }
+
+      somaPinnedBoxes[shown].setBackgroundResource(checked
+          ? R.drawable.bg_soma_pinned_box_checked
+          : R.drawable.bg_soma_pinned_box_unchecked);
+      somaPinnedMarks[shown].setVisibility(checked ? View.VISIBLE : View.INVISIBLE);
+
+      android.widget.TextView text = somaPinnedTexts[shown];
+      text.setText(label);
+      // Fixed colours, not theme attrs: these rows are white pills on the cyan
+      // card in both themes (see bg_soma_pinned_row).
+      text.setTextColor(getResources().getColor(checked
+          ? R.color.soma_light_textM
+          : R.color.soma_light_textP));
+      if (checked) {
+        text.setPaintFlags(text.getPaintFlags() | android.graphics.Paint.STRIKE_THRU_TEXT_FLAG);
+      } else {
+        text.setPaintFlags(text.getPaintFlags() & ~android.graphics.Paint.STRIKE_THRU_TEXT_FLAG);
+      }
+      somaPinnedRows[shown].setVisibility(View.VISIBLE);
+      shown++;
+    }
+    for (int i = shown; i < somaPinnedRows.length; i++) {
+      somaPinnedRows[i].setVisibility(View.GONE);
+    }
+    return shown;
   }
 
 
@@ -504,26 +814,32 @@ public class ListFragment extends BaseFragment implements OnViewTouchedListener,
     list.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
     list.setItemsCanFocus(false);
 
-    // Note long click to start CAB mode
+    // Positions arrive including the header view added in initHomeHeader, so
+    // they are shifted back into adapter space before use.
     list.setOnItemLongClickListener((arg0, view, position, arg3) -> {
-      if (getActionMode() != null) {
+      int index = position - list.getHeaderViewsCount();
+      if (getActionMode() != null || index < 0) {
         return false;
       }
       // Start the CAB using the ActionMode.Callback defined above
       mainActivity.startSupportActionMode(new ModeCallback());
-      toggleListViewItem(view, position);
+      toggleListViewItem(view, index);
       setCabTitle();
       return true;
     });
 
     // Note single click listener managed by the activity itself
     list.setOnItemClickListener((arg0, view, position, arg3) -> {
+      int index = position - list.getHeaderViewsCount();
+      if (index < 0) {
+        return;
+      }
       if (getActionMode() == null) {
-        editNote(listAdapter.getItem(position), view);
+        editNote(listAdapter.getItem(index), view);
         return;
       }
       // If in CAB mode
-      toggleListViewItem(view, position);
+      toggleListViewItem(view, index);
       setCabTitle();
     });
 
@@ -532,9 +848,13 @@ public class ListFragment extends BaseFragment implements OnViewTouchedListener,
 
 
   /**
-   * Quick category filter chips above the list, mirroring the same
-   * navigation switch the nav drawer's category rows already trigger
-   * (see CategoryMenuTask) so both stay in sync with each other.
+   * Category filter chips above the list, mirroring the same navigation switch
+   * the drawer's category rows trigger (see CategoryMenuTask) so the two stay
+   * in sync.
+   *
+   * Each chip carries its own note count, which is what makes the row worth the
+   * space: without it they are four identical pills that say nothing until you
+   * tap one.
    */
   private void initCategoryChips () {
     if (categoryChipRow == null) {
@@ -542,34 +862,30 @@ public class ListFragment extends BaseFragment implements OnViewTouchedListener,
     }
     categoryChipRow.removeAllViews();
 
-    FrameLayout streakSlot = mainActivity.getToolbar().findViewById(R.id.toolbar_streak_slot);
-    if (streakSlot != null) {
-      streakSlot.removeAllViews();
-      int streak = com.absolute.android.notescentral.utils.StreakHelper.getCurrentStreak(mainActivity);
-      if (streak > 0) {
-        streakSlot.addView(buildStreakBadge(streak));
-      }
-    }
-
     String notesNavCode = getResources().getStringArray(R.array.navigation_list_codes)[Navigation.NOTES];
     boolean allActive = !Navigation.checkNavigation(Navigation.CATEGORY);
-    categoryChipRow.addView(buildChip(getString(R.string.soma_filter_all), null, allActive, v -> {
+    int total = 0;
+
+    List<Category> categories = DbHelper.getInstance().getCategories();
+    int[] counts = new int[categories.size()];
+    for (int i = 0; i < categories.size(); i++) {
+      counts[i] = DbHelper.getInstance().getCategorizedCount(categories.get(i));
+      total += counts[i];
+    }
+    // Uncategorised notes belong to "All" but to no category chip.
+    total = Math.max(total, listAdapter == null ? total : listAdapter.getCount());
+
+    categoryChipRow.addView(buildChip(getString(R.string.soma_filter_all), total, allActive, v -> {
       if (mainActivity.updateNavigation(notesNavCode)) {
         initNotesList(mainActivity.getIntent());
         initCategoryChips();
       }
     }));
 
-    for (Category category : DbHelper.getInstance().getCategories()) {
+    for (int i = 0; i < categories.size(); i++) {
+      final Category category = categories.get(i);
       boolean active = Navigation.checkNavigationCategory(category);
-      Integer color = null;
-      if (category.getColor() != null && !category.getColor().isEmpty()) {
-        try {
-          color = Integer.valueOf(category.getColor());
-        } catch (NumberFormatException ignored) {
-        }
-      }
-      categoryChipRow.addView(buildChip(category.getName(), color, active, v -> {
+      categoryChipRow.addView(buildChip(category.getName(), counts[i], active, v -> {
         if (mainActivity.updateNavigation(String.valueOf(category.getId()))) {
           initNotesList(mainActivity.getIntent());
           initCategoryChips();
@@ -579,82 +895,84 @@ public class ListFragment extends BaseFragment implements OnViewTouchedListener,
   }
 
 
-  private android.widget.TextView buildChip (String label, Integer categoryColor, boolean active,
-      View.OnClickListener onClick) {
-    android.widget.TextView chip = new android.widget.TextView(mainActivity);
-    chip.setText(label);
-    chip.setTextSize(14.5f);
-    chip.setTypeface(androidx.core.content.res.ResourcesCompat.getFont(mainActivity, R.font.poppins_semibold));
-    chip.setSingleLine(true);
+  /**
+   * One filter chip: label plus a count badge.
+   *
+   * The selected chip is the ink pill, not the accent one. The accent is spent
+   * on the pinned card and the new-note button; a third accent-filled thing in
+   * the same screenful stops any of them reading as the primary action.
+   *
+   * The category's own colour is deliberately not used as the fill - four
+   * differently-coloured pills read as four categories of chip rather than one
+   * selected out of four.
+   */
+  private View buildChip (String label, int count, boolean active, View.OnClickListener onClick) {
+    float density = getResources().getDisplayMetrics().density;
+
+    int ink = themeColor(R.attr.somaInk);
+    int onInk = themeColor(R.attr.somaOnInk);
+    int surf = themeColor(R.attr.somaSurf);
+    int muted = themeColor(R.attr.somaMuted);
+    int textS = themeColor(R.attr.somaTextS);
+    int textM = themeColor(R.attr.somaTextM);
+    int elev = themeColor(R.attr.somaElev);
+
+    LinearLayout chip = new LinearLayout(mainActivity);
+    chip.setOrientation(LinearLayout.HORIZONTAL);
+    chip.setGravity(android.view.Gravity.CENTER_VERTICAL);
     chip.setOnClickListener(onClick);
-
-    android.util.TypedValue elevVal = new android.util.TypedValue();
-    android.util.TypedValue borderVal = new android.util.TypedValue();
-    android.util.TypedValue textSVal = new android.util.TypedValue();
-    android.util.TypedValue onFillVal = new android.util.TypedValue();
-    android.util.TypedValue primaryVal = new android.util.TypedValue();
-    mainActivity.getTheme().resolveAttribute(R.attr.somaElev, elevVal, true);
-    mainActivity.getTheme().resolveAttribute(R.attr.somaBorderSub, borderVal, true);
-    mainActivity.getTheme().resolveAttribute(R.attr.somaTextS, textSVal, true);
-    mainActivity.getTheme().resolveAttribute(R.attr.somaOnFill, onFillVal, true);
-    mainActivity.getTheme().resolveAttribute(R.attr.somaPrimary, primaryVal, true);
-
-    int fillColor = active ? (categoryColor != null ? categoryColor : primaryVal.data) : elevVal.data;
-    int strokeColor = active ? fillColor : borderVal.data;
-    int textColor = active ? onFillVal.data : textSVal.data;
+    chip.setClickable(true);
+    chip.setFocusable(true);
 
     android.graphics.drawable.GradientDrawable bg = new android.graphics.drawable.GradientDrawable();
-    bg.setShape(android.graphics.drawable.GradientDrawable.RECTANGLE);
     bg.setCornerRadius(999f);
-    bg.setColor(fillColor);
-    bg.setStroke((int) (1.5f * getResources().getDisplayMetrics().density), strokeColor);
+    bg.setColor(active ? ink : surf);
     chip.setBackground(bg);
-    chip.setTextColor(textColor);
-    chip.setElevation(active ? 3 * getResources().getDisplayMetrics().density : 0);
+    chip.setPadding((int) (16 * density), (int) (10 * density),
+        (int) (12 * density), (int) (10 * density));
 
-    int padH = (int) (17 * getResources().getDisplayMetrics().density);
-    int padV = (int) (9 * getResources().getDisplayMetrics().density);
-    chip.setPadding(padH, padV, padH, padV);
+    android.widget.TextView text = new android.widget.TextView(mainActivity);
+    text.setText(label);
+    text.setTextSize(13.5f);
+    text.setSingleLine(true);
+    text.setTypeface(androidx.core.content.res.ResourcesCompat.getFont(mainActivity,
+        R.font.poppins_semibold));
+    text.setTextColor(active ? onInk : textS);
+    chip.addView(text);
+
+    android.widget.TextView badge = new android.widget.TextView(mainActivity);
+    badge.setText(String.valueOf(count));
+    badge.setTextSize(11.5f);
+    badge.setSingleLine(true);
+    badge.setTypeface(androidx.core.content.res.ResourcesCompat.getFont(mainActivity,
+        R.font.poppins_semibold));
+    badge.setTextColor(active ? ink : textM);
+    android.graphics.drawable.GradientDrawable badgeBg =
+        new android.graphics.drawable.GradientDrawable();
+    badgeBg.setCornerRadius(999f);
+    badgeBg.setColor(active ? elev : muted);
+    badge.setBackground(badgeBg);
+    badge.setPadding((int) (8 * density), (int) (2 * density),
+        (int) (8 * density), (int) (2 * density));
+    LinearLayout.LayoutParams badgeLp = new LinearLayout.LayoutParams(
+        ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+    badgeLp.setMarginStart((int) (9 * density));
+    badge.setLayoutParams(badgeLp);
+    chip.addView(badge);
 
     LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(
         ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-    lp.setMarginEnd((int) (9 * getResources().getDisplayMetrics().density));
+    lp.setMarginEnd((int) (9 * density));
     chip.setLayoutParams(lp);
 
     return chip;
   }
 
 
-  private android.widget.TextView buildStreakBadge (int streak) {
-    android.widget.TextView badge = new android.widget.TextView(mainActivity);
-    badge.setText("🔥 " + streak);
-    badge.setTextSize(14.5f);
-    badge.setTypeface(androidx.core.content.res.ResourcesCompat.getFont(mainActivity, R.font.poppins_semibold));
-    badge.setSingleLine(true);
-
-    android.util.TypedValue mutedVal = new android.util.TypedValue();
-    android.util.TypedValue secondaryVal = new android.util.TypedValue();
-    mainActivity.getTheme().resolveAttribute(R.attr.somaMuted, mutedVal, true);
-    mainActivity.getTheme().resolveAttribute(R.attr.somaSecondary, secondaryVal, true);
-
-    android.graphics.drawable.GradientDrawable bg = new android.graphics.drawable.GradientDrawable();
-    bg.setShape(android.graphics.drawable.GradientDrawable.RECTANGLE);
-    bg.setCornerRadius(999f);
-    bg.setColor(mutedVal.data);
-    badge.setBackground(bg);
-    badge.setTextColor(secondaryVal.data);
-    badge.setElevation(2 * getResources().getDisplayMetrics().density);
-
-    int padH = (int) (16 * getResources().getDisplayMetrics().density);
-    int padV = (int) (9 * getResources().getDisplayMetrics().density);
-    badge.setPadding(padH, padV, padH, padV);
-
-    LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(
-        ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-    lp.setMarginEnd((int) (8 * getResources().getDisplayMetrics().density));
-    badge.setLayoutParams(lp);
-
-    return badge;
+  private int themeColor (int attr) {
+    android.util.TypedValue tv = new android.util.TypedValue();
+    mainActivity.getTheme().resolveAttribute(attr, tv, true);
+    return tv.data;
   }
 
 
@@ -823,6 +1141,7 @@ public class ListFragment extends BaseFragment implements OnViewTouchedListener,
 
       @Override
       public boolean onMenuItemActionCollapse (MenuItem item) {
+        setActionBarVisible(true);
         // Reinitialize notes list to all notes when search is collapsed
         searchQuery = null;
         if (searchLayout.getVisibility() == View.VISIBLE) {
@@ -837,6 +1156,10 @@ public class ListFragment extends BaseFragment implements OnViewTouchedListener,
 
       @Override
       public boolean onMenuItemActionExpand (MenuItem item) {
+        // The capture bar floats above the list and is laid out against the
+        // resized window, so with the keyboard up it lands in the middle of the
+        // results. Searching is not capturing: hide it until search closes.
+        setActionBarVisible(false);
 
         searchView.setOnQueryTextListener(new OnQueryTextListener() {
           @Override
@@ -1310,14 +1633,27 @@ public class ListFragment extends BaseFragment implements OnViewTouchedListener,
 
 
   public void onEvent (NotesLoadedEvent notesLoadedEvent) {
-    int layoutSelected = prefs.getBoolean(Constants.PREF_EXPANDED_VIEW, true) ? R.layout.note_layout_expanded
-        : R.layout.note_layout;
+    // The Soma reference uses one full-width card form: title, category, optional checklist,
+    // reminder and metadata.  Keep that presentation stable instead of allowing the legacy
+    // compact/expanded preference to silently substitute a different card hierarchy.
+    int layoutSelected = R.layout.note_layout;
     listAdapter = new NoteAdapter(mainActivity, layoutSelected, notesLoadedEvent.notes);
 
     View noteLayout = LayoutInflater.from(mainActivity).inflate(layoutSelected, null, false);
     noteViewHolder = new NoteViewHolder(noteLayout);
 
-    if (Navigation.getNavigation() != Navigation.UNCATEGORIZED && prefs.getBoolean(Constants.PREF_ENABLE_SWIPE,
+    boolean explicitSwipeActions = !Navigation.checkNavigation(Navigation.TRASH)
+        && !Navigation.checkNavigation(Navigation.ARCHIVE)
+        && prefs.getBoolean(Constants.PREF_ENABLE_SWIPE, true);
+    if (explicitSwipeActions) {
+      list.disableSwipeToDismiss();
+      listAdapter.setArchiveAction(note -> {
+        finishActionMode();
+        getSelectedNotes().clear();
+        getSelectedNotes().add(note);
+        archiveNotes(true);
+      });
+    } else if (Navigation.getNavigation() != Navigation.UNCATEGORIZED && prefs.getBoolean(Constants.PREF_ENABLE_SWIPE,
         true)) {
       list.enableSwipeToDismiss((viewGroup, reverseSortedPositions) -> {
 
@@ -1370,6 +1706,8 @@ public class ListFragment extends BaseFragment implements OnViewTouchedListener,
         new com.nhaarman.listviewanimations.appearance.simple.AlphaInAnimationAdapter(listAdapter);
     animAdapter.setAbsListView(list);
     list.setAdapter(animAdapter);
+
+    updateHomeStats(notesLoadedEvent.notes);
 
     // Replace listview with Mr. Jingles if it is empty
     if (notesLoadedEvent.notes.size() == 0) {

@@ -23,7 +23,7 @@
     <string name="title_item_list">Notes Central</string>
     <string name="add_note">Add Note</string>
     <string name="title">Title</string>
-    <string name="title_activity_list">Omni Notes</string>
+    <string name="title_activity_list">Notes</string>
     <string name="search">Search</string>
     <string name="search_hint">Search in notes</string>
     <string name="content">Content</string>
@@ -420,22 +420,66 @@
     <string name="at">at</string>
 
     <!-- Soma theme -->
-    <string name="soma_period_auto">Auto (by time of day)</string>
-    <string name="soma_period_vata_dawn">Vata dawn</string>
-    <string name="soma_period_kapha_am">Kapha morning</string>
-    <string name="soma_period_pitta_day">Pitta midday</string>
-    <string name="soma_period_vata_pm">Vata afternoon</string>
-    <string name="soma_period_kapha_pm">Kapha evening</string>
-    <string name="soma_period_pitta_night">Pitta night</string>
+    <string name="soma_theme_auto">Match the system</string>
+    <string name="soma_theme_light">Light</string>
+    <string name="soma_theme_dark">Dark</string>
     <string name="soma_streak_format">%d</string>
     <string name="soma_filter_all">All</string>
     <string name="soma_search_hint">Search your notes</string>
     <string name="soma_voice_recording">Recording</string>
-    <string name="settings_soma_period">Soma dosha period</string>
+    <string name="settings_soma_period">Theme</string>
     <string name="soma_empty_list_title">A quiet page</string>
     <string name="soma_empty_list_subtitle">Tap + to write your first note</string>
     <string name="soma_editor_done">Done</string>
     <string name="soma_voice_note_recording">Recording</string>
     <string name="soma_voice_note_save">Save</string>
     <string name="soma_voice_note_cancel">Cancel</string>
+
+    <!-- Home header -->
+    <string name="soma_capture_list">List</string>
+    <string name="soma_capture_photo">Photo</string>
+    <string name="soma_capture_voice">Voice memo</string>
+    <string name="soma_capture_sketch">Sketch</string>
+    <string name="soma_section_recent">Recent</string>
+    <string name="soma_subtitle_format">%1$s · %2$s</string>
+    <plurals name="soma_note_count">
+        <item quantity="one">%d note</item>
+        <item quantity="other">%d notes</item>
+    </plurals>
+    <plurals name="soma_folder_count">
+        <item quantity="one">%d folder</item>
+        <item quantity="other">%d folders</item>
+    </plurals>
+    <string name="menu_search">Search notes</string>
+    <string name="menu_add_note">New note</string>
+
+    <!-- Onboarding -->
+    <string name="intro_step_format">STEP %1$d OF %2$d</string>
+    <string name="intro_capture_title">Catch it before it goes.</string>
+    <string name="intro_capture_detail">Write it, speak it or sketch it. The bar at the bottom of the home screen is always within thumb reach, whatever you are in the middle of.</string>
+    <string name="intro_organise_title">Find it again later.</string>
+    <string name="intro_organise_detail">Categories, reminders and search keep everything in reach. Notes with a reminder surface on their own, before the day gets away from you.</string>
+    <string name="intro_personalise_title">Made for your day.</string>
+    <string name="intro_personalise_detail">Light or dark, or let it follow your phone. You can change this any time in Settings.</string>
+    <string name="intro_theme_auto">Match the system</string>
+    <string name="intro_preview_note_title">Q3 planning</string>
+    <string name="intro_preview_note_body">Ship the dashboard, close the migration backlog</string>
+    <string name="intro_preview_note2_title">Password migration</string>
+    <string name="intro_preview_chip_work">WORK</string>
+    <string name="intro_preview_reminder">MON, 9:00 AM</string>
+
+    <!-- Bottom navigation and the needs-today section -->
+    <string name="soma_nav_notes">Notes</string>
+    <string name="soma_nav_search">Search</string>
+    <string name="soma_nav_reminders">Reminders</string>
+    <string name="soma_nav_spaces">Spaces</string>
+    <string name="soma_section_needs_today">Needs you today</string>
+    <string name="soma_needs_today_soon">SOON</string>
+    <string name="soma_space_eyebrow">ORGANISE</string>
+    <string name="soma_space_title">A space for your notes.</string>
+    <string name="soma_space_name_label">NAME</string>
+    <string name="soma_space_colour_label">COLOUR</string>
+    <string name="soma_space_colour_hint">Tap the circle to pick a colour</string>
+    <string name="soma_drawer_eyebrow">YOUR NOTEBOOK</string>
+    <string name="soma_drawer_browse">BROWSE</string>
 </resources>

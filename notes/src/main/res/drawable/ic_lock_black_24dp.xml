@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Replaces the original raster Material icon of the same name. Stroke vector on
+  the app's 24dp grid, tintable: the colour comes from the view's android:tint
+  or, failing that, the default below.
+-->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp" android:height="24dp"
+    android:viewportWidth="24" android:viewportHeight="24"
+    android:tint="?attr/somaTextS">
+    <path android:strokeColor="#FFFFFF" android:strokeWidth="1.9"
+        android:strokeLineCap="round" android:strokeLineJoin="round"
+        android:fillColor="#00000000" android:pathData="M 7.1 10.5 L 16.9 10.5 a 2.6 2.6 0 0 1 2.6 2.6 L 19.5 17.9 a 2.6 2.6 0 0 1 -2.6 2.6 L 7.1 20.5 a 2.6 2.6 0 0 1 -2.6 -2.6 L 4.5 13.1 a 2.6 2.6 0 0 1 2.6 -2.6 Z" />
+    <path android:strokeColor="#FFFFFF" android:strokeWidth="1.9"
+        android:strokeLineCap="round" android:strokeLineJoin="round"
+        android:fillColor="#00000000" android:pathData="M8 10.5V7.5 a 4 4 0 0 1 8 0 L16 10.5" />
+</vector>

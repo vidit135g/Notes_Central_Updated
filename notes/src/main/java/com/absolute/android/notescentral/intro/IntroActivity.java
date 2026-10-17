@@ -28,12 +28,12 @@ public class IntroActivity extends AppIntro2 {
 
   @Override
   public void init (Bundle savedInstanceState) {
+    // AppIntro2 owns a final onCreate; this is its supported initialization point.
+    setTheme(com.absolute.android.notescentral.utils.SomaPeriod.themeResId(
+        com.absolute.android.notescentral.utils.SomaPeriod.resolveId(this)));
     addSlide(new IntroSlide1(), getApplicationContext());
     addSlide(new IntroSlide2(), getApplicationContext());
     addSlide(new IntroSlide3(), getApplicationContext());
-    addSlide(new IntroSlide4(), getApplicationContext());
-    addSlide(new IntroSlide5(), getApplicationContext());
-    addSlide(new IntroSlide6(), getApplicationContext());
   }
 
 
@@ -46,7 +46,10 @@ public class IntroActivity extends AppIntro2 {
 
 
   public static boolean mustRun () {
-    return !OmniNotes.isDebugBuild() && !OmniNotes.getAppContext().getSharedPreferences(Constants.PREFS_NAME,
+    // Runs in debug too: excluding debug builds meant the tour was never
+    // exercised during development, which is how it came to be missing from
+    // the manifest while MainActivity was still starting it.
+    return !OmniNotes.getAppContext().getSharedPreferences(Constants.PREFS_NAME,
         Context.MODE_MULTI_PROCESS).getBoolean(Constants.PREF_TOUR_COMPLETE, false);
   }
 

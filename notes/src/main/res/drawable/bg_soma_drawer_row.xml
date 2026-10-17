@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Selected drawer row carries the same pill as the bottom nav's active tab. -->
+<ripple xmlns:android="http://schemas.android.com/apk/res/android"
+    android:color="?attr/somaStrong">
+    <item>
+        <selector>
+            <item android:state_activated="true">
+                <shape android:shape="rectangle">
+                    <solid android:color="?attr/somaMuted" />
+                    <corners android:radius="14dp" />
+                </shape>
+            </item>
+            <item android:state_selected="true">
+                <shape android:shape="rectangle">
+                    <solid android:color="?attr/somaMuted" />
+                    <corners android:radius="14dp" />
+                </shape>
+            </item>
+            <item>
+                <shape android:shape="rectangle">
+                    <solid android:color="@android:color/transparent" />
+                    <corners android:radius="14dp" />
+                </shape>
+            </item>
+        </selector>
+    </item>
+</ripple>

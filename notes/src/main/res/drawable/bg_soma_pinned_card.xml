@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- The pinned card's accent fill. Cyan in both themes - see soma_needs_today. -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android" android:shape="rectangle">
+    <solid android:color="?attr/somaPrimary" />
+    <corners android:radius="24dp" />
+</shape>
